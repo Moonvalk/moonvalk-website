@@ -1,0 +1,133 @@
+
+@keyframes an_button_hover {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.025) rotate(-2deg);
+    }
+    50% {
+      transform: scale(1.05) rotate(2deg);
+    }
+    75% {
+      transform: scale(1.075) rotate(-1deg);
+    }
+    100% {
+      transform: scale(1.1) rotate(0deg);
+    }
+}
+
+html, body {
+    margin: 0 auto;
+}
+
+body {
+    background-color: rgb(20, 20, 25);
+    color: rgb(235, 235, 235);
+    font-family: 'Jetbrains Mono', sans-serif;
+}
+
+hr {
+    /* background-color: white; */
+    background-image: linear-gradient(90deg, rgba(235, 235, 235, 0), rgba(235, 235, 235, 0.8), rgba(235, 235, 235, 0));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 1px;
+    border: 0;
+}
+
+div.page-container {
+    width: 800px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+div.page {
+    width: 800px;
+    background-color: rgb(50, 50, 60);
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid rgb(50, 50, 60);
+    transition: border 0.2s;
+}
+
+div.page:hover {
+    border: 4px solid rgb(107, 107, 110);
+}
+
+h2 {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+p.main-text {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+}
+
+form.user-form {
+    width: 100%;
+    display: grid;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+form.user-form div {
+    display: flex;
+    margin: 5px;
+    align-items: center;
+}
+
+form.user-form div label {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+form.user-form div input {
+    font-family: inherit;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.4);
+    background-color: rgb(20, 20, 25);
+    /* background-image: linear-gradient(90deg, rgb(20, 20, 25), rgb(50, 50, 60)); */
+    color: rgb(235, 235, 235);
+}
+
+form.user-form button {
+    width: 200px;
+    font-family: inherit;
+    text-transform: uppercase;
+    border-radius: 10px;
+    background-color: rgb(88, 88, 105);
+    border: 2px solid rgb(88, 88, 105);
+    color: inherit;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    transition: color 0.1s, background-color 0.1s, box-shadow 0.1s, transform 0.1s;
+}
+
+form.user-form button:hover {
+    box-shadow: inset 0 0 10px rgba(88, 88, 105, 0.4);
+    background-color: rgb(20, 20, 25);
+    color: rgb(255, 230, 0);
+    /* animation: an_button_hover 0.2s; */
+    transform: scale(1.1) rotate(0deg);
+}
