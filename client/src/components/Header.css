@@ -38,6 +38,10 @@ div.logo {
     left: 0;
     position: absolute;
     font-family: 'Distortion Dos Digital', sans-serif;
+    background-image: url('../../images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     font-size: 28px;
     padding: 20px;
     margin-right: 20px;

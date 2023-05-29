@@ -6,7 +6,7 @@ export default function Header(): ReactElement {
     return (
         <>
             <div className='header'>
-                <div className='logo'>Moonvalk</div>
+                <div className='logo'></div>
                 <div className='navigation'>
                     <Link to={`/`}>Home</Link>
                     <Link to={`/games`}>Games</Link>
