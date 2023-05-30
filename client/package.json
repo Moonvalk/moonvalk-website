@@ -1,32 +1,35 @@
 {
   "name": "client",
-  "private": true,
   "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "main": "main.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "start": "webpack-dev-server --open --mode development --hot",
+    "build": "webpack --mode production",
+    "postinstall": "npm run typings",
+    "typings": "typings install"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+  "keywords": [],
+  "author": "Zack Harmon",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/preset-react": "^7.22.3",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-router-dom": "^5.3.3",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.1"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.6",
-    "@types/react-dom": "^18.2.4",
-    "@typescript-eslint/eslint-plugin": "^5.59.5",
-    "@typescript-eslint/parser": "^5.59.5",
-    "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.40.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.1",
+    "react-router-dom": "^6.11.2",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.3",
     "typescript": "^5.0.4",
-    "vite": "^4.3.5"
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
   }
 }

@@ -1,16 +1,15 @@
-import { ReactElement } from "react";
-import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import { BlogPage } from "./components/pages/BlogPage";
-import { IndexPage } from "./components/pages/IndexPage";
-import { UserContextProvider } from "./context/UserContextProvider";
-import { AboutPage } from "./components/pages/AboutPage";
-import { GamesPage } from "./components/pages/GamesPage";
-import { LoginPage } from "./components/pages/LoginPage";
-import { RegisterPage } from "./components/pages/RegisterPage";
-
-
-export default function App(): ReactElement {
+import { ReactElement } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { UserContextProvider } from './components/context/UserContextProvider';
+import Layout from './components/Layout';
+import { AboutPage } from './components/pages/AboutPage';
+import { BlogPage } from './components/pages/BlogPage';
+import { GamesPage } from './components/pages/GamesPage';
+import { IndexPage } from './components/pages/IndexPage';
+import { LoginPage } from './components/pages/LoginPage';
+import { RegisterPage } from './components/pages/RegisterPage';
+ 
+function App(): ReactElement {
     return (
         <UserContextProvider>
             <Routes>
@@ -26,3 +25,5 @@ export default function App(): ReactElement {
         </UserContextProvider>
     );
 }
+
+export default App;

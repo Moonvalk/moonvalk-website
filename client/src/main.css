@@ -1,0 +1,9 @@
+
+html, body {
+    margin: 0 auto;
+}
+
+img, svg, video {
+    max-width: 100%;
+    display: block;
+}

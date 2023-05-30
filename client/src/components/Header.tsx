@@ -6,6 +6,10 @@ export default function Header(): ReactElement {
     return (
         <>
             <div className='header'>
+                <input type='checkbox' id='check' />
+                <label htmlFor='check' className='check-button'>
+                    <i className='fas fa-bars'></i>
+                </label>
                 <div className='logo'></div>
                 <div className='navigation'>
                     <Link to={`/`}>Home</Link>

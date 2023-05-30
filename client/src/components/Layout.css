@@ -1,4 +1,14 @@
 
+@font-face {
+    font-family: 'Jetbrains Mono';
+    src: url('../assets/fonts/JETBRAINSMONO-REGULAR.TTF');
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../assets/fonts/BEBASNEUE.OTF');
+}
+
 @keyframes an_button_hover {
     0% {
       transform: scale(1) rotate(0deg);
@@ -15,10 +25,6 @@
     100% {
       transform: scale(1.1) rotate(0deg);
     }
-}
-
-html, body {
-    margin: 0 auto;
 }
 
 body {
