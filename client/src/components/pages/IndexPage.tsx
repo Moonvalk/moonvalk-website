@@ -4,12 +4,14 @@ import './IndexPage.css';
 
 export function IndexPage(): ReactElement {
     return (
-        <div className='page'>
-            <h2>Home</h2>
-            <hr />
-            <p className='main-text'>
-                Welcome to Moonvalk Studios.
-            </p>
+        <div className="content">
+            <canvas className="carousel"></canvas>
+            <div className="page">
+                <h1>Home</h1>
+                <hr />
+                <p>
+                </p>
+            </div>
         </div>
     );
 }
