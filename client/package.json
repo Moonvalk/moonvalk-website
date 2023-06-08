@@ -4,8 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development --hot",
-    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --open --mode development --hot",
+    "start": "webpack --open --config webpack.config.js",
+    "build": "webpack --config webpack.prod.js",
     "postinstall": "npm run typings",
     "typings": "typings install"
   },

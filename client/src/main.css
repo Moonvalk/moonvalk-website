@@ -1,9 +1,49 @@
 
-html, body {
-    margin: 0 auto;
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./assets/fonts/BEBASNEUE.OTF');
 }
 
-img, svg, video {
-    max-width: 100%;
-    display: block;
+@font-face {
+    font-family: 'Abel';
+    src: url('./assets/fonts/Abel-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Abel', sans-serif;
+}
+
+html, body, main {
+    height: 100svh;
+}
+
+body {
+    background-color: rgb(20, 20, 28);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.sr-only {
+    display: none;
 }

@@ -1,5 +1,4 @@
 import {ReactElement, useState} from 'react';
-import './BlogPage.css';
 import '../Layout.css';
 
 export function LoginPage(): ReactElement {
