@@ -2,17 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/main.tsx',
-    devtool: 'inline-source-map',
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'main.js',
-    },
-    devServer: {
-        static: './dist/',
-        port: 3001,
-        historyApiFallback: true,
     },
     module: {
         rules: [

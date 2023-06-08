@@ -111,13 +111,16 @@
     0% {
         transform: rotate(0deg);
     }
-    5% {
+    20% {
+        transform: rotate(0deg);
+    }
+    25% {
         transform: rotate(-20deg);
     }
-    17.5% {
+    37.5% {
         transform: rotate(370deg);
     }
-    20% {
+    40% {
         transform: rotate(360deg);
     }
     100% {
@@ -488,6 +491,9 @@ hr {
         height: 2.5rem;
         margin-right: 1rem;
         display: inline-block;
+    }
+
+    .primary-navigation[data-visible="true"] svg {
         animation: nav-icon-idle 5s ease-in-out infinite;
         animation-delay: 0s;
     }
