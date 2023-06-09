@@ -8,7 +8,8 @@ export function AboutPage(): ReactElement {
             <div className="page">
                 <h1>About</h1>
                 <hr />
-                <p>
+                <p className="center">
+                    Check back in later; the gremlins only work when nobody is watching.
                 </p>
             </div>
         </div>

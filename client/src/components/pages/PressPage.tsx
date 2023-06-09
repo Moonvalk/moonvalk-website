@@ -9,7 +9,8 @@ export function PressPage(): ReactElement {
             <div className="page">
                 <h1>Press</h1>
                 <hr />
-                <p>
+                <p className="center">
+                    Press-kits and high quality format media coming soon...
                 </p>
             </div>
         </div>

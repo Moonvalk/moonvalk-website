@@ -9,7 +9,8 @@ export function ComicsPage(): ReactElement {
             <div className="page">
                 <h1>Comics</h1>
                 <hr />
-                <p>
+                <p className="center">
+                    Stay tuned, new stories coming soon...
                 </p>
             </div>
         </div>
