@@ -1,9 +1,7 @@
-import {ReactElement, Suspense} from 'react';
+import {ReactElement} from 'react';
 import '../Layout.css';
 import './IndexPage.css';
 import { Carousel } from '../scenes/Carousel';
-import { Canvas } from '@react-three/fiber';
-import { CanvasLoader } from '../scenes/CanvasLoader';
 
 export function IndexPage(): ReactElement {
     // const canvasElement = new HTMLCanvasElement();
