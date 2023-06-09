@@ -9,7 +9,8 @@ export function NewsPage(): ReactElement {
             <div className="page">
                 <h1>News</h1>
                 <hr />
-                <p>
+                <p className="center">
+                    Check back in later; the gremlins only work when nobody is watching.
                 </p>
             </div>
         </div>

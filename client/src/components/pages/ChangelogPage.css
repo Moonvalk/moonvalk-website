@@ -1,0 +1,64 @@
+
+.changelog {
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 90%;
+    border-radius: 1rem;
+    background-color: rgba(20, 20, 28, 1);
+    margin-top: 1rem;
+}
+
+.changelog table {
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.changelog tr {
+    min-height: 2rem;
+    text-align: left;
+    margin: 0;
+    background-image: linear-gradient(45deg, rgba(40, 40, 48, 0), rgba(40, 40, 48, 1), rgba(40, 40, 48, 0));
+    background-position: 200% 0%;
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 200% 0%;
+    }
+    100% {
+        background-position: -100% 0%;
+    }
+}
+
+.changelog tr:first-child {
+    text-transform: uppercase;
+}
+
+.changelog tr:hover:not(:first-child) {
+    animation: shine 3.0s ease infinite;
+    background-color: rgba(30, 30, 38, 1);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.changelog th, .changelog td {
+    padding: 0.25rem;
+    text-align: left;
+    margin: 0;
+    
+}
+
+.changelog td {
+    border: 0.1rem solid rgb(40, 40, 48);
+    margin: 0;
+    font-size: 0.8rem;
+    word-wrap: break-word;
+}
