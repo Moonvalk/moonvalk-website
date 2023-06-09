@@ -47,3 +47,11 @@ main {
 .sr-only {
     display: none;
 }
+
+/* Prevents Mobile Safari from bumping up font sizes in landscape */
+@media only screen and (max-device-width: 480px) {
+    body {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+}

@@ -1,1 +1,316 @@
 
+@keyframes bounce-mobile {
+    0% {
+        transform: scale(1) rotate(5deg);
+    }
+
+    25% {
+        transform: scale(1.2) rotate(5deg);
+    }
+
+    50% {
+        transform: scale(1.06) rotate(5deg);
+    }
+
+    75% {
+        transform: scale(1.12) rotate(5deg);
+    }
+
+    100% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+@keyframes wobble-mobile {
+    0% {
+        transform: rotate(5deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(1deg) scale(1.025);
+    }
+
+    50% {
+        transform: rotate(9deg) scale(1.05);
+    }
+
+    75% {
+        transform: rotate(3deg) scale(1.075);
+    }
+
+    100% {
+        transform: rotate(5deg) scale(1.1);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes nav-icon-hover {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    30% {
+        transform: rotate(0deg);
+    }
+
+    40% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        transform: rotate(5deg);
+    }
+
+    70% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes nav-icon-idle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-20deg);
+    }
+
+    37.5% {
+        transform: rotate(370deg);
+    }
+
+    40% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.header-rgb {
+    display: block;
+    position: fixed;
+    top: 4rem;
+    width: 100dvw;
+    margin-inline: 0 auto;
+    height: 0.2rem;
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.4);
+    background: linear-gradient(90deg, #fff200, #fff200, #f21c6e, #23a6d5, #23d5ab);
+	background-size: 400% 100%;
+	animation: gradient 20s infinite ease;
+    z-index: 400;
+}
+
+.logo {
+    display: inline-flex;
+    flex-basis: 40%;
+    width: 10rem;
+    height: 4rem;
+    background-image: url('../assets/images/logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 1rem 1rem;
+}
+
+.primary-header {
+    margin: 0;
+    display: flex;
+    position: fixed;
+    width: 100dvw;
+    height: 4rem;
+    top: 0;
+    left: 0;
+    background-color: rgba(4, 4, 8, 1);
+    background-image: url('../assets/images/navbar.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 500;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.primary-navigation {
+    display: inline-flex;
+    flex-basis: 40%;
+    max-width: 60dvw;
+    list-style: none;
+    padding: 1rem auto;
+    margin: 0 auto;
+    z-index: 1000;
+    transform: translateX(0%);
+    transition: transform 350ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.primary-navigation a {
+    color: rgb(235, 235, 235);
+    text-decoration: none;
+    transition: color 0.1s;
+    margin: 0 0.5rem auto;
+    font-family: 'Bebas Neue';
+    font-size: 1.2rem;
+    transition: color 0.2s, transform 0.2s ease-in-out;
+    display: block;
+    text-align: center;
+    transform: scale(1);
+}
+
+.primary-navigation a span {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0.5rem;
+}
+
+.primary-navigation a:hover {
+    color: rgb(255, 230, 0);
+    animation: bounce 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.primary-navigation svg {
+    color: rgb(180, 180, 200);
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+    transition: transform 0.8s ease-in-out, color 0.2s ease-in-out;
+}
+
+.primary-navigation a:hover > svg {
+    filter: drop-shadow(0 0 0.3rem rgb(255, 230, 0));
+    color: rgb(235, 235, 235);
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+@media screen and (min-width: 35em) {
+    .primary-navigation a:hover>svg {
+        animation: nav-icon-hover ease-in-out infinite 1s;
+    }
+}
+
+@media screen and (max-width: 34.99em) and (orientation: portrait) {
+    .logo {
+        margin: 1rem 1rem;
+    }
+
+    .primary-navigation {
+        position: fixed;
+        inset: 0 0 0 15%;
+        --gap: 2rem;
+        max-width: 100dvw;
+        height: 110vh;
+        top: -5vh;
+        flex-direction: column;
+        padding: min(30vh, 12rem) 3rem 2rem;
+        background-image: url('../assets/images/panel.webp');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        z-index: 1000;
+        transform: translateX(120%) rotate(-5deg);
+        border-left: 0.2rem solid rgb(100, 100, 120);
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(20%) rotate(-5deg);
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
+    }
+
+    .primary-navigation a {
+        font-size: 2.3rem;
+        display: inline-block;
+        color: rgb(235, 235, 235);
+        margin-left: 0rem;
+        transform: rotate(5deg);
+    }
+
+    .primary-navigation a:hover {
+        color: rgb(255, 230, 0);
+        animation: bounce-mobile 0.3s ease-in-out;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .primary-navigation svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 1rem;
+        display: inline-block;
+    }
+
+    .primary-navigation[data-visible="true"] svg {
+        animation: nav-icon-idle 5s ease-in-out infinite;
+        animation-delay: 0s;
+    }
+
+    .primary-navigation li:nth-of-type(2) svg {
+        animation-delay: 0.2s;
+    }
+
+    .primary-navigation li:nth-of-type(3) svg {
+        animation-delay: 0.4s;
+    }
+
+    .primary-navigation li:nth-of-type(4) svg {
+        animation-delay: 0.6s;
+    }
+
+    .mobile-nav-toggle {
+        width: 2rem;
+        height: 2rem;
+        display: block;
+        background-color: rgba(255, 255, 255, 0);
+        position: absolute;
+        z-index: 9999;
+        color: rgb(235, 235, 235);
+        width: 1rem;
+        aspect-ratio: 1;
+        top: 1rem;
+        right: 2rem;
+        border: 0;
+        cursor: pointer;
+        transition: color 0.2s, transform 0.2s ease;
+    }
+
+    .mobile-nav-toggle:hover {
+        color: rgb(255, 236, 68);
+        transform: scale(1.1);
+    }
+
+    .mobile-nav-toggle svg {
+        display: block;
+    }
+}
