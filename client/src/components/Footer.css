@@ -1,1 +1,146 @@
 
+footer {
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    min-height: 6rem;
+    width: 100%;
+    background-color: rgba(4, 4, 8, 0.85);
+    backdrop-filter: blur(0.5rem);
+    margin: 0;
+    margin-top: 2rem;
+    flex-shrink: 0;
+}
+
+.footer-break {
+    background-image: linear-gradient(90deg, rgba(235, 235, 235, 0), rgba(235, 235, 235, 0.8), rgba(235, 235, 235, 0));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 50vw;
+    height: 0.05rem;
+    border: 0;
+    margin: 1rem;
+    margin-top: 0;
+    position: relative;
+    display: block;
+}
+
+.footer-links,
+.social-links {
+    width: 50vw;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 12px;
+}
+
+.social-links {
+    padding-top: 0.2rem;
+    padding-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: rgb(235, 235, 235);
+    text-decoration: none;
+    padding: 1rem;
+    transition: color 0.3s;
+    text-transform: uppercase;
+}
+
+.footer-links a:hover {
+    color: rgb(255, 230, 0);
+    text-decoration: underline;
+}
+
+.social-links a {
+    text-decoration: none;
+    padding: 0.75rem;
+    padding-top: 0;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 0rem rgba(255, 255, 255, 0));
+    transition: color 0.2s, transform 0.2s, opacity 0.2s, filter 0.2s;
+}
+
+.social-links a:hover {
+    color: rgb(235, 235, 235);
+    transform: scale(1.1);
+    animation: bounce 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.social-links svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    overflow: visible;
+}
+
+.twitter {
+    color: #3bb9eb;
+}
+
+.twitter:hover svg {
+    filter: drop-shadow(0 0 0.5rem #06b8ff);
+}
+
+.instagram {
+    color: #e3ca84;
+}
+
+.instagram:hover svg {
+    filter: drop-shadow(0 0 0.5rem #ffc933);
+}
+
+.youtube {
+    color: #ed3333;
+}
+
+.youtube:hover svg {
+    filter: drop-shadow(0 0 0.5rem #ff0000);
+}
+
+.facebook {
+    color: #5d87e4;
+}
+
+.facebook:hover svg {
+    filter: drop-shadow(0 0 0.5rem #0856ff);
+}
+
+.bandcamp {
+    color: #629aa9;
+}
+
+.bandcamp:hover svg {
+    filter: drop-shadow(0 0 0.5rem #62fff5);
+}
+
+.github {
+    color: #9878c8;
+}
+
+.github:hover svg {
+    filter: drop-shadow(0 0 0.5rem #9147ff);
+}
+
+.socials-break {
+    display: inline-flex;
+    width: 0;
+    height: 1rem;
+    transform: translateY(-0.5rem);
+    border: 0.05rem solid rgba(235, 235, 235, 0.3);
+    margin: 0.7rem;
+}
+
+footer p {
+    margin: 1rem auto;
+    margin-top: 0;
+    color: rgba(235, 235, 235, 0.5);
+    font-size: 0.6rem;
+}
+
+.copyright {
+    margin-bottom: 2rem;
+}
