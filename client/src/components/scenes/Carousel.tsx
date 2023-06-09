@@ -1,8 +1,7 @@
-import { ReactElement, Suspense } from "react";
+import { ReactElement, Suspense, useRef, useState } from "react";
 import { Mesh } from "three";
-import { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import { CanvasLoader } from "./CanvasLoader";
 import './Carousel.css';
 

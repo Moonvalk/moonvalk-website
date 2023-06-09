@@ -8,8 +8,11 @@ import { GamesPage } from './components/pages/GamesPage';
 import { IndexPage } from './components/pages/IndexPage';
 import { LoginPage } from './components/pages/LoginPage';
 import { NewsPage } from './components/pages/NewsPage';
+import { ChangelogPage } from './components/pages/ChangelogPage';
+import { ContactPage } from './components/pages/ContactPage';
+import { PressPage } from './components/pages/PressPage';
  
-function App(): ReactElement {
+export default function App(): ReactElement {
     return (
         <UserContextProvider>
             <Routes>
@@ -20,13 +23,11 @@ function App(): ReactElement {
                     <Route path='/comics' element={<ComicsPage />} />
                     <Route path='/about' element={<AboutPage />} />
                     <Route path='/login' element={<LoginPage />} />
-                    <Route path='/press' element={<IndexPage />} />
-                    <Route path='/contact' element={<IndexPage />} />
-                    <Route path='/changelog' element={<IndexPage />} />
+                    <Route path='/press' element={<PressPage />} />
+                    <Route path='/contact' element={<ContactPage />} />
+                    <Route path='/changelog' element={<ChangelogPage />} />
                 </Route>
             </Routes>
         </UserContextProvider>
     );
 }
-
-export default App;
