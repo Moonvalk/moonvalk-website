@@ -43,9 +43,9 @@
     height: 4rem;
     margin: 4rem auto;
     margin-top: 10rem;
-    border: 0.5rem solid rgba(235, 235, 235, 0.5);
+    border: 0.5rem solid var(--color4);
     border-radius: 50%;
-    border-top: 0.5rem solid rgb(255, 230, 0);
+    border-top: 0.5rem solid var(--color-highlight1);
     filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.2));
     animation: spinner 1s ease infinite, grow 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     display: block;
