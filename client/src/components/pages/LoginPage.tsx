@@ -1,17 +1,15 @@
 import {ReactElement, useEffect, useState} from 'react';
 import '../Layout.css';
 import './LoginPage.css';
+import { PageTitle } from '../context/PageTitle';
 
-export function LoginPage(): ReactElement {
+export default function LoginPage(): ReactElement {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    useEffect(() => {
-        document.title = 'Moonvalk Studios | Login';
-    }, []);
-
     return (
-        <div className="content">
+        <>
+            <PageTitle title="Login" />
             <div className="header-margin"></div>
             <div className="page">
                 <form className='login'>
@@ -36,6 +34,6 @@ export function LoginPage(): ReactElement {
                     <button>Login</button>
                 </form>
             </div>
-        </div>
+        </>
     );
 }

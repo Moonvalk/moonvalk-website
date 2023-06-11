@@ -1,4 +1,12 @@
 
+:root {
+    --color1: rgb(4, 4, 8);
+    --color2: rgb(20, 20, 28);
+    --color3: rgb(50, 50, 65);
+    --color4: rgb(110, 110, 150);
+    --color5: rgb(235, 235, 235);
+}
+
 @font-face {
     font-family: 'Bebas Neue';
     src: url('./assets/fonts/BEBASNEUE.OTF');
@@ -32,6 +40,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    flex: 1 0 auto;
 }
 
 .flex {

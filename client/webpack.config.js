@@ -1,18 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const port = process.env.PORT || 3001;
+
 module.exports = {
     mode: 'development',
     entry: './src/main.tsx',
     devtool: 'inline-source-map',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'main.js',
+        filename: 'main.[hash].js',
+        clean: true,
     },
     devServer: {
         static: './dist/',
-        port: 3001,
+        port: port,
         historyApiFallback: true,
+        open: true,
     },
     module: {
         rules: [
@@ -37,8 +41,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './index.html',
             minify: true,
+            favicon: "./src/assets/images/favicon.png",
         })
     ]
 }

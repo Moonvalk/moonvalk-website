@@ -1,27 +1,19 @@
-import {ReactElement, useEffect} from 'react';
+import {ReactElement, lazy} from 'react';
 import '../Layout.css';
 import './IndexPage.css';
-import { Carousel } from '../scenes/Carousel';
+import { PageTitle } from '../context/PageTitle';
+import { SmartSuspense } from '../loading/SmartSuspense';
+import { CanvasLoader } from '../scenes/CanvasLoader';
 
-export function IndexPage(): ReactElement {
-    // const canvasElement = new HTMLCanvasElement();
-    // const canvasElement = createCanvas();
-    // canvasElement.className = "carousel";
-    // const carousel = new Carousel(canvasElement);
-
-    useEffect(() => {
-        document.title = 'Moonvalk Studios';
-    }, []);
-
-    function createCanvas(): ReactElement {
-        return (
-            <canvas className="carousel"></canvas>
-        );
-    }
+export default function IndexPage(): ReactElement {
+    const LazyCarousel = lazy(() => import('../scenes/Carousel'));
 
     return (
         <div className="content">
-            <Carousel />
+            <PageTitle />
+            <SmartSuspense fallback={<CanvasLoader />} fallbackDelay={0}>
+                <LazyCarousel />
+            </SmartSuspense>
             <div className="page">
                 <h1>Home</h1>
                 <hr />
