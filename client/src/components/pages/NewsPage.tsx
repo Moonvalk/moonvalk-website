@@ -1,8 +1,13 @@
-import {ReactElement} from 'react';
+import {ReactElement, useEffect} from 'react';
 import './NewsPage.css';
 import '../Layout.css';
 
 export function NewsPage(): ReactElement {
+
+    useEffect(() => {
+        document.title = 'Moonvalk Studios | News';
+    }, []);
+
     return (
         <div className="content">
             <div className="header-margin"></div>

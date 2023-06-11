@@ -120,7 +120,7 @@
     width: 100dvw;
     margin-inline: 0 auto;
     height: 0.2rem;
-    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.4);
     background: linear-gradient(90deg, #fff200, #fff200, #f21c6e, #23a6d5, #23d5ab);
 	background-size: 400% 100%;
 	animation: gradient 20s infinite ease;
@@ -174,11 +174,10 @@
 .primary-navigation a {
     color: rgb(235, 235, 235);
     text-decoration: none;
-    transition: color 0.1s;
     margin: 0 0.5rem auto;
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
-    transition: color 0.2s, transform 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
     display: block;
     text-align: center;
     transform: scale(1);
@@ -214,6 +213,37 @@
 
 .mobile-nav-toggle {
     display: none;
+}
+
+.user-navigation {
+    width: 100dvw;
+    height: min-content;
+    padding: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 4.3rem;
+    color: rgb(235, 235, 235);
+    background-color: rgb(4, 4, 8);
+    border-bottom: 0.25rem solid rgb(110, 110, 150);
+}
+
+.user-navigation a {
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(110, 110, 150);
+    border-bottom: 0.05rem solid rgb(110, 110, 150);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.user-navigation a:hover {
+    color: rgb(255, 230, 0);
+    border-bottom: 0.05rem solid rgb(255, 230, 0);
 }
 
 @media screen and (min-width: 35em) {

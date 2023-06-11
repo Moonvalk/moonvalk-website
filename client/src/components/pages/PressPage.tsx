@@ -1,8 +1,13 @@
-import {ReactElement} from 'react';
+import {ReactElement, useEffect} from 'react';
 import './ComicsPage.css';
 import '../Layout.css';
 
 export function PressPage(): ReactElement {
+
+    useEffect(() => {
+        document.title = 'Moonvalk Studios | Press';
+    }, []);
+
     return (
         <div className="content">
             <div className="header-margin"></div>

@@ -1,8 +1,13 @@
-import {ReactElement} from 'react';
+import {ReactElement, useEffect} from 'react';
 import './ChangelogPage.css';
 import '../Layout.css';
 
 export function ChangelogPage(): ReactElement {
+
+    useEffect(() => {
+        document.title = 'Moonvalk Studios | Changelog';
+    }, []);
+
     return (
         <div className="content">
             <div className="header-margin"></div>
