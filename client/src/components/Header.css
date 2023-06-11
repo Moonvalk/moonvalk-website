@@ -147,7 +147,7 @@
     height: 4rem;
     top: 0;
     left: 0;
-    background-color: rgba(4, 4, 8, 1);
+    background-color: var(--color1);
     background-image: url('../assets/images/navbar.webp');
     background-size: cover;
     background-position: center;
@@ -172,7 +172,7 @@
 }
 
 .primary-navigation a {
-    color: rgb(235, 235, 235);
+    color: var(--color6);
     text-decoration: none;
     margin: 0 0.5rem auto;
     font-family: 'Bebas Neue', sans-serif;
@@ -191,13 +191,13 @@
 }
 
 .primary-navigation a:hover {
-    color: rgb(255, 230, 0);
+    color: var(--color-highlight1);
     animation: bounce 0.3s ease-in-out;
     transform: scale(1.1);
 }
 
 .primary-navigation svg {
-    color: rgb(180, 180, 200);
+    color: var(--color5);
     width: 1.5rem;
     height: 1.5rem;
     display: block;
@@ -207,8 +207,8 @@
 }
 
 .primary-navigation a:hover > svg {
-    filter: drop-shadow(0 0 0.3rem rgb(255, 230, 0));
-    color: rgb(235, 235, 235);
+    filter: drop-shadow(0 0 0.3rem var(--color-highlight1));
+    color: var(--color6);
 }
 
 .mobile-nav-toggle {
@@ -226,24 +226,24 @@
     left: 0;
     right: 0;
     top: 4.3rem;
-    color: rgb(235, 235, 235);
-    background-color: rgb(4, 4, 8);
-    border-bottom: 0.25rem solid rgb(110, 110, 150);
+    color: var(--color6);
+    background-color: var(--color1);
+    border-bottom: 0.25rem solid var(--color4);
 }
 
 .user-navigation a {
     margin: 0 auto;
     text-align: center;
     text-transform: uppercase;
-    color: rgb(110, 110, 150);
-    border-bottom: 0.05rem solid rgb(110, 110, 150);
+    color: var(--color4);
+    border-bottom: 0.05rem solid var(--color4);
     text-decoration: none;
     transition: all 0.3s;
 }
 
 .user-navigation a:hover {
-    color: rgb(255, 230, 0);
-    border-bottom: 0.05rem solid rgb(255, 230, 0);
+    color: var(--color-highlight1);
+    border-bottom: 0.05rem solid var(--color-highlight1);
 }
 
 @media screen and (min-width: 35em) {
@@ -272,7 +272,7 @@
         background-position: center;
         z-index: 1000;
         transform: translateX(120%) rotate(-5deg);
-        border-left: 0.2rem solid rgb(100, 100, 120);
+        border-left: 0.2rem solid var(--color4);
     }
 
     .primary-navigation[data-visible="true"] {
@@ -283,13 +283,13 @@
     .primary-navigation a {
         font-size: 2.3rem;
         display: inline-block;
-        color: rgb(235, 235, 235);
+        color: var(--color6);
         margin-left: 0rem;
         transform: rotate(5deg);
     }
 
     .primary-navigation a:hover {
-        color: rgb(255, 230, 0);
+        color: var(--color-highlight1);
         animation: bounce-mobile 0.3s ease-in-out;
         transform: scale(1.1) rotate(5deg);
     }
@@ -319,13 +319,12 @@
     }
 
     .mobile-nav-toggle {
-        width: 2rem;
         height: 2rem;
         display: block;
         background-color: rgba(255, 255, 255, 0);
         position: absolute;
         z-index: 9999;
-        color: rgb(235, 235, 235);
+        color: var(--color6);
         width: 1rem;
         aspect-ratio: 1;
         top: 1rem;
@@ -336,7 +335,7 @@
     }
 
     .mobile-nav-toggle:hover {
-        color: rgb(255, 236, 68);
+        color: var(--color-highlight1);
         transform: scale(1.1);
     }
 

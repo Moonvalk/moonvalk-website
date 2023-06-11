@@ -10,10 +10,10 @@
 .contact input, .contact textarea {
     width: 100%;
     padding: 0.5rem;
-    border: 0.1rem solid rgb(50, 50, 60);
+    border: 0.1rem solid var(--color3);
     border-radius: 0.25rem;
-    background-color: rgb(20, 20, 28);
-    color: rgb(235, 235, 235);
+    background-color: var(--color2);
+    color: var(--color6);
     resize: vertical;
     margin: 1rem auto;
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
@@ -35,16 +35,16 @@
 .contact button {
     min-width: 10rem;
     width: 30%;
-    border: 0.1rem solid rgb(110, 110, 150);
+    border: 0.1rem solid var(--color4);
     border-radius: 0.5rem;
-    background-color: rgb(20, 20, 28);
-    color: rgb(235, 235, 235);
+    background-color: var(--color2);
+    color: var(--color6);
     padding: 1rem;
     text-transform: uppercase;
     margin: 0 auto;
     display: block;
     transform: scale(1);
-    background-image: repeating-linear-gradient(45deg, rgba(20, 20, 28, 1) 0%, rgba(20, 20, 28, 1) 9.9%, rgba(4, 4, 8, 0) 10%, rgba(4, 4, 8, 0) 19.9%);
+    background-image: repeating-linear-gradient(45deg, var(--color2) 0%, var(--color2) 9.9%, rgba(4, 4, 8, 0) 10%, rgba(4, 4, 8, 0) 19.9%);
     background-position: 0% 0%;
     background-size: 200% 100%;
     animation: sliding 4.0s infinite linear;
@@ -55,16 +55,16 @@
 .contact button:hover {
     /* animation: bounce 0.3s ease-in-out; */
     transform: scale(1.1);
-    border: 0.1rem solid rgb(110, 110, 150);
+    border: 0.1rem solid var(--color4);
     box-shadow: 0 0 1rem rgb(0, 0, 0);
-    background-color: rgb(4, 4, 8);
+    background-color: var(--color1);
     cursor: pointer;
 }
 
 .contact input:focus, .contact textarea:focus {
     outline: none !important;
-    border: 0.1rem solid rgb(255, 230, 0);
-    background-color: rgb(4, 4, 8);
+    border: 0.1rem solid var(--color-highlight1);
+    background-color: var(--color1);
     box-shadow: 0 0 1rem rgb(0, 0, 0);
 }
 

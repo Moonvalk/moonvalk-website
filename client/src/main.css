@@ -4,7 +4,9 @@
     --color2: rgb(20, 20, 28);
     --color3: rgb(50, 50, 65);
     --color4: rgb(110, 110, 150);
-    --color5: rgb(235, 235, 235);
+    --color5: rgb(180, 180, 210);
+    --color6: rgb(235, 235, 245);
+    --color-highlight1: rgb(255, 230, 0);
 }
 
 @font-face {
@@ -29,7 +31,7 @@ html, body, main {
 }
 
 body {
-    background-color: rgb(20, 20, 28);
+    background-color: var(--color2);
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
