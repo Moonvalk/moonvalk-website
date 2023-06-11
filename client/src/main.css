@@ -55,3 +55,9 @@ main {
         -ms-text-size-adjust: 100%;
     }
 }
+
+@media only screen and (max-width: 34.99em) and (orientation: portrait) {
+    .hide-mobile {
+        display: none;
+    }
+}

@@ -1,7 +1,12 @@
-import {ReactElement} from 'react';
+import {ReactElement, useEffect} from 'react';
 import '../Layout.css';
 
 export function AboutPage(): ReactElement {
+
+    useEffect(() => {
+        document.title = 'Moonvalk Studios | About';
+    }, []);
+
     return (
         <div className="content">
             <div className="header-margin"></div>

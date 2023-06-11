@@ -1,7 +1,7 @@
 
 .carousel {
     width: 100vw;
-    height: max(18rem, 30vw);
+    height: max(22rem, 30vw);
     position: relative;
     margin-top: 4.3rem;
     background-color: rgba(10, 10, 15, 1);

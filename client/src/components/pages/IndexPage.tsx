@@ -1,4 +1,4 @@
-import {ReactElement} from 'react';
+import {ReactElement, useEffect} from 'react';
 import '../Layout.css';
 import './IndexPage.css';
 import { Carousel } from '../scenes/Carousel';
@@ -8,6 +8,10 @@ export function IndexPage(): ReactElement {
     // const canvasElement = createCanvas();
     // canvasElement.className = "carousel";
     // const carousel = new Carousel(canvasElement);
+
+    useEffect(() => {
+        document.title = 'Moonvalk Studios';
+    }, []);
 
     function createCanvas(): ReactElement {
         return (
