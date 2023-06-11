@@ -1,21 +1,19 @@
 import {ReactElement, useEffect, useState} from 'react';
 import './ContactPage.css';
 import '../Layout.css';
+import { PageTitle } from '../context/PageTitle';
 
-export function ContactPage(): ReactElement {
+export default function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
-
-    useEffect(() => {
-        document.title = 'Moonvalk Studios | Contact';
-    }, []);
     
     return (
         <div className="content">
+            <PageTitle title="Contact" />
             <div className="header-margin"></div>
             <div className="page">
                 <h1>Contact</h1>

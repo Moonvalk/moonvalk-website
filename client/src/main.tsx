@@ -4,6 +4,8 @@ import { BrowserRouter, HashRouter } from 'react-router-dom';
 import App from './App';
 import './main.css';
 
+export const WEBSITE_TITLE = 'Moonvalk Studios';
+
 // Create root for placing application into the DOM.
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,5 +17,3 @@ root.render(
         </HashRouter>
     </React.StrictMode>
 );
-
-console.log('Running Moonvalk website client');

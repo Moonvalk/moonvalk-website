@@ -3,4 +3,8 @@
         ["@babel/preset-env", {"modules": "false"}],
         ["@babel/preset-react", {"modules": "false"}]
     ],
+    "plugins": [
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-class-properties"
+    ]
 }

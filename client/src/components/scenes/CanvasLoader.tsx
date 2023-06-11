@@ -3,6 +3,8 @@ import './CanvasLoader.css';
 
 export function CanvasLoader(): ReactElement {
     return (
-        <div className="canvas-loader"></div>
+        <div className="loader">
+            <div className="loader-spinner"></div>
+        </div>
     );
 }

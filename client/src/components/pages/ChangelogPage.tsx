@@ -1,15 +1,12 @@
 import {ReactElement, useEffect} from 'react';
 import './ChangelogPage.css';
 import '../Layout.css';
+import { PageTitle } from '../context/PageTitle';
 
-export function ChangelogPage(): ReactElement {
-
-    useEffect(() => {
-        document.title = 'Moonvalk Studios | Changelog';
-    }, []);
-
+export default function ChangelogPage(): ReactElement {
     return (
         <div className="content">
+            <PageTitle title="Changelog" />
             <div className="header-margin"></div>
             <div className="page">
                 <h1>Changelog</h1>

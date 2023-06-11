@@ -1,8 +1,7 @@
-import { ReactElement, Suspense, useRef, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
 import { Mesh } from "three";
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { CanvasLoader } from "./CanvasLoader";
 import './Carousel.css';
 
 // export class Carousel extends React.Component {
@@ -103,11 +102,9 @@ function Box(props: any) {
     )
   }
 
-export function Carousel(): ReactElement {
+export default function Carousel(): ReactElement {
     return (
-      
-      <div className="carousel">
-        <Suspense fallback={<CanvasLoader />}>
+        <div className="carousel">
           <Canvas>
             <ambientLight intensity={0.5} />
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -116,7 +113,6 @@ export function Carousel(): ReactElement {
             <Box position={[1.2, 0, 0]} />
             <OrbitControls />
           </Canvas>
-        </Suspense>
-      </div>
+        </div>
     );
 }

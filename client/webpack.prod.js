@@ -6,7 +6,8 @@ module.exports = {
     entry: './src/main.tsx',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'main.js',
+        filename: 'main.[hash].js',
+        clean: true,
     },
     module: {
         rules: [
@@ -31,8 +32,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './index.html',
             minify: true,
+            favicon: "./src/assets/images/favicon.png",
         })
     ]
 }

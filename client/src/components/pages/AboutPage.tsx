@@ -1,14 +1,11 @@
 import {ReactElement, useEffect} from 'react';
 import '../Layout.css';
+import { PageTitle } from '../context/PageTitle';
 
-export function AboutPage(): ReactElement {
-
-    useEffect(() => {
-        document.title = 'Moonvalk Studios | About';
-    }, []);
-
+export default function AboutPage(): ReactElement {
     return (
         <div className="content">
+            <PageTitle title="About" />
             <div className="header-margin"></div>
             <div className="page">
                 <h1>About</h1>
