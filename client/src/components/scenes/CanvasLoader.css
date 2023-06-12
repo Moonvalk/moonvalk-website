@@ -43,11 +43,11 @@
     height: 4rem;
     margin: 4rem auto;
     margin-top: 10rem;
-    border: 0.5rem solid var(--color4);
+    border: 0.5rem solid var(--COLOR_4);
     border-radius: 50%;
-    border-top: 0.5rem solid var(--color-highlight1);
+    border-top: 0.5rem solid var(--COLOR_HIGHLIGHT_1);
     filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.2));
-    animation: spinner 1s ease infinite, grow 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: spinner 1s ease infinite, grow 0.5s var(--ELASTIC_OUT_BEZIER);
     display: block;
     position: relative;
     opacity: 1;

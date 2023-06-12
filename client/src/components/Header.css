@@ -127,27 +127,15 @@
     z-index: 400;
 }
 
-.logo {
-    display: inline-flex;
-    flex-basis: 40%;
-    width: 10rem;
-    height: 4rem;
-    background-image: url('../assets/images/logo.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin: 1rem 1rem;
-}
-
 .primary-header {
     margin: 0;
-    display: flex;
+    display: inline-flex;
     position: fixed;
     width: 100dvw;
     height: 4rem;
     top: 0;
     left: 0;
-    background-color: var(--color1);
+    background-color: var(--COLOR_1);
     background-image: url('../assets/images/navbar.webp');
     background-size: cover;
     background-position: center;
@@ -159,22 +147,36 @@
     justify-content: center;
 }
 
+.logo {
+    display: flex;
+    flex-basis: 20%;
+    width: 10rem;
+    height: 4rem;
+    background-image: url('../assets/images/logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 1rem 1rem;
+}
+
 .primary-navigation {
-    display: inline-flex;
-    flex-basis: 40%;
+    display: flex;
+    flex-basis: 20%;
     max-width: 60dvw;
     list-style: none;
     padding: 1rem auto;
     margin: 0 auto;
+    margin-left: 1rem;
     z-index: 1000;
     transform: translateX(0%);
-    transition: transform 350ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.35s var(--ELASTIC_OUT_BEZIER);
+    justify-self: center;
 }
 
 .primary-navigation a {
-    color: var(--color6);
+    color: var(--COLOR_6);
     text-decoration: none;
-    margin: 0 0.5rem auto;
+    margin: 0 0.25rem auto;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
@@ -191,13 +193,13 @@
 }
 
 .primary-navigation a:hover {
-    color: var(--color-highlight1);
+    color: var(--COLOR_HIGHLIGHT_1);
     animation: bounce 0.3s ease-in-out;
     transform: scale(1.1);
 }
 
 .primary-navigation svg {
-    color: var(--color5);
+    color: var(--COLOR_5);
     width: 1.5rem;
     height: 1.5rem;
     display: block;
@@ -207,8 +209,8 @@
 }
 
 .primary-navigation a:hover > svg {
-    filter: drop-shadow(0 0 0.3rem var(--color-highlight1));
-    color: var(--color6);
+    filter: drop-shadow(0 0 0.3rem var(--COLOR_HIGHLIGHT_1));
+    color: var(--COLOR_6);
 }
 
 .mobile-nav-toggle {
@@ -216,34 +218,39 @@
 }
 
 .user-navigation {
-    width: 100dvw;
+    width: 4rem;
     height: min-content;
     padding: 0.5rem;
-    display: inline-flex;
+    display: grid;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 4.3rem;
-    color: var(--color6);
-    background-color: var(--color1);
-    border-bottom: 0.25rem solid var(--color4);
+    right: -0.1rem;
+    top: 5rem;
+    color: var(--COLOR_6);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem 0 0 1rem;
+    border: 0.1rem solid var(--COLOR_3);
 }
 
 .user-navigation a {
-    margin: 0 auto;
-    text-align: center;
+    width: 2.5rem;
+    display: grid;
+    margin: 0.25rem;
     text-transform: uppercase;
-    color: var(--color4);
-    border-bottom: 0.05rem solid var(--color4);
+    color: var(--COLOR_5);
+    filter: drop-shadow(0 0 0.25rem rgb(0, 0, 0));
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.2s;
+}
+
+.user-navigation svg {
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .user-navigation a:hover {
-    color: var(--color-highlight1);
-    border-bottom: 0.05rem solid var(--color-highlight1);
+    color: var(--COLOR_HIGHLIGHT_1);
 }
 
 @media screen and (min-width: 35em) {
@@ -253,8 +260,8 @@
 }
 
 @media screen and (max-width: 34.99em) and (orientation: portrait) {
-    .logo {
-        margin: 1rem 1rem;
+    .header-container {
+        width: 15rem;
     }
 
     .primary-navigation {
@@ -272,10 +279,14 @@
         background-position: center;
         z-index: 1000;
         transform: translateX(120%) rotate(-5deg);
-        border-left: 0.2rem solid var(--color4);
+        border-left: 0.2rem solid var(--COLOR_4);
     }
 
-    .primary-navigation[data-visible="true"] {
+    .mobile-navigation {
+        z-index: 100;
+    }
+
+    .mobile-navigation[data-visible="true"] {
         transform: translateX(20%) rotate(-5deg);
         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.8);
     }
@@ -283,13 +294,14 @@
     .primary-navigation a {
         font-size: 2.3rem;
         display: inline-block;
-        color: var(--color6);
+        color: var(--COLOR_6);
+        margin-bottom: 0.5rem;
         margin-left: 0rem;
         transform: rotate(5deg);
     }
 
     .primary-navigation a:hover {
-        color: var(--color-highlight1);
+        color: var(--COLOR_HIGHLIGHT_1);
         animation: bounce-mobile 0.3s ease-in-out;
         transform: scale(1.1) rotate(5deg);
     }
@@ -323,8 +335,8 @@
         display: block;
         background-color: rgba(255, 255, 255, 0);
         position: absolute;
-        z-index: 9999;
-        color: var(--color6);
+        z-index: -1000;
+        color: var(--COLOR_6);
         width: 1rem;
         aspect-ratio: 1;
         top: 1rem;
@@ -335,7 +347,7 @@
     }
 
     .mobile-nav-toggle:hover {
-        color: var(--color-highlight1);
+        color: var(--COLOR_HIGHLIGHT_1);
         transform: scale(1.1);
     }
 
