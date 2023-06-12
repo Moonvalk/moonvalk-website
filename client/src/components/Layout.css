@@ -49,14 +49,36 @@
     height: 5rem;
 }
 
-@keyframes fade {
+@keyframes fade-in {
     0% {
-        opacity: 0.5;
-        transform: scale(0.9);
+        opacity: 0;
     }
     100% {
         opacity: 1;
-        transform: scale(1);
+    }
+}
+
+@keyframes move-up {
+    0% {
+        transform: scale(1) translateY(1rem);
+    }
+    100% {
+        transform: scale(1) translateY(0rem);
+    }
+}
+
+@keyframes page-open {
+    0% {
+        width: 50vw;
+        max-width: 30rem;
+    }
+    75% {
+        width: 50vw;
+        max-width: 30rem;
+    }
+    100% {
+        width: 90vw;
+        max-width: 60rem;
     }
 }
 
@@ -64,21 +86,21 @@
     width: 90vw;
     max-width: 60rem;
     min-height: 4rem;
-    background-color: var(--color3);
+    background-color: var(--COLOR_3);
     border-radius: 1rem;
     padding: 1rem;
     margin: 1rem auto;
-    color: var(--color6);
+    color: var(--COLOR_6);
     transition: border 0.15s, box-shadow 0.15s;
     font-size: 1rem;
     box-shadow: inset 0 0 4rem rgba(255, 255, 255, 0);
-    border: 0.25rem solid var(--color3);
+    border: 0.25rem solid var(--COLOR_3);
     transform-style: preserve-3d;
-    /* animation: fade 0.75s ease-out; */
+    animation: fade-in 0.3s ease-in-out, move-up 0.3s var(--ELASTIC_OUT_BEZIER);
 }
 
 .page:hover {
-    border: 0.25rem solid var(--color4);
+    border: 0.25rem solid var(--COLOR_4);
     box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.3);
 }
 
@@ -90,7 +112,7 @@
 .content {
     height: min-content;
     flex: 1 0 auto;
-    color: var(--color6);
+    color: var(--COLOR_6);
     transition: all 0.5s ease;
     perspective: 30rem;
 }

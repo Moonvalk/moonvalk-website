@@ -1,12 +1,14 @@
 
 :root {
-    --color1: rgb(4, 4, 8);
-    --color2: rgb(20, 20, 28);
-    --color3: rgb(50, 50, 65);
-    --color4: rgb(110, 110, 150);
-    --color5: rgb(180, 180, 210);
-    --color6: rgb(235, 235, 245);
-    --color-highlight1: rgb(255, 230, 0);
+    --COLOR_1: rgb(4, 4, 8);
+    --COLOR_2: rgb(20, 20, 28);
+    --COLOR_3: rgb(50, 50, 65);
+    --COLOR_4: rgb(110, 110, 150);
+    --COLOR_5: rgb(180, 180, 210);
+    --COLOR_6: rgb(235, 235, 245);
+    --COLOR_HIGHLIGHT_1: rgb(255, 230, 0);
+
+    --ELASTIC_OUT_BEZIER: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @font-face {
@@ -31,7 +33,7 @@ html, body, main {
 }
 
 body {
-    background-color: var(--color2);
+    background-color: var(--COLOR_2);
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,12 +49,12 @@ main {
 
 .flex {
     display: flex;
-    gap: var(--gap, 1rem);
+    gap: var(--GAP, 1rem);
 }
 
 .grid {
     display: grid;
-    gap: var(--gap, 1rem);
+    gap: var(--GAP, 1rem);
 }
 
 .sr-only {
@@ -69,6 +71,20 @@ main {
 
 @media only screen and (max-width: 34.99em) and (orientation: portrait) {
     .hide-mobile {
+        display: none;
+    }
+
+    .show-mobile {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 35em) {
+    .hide-mobile {
+        display: block;
+    }
+
+    .show-mobile {
         display: none;
     }
 }
