@@ -19,7 +19,7 @@ export function PrimaryNavigation(props: IPrimaryNavigationProps): ReactElement 
                         <GamesIcon />
                         <span>Games</span>
                     </Link></li>
-                <li><Link onClick={props.onPageSelect} to={`/news`}>
+                <li><Link id='news' onClick={props.onPageSelect} to={`/news`}>
                         <NewsIcon />
                         <span>News</span>
                     </Link></li>

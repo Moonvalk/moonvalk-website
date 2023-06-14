@@ -4,13 +4,17 @@ import './IndexPage.css';
 import { PageTitle } from '../context/PageTitle';
 import { SmartSuspense } from '../loading/SmartSuspense';
 import { CanvasLoader } from '../scenes/CanvasLoader';
+// import ThreeScene from '../scenes/ThreeScene';
+// import ThreeView from '../scenes/ThreeView';
 
 export default function IndexPage(): ReactElement {
-    const LazyCarousel = lazy(() => import('../scenes/Carousel'));
+    // const LazyCarousel = lazy(() => import('../scenes/Carousel'));
+    const LazyCarousel = lazy(() => import('../scenes/ThreeView'));
 
     return (
         <div className="content">
             <PageTitle />
+            {/* <ThreeView /> */}
             <SmartSuspense fallback={<CanvasLoader />} fallbackDelay={0}>
                 <LazyCarousel />
             </SmartSuspense>

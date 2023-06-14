@@ -1,10 +1,11 @@
 
 :root {
-    --COLOR_1: rgb(4, 4, 8);
-    --COLOR_2: rgb(20, 20, 28);
-    --COLOR_3: rgb(50, 50, 65);
-    --COLOR_4: rgb(110, 110, 150);
+    --COLOR_1: rgb(5, 5, 16);
+    --COLOR_2: rgb(26, 26, 44);
+    --COLOR_3: rgb(56, 56, 84);
+    --COLOR_4: rgb(115, 115, 155);
     --COLOR_5: rgb(180, 180, 210);
+    --COLOR_5_0: rgba(180, 180, 210, 0);
     --COLOR_6: rgb(235, 235, 245);
     --COLOR_HIGHLIGHT_1: rgb(255, 230, 0);
 
@@ -39,6 +40,8 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 main {

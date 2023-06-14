@@ -10,7 +10,7 @@ export default function Layout(): ReactElement {
     return (
         <main>
             <Header />
-            <div className='content'>
+            <div className='page-container'>
                 <SmartSuspense fallback={<CanvasLoader />}>
                     <Outlet />
                 </SmartSuspense>
