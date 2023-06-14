@@ -15,6 +15,21 @@ export default function NewsPage(): ReactElement {
                     Check back in later; the gremlins only work when nobody is watching.
                 </p>
             </div>
+            {/* <div className='posts'>
+                <div className='post'>
+                    <h3>Post Title</h3>
+                    <div className='image'></div>
+                    <p>This is a post description...</p>
+                </div>
+                <div className='post'>
+                    <h3>Post Title</h3>
+                    <p>This is a post description...</p>
+                </div>
+                <div className='post'>
+                    <h3>Post Title</h3>
+                    <p>This is a post description...</p>
+                </div>
+            </div> */}
         </div>
     );
 }

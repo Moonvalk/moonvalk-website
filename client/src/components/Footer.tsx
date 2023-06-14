@@ -14,6 +14,7 @@ import { GithubIcon } from "./icons/socials/GithubIcon";
 export default function Footer(): ReactElement {
     return (
         <footer>
+            {/* <div className='logo-icon'></div> */}
             <div className='footer-links'>
                 <Link to={`/press`}>Press</Link>
                 <Link to={`/contact`}>Contact</Link>
@@ -55,7 +56,6 @@ export default function Footer(): ReactElement {
                 </div>
             </div>
             <hr className="footer-break" />
-            <div className='logo-icon'></div>
             <p className="copyright">
                 &#169;2023 Moonvalk Studios LLC. All Rights Reserved.
             </p>
