@@ -16,7 +16,9 @@ export default class ThreeView extends Component {
     public componentDidMount(): void {
         const container = this.containerReference.current;
         const canvas = this.canvasReference.current;
-        this.scene = new MVScene(canvas, container);
+        if (!this.scene) {
+            this.scene = new MVScene(canvas, container);
+        }
 
         this.registerEvents();
     }
@@ -31,22 +33,17 @@ export default class ThreeView extends Component {
 
     protected registerEvents(): void {
         window.addEventListener('mousemove', this.onMouseMove.bind(this));
-        window.addEventListener('resize', this.onWindowResize.bind(this));
+        // window.addEventListener('resize', this.onWindowResize.bind(this));
     }
 
     protected unregisterEvents(): void {
         window.removeEventListener('mousemove', this.onMouseMove.bind(this));
-        window.removeEventListener('resize', this.onWindowResize.bind(this));
+        // window.removeEventListener('resize', this.onWindowResize.bind(this));
     }
 
     protected onMouseMove(): void {
         this.scene?.onMouseMove();
-    }
-
-    protected onWindowResize(): void {
-        this.scene?.onViewportResize();
-    }
-    
+    }    
 
     public render(): ReactNode {
         return (

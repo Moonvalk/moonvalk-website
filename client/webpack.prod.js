@@ -5,9 +5,10 @@ module.exports = {
     mode: 'production',
     entry: './src/main.tsx',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, '/dist/public/'),
         filename: 'main.[hash].js',
         clean: true,
+        publicPath: './',
     },
     module: {
         rules: [
@@ -33,9 +34,12 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './index.html',
+            template: path.resolve(__dirname, 'index.html'),
             minify: true,
             favicon: "./src/assets/images/favicon.png",
+            alwaysWriteToDisk: true,
+            publicPath: './',
+            hash: true,
         })
     ]
 }
