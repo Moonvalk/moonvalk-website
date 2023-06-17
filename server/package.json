@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "compile": "tsc && node ./dist/app.js",
-    "dev": "nodemon -e ts  --exec \"npm run compile\"",
-    "postinstall": "npm run typings",
-    "typings": "typings install"
+    "watch": "webpack --watch --config webpack.config.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "Zack Harmon",
@@ -31,10 +29,12 @@
     "mongoose": "^7.2.1",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.22",
+    "nodemon-webpack-plugin": "^4.8.1",
     "ts-loader": "^9.4.3",
     "typescript": "^5.0.4",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1",
-    "webpack-dev-server": "^4.15.0"
+    "webpack-dev-server": "^4.15.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

@@ -9,6 +9,7 @@ export default class MVScene {
     public container: HTMLDivElement;
     public cube: Mesh;
     public orbitControls: OrbitControls;
+    protected _timeElapsed: number = 0;
 
     public constructor(canvas_: HTMLCanvasElement, container_: HTMLDivElement) {
         this.canvas = canvas_;
@@ -57,21 +58,17 @@ export default class MVScene {
 
     }
 
-    public onViewportResize(): void {
-        // this.canvas.width = this.canvas.clientWidth;
-        // this.canvas.height = this.canvas.clientHeight;
-        // this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight, false);
-        // this.camera.aspect = this.canvas.clientWidth / this.canvas.clientHeight;
-        // this.camera.updateProjectionMatrix();
-
-    }
-
-    public update(deltaTime: number = 0): void {
+    public update(currentTime_: number = 0): void {
         requestAnimationFrame(this.update.bind(this));
+
+        const delta = (currentTime_ - this._timeElapsed) * 0.001;
+        this._timeElapsed = currentTime_;
 
         this.orbitControls.update();
         this.renderer.render(this.scene, this.camera);
-        this.cube.rotation.x += 0.01;
-        this.cube.rotation.y += 0.01;
+
+        const speed = delta * 0.1;
+        this.cube.rotation.x += speed;
+        this.cube.rotation.y += speed;
     }
 }

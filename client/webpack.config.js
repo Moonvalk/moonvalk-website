@@ -8,15 +8,20 @@ module.exports = {
     entry: './src/main.tsx',
     devtool: 'inline-source-map',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, '/dist/public'),
         filename: 'main.[hash].js',
         clean: true,
+        publicPath: './',
     },
     devServer: {
-        static: './dist/',
+        static: './dist/public',
         port: port,
         historyApiFallback: true,
         open: true,
+        devMiddleware: {
+            index: 'index.html',
+            writeToDisk: true,
+        },
     },
     module: {
         rules: [
@@ -39,12 +44,18 @@ module.exports = {
     resolve: {
         extensions: ['', '.tsx', '.ts', '.js', '.css'],
     },
+    optimization: {
+        moduleIds: 'named',
+    },
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './index.html',
+            template: path.resolve(__dirname, 'index.html'),
             minify: true,
             favicon: "./src/assets/images/favicon.png",
+            alwaysWriteToDisk: true,
+            publicPath: './',
+            hash: true,
         })
     ]
 }
