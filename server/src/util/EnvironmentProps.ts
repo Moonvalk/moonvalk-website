@@ -8,9 +8,11 @@ export interface IEnvironmentProps {
     readonly dbUser: string,
     readonly dbPassword: string,
     readonly dbConfig: string,
-    readonly serverPort: number,
-    readonly localPort: number,
+    readonly port: number,
+    readonly host: string,
 }
+
+const DEFAULT_PORT = 3000;
 
 /**
  * Class used to access environment variables parsed on load.
@@ -52,8 +54,13 @@ export class EnvironmentProps {
         return EnvironmentProps.instance._envConfig;
     }
 
+    /**
+     * Gets the full URI used by Mongoose to connect to a MongoDB database.
+     * @return {string} The full URI as a string.
+     */
     public static get mongooseURI(): string {
-        return 'mongodb+srv://' + this.config.dbUser + ':' + this.config.dbPassword + '@' + this.config.dbHost + '/' + this.config.dbConfig;
+        return 'mongodb+srv://' + this.config.dbUser + ':' + this.config.dbPassword +
+            '@' + this.config.dbHost + '/' + this.config.dbConfig;
     }
 
     /**
@@ -62,13 +69,14 @@ export class EnvironmentProps {
      */
     protected getEnvProps(): void {
         dotenv.config();
+        const port = process.env.PORT ? parseInt(process.env.PORT) : DEFAULT_PORT;
         this._envConfig = {
             dbHost: process.env.DB_HOST,
             dbUser: process.env.DB_USER,
             dbPassword: process.env.DB_PASSWORD,
             dbConfig: process.env.DB_CONFIG,
-            serverPort: parseInt(process.env.SERVER_PORT),
-            localPort: parseInt(process.env.CLIENT_PORT),
+            port: port,
+            host: process.env.HOST,
         };
     }
 }

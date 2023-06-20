@@ -200,12 +200,3 @@ footer p {
     margin-top: 1rem;
     margin-bottom: 2rem;
 }
-
-.logo-icon {
-    width: 5rem;
-    height: 5rem;
-    margin: 0.5rem auto;
-    background-image: url('../assets/images/logo_icon.webp');
-    background-size: contain;
-    background-position: center;
-}

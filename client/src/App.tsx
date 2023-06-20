@@ -1,10 +1,9 @@
 import { ReactElement, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { UserContextProvider } from './components/context/UserContextProvider';
-import Layout from './components/Layout';
-import { CanvasLoader } from './components/scenes/CanvasLoader';
-import { SmartSuspense } from './components/loading/SmartSuspense';
+import Layout from './components/layout/Layout';
 
+// Set up lazy imports for all react routes.
 const Home = lazy(() => import('./components/pages/IndexPage'));
 const Games = lazy(() => import('./components/pages/GamesPage'));
 const News = lazy(() => import('./components/pages/NewsPage'));
@@ -15,6 +14,10 @@ const Press = lazy(() => import('./components/pages/PressPage'));
 const Contact = lazy(() => import('./components/pages/ContactPage'));
 const Changelog = lazy(() => import('./components/pages/ChangelogPage'));
 
+/**
+ * Main app functional component using client side rendering routes.
+ * @return {ReactElement} Returns the main routed element to be displayed in the virtual DOM.
+ */
 export default function App(): ReactElement {
     return (
         <UserContextProvider>

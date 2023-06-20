@@ -1,6 +1,5 @@
 import {ReactElement, useEffect, useState} from 'react';
 import './ContactPage.css';
-import '../Layout.css';
 import { PageTitle } from '../context/PageTitle';
 
 export default function ContactPage(): ReactElement {
@@ -14,7 +13,6 @@ export default function ContactPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Contact" />
-            <div className="header-margin"></div>
             <div className="page">
                 <h1>Contact</h1>
                 <hr />

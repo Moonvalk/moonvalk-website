@@ -1,6 +1,4 @@
 import {ReactElement, lazy} from 'react';
-import '../Layout.css';
-import './IndexPage.css';
 import { PageTitle } from '../context/PageTitle';
 import { SmartSuspense } from '../loading/SmartSuspense';
 import { CanvasLoader } from '../scenes/CanvasLoader';
