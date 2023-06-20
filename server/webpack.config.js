@@ -1,5 +1,5 @@
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+// const nodeExternals = require('webpack-node-externals');
 
 const port = process.env.PORT || 3000;
 
@@ -8,7 +8,6 @@ module.exports = {
     entry: path.resolve(__dirname, './src/app.ts'),
     devtool: 'inline-source-map',
     target: 'node',
-    externals: [nodeExternals()],
     output: {
         path: path.join(__dirname, '../client/dist/api/'),
         filename: 'server.js',

@@ -1,13 +1,38 @@
-import {ReactElement, useEffect} from 'react';
+import {ReactElement, useEffect, useState} from 'react';
 import './ChangelogPage.css';
-import '../Layout.css';
 import { PageTitle } from '../context/PageTitle';
+import { ChangelogForm } from '../admin/ChangelogForm';
+
+export interface IChangelog {
+    _id: string,
+    version: string,
+    date: string,
+    summary: string,
+    createdAt: number | Date,
+}
 
 export default function ChangelogPage(): ReactElement {
+    const [logs, setLogs] = useState<IChangelog[]>([]);
+    const [admin, setAdmin] = useState(true);
+    
+    useEffect(() => {
+        getLogs().catch((error_) => console.log(error_));
+    }, []);
+
+    async function getLogs(): Promise<void> {
+        const uri = 'http://localhost:3000/api/changelogs';
+        const response = await fetch(uri);
+        if (response) {
+            const data = await response.json();
+            if (data) {
+                setLogs(data);
+            }
+        }
+    }
+
     return (
         <div className="content">
             <PageTitle title="Changelog" />
-            <div className="header-margin"></div>
             <div className="page">
                 <h1>Changelog</h1>
                 <hr />
@@ -27,25 +52,24 @@ export default function ChangelogPage(): ReactElement {
                                 <th>Date</th>
                                 <th>Changes</th>
                             </tr>
-                            <tr>
-                                <td>0.0.3</td>
-                                <td>6/9/2023</td>
-                                <td>Added homepage carousel.</td>
-                            </tr>
-                            <tr>
-                                <td>0.0.2</td>
-                                <td>6/9/2023</td>
-                                <td>Added social links, built out remaining pages.</td>
-                            </tr>
-                            <tr>
-                                <td>0.0.1</td>
-                                <td>6/9/2023</td>
-                                <td>Initial build.</td>
-                            </tr>
+                            {logs.length > 0 && logs.map((log: IChangelog) => {
+                                return (
+                                <tr key={log._id}>
+                                    <td>{log.version}</td>
+                                    <td>{log.date}</td>
+                                    <td>{log.summary}</td>
+                                </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                 </div>
             </div>
+            {admin && (
+                <div className="page">
+                    <ChangelogForm />
+                </div>
+            )}
         </div>
     );
 }

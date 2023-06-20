@@ -1,15 +1,15 @@
 import { ReactElement } from "react";
 import './Footer.css';
 import { Link } from "react-router-dom";
-import { FacebookIcon } from "./icons/socials/FacebookIcon";
-import { YouTubeIcon } from "./icons/socials/YouTubeIcon";
-import { TwitterIcon } from "./icons/socials/TwitterIcon";
-import { InstagramIcon } from "./icons/socials/InstagramIcon";
-import { AppleIcon } from "./icons/socials/AppleIcon";
-import { GooglePlayIcon } from "./icons/socials/GooglePlayIcon";
-import { SteamIcon } from "./icons/socials/SteamIcon";
-import { BandcampIcon } from "./icons/socials/BandcampIcon";
-import { GithubIcon } from "./icons/socials/GithubIcon";
+import { FacebookIcon } from "../icons/socials/FacebookIcon";
+import { YouTubeIcon } from "../icons/socials/YouTubeIcon";
+import { TwitterIcon } from "../icons/socials/TwitterIcon";
+import { InstagramIcon } from "../icons/socials/InstagramIcon";
+import { AppleIcon } from "../icons/socials/AppleIcon";
+import { GooglePlayIcon } from "../icons/socials/GooglePlayIcon";
+import { SteamIcon } from "../icons/socials/SteamIcon";
+import { BandcampIcon } from "../icons/socials/BandcampIcon";
+import { GithubIcon } from "../icons/socials/GithubIcon";
 
 export default function Footer(): ReactElement {
     return (

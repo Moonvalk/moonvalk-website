@@ -1,16 +1,14 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import './Header.css';
 import { Link } from "react-router-dom";
-import { MenuToggle } from "./icons/MenuToggle";
-import { GamesIcon } from "./icons/GamesIcon";
-import { NewsIcon } from "./icons/NewsIcon";
-import { ComicsIcon } from "./icons/ComicsIcon";
-import { AboutIcon } from "./icons/AboutIcon";
-import { DashboardIcon } from "./icons/DashboardIcon";
-import { LogoutIcon } from "./icons/LogoutIcon";
+import { MenuToggle } from "../icons/MenuToggle";
+import { DashboardIcon } from "../icons/DashboardIcon";
+import { LogoutIcon } from "../icons/LogoutIcon";
 import { PrimaryNavigation } from "./PrimaryNavigation";
+import { NewPostIcon } from "../icons/NewPostIcon";
 
 export default function Header(): ReactElement {
+    const [admin, setAdmin] = useState(true);
 
     function toggleNavigation(forceState?: boolean): void {
         const mobileNavigation = document.querySelector('.mobile-navigation');
@@ -40,15 +38,20 @@ export default function Header(): ReactElement {
                     <div className="logo"></div>
                 </Link>
                 <PrimaryNavigation isMobile={false} onPageSelect={() => toggleNavigation(false)} />
-                {/* <div className='hide-mobile'>
-                    <PrimaryNavigation onPageSelect={() => toggleNavigation(false)} />
-                </div> */}
-                {/* <div className='user-navigation'>
-                    <Link to='/'><DashboardIcon /></Link>
-                    <Link to='/'><LogoutIcon /></Link>
-                </div> */}
             </header>
             <div className="header-rgb"></div>
+            {admin && (
+                <div className='user-navigation'>
+                    <div className='user-links'>
+
+                            <Link to='/'><DashboardIcon />Dashboard</Link>
+                            <Link to='/'><NewPostIcon />New Post</Link>
+
+                        <div className="socials-break"></div>
+                        <Link to='/'><LogoutIcon />Logout</Link>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

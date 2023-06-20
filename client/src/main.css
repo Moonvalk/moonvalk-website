@@ -1,6 +1,7 @@
 
 :root {
     --COLOR_1: rgb(5, 5, 16);
+    --COLOR_1_075: rgba(5, 5, 16, 0.75);
     --COLOR_2: rgb(26, 26, 44);
     --COLOR_3: rgb(56, 56, 84);
     --COLOR_4: rgb(115, 115, 155);

@@ -1,56 +1,59 @@
-// import express, { Request, Response } from "express";
-// import path from 'path';
-// import cors from 'cors';
-// import { EnvironmentProps } from './util/EnvironmentProps';
-// import cookieParser from 'cookie-parser';
-// import { getDirName } from './util/FileDirName';
-// import mongoose from 'mongoose';
-
-// // Load environment variables.
-// // const env = EnvironmentProps.config;
-// // const app = express();
-
-// // const localhost = 'http://localhost:';
-// // app.use(cors({
-// //     credentials: true,
-// //     origin: localhost + env.localPort,
-// // }));
-// // app.use(express.json());
-// // app.use(cookieParser());
-// // app.use('./uploads', express.static(getDirName() + '/uploads'));
-
-// // app.get('*', (request: Request, response: Response) => {
-// //     console.log('sending index.html');
-// //     response.sendFile(path.resolve('client', 'build', '../../../client/dist/index.html'));
-// // });
-
-// // // Connect to the database.
-// // // try {
-// // //     console.log('Connecting to database at: ' + EnvironmentProps.mongooseURI);
-// // //     const response = await mongoose.connect(EnvironmentProps.mongooseURI);
-// // // } catch (error) {
-// // //     console.log(error);
-// // // }
-
-// // // Listen for requests.
-// // app.listen(env.serverPort, () => {
-// //     console.log(`Listening on port ${env.serverPort}`);
-// // });
 import express, { Request, Response } from 'express';
 import path from 'path';
+import cors from 'cors';
+import { EnvironmentProps } from './util/EnvironmentProps';
+import cookieParser from 'cookie-parser';
+import mongoose from 'mongoose';
+import Changelog from './models/Changelog';
 
-const port = 3000;
+// Load environment variables.
+const env = EnvironmentProps.config;
 const app = express();
 
+// Set up Express middleware.
+app.use(cors({
+    credentials: true,
+    origin: env.host + env.port,
+}));
+app.use(express.json());
+app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, '../public/')));
-app.use(express.static(path.resolve(__dirname, '../uploads/')));
+app.use('./uploads', express.static(path.resolve(__dirname, '../uploads/')));
 
+// Get changelogs.
+app.get('/api/changelogs', async (request: Request, response: Response): Promise<void> => {
+    const logs = await Changelog.find()
+        .sort({createdAt: -1});
+    response.json(logs);
+});
+
+app.post('/api/changelog', async (request: Request, response: Response): Promise<void> => {
+    console.log(request.body);
+    const newLog = new Changelog({
+        version: request.body.version,
+        date: request.body.date,
+        summary: request.body.summary,
+    });
+    const createdLog = await newLog.save();
+    response.json(createdLog);
+});
+
+// Wildcard for fetching React pages. Send back the index.html as a template.
 app.get('/*', (request: Request, response: Response) => {
     response.sendFile(path.resolve(__dirname, '../public/index.html'));
     console.log('Sending new page update');
 });
 
-app.listen(port, () => {
-    console.log('Server started on port: ' + port);
-    console.log(path.resolve(__dirname, '../uploads/'));
+
+// Connect to the database.
+try {
+    console.log('Connecting to database at: ' + EnvironmentProps.mongooseURI);
+    const response = await mongoose.connect(EnvironmentProps.mongooseURI);
+} catch (error_) {
+    console.log(error_);
+}
+
+// Listen for requests.
+app.listen(env.port, () => {
+    console.log('Server started on port: ' + env.port);
 });

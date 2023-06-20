@@ -1,5 +1,4 @@
 import {ReactElement, useEffect, useState} from 'react';
-import '../Layout.css';
 import './LoginPage.css';
 import { PageTitle } from '../context/PageTitle';
 
@@ -8,9 +7,8 @@ export default function LoginPage(): ReactElement {
     const [password, setPassword] = useState('');
 
     return (
-        <>
+        <div className='content'>
             <PageTitle title="Login" />
-            <div className="header-margin"></div>
             <div className="page">
                 <form className='login'>
                     <div className='flex'>
@@ -34,6 +32,6 @@ export default function LoginPage(): ReactElement {
                     <button>Login</button>
                 </form>
             </div>
-        </>
+        </div>
     );
 }
