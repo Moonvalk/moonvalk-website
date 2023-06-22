@@ -1,8 +1,8 @@
 import {ReactElement, useEffect, useState} from 'react';
-import './ContactPage.css';
-import { PageTitle } from '../context/PageTitle';
+import '../../tools/Form.css';
+import { PageTitle } from '../../layout/PageTitle';
 
-export default function ContactPage(): ReactElement {
+export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -13,23 +13,23 @@ export default function ContactPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Contact" />
-            <div className="page">
+            <div className="page-small">
                 <h1>Contact</h1>
                 <hr />
-                <p className="center">
+                <div className='prompt'>
                     Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.
-                </p>
+                </div>
                 <form className="contact">
                     <label htmlFor='first-name'>Name*</label>
                     <div className="flex">
-                        <input className='first-name'
+                        <input className='flex'
                             id='first-name'
                             type='text'
                             placeholder='First'
                             value={firstName}
                             onChange={(event) => setFirstName(event.target.value)}
                             autoComplete='on' />
-                        <input className='last-name'
+                        <input className='flex'
                             id='last-name'
                             type='text'
                             placeholder='Last'

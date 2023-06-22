@@ -3,10 +3,14 @@ import path from 'path';
 import cors from 'cors';
 import { EnvironmentProps } from './util/EnvironmentProps';
 import cookieParser from 'cookie-parser';
-import mongoose from 'mongoose';
-import Changelog from './models/Changelog';
+import { connectToDatabase } from './util/Database';
+import { createUserController } from './controllers/user/createUserController';
+import { loginUserController } from './controllers/user/loginUserController';
+import { getChangelogsController } from './controllers/getChangelogsController';
+import { createChangelogController } from './controllers/createChangelogController';
+import { getPageController } from './controllers/getPageController';
 
-// Load environment variables.
+// Load environment variables & initialize Express for communications with the server.
 const env = EnvironmentProps.config;
 const app = express();
 
@@ -20,40 +24,17 @@ app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, '../public/')));
 app.use('./uploads', express.static(path.resolve(__dirname, '../uploads/')));
 
-// Get changelogs.
-app.get('/api/changelogs', async (request: Request, response: Response): Promise<void> => {
-    const logs = await Changelog.find()
-        .sort({createdAt: -1});
-    response.json(logs);
-});
+// Attempt connection to the database.
+connectToDatabase();
 
-app.post('/api/changelog', async (request: Request, response: Response): Promise<void> => {
-    console.log(request.body);
-    const newLog = new Changelog({
-        version: request.body.version,
-        date: request.body.date,
-        summary: request.body.summary,
-    });
-    const createdLog = await newLog.save();
-    response.json(createdLog);
-});
-
-// Wildcard for fetching React pages. Send back the index.html as a template.
-app.get('/*', (request: Request, response: Response) => {
-    response.sendFile(path.resolve(__dirname, '../public/index.html'));
-    console.log('Sending new page update');
-});
-
-
-// Connect to the database.
-try {
-    console.log('Connecting to database at: ' + EnvironmentProps.mongooseURI);
-    const response = await mongoose.connect(EnvironmentProps.mongooseURI);
-} catch (error_) {
-    console.log(error_);
-}
+// Declare all endpoint controllers.
+app.post('/register', createUserController);
+app.post('/login', loginUserController);
+app.get('/api/changelogs', getChangelogsController);
+app.post('/api/changelog', createChangelogController);
+app.get('/*', getPageController);
 
 // Listen for requests.
-app.listen(env.port, () => {
+app.listen(env.port, async () => {
     console.log('Server started on port: ' + env.port);
 });

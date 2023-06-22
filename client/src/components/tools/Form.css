@@ -1,77 +1,15 @@
 
-.changelog {
-    display: flex;
+form {
+    width: 100%;
     margin: 0 auto;
-    padding: 1rem;
-    width: 90%;
-    border-radius: 1rem;
-    background-color: var(--COLOR_2);
     margin-top: 1rem;
-}
-
-.changelog table {
-    display: table;
-    margin: 0 auto;
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 0;
-    font-size: 0.8rem;
-}
-
-.changelog tr {
-    min-height: 2rem;
-    text-align: left;
-    margin: 0;
-    background-image: linear-gradient(90deg, rgba(50, 50, 60, 0), var(--COLOR_4), rgba(50, 50, 60, 0));
-    background-position: 200% 0%;
-    background-size: 200% 100%;
-    background-repeat: no-repeat;
-    transition: background-color 0.2s ease;
-}
-
-@keyframes shine {
-    0% {
-        background-position: 200% 0%;
-    }
-    100% {
-        background-position: -100% 0%;
-    }
-}
-
-.changelog tr:first-child {
-    text-transform: uppercase;
-}
-
-.changelog tr:hover:not(:first-child) {
-    animation: shine 3.0s ease infinite;
-    animation-delay: 0.5s;
-    background-color: var(--COLOR_3);
-    cursor: pointer;
-}
-
-.changelog th, .changelog td {
-    padding: 0.25rem;
-    text-align: left;
-    margin: 0;
-    
-}
-
-.changelog td {
-    border: 0.05rem solid var(--COLOR_4);
-    margin: 0;
-    word-wrap: break-word;
-}
-
-.add-changelog {
-    width: 100%;
-    margin: 0 auto;
     padding: 1rem;
+    padding-top: 0;
     display: block;
     box-sizing: border-box;
 }
 
-.add-changelog input, .add-changelog textarea {
+form input, form textarea {
     width: 100%;
     padding: 0.5rem;
     border: 0.1rem solid var(--COLOR_3);
@@ -83,7 +21,7 @@
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
-.add-changelog textarea {
+form textarea {
     height: 10rem;
 }
 
@@ -96,9 +34,9 @@
     }
 }
 
-.add-changelog button {
+form button {
+    width: min(90%, 30rem);
     min-width: 10rem;
-    width: 30%;
     border: 0.1rem solid var(--COLOR_4);
     border-radius: 0.5rem;
     background-color: var(--COLOR_2);
@@ -106,6 +44,7 @@
     padding: 1rem;
     text-transform: uppercase;
     margin: 0 auto;
+    margin-top: 1rem;
     display: block;
     transform: scale(1);
     background-image: repeating-linear-gradient(45deg, var(--COLOR_2) 0%, var(--COLOR_2) 9.9%, rgba(4, 4, 8, 0) 10%, rgba(4, 4, 8, 0) 19.9%);
@@ -116,7 +55,7 @@
     
 }
 
-.add-changelog button:hover {
+form button:hover {
     /* animation: bounce 0.3s ease-in-out; */
     transform: scale(1.1);
     border: 0.1rem solid var(--COLOR_4);
@@ -125,22 +64,14 @@
     cursor: pointer;
 }
 
-.add-changelog input:focus, .add-changelog textarea:focus {
+form input:focus, form textarea:focus {
     outline: none !important;
     border: 0.1rem solid var(--COLOR_HIGHLIGHT_1);
     background-color: var(--COLOR_1);
     box-shadow: 0 0 1rem rgb(0, 0, 0);
 }
 
-.first-name {
-    display: flex;
-}
-
-.last-name {
-    display: flex;
-}
-
-.add-changelog label {
+form label {
     width: 100%;
     display: block;
     clear: both;

@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import './CanvasLoader.css';
+import './UniversalLoader.css';
 
-export function CanvasLoader(): ReactElement {
+export function UniversalLoader(): ReactElement {
     return (
         <div className="loader">
             <div className="loader-spinner"></div>

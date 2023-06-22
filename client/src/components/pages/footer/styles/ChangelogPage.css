@@ -1,5 +1,69 @@
 
-.login {
+.changelog {
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: var(--COLOR_2);
+    margin-top: 1rem;
+}
+
+.changelog table {
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 0.8rem;
+}
+
+.changelog tr {
+    min-height: 2rem;
+    text-align: left;
+    margin: 0;
+    background-image: linear-gradient(90deg, rgba(50, 50, 60, 0), var(--COLOR_4), rgba(50, 50, 60, 0));
+    background-position: 200% 0%;
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    transition: background-color 0.2s ease;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 200% 0%;
+    }
+    100% {
+        background-position: -100% 0%;
+    }
+}
+
+.changelog tr:first-child {
+    text-transform: uppercase;
+}
+
+.changelog tr:hover:not(:first-child) {
+    animation: shine 3.0s ease infinite;
+    animation-delay: 0.5s;
+    background-color: var(--COLOR_3);
+    cursor: pointer;
+}
+
+.changelog th, .changelog td {
+    padding: 0.25rem;
+    text-align: left;
+    margin: 0;
+    
+}
+
+.changelog td {
+    border: 0.05rem solid var(--COLOR_4);
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.add-changelog {
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
@@ -7,7 +71,7 @@
     box-sizing: border-box;
 }
 
-.login input, .login textarea {
+.add-changelog input, .add-changelog textarea {
     width: 100%;
     padding: 0.5rem;
     border: 0.1rem solid var(--COLOR_3);
@@ -19,7 +83,7 @@
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
-.login textarea {
+.add-changelog textarea {
     height: 10rem;
 }
 
@@ -32,7 +96,7 @@
     }
 }
 
-.login button {
+.add-changelog button {
     min-width: 10rem;
     width: 30%;
     border: 0.1rem solid var(--COLOR_4);
@@ -52,7 +116,7 @@
     
 }
 
-.login button:hover {
+.add-changelog button:hover {
     /* animation: bounce 0.3s ease-in-out; */
     transform: scale(1.1);
     border: 0.1rem solid var(--COLOR_4);
@@ -61,10 +125,10 @@
     cursor: pointer;
 }
 
-.login input:focus, .contact textarea:focus {
+.add-changelog input:focus, .add-changelog textarea:focus {
     outline: none !important;
     border: 0.1rem solid var(--COLOR_HIGHLIGHT_1);
-    background-color: var(COLOR_1);
+    background-color: var(--COLOR_1);
     box-shadow: 0 0 1rem rgb(0, 0, 0);
 }
 
@@ -76,7 +140,7 @@
     display: flex;
 }
 
-.login label {
+.add-changelog label {
     width: 100%;
     display: block;
     clear: both;

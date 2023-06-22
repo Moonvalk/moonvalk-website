@@ -6,8 +6,9 @@ import { DashboardIcon } from "../icons/DashboardIcon";
 import { LogoutIcon } from "../icons/LogoutIcon";
 import { PrimaryNavigation } from "./PrimaryNavigation";
 import { NewPostIcon } from "../icons/NewPostIcon";
+import { SettingsIcon } from "../icons/SettingsIcon";
 
-export default function Header(): ReactElement {
+export function Header(): ReactElement {
     const [admin, setAdmin] = useState(true);
 
     function toggleNavigation(forceState?: boolean): void {
@@ -44,11 +45,11 @@ export default function Header(): ReactElement {
                 <div className='user-navigation'>
                     <div className='user-links'>
 
-                            <Link to='/'><DashboardIcon />Dashboard</Link>
-                            <Link to='/'><NewPostIcon />New Post</Link>
-
-                        <div className="socials-break"></div>
-                        <Link to='/'><LogoutIcon />Logout</Link>
+                            <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
+                            <Link to='/create'><NewPostIcon />New Post</Link>
+                            <Link to='/settings'><SettingsIcon />Settings</Link>
+                            <div className="vertical-break" />
+                            <Link to='/'><LogoutIcon />Logout</Link>
                     </div>
                 </div>
             )}

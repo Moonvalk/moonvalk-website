@@ -1,15 +1,12 @@
 import { ReactElement, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import './Layout.css';
-import Header from "./Header";
-import Footer from "./Footer";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 import { SmartSuspense } from "../loading/SmartSuspense";
-import { CanvasLoader } from "../scenes/CanvasLoader";
-import { DashboardIcon } from "../icons/DashboardIcon";
-import { LogoutIcon } from "../icons/LogoutIcon";
-import { NewPostIcon } from "../icons/NewPostIcon";
+import { UniversalLoader } from "../loading/UniversalLoader";
 
-export default function Layout(): ReactElement {
+export function Layout(): ReactElement {
     const [admin, setAdmin] = useState(true);
 
     return (
@@ -19,7 +16,7 @@ export default function Layout(): ReactElement {
                 {admin && (
                     <div className='header-margin' />
                 )}
-                <SmartSuspense fallback={<CanvasLoader />}>
+                <SmartSuspense fallback={<UniversalLoader />}>
                     <Outlet />
                 </SmartSuspense>
             </div>
