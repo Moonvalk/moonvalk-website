@@ -1,24 +1,7 @@
 import { ReactElement, useEffect, useLayoutEffect, useState } from "react";
 import { getCurrentFormattedDate } from "../../utils/time";
-import { IChangelog } from "../pages/ChangelogPage";
-
-const API_URL = 'http://localhost:3000';
-
-export async function createChangelog(version_: string, summary_: string, date_: string = ''): Promise<IChangelog> {
-    let logDate = (date_ !== '') ? date_ : getCurrentFormattedDate();
-    const response = await fetch(`${API_URL}/api/changelog`, {
-        method: 'POST',
-        body: JSON.stringify({
-            version: version_,
-            summary: summary_,
-            date: logDate,
-        }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
-    return await response.json();
-}
+import { IChangelog } from "../pages/footer/ChangelogPage";
+import { createChangelog } from "../../api/apiChangelogs";
 
 export function ChangelogForm(): ReactElement {
     const [version, setVersion] = useState('');
@@ -30,7 +13,7 @@ export function ChangelogForm(): ReactElement {
         getCurrentDate();
     }, []);
 
-    async function handleCreateLog(event: React.FormEvent): Promise<void> {
+    async function handleCreateNewLog(event: React.FormEvent): Promise<void> {
         event.preventDefault();
         const log = await createChangelog(version, summary, date);
     }
@@ -41,7 +24,7 @@ export function ChangelogForm(): ReactElement {
     
     return (
         <form className='add-changelog'
-            onSubmit={handleCreateLog}>
+            onSubmit={handleCreateNewLog}>
             <div className='flex'>
                 <label htmlFor='log-version'>Version*</label>
                 <label htmlFor='log-date'>Date</label>

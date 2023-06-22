@@ -1,7 +1,7 @@
 import {ReactElement, useEffect, useState} from 'react';
-import './ChangelogPage.css';
-import { PageTitle } from '../context/PageTitle';
-import { ChangelogForm } from '../admin/ChangelogForm';
+import './styles/ChangelogPage.css';
+import { PageTitle } from '../../layout/PageTitle';
+import { ChangelogForm } from '../../tools/ChangelogForm';
 
 export interface IChangelog {
     _id: string,
@@ -11,7 +11,7 @@ export interface IChangelog {
     createdAt: number | Date,
 }
 
-export default function ChangelogPage(): ReactElement {
+export function ChangelogPage(): ReactElement {
     const [logs, setLogs] = useState<IChangelog[]>([]);
     const [admin, setAdmin] = useState(true);
     
@@ -42,8 +42,8 @@ export default function ChangelogPage(): ReactElement {
                 <div className="changelog">
                     <table>
                         <colgroup>
-                            <col span={1} style={{width: '25%'}} />
-                            <col span={1} style={{width: '25%'}} />
+                            <col span={1} style={{width: '20%'}} />
+                            <col span={1} style={{width: '30%'}} />
                             <col span={1} style={{width: '50%'}} />
                         </colgroup>
                         <tbody>

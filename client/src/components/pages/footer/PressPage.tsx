@@ -1,7 +1,7 @@
 import {ReactElement, useEffect} from 'react';
-import { PageTitle } from '../context/PageTitle';
+import { PageTitle } from '../../layout/PageTitle';
 
-export default function PressPage(): ReactElement {
+export function PressPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Press" />

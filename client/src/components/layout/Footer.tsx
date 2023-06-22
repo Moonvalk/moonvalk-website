@@ -11,7 +11,7 @@ import { SteamIcon } from "../icons/socials/SteamIcon";
 import { BandcampIcon } from "../icons/socials/BandcampIcon";
 import { GithubIcon } from "../icons/socials/GithubIcon";
 
-export default function Footer(): ReactElement {
+export function Footer(): ReactElement {
     return (
         <footer>
             {/* <div className='logo-icon'></div> */}
@@ -34,7 +34,7 @@ export default function Footer(): ReactElement {
                     <Link className="instagram" target="_blank" to="https://www.instagram.com/moonvalk/">
                         <InstagramIcon />
                     </Link>
-                    <div className="socials-break hide-mobile"></div>
+                    <div className="vertical-break hide-mobile" />
                 </div>
                 <div className='social-links-group'>
                     <Link className='apple' target='_blank' to='/'>
@@ -46,7 +46,7 @@ export default function Footer(): ReactElement {
                     <Link className='steam' target="_blank" to='/'>
                         <SteamIcon />
                     </Link>
-                    <div className="socials-break"></div>
+                    <div className="vertical-break" />
                     <Link className="bandcamp" target="_blank" to="https://moonvalk.bandcamp.com/">
                         <BandcampIcon />
                     </Link>

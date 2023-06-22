@@ -1,8 +1,8 @@
 import {ReactElement, useEffect} from 'react';
-import './GamesPage.css';
-import { PageTitle } from '../context/PageTitle';
+import './styles/GamesPage.css';
+import { PageTitle } from '../../layout/PageTitle';
 
-export default function GamesPage(): ReactElement {
+export function GamesPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Games" />

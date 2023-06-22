@@ -221,6 +221,7 @@
     width: 100%;
     height: 2.5rem;
     padding: 0.5rem;
+    padding-inline: 0;
     display: flex;
     position: fixed;
     top: 4.2rem;
@@ -233,17 +234,19 @@
 }
 
 .user-links {
-    width: min(90vw, 50rem);
+    width: min(95vw, 50rem);
     display: flex;
     margin: 0 auto;
+    padding: 0;
     align-items: center;
     justify-content: center;
 }
 
 .user-navigation a {
+    width: 6rem;
+    max-width: 25%;
     display: flex;
-    margin: 0.1rem;
-    margin-inline: 0.75rem;
+    margin: 0.25rem;
     text-transform: uppercase;
     font-size: 0.7rem;
     color: var(--COLOR_5);
@@ -251,6 +254,8 @@
     text-decoration: none;
     transition: color 0.2s ease-in-out;
     align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 .user-navigation svg {
@@ -287,7 +292,7 @@
         --gap: 2rem;
         max-width: 100dvw;
         height: 110vh;
-        top: -5vh;
+        top: -1rem;
         flex-direction: column;
         padding: min(30vh, 12rem) 3rem 2rem;
         background-image: url('../../assets/images/panel.webp');

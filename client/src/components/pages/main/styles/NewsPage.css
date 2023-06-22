@@ -27,7 +27,7 @@
 .post .image {
     width: 100%;
     min-height: 10rem;
-    background-image: url('../../assets/images/background.webp');
+    background-image: url('../../../../assets/images/background.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,8 +1,8 @@
 import {ReactElement, useEffect} from 'react';
-import './NewsPage.css';
-import { PageTitle } from '../context/PageTitle';
+import './styles/NewsPage.css';
+import { PageTitle } from '../../layout/PageTitle';
 
-export default function NewsPage(): ReactElement {
+export function NewsPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="News" />

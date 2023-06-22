@@ -181,14 +181,6 @@ footer {
     filter: drop-shadow(0 0 0.5rem #0856ff);
 }
 
-.socials-break {
-    display: inline-flex;
-    width: 0;
-    height: 1rem;
-    border: 0.05rem solid rgba(235, 235, 235, 0.3);
-    margin: 0.75rem;
-}
-
 footer p {
     margin: 1rem auto;
     margin-top: 0;
