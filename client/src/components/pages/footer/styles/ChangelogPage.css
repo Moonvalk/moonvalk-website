@@ -5,7 +5,9 @@
     padding: 1rem;
     width: 100%;
     border-radius: 1rem;
-    background-color: var(--COLOR_2);
+    background-image: linear-gradient(90deg, var(--COLOR_2), var(--COLOR_7));
+    background-size: 100% 100%;
+    /* background-color: var(--COLOR_2); */
     margin-top: 1rem;
 }
 
@@ -61,88 +63,4 @@
     border: 0.05rem solid var(--COLOR_4);
     margin: 0;
     word-wrap: break-word;
-}
-
-.add-changelog {
-    width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
-    display: block;
-    box-sizing: border-box;
-}
-
-.add-changelog input, .add-changelog textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 0.1rem solid var(--COLOR_3);
-    border-radius: 0.25rem;
-    background-color: var(--COLOR_2);
-    color: var(--COLOR_6);
-    resize: vertical;
-    margin: 1rem auto;
-    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
-}
-
-.add-changelog textarea {
-    height: 10rem;
-}
-
-@keyframes sliding {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 87% 0%;
-    }
-}
-
-.add-changelog button {
-    min-width: 10rem;
-    width: 30%;
-    border: 0.1rem solid var(--COLOR_4);
-    border-radius: 0.5rem;
-    background-color: var(--COLOR_2);
-    color: var(--COLOR_6);
-    padding: 1rem;
-    text-transform: uppercase;
-    margin: 0 auto;
-    display: block;
-    transform: scale(1);
-    background-image: repeating-linear-gradient(45deg, var(--COLOR_2) 0%, var(--COLOR_2) 9.9%, rgba(4, 4, 8, 0) 10%, rgba(4, 4, 8, 0) 19.9%);
-    background-position: 0% 0%;
-    background-size: 200% 100%;
-    animation: sliding 4.0s infinite linear;
-    transition: transform 0.2s, background-color 0.4s;
-    
-}
-
-.add-changelog button:hover {
-    /* animation: bounce 0.3s ease-in-out; */
-    transform: scale(1.1);
-    border: 0.1rem solid var(--COLOR_4);
-    box-shadow: 0 0 1rem rgb(0, 0, 0);
-    background-color: var(--COLOR_1);
-    cursor: pointer;
-}
-
-.add-changelog input:focus, .add-changelog textarea:focus {
-    outline: none !important;
-    border: 0.1rem solid var(--COLOR_HIGHLIGHT_1);
-    background-color: var(--COLOR_1);
-    box-shadow: 0 0 1rem rgb(0, 0, 0);
-}
-
-.first-name {
-    display: flex;
-}
-
-.last-name {
-    display: flex;
-}
-
-.add-changelog label {
-    width: 100%;
-    display: block;
-    clear: both;
-    text-transform: uppercase;
 }

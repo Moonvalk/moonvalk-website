@@ -1,6 +1,7 @@
 import {ReactElement, useEffect, useState} from 'react';
-import '../../tools/Form.css';
+import '../../tools/styles/Form.css';
 import { PageTitle } from '../../layout/PageTitle';
+import { InfoIcon } from '../../icons/InfoIcon';
 
 export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
@@ -17,7 +18,8 @@ export function ContactPage(): ReactElement {
                 <h1>Contact</h1>
                 <hr />
                 <div className='prompt'>
-                    Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.
+                    <InfoIcon />
+                    <p>Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.</p>
                 </div>
                 <form className="contact">
                     <label htmlFor='first-name'>Name*</label>
@@ -67,7 +69,7 @@ export function ContactPage(): ReactElement {
                         placeholder=''
                         value={message}
                         onChange={(event) => setMessage(event.target.value)} />
-                    <button>Submit Message</button>
+                    <button className='submit-button'>Submit Message</button>
                 </form>
             </div>
         </div>

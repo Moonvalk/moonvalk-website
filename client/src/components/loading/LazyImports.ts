@@ -46,3 +46,8 @@ LazyImports.set(PageRoutes.CreatePost, lazy(() => import('../../components/pages
     .then(module => { return { default: module.CreatePostPage }})));
 LazyImports.set(PageRoutes.EditPost, lazy(() => import('../../components/pages/admin/EditPostPage')
     .then(module => { return { default: module.EditPostPage }})));
+
+
+/** 404 ERROR PAGE */
+LazyImports.set(PageRoutes.NotFound, lazy(() => import('../../components/pages/NotFoundPage')
+    .then(module => { return { default: module.NotFoundPage }})));

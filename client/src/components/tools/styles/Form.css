@@ -9,7 +9,7 @@ form {
     box-sizing: border-box;
 }
 
-form input, form textarea {
+form input, form textarea, form select {
     width: 100%;
     padding: 0.5rem;
     border: 0.1rem solid var(--COLOR_3);
@@ -34,7 +34,7 @@ form textarea {
     }
 }
 
-form button {
+.submit-button {
     width: min(90%, 30rem);
     min-width: 10rem;
     border: 0.1rem solid var(--COLOR_4);
@@ -47,15 +47,10 @@ form button {
     margin-top: 1rem;
     display: block;
     transform: scale(1);
-    background-image: repeating-linear-gradient(45deg, var(--COLOR_2) 0%, var(--COLOR_2) 9.9%, rgba(4, 4, 8, 0) 10%, rgba(4, 4, 8, 0) 19.9%);
-    background-position: 0% 0%;
-    background-size: 200% 100%;
-    animation: sliding 4.0s infinite linear;
     transition: transform 0.2s, background-color 0.4s;
-    
 }
 
-form button:hover {
+.submit-button:hover {
     /* animation: bounce 0.3s ease-in-out; */
     transform: scale(1.1);
     border: 0.1rem solid var(--COLOR_4);
@@ -64,7 +59,7 @@ form button:hover {
     cursor: pointer;
 }
 
-form input:focus, form textarea:focus {
+form input:focus, form textarea:focus, form select:focus {
     outline: none !important;
     border: 0.1rem solid var(--COLOR_HIGHLIGHT_1);
     background-color: var(--COLOR_1);
@@ -75,5 +70,10 @@ form label {
     width: 100%;
     display: block;
     clear: both;
+    text-transform: uppercase;
+}
+
+.file-select {
+    font-size: 0.6rem;
     text-transform: uppercase;
 }
