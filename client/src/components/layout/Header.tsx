@@ -44,12 +44,11 @@ export function Header(): ReactElement {
             {admin && (
                 <div className='user-navigation'>
                     <div className='user-links'>
-
-                            <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
-                            <Link to='/create'><NewPostIcon />New Post</Link>
-                            <Link to='/settings'><SettingsIcon />Settings</Link>
-                            <div className="vertical-break" />
-                            <Link to='/'><LogoutIcon />Logout</Link>
+                        <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
+                        <Link to='/create'><NewPostIcon />New Post</Link>
+                        <Link to='/settings'><SettingsIcon />Settings</Link>
+                        <div className="vertical-break" />
+                        <Link to='/'><LogoutIcon />Logout</Link>
                     </div>
                 </div>
             )}

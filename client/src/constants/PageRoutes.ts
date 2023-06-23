@@ -17,4 +17,5 @@ export const enum PageRoutes {
     Settings,
     CreatePost,
     EditPost,
+    NotFound,
 }

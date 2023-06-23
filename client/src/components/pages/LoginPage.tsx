@@ -1,9 +1,10 @@
 import {ReactElement, useEffect, useState} from 'react';
-import '../tools/Form.css';
+import '../tools/styles/Form.css';
 import { PageTitle } from '../layout/PageTitle';
 import { StringHelper } from '../../utils/StringHelper';
 import { CHARACTER_CODES } from '../../constants/CharacterCodes';
 import { Link } from 'react-router-dom';
+import { HelpIcon } from '../icons/HelpIcon';
 
 export function LoginPage(): ReactElement {
     const [username, setUsername] = useState('');
@@ -34,9 +35,10 @@ export function LoginPage(): ReactElement {
                             onChange={event => setPassword(event.target.value)}
                             autoComplete='on' />
                     </div>
-                    <button>Login</button>
+                    <button className='submit-button'>Login</button>
                 </form>
                 <div className='prompt'>
+                    <HelpIcon />
                     <p>Need an account? <Link to='/register'>Sign Up</Link></p>
                 </div>
             </div>

@@ -53,7 +53,7 @@ export function ChangelogForm(): ReactElement {
                 onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => {
                     setSummary(event.target.value);
                 }} />
-            <button>Add Changelog</button>
+            <button className='submit-button'>Add Changelog</button>
         </form>
     );
 }

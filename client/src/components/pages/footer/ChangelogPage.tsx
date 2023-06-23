@@ -2,6 +2,7 @@ import {ReactElement, useEffect, useState} from 'react';
 import './styles/ChangelogPage.css';
 import { PageTitle } from '../../layout/PageTitle';
 import { ChangelogForm } from '../../tools/ChangelogForm';
+import '../../tools/styles/Form.css';
 
 export interface IChangelog {
     _id: string,

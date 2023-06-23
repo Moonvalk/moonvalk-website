@@ -1,11 +1,12 @@
 import {ReactElement, useEffect, useState} from 'react';
-import '../tools/Form.css';
+import '../tools/styles/Form.css';
 import { PageTitle } from '../layout/PageTitle';
 import { getServerURI } from '../../utils/URIHelper';
 import { IUser } from '../../types/IUser';
 import { StringHelper } from '../../utils/StringHelper';
 import { CHARACTER_CODES } from '../../constants/CharacterCodes';
 import { Link, Navigate } from 'react-router-dom';
+import { HelpIcon } from '../icons/HelpIcon';
 
 export function RegisterPage(): ReactElement {
     const [username, setUsername] = useState('');
@@ -18,10 +19,9 @@ export function RegisterPage(): ReactElement {
 
     async function handleRegistration(event_: any): Promise<void> {
         event_.preventDefault();
-        if (username === '' || firstName === '' || email === '' || password === '') {
-            return;
-        }
-        if (password !== confirmPassword) {
+        if (username === '' || firstName === '' || lastName === '' ||
+            email === '' || password === '' || password !== confirmPassword) {
+            alert('Missing required fields.');
             return;
         }
         const uri = getServerURI('register');
@@ -55,6 +55,7 @@ export function RegisterPage(): ReactElement {
                 <h1>Register</h1>
                 <hr />
                 <div className='prompt'>
+                    <HelpIcon />
                     <p>Already have an account? <Link to='/login'>Sign In</Link></p>
                 </div>
                 <form className='login' onSubmit={handleRegistration}>
@@ -65,20 +66,17 @@ export function RegisterPage(): ReactElement {
                             value={username}
                             onChange={event => setUsername(event.target.value.toLowerCase())}
                             autoComplete='on' />
-                    <div className='flex'>
-                        <label htmlFor='firstName'>First*</label>
-                        <label htmlFor='lastName'>Last</label>
-                    </div>
+                    <label htmlFor='firstName'>Name*</label>
                     <div className='flex'>
                         <input id='firstName'
                             type='text'
-                            placeholder='First Name'
+                            placeholder='First'
                             value={firstName}
                             onChange={event => setFirstName(event.target.value)}
                             autoComplete='on' />
                         <input id='lastName'
                             type='text'
-                            placeholder='Last Name'
+                            placeholder='Last'
                             value={lastName}
                             onChange={event => setLastName(event.target.value)}
                             autoComplete='on' />
@@ -108,7 +106,7 @@ export function RegisterPage(): ReactElement {
                             onChange={event => setConfirmPassword(event.target.value)}
                             autoComplete='on' />
                     </div>
-                    <button>Create New Account</button>
+                    <button className='submit-button'>Create New Account</button>
                 </form>
             </div>
         </div>

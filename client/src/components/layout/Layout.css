@@ -118,6 +118,8 @@
 }
 
 h1 {
+    width: max-content;
+    display: flex;
     font-family: 'Abel', sans-serif;
     text-transform: uppercase;
     font-size: 1.4rem;
@@ -125,6 +127,13 @@ h1 {
     text-align: center;
     margin: 0 auto;
     margin-bottom: 1rem;
+    align-items: center;
+}
+
+h1 svg {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
 }
 
 hr {
@@ -149,9 +158,12 @@ hr {
 }
 
 .prompt {
+    width: min(100%, 25rem);
+    /* max-width: max-content; */
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 0.5rem;
+    margin: 0.5rem auto;
     background-image: linear-gradient(90deg, var(--COLOR_1), var(--COLOR_2));
     padding: 1rem;
     border-radius: 0.5rem;
@@ -170,4 +182,11 @@ hr {
 
 .prompt a:hover {
     color: var(--COLOR_6);
+}
+
+.prompt svg {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    margin-right: 1rem;
 }
