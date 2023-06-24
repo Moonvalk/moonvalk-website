@@ -20,7 +20,7 @@ import { getPostsController } from './controllers/posts/getPostsController';
 // Load environment variables & initialize Express for communications with the server.
 const env = EnvironmentProps.config;
 const app = express();
-const uploadMiddleware = multer({ dest: 'uploads/' });
+const uploadMiddleware = multer({ dest: '../uploads/' });
 
 // Set up Express middleware.
 app.use(cors({
@@ -30,7 +30,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, '../public/')));
-app.use('./uploads', express.static(path.resolve(__dirname, '../uploads/')));
+app.use('/uploads', express.static(path.resolve(__dirname, '../uploads/')));
 
 // Attempt connection to the database.
 connectToDatabase();
