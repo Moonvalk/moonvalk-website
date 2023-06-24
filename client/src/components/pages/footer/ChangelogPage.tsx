@@ -3,6 +3,7 @@ import './styles/ChangelogPage.css';
 import { PageTitle } from '../../layout/PageTitle';
 import { ChangelogForm } from '../../tools/ChangelogForm';
 import '../../tools/styles/Form.css';
+import { userAuthStore } from '../../../stores/userAuth.store';
 
 export interface IChangelog {
     _id: string,
@@ -14,7 +15,7 @@ export interface IChangelog {
 
 export function ChangelogPage(): ReactElement {
     const [logs, setLogs] = useState<IChangelog[]>([]);
-    const [admin, setAdmin] = useState(true);
+    const {userInfo} = userAuthStore();
     
     useEffect(() => {
         getLogs().catch((error_) => console.log(error_));
@@ -66,7 +67,7 @@ export function ChangelogPage(): ReactElement {
                     </table>
                 </div>
             </div>
-            {admin && (
+            {userInfo !== null && (
                 <div className="page">
                     <ChangelogForm />
                 </div>

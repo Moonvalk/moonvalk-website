@@ -10,5 +10,6 @@ import { Request, Response } from 'express';
  */
 export function getPageController(request_: Request, response_: Response): void {
     const indexPageURI = '../public/index.html';
+    console.log('Sending wildcard page');
     response_.sendFile(path.resolve(__dirname, indexPageURI));
 }

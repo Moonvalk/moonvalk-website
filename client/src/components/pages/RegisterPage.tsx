@@ -24,7 +24,7 @@ export function RegisterPage(): ReactElement {
             alert('Missing required fields.');
             return;
         }
-        const uri = getServerURI('register');
+        const uri = getServerURI('api/register');
         const userData: IUser = {
             username: username,
             email: email,
@@ -37,7 +37,8 @@ export function RegisterPage(): ReactElement {
             body: JSON.stringify(userData),
             headers: {'Content-Type': 'application/json'},
         });
-        if (response.status === 200) {
+        if (response.ok) {
+            setRedirect(true);
             alert('Registration successful.');
         } else {
             alert('Registration failure.');
@@ -45,7 +46,7 @@ export function RegisterPage(): ReactElement {
     }
 
     if (redirect) {
-        return <Navigate to={'/'} />
+        return <Navigate to={'/login'} />
     }
 
     return (

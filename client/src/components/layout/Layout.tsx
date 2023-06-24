@@ -5,15 +5,16 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { SmartSuspense } from "../loading/SmartSuspense";
 import { UniversalLoader } from "../loading/UniversalLoader";
+import { userAuthStore } from "../../stores/userAuth.store";
 
 export function Layout(): ReactElement {
-    const [admin, setAdmin] = useState(true);
+    const {userInfo} = userAuthStore();
 
     return (
         <main>
             <Header />
             <div className='page-container'>
-                {admin && (
+                {userInfo !== null && (
                     <div className='header-margin' />
                 )}
                 <SmartSuspense fallback={<UniversalLoader />}>
