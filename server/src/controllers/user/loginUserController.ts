@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { RESPONSE_CODES, RESPONSE_MESSAGES } from "../../constants/Responses";
 import User from "../../models/User";
-import { BCRYPT_SECRET_TOKEN } from "../../util/Encryption";
+import { EnvironmentProps } from '../../util/EnvironmentProps';
 
 /**
  * Handles a login attempt by validating user data with what is stored in our database.
@@ -23,7 +23,7 @@ export async function loginUserController(request_: Request, response_: Response
         jwt.sign({
             username: username,
             id: userDocument._id,
-        }, BCRYPT_SECRET_TOKEN, (error_: Error | null, token_: string | undefined) => {
+        }, EnvironmentProps.config.secretToken, (error_: Error | null, token_: string | undefined) => {
             if (error_) {
                 throw error_;
             }

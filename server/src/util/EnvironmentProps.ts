@@ -10,6 +10,7 @@ export interface IEnvironmentProps {
     readonly dbConfig: string,
     readonly port: number,
     readonly host: string,
+    readonly secretToken: string,
 }
 
 const DEFAULT_PORT = 3000;
@@ -77,6 +78,7 @@ export class EnvironmentProps {
             dbConfig: process.env.DB_CONFIG,
             port: port,
             host: process.env.HOST,
+            secretToken: process.env.SECRET_TOKEN,
         };
     }
 }

@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import './Header.css';
 import { Link } from "react-router-dom";
 import { MenuToggle } from "../icons/MenuToggle";
@@ -7,9 +7,11 @@ import { LogoutIcon } from "../icons/LogoutIcon";
 import { PrimaryNavigation } from "./PrimaryNavigation";
 import { NewPostIcon } from "../icons/NewPostIcon";
 import { SettingsIcon } from "../icons/SettingsIcon";
+import { IUserInfo, userAuthStore } from "../../stores/userAuth.store";
+import { getServerURI } from "../../utils/URIHelper";
 
 export function Header(): ReactElement {
-    const [admin, setAdmin] = useState(true);
+    const {userInfo, setUserInfo} = userAuthStore();
 
     function toggleNavigation(forceState?: boolean): void {
         const mobileNavigation = document.querySelector('.mobile-navigation');
@@ -27,6 +29,33 @@ export function Header(): ReactElement {
         navigationToggle.setAttribute('aria-expanded', newState);
     }
 
+    useEffect(() => {
+        if (userInfo?.id) {
+            return;
+        }
+        fetch(getServerURI('api/profile'), {
+            credentials: 'include',
+        }).then((response_) => {
+            response_.json().then((userInfo_: IUserInfo) => {
+                if (!userInfo_.id) {
+                    return;
+                }
+                setUserInfo(userInfo_);
+            });
+        });
+    }, [setUserInfo]);
+
+    async function handleLogout(): Promise<void> {
+        const response = await fetch(getServerURI('api/logout'), {
+            credentials: 'include',
+            method: 'POST',
+        });
+        if (!response.ok) {
+            alert('Failed to log out.');
+        }
+        setUserInfo(null);
+    }
+
     return (
         <>
             <PrimaryNavigation isMobile={true} onPageSelect={() => toggleNavigation(false)} />
@@ -41,14 +70,14 @@ export function Header(): ReactElement {
                 <PrimaryNavigation isMobile={false} onPageSelect={() => toggleNavigation(false)} />
             </header>
             <div className="header-rgb"></div>
-            {admin && (
+            {userInfo !== null && (
                 <div className='user-navigation'>
                     <div className='user-links'>
                         <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
                         <Link to='/create'><NewPostIcon />New Post</Link>
                         <Link to='/settings'><SettingsIcon />Settings</Link>
                         <div className="vertical-break" />
-                        <Link to='/'><LogoutIcon />Logout</Link>
+                        <Link to='/login' onClick={handleLogout}><LogoutIcon />Logout</Link>
                     </div>
                 </div>
             )}

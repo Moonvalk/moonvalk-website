@@ -3,16 +3,24 @@ import path from 'path';
 import cors from 'cors';
 import { EnvironmentProps } from './util/EnvironmentProps';
 import cookieParser from 'cookie-parser';
+import multer from 'multer';
 import { connectToDatabase } from './util/Database';
 import { createUserController } from './controllers/user/createUserController';
 import { loginUserController } from './controllers/user/loginUserController';
 import { getChangelogsController } from './controllers/getChangelogsController';
 import { createChangelogController } from './controllers/createChangelogController';
 import { getPageController } from './controllers/getPageController';
+import { getUserProfileController } from './controllers/user/getUserProfileController';
+import { logoutUserController } from './controllers/user/logoutUserController';
+import { createNewPostController } from './controllers/posts/createNewPostController';
+import { editPostController } from './controllers/posts/editPostController';
+import { getPostController } from './controllers/posts/getPostController';
+import { getPostsController } from './controllers/posts/getPostsController';
 
 // Load environment variables & initialize Express for communications with the server.
 const env = EnvironmentProps.config;
 const app = express();
+const uploadMiddleware = multer({ dest: 'uploads/' });
 
 // Set up Express middleware.
 app.use(cors({
@@ -28,10 +36,18 @@ app.use('./uploads', express.static(path.resolve(__dirname, '../uploads/')));
 connectToDatabase();
 
 // Declare all endpoint controllers.
-app.post('/register', createUserController);
-app.post('/login', loginUserController);
+app.post('/api/register', createUserController);
+app.post('/api/login', loginUserController);
+app.get('/api/profile', getUserProfileController);
+app.post('/api/logout', logoutUserController);
 app.get('/api/changelogs', getChangelogsController);
 app.post('/api/changelog', createChangelogController);
+app.post('/api/post', uploadMiddleware.single('file'), createNewPostController);
+app.put('/api/post', uploadMiddleware.single('file'), editPostController);
+app.get('/api/posts', getPostsController);
+app.get('/api/post/:id', getPostController);
+
+// Set up wildcard controller for returning React pages.
 app.get('/*', getPageController);
 
 // Listen for requests.
