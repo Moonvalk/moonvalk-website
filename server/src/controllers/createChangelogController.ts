@@ -8,7 +8,6 @@ import Changelog from "../models/Changelog";
  * @return {Promise<void>} void
  */
 export async function createChangelogController(request_: Request, response_: Response): Promise<void> {
-    console.log(request_.body);
     const newLog = new Changelog({
         version: request_.body.version,
         date: request_.body.date,

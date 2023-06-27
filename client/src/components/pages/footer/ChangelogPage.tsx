@@ -2,8 +2,8 @@ import {ReactElement, useEffect, useState} from 'react';
 import './styles/ChangelogPage.css';
 import { PageTitle } from '../../layout/PageTitle';
 import { ChangelogForm } from '../../tools/ChangelogForm';
-import '../../tools/styles/Form.css';
 import { userAuthStore } from '../../../stores/userAuth.store';
+import { ChangelogIcon } from '../../icons/ChangelogIcon';
 
 export interface IChangelog {
     _id: string,
@@ -35,9 +35,10 @@ export function ChangelogPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Changelog" />
+            <div className='header-margin' />
+            <h1><ChangelogIcon />Changelog</h1>
+            <hr />
             <div className="page">
-                <h1>Changelog</h1>
-                <hr />
                 <p className="center">
                     Below are the records for this website's update history:
                 </p>
@@ -67,7 +68,7 @@ export function ChangelogPage(): ReactElement {
                     </table>
                 </div>
             </div>
-            {userInfo !== null && (
+            {userInfo?.administrator && (
                 <div className="page">
                     <ChangelogForm />
                 </div>

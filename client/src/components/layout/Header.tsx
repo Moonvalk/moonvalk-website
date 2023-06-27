@@ -73,8 +73,13 @@ export function Header(): ReactElement {
             {userInfo !== null && (
                 <div className='user-navigation'>
                     <div className='user-links'>
-                        <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
-                        <Link to='/create'><NewPostIcon />New Post</Link>
+                        {userInfo.administrator && (
+                            <>
+                                <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
+                                <Link to='/create'><NewPostIcon />New Post</Link>
+                            </>
+                            
+                        )}
                         <Link to='/settings'><SettingsIcon />Settings</Link>
                         <div className="vertical-break" />
                         <Link to='/login' onClick={handleLogout}><LogoutIcon />Logout</Link>

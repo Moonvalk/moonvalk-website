@@ -1,13 +1,6 @@
 
-.posts {
-    width: 90vw;
-    max-width: 60rem;
-    margin: 0 auto;
-    display: flex;
-}
-
 .post {
-    width: 33%;
+    width: min(90vw, 60rem);
     height: min-content;
     margin: 1rem auto;
     border-radius: 0.5rem;
@@ -15,8 +8,11 @@
     transition: all 0.15s ease-in-out;
     box-shadow: inset 0 0 4rem rgba(255, 255, 255, 0);
     border: 0.25rem solid var(--COLOR_3);
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     filter: drop-shadow(0 0.1rem 0.25rem rgb(0, 0, 0, 0.3));
+    overflow: hidden;
 }
 
 .post:hover {
@@ -24,20 +20,41 @@
     box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.3);
 }
 
-.post .image {
-    width: 100%;
-    min-height: 10rem;
-    background-image: url('../../../../assets/images/background.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.post:hover .post-cover img {
+    rotate: 10deg;
+    scale: 1.1;
 }
 
-.post h3 {
-    width: 100%;
-    height: 2rem;
+.post-cover {
+    width: 44%;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
-    margin-top: 8rem;
+    /* border-radius: 0.5rem; */
+    overflow: hidden;
+    /* box-shadow: 0 0 0.25rem var(--COLOR_1); */
+}
+
+.texts {
+    width: 50%;
+    display: grid;
+}
+
+.post-cover img {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-in-out;
+}
+
+.post h2 {
+    width: min-content;
+    height: 2rem;
+    margin: 1rem;
     text-align: center;
     font-family: 'Abel', sans-serif;
     text-transform: uppercase;

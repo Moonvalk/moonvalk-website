@@ -2,6 +2,7 @@ import {ReactElement, useEffect, useState} from 'react';
 import '../../tools/styles/Form.css';
 import { PageTitle } from '../../layout/PageTitle';
 import { InfoIcon } from '../../icons/InfoIcon';
+import { ContactIcon } from '../../icons/ContactIcon';
 
 export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
@@ -14,9 +15,10 @@ export function ContactPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Contact" />
+            <div className='header-margin' />
+            <h1><ContactIcon /> Contact</h1>
+            <hr className='hr-small' />
             <div className="page-small">
-                <h1>Contact</h1>
-                <hr />
                 <div className='prompt'>
                     <InfoIcon />
                     <p>Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.</p>

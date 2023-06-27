@@ -11,7 +11,7 @@ const SERVER_PORT = 3000;
 export function getServerURI(append?: string): string {
     const uri = `${API_URL}:${SERVER_PORT}/`;
     if (append) {
-        return uri + append;
+        return uri.concat(append.replace(/\\/g, "/"));
     }
     return uri;
 }

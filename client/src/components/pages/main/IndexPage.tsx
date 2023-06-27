@@ -13,8 +13,6 @@ export function IndexPage(): ReactElement {
                 <LazyCarousel />
             </SmartSuspense>
             <div className="page">
-                <h1>Home</h1>
-                <hr />
                 <p className="center">
                     Check back in later; the gremlins only work when nobody is watching.
                 </p>

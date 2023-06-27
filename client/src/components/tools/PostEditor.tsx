@@ -13,7 +13,6 @@ export default function PostEditor({value, onChange}: IEditorProps) {
         <div className="post-editor">
             <PostEditorToolbar />
             <ReactQuill
-                theme="snow"
                 modules={modules}
                 formats={formats}
                 value={value} 

@@ -1,7 +1,7 @@
-import { ReactElement, useEffect, useLayoutEffect, useState } from "react";
+import { ReactElement, useLayoutEffect, useState } from "react";
 import { getCurrentFormattedDate } from "../../utils/time";
-import { IChangelog } from "../pages/footer/ChangelogPage";
 import { createChangelog } from "../../api/apiChangelogs";
+import '../tools/styles/Form.css';
 
 export function ChangelogForm(): ReactElement {
     const [version, setVersion] = useState('');
@@ -15,6 +15,10 @@ export function ChangelogForm(): ReactElement {
 
     async function handleCreateNewLog(event: React.FormEvent): Promise<void> {
         event.preventDefault();
+        if (version === '' || summary === '') {
+            alert('Missing required fields.');
+            return;
+        }
         const log = await createChangelog(version, summary, date);
     }
 
