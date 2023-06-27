@@ -13,19 +13,18 @@ export async function createNewPostController(request_: Request, response_: Resp
     const newPath = path + '.' + extension;
     fs.renameSync(path, newPath);
 
-    const {token} = request_.cookies;
-    jwt.verify(token, EnvironmentProps.config.secretToken, {}, async (error_, info_) => {
-        if (error_) {
-            throw error_;
-        }
-        const {title, summary, content} = request_.body;
-        const postDoc = await Post.create({
-            title: title,
-            summary: summary,
-            content: content,
-            coverFile: newPath,
-            author: (info_ as JwtPayload).id,
-        });
-        response_.json(postDoc);
+    const {id} = response_.locals.userInfo as JwtPayload;
+    const {title, subtitle, date, status, category, summary, content} = request_.body;
+    const postDoc = await Post.create({
+        title: title,
+        subtitle: subtitle,
+        date: date,
+        status: status,
+        category: category,
+        summary: summary,
+        content: content,
+        coverFile: newPath,
+        author: id,
     });
+    response_.json(postDoc);
 }

@@ -16,6 +16,7 @@ import { createNewPostController } from './controllers/posts/createNewPostContro
 import { editPostController } from './controllers/posts/editPostController';
 import { getPostController } from './controllers/posts/getPostController';
 import { getPostsController } from './controllers/posts/getPostsController';
+import { authenticateUserController } from './controllers/user/authenticateUserController';
 
 // Load environment variables & initialize Express for communications with the server.
 const env = EnvironmentProps.config;
@@ -38,12 +39,12 @@ connectToDatabase();
 // Declare all endpoint controllers.
 app.post('/api/register', createUserController);
 app.post('/api/login', loginUserController);
-app.get('/api/profile', getUserProfileController);
+app.get('/api/profile', authenticateUserController, getUserProfileController);
 app.post('/api/logout', logoutUserController);
 app.get('/api/changelogs', getChangelogsController);
-app.post('/api/changelog', createChangelogController);
-app.post('/api/post', uploadMiddleware.single('file'), createNewPostController);
-app.put('/api/post', uploadMiddleware.single('file'), editPostController);
+app.post('/api/changelog', authenticateUserController, createChangelogController);
+app.post('/api/post', authenticateUserController, uploadMiddleware.single('file'), createNewPostController);
+app.put('/api/post', authenticateUserController, uploadMiddleware.single('file'), editPostController);
 app.get('/api/posts', getPostsController);
 app.get('/api/post/:id', getPostController);
 

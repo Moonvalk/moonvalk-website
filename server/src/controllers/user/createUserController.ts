@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { RESPONSE_CODES } from "../../constants/Responses";
 import User from "../../models/User";
-import { BCRYPT_SALT } from "../../util/Encryption";
 
 /**
  * Handles creating a new user account and storing it in the database.
@@ -18,11 +17,12 @@ export async function createUserController(request_: Request, response_: Respons
         const userDocument = await User.create({
             username: username,
             email: email,
-            password: bcrypt.hashSync(password, BCRYPT_SALT),
+            password: bcrypt.hashSync(password, 10),
             firstName: firstName,
             lastName: lastName,
             administrator: false,
         });
+        response_.json('Registration successful.');
     } catch (error_) {
         response_.status(RESPONSE_CODES.GENERAL_ERROR).json(error_);
     }

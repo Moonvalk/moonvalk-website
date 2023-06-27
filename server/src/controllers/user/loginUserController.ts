@@ -20,17 +20,19 @@ export async function loginUserController(request_: Request, response_: Response
 
     // If we have found a matching password for the unique user document attempt to log in.
     if (passwordIsMatch) {
-        jwt.sign({
-            username: username,
+        const tokenData = {
             id: userDocument._id,
-        }, EnvironmentProps.config.secretToken, (error_: Error | null, token_: string | undefined) => {
+            username: username,
+            email: userDocument.email,
+            firstName: userDocument.firstName,
+            lastName: userDocument.lastName,
+            administrator: userDocument.administrator,
+        };
+        jwt.sign(tokenData, EnvironmentProps.config.accessSecret, (error_: Error | null, token_: string | undefined) => {
             if (error_) {
                 throw error_;
             }
-            response_.cookie('token', token_).json({
-                id: userDocument._id,
-                username: username,
-            });
+            response_.cookie('token', token_).json(tokenData);
         });
     } else {
         response_.status(RESPONSE_CODES.GENERAL_ERROR).json(RESPONSE_MESSAGES.MISMATCH_CREDENTIALS);

@@ -14,7 +14,7 @@ export async function editPostController(request_: Request, response_: Response)
         fs.renameSync(path, newPath);
     }
     const {token} = request_.cookies;
-    jwt.verify(token, EnvironmentProps.config.secretToken, {}, async (error_, info_) => {
+    jwt.verify(token, EnvironmentProps.config.accessSecret, {}, async (error_, info_) => {
         if (error_) {
             throw error_;
         }

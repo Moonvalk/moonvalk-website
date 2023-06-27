@@ -1,14 +1,17 @@
 import {ReactElement, useEffect} from 'react';
 import './styles/GamesPage.css';
 import { PageTitle } from '../../layout/PageTitle';
+import { GamesIcon } from '../../icons/GamesIcon';
 
 export function GamesPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Games" />
+            <div className='header-margin' />
+            <h1><GamesIcon />Games</h1>
+            <hr />
             <div className="page">
-                <h1>Games</h1>
-                <hr />
+                
                 <p className="center">
                     Check back in later; the gremlins only work when nobody is watching.
                 </p>

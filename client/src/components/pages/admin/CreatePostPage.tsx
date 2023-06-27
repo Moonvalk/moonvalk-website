@@ -11,6 +11,7 @@ import { NewPostIcon } from "../../icons/NewPostIcon";
 
 export function CreatePostPage(): ReactElement {
     const [postTitle, setPostTitle] = useState('');
+    const [postSubtitle, setPostSubtitle] = useState('');
     const [postDate, setPostDate] = useState('');
     const [postSummary, setPostSummary] = useState('');
     const [postContent, setPostContent] = useState('');
@@ -27,6 +28,11 @@ export function CreatePostPage(): ReactElement {
     async function handleCreateNewPost(event_: any): Promise<void> {
         const data = new FormData();
         data.set('title', postTitle);
+        data.set('subtitle', postSubtitle);
+        let overrideDate = (postDate !== '') ? postDate : getCurrentFormattedDate();
+        data.set('date', overrideDate);
+        data.set('status', postStatus);
+        data.set('category', postCategory);
         data.set('summary', postSummary);
         data.set('content', postContent);
         if (files !== null) {
@@ -34,7 +40,7 @@ export function CreatePostPage(): ReactElement {
         }
         event_.preventDefault();
 
-        const response = await fetch(getServerURI('post'), {
+        const response = await fetch(getServerURI('api/post'), {
             method: 'POST',
             body: data,
             credentials: 'include',
@@ -57,13 +63,14 @@ export function CreatePostPage(): ReactElement {
     return (
         <div className='content'>
             <PageTitle title="Create New Post" />
+            <div className='header-margin' />
+            <h1><NewPostIcon />Add New Post</h1>
+            <hr />
             <div className='page'>
-                <h1><NewPostIcon />Add New Post</h1>
-                <hr />
                 <form onSubmit={handleCreateNewPost}>
                     <div className='flex'>
                         <label htmlFor="title">Title*</label>
-                        <label htmlFor="title">Date</label>
+                        <label htmlFor="date">Date</label>
                     </div>
                     <div className='flex'>
                         <input id='title'
@@ -103,12 +110,22 @@ export function CreatePostPage(): ReactElement {
                             type="file"
                             onChange={event => setFiles(event.target.files)} />
                     </div>
-                    <label htmlFor="summary">Summary*</label>
-                    <input id="summary"
-                        type="summary"
-                        placeholder={'Summary'} 
-                        value={postSummary}
-                        onChange={event => setPostSummary(event.target.value)} />
+                    <div className='flex'>
+                        <label htmlFor="subtitle">Subtitle</label>
+                        <label htmlFor="summary">Summary*</label>
+                    </div>
+                    <div className='flex'>
+                        <input id='subtitle'
+                            type="subtitle"
+                            placeholder={'Subtitle'} 
+                            value={postSubtitle} 
+                            onChange={event => setPostSubtitle(event.target.value)} />
+                        <input id="summary"
+                            type="summary"
+                            placeholder={'Summary'} 
+                            value={postSummary}
+                            onChange={event => setPostSummary(event.target.value)} />
+                    </div>
                     <PostEditor onChange={setPostContent} value={postContent} />
                     <button className='submit-button'>Create New Post</button>
                 </form>

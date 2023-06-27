@@ -29,6 +29,7 @@
     "@types/three": "^0.152.1",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.8.1",
+    "date-fns": "^2.30.0",
     "html-webpack-plugin": "^5.5.1",
     "style-loader": "^3.3.3",
     "three": "^0.153.0",

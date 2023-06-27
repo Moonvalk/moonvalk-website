@@ -121,7 +121,12 @@
     margin-inline: 0 auto;
     height: 0.2rem;
     box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.4);
-    background: linear-gradient(90deg, #fff200, #fff200, #f21c6e, #23a6d5, #23d5ab);
+    background: linear-gradient(90deg,
+        var(--COLOR_HIGHLIGHT_1),
+        var(--COLOR_HIGHLIGHT_1),
+        var(--COLOR_HIGHLIGHT_2),
+        var(--COLOR_HIGHLIGHT_3),
+        var(--COLOR_HIGHLIGHT_4));
 	background-size: 400% 100%;
 	animation: gradient 20s infinite ease;
     z-index: 400;
@@ -231,6 +236,7 @@
     backdrop-filter: blur(0.2rem); 
     margin: 0 auto;
     z-index: 1100;
+    font-family: 'Abel', sans-serif;
 }
 
 .user-links {
@@ -294,7 +300,7 @@
         height: 110vh;
         top: -1rem;
         flex-direction: column;
-        padding: min(30vh, 12rem) 3rem 2rem;
+        padding: min(30vh, 11rem) 3rem 2rem;
         background-image: url('../../assets/images/panel.webp');
         background-repeat: no-repeat;
         background-size: 100% 100%;

@@ -6,15 +6,13 @@ export function ComicsPage(): ReactElement {
     return (
         <div className="content">
             <PageTitle title="Comics" />
-            <div className="page-small">
-                <h1>Comics</h1>
-                <hr />
-                <div className='prompt'>
-                    <ComicsIcon />
-                    <p className="center">
-                        Stay tuned, new stories coming soon...
-                    </p>
-                </div>
+            <div className='header-margin' />
+            <h1><ComicsIcon />Comics</h1>
+            <hr />
+            <div className="page">
+                <p className="center">
+                    Stay tuned, new stories coming soon...
+                </p>
             </div>
         </div>
     );

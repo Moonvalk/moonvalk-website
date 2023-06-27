@@ -18,6 +18,7 @@ form input, form textarea, form select {
     color: var(--COLOR_6);
     resize: vertical;
     margin: 1rem auto;
+    font-family: 'Abel', sans-serif;
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
@@ -35,7 +36,7 @@ form textarea {
 }
 
 .submit-button {
-    width: min(90%, 30rem);
+    /* width: min(90%, 30rem);
     min-width: 10rem;
     border: 0.1rem solid var(--COLOR_4);
     border-radius: 0.5rem;
@@ -47,16 +48,58 @@ form textarea {
     margin-top: 1rem;
     display: block;
     transform: scale(1);
-    transition: transform 0.2s, background-color 0.4s;
+    font-family: 'Abel', sans-serif;
+    transition: transform 0.2s, background-color 0.4s, box-shadow 0.2s; */
 }
 
 .submit-button:hover {
     /* animation: bounce 0.3s ease-in-out; */
-    transform: scale(1.1);
+    /* transform: scale(1.1);
     border: 0.1rem solid var(--COLOR_4);
     box-shadow: 0 0 1rem rgb(0, 0, 0);
     background-color: var(--COLOR_1);
+    cursor: pointer; */
+}
+
+.submit-button {
+    text-decoration: none;
+    /* background-color: var(--COLOR_HIGHLIGHT_1); */
+    /* background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5)); */
+    background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
+    font-family: 'Abel', sans-serif;
+    text-transform: uppercase;
+    padding: 0.25rem;
+    /* border: 0.25rem solid var(--COLOR_HIGHLIGHT_5); */
+    border: 0;
+    border-radius: 1rem;
+    color: var(--COLOR_1);
+    display: block;
+    position: relative;
+    /* width: 6rem; */
+    width: min(90%, 10rem);
+    min-height: 2.4rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 0.9rem;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0)) saturate(0);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0);
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.page-small:hover .submit-button, .page-medium:hover .submit-button, .page:hover .submit-button {
+    background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
+    filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0)) saturate(1);
+}
+
+.submit-button:hover {
     cursor: pointer;
+    scale: 1.1;
+    background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
+    filter: drop-shadow(0 0 0.35rem var(--COLOR_HIGHLIGHT_5_05)) saturate(1) brightness(1.1) !important;
+    box-shadow: 0 0.1rem 1rem rgb(0, 0, 0);
+    opacity: 1;
 }
 
 form input:focus, form textarea:focus, form select:focus {
@@ -71,6 +114,7 @@ form label {
     display: block;
     clear: both;
     text-transform: uppercase;
+    font-family: 'Abel', sans-serif;
 }
 
 .file-select {
