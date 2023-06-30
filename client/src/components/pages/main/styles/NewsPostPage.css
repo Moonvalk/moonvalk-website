@@ -63,11 +63,6 @@
     font-size: 0.8rem;
     margin: 0;
     /* transform: translateY(-3rem); */
-    transition: all 0.2s ease-in-out;
-}
-
-.cover-meta:hover {
-    color: var(--COLOR_6);
 }
 
 .cover-meta div {
@@ -80,6 +75,7 @@
     justify-content: center;
     margin-inline: 0.25rem;
     margin-bottom: 0.25rem;
+    transition: all 0.2s ease-in-out;
 }
 
 .cover-meta div svg {
@@ -87,6 +83,14 @@
     margin-right: 0.3rem;
     width: 1.2rem;
     height: 1.2rem;
+}
+
+.cover-meta div:hover {
+    color: var(--COLOR_6);
+}
+
+.cover-meta div:hover svg {
+    animation: nav-icon-hover ease-in-out infinite 1s;
 }
 
 .news-post h1 {
