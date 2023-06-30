@@ -8,7 +8,7 @@ module.exports = {
         path: path.join(__dirname, '/dist/public/'),
         filename: 'main.[hash].js',
         clean: true,
-        publicPath: './',
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -38,7 +38,7 @@ module.exports = {
             minify: true,
             favicon: "./src/assets/images/favicon.png",
             alwaysWriteToDisk: true,
-            publicPath: './',
+            publicPath: '/',
             hash: true,
         })
     ]

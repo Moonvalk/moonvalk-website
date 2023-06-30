@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Changelog from "../models/Changelog";
+import Changelog from "../../models/Changelog";
 
 /**
  * Handles finding all changelogs available on the database and returns them in

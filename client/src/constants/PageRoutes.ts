@@ -14,8 +14,10 @@ export const enum PageRoutes {
     Login,
     Register,
     Dashboard,
+    UploadManager,
     Settings,
     CreatePost,
     EditPost,
+    NewsPost,
     NotFound,
 }

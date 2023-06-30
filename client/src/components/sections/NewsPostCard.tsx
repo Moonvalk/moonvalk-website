@@ -1,9 +1,7 @@
 import { ReactElement } from "react";
-import { getServerURI } from "../../../utils/URIHelper";
+import { getServerURI } from "../../utils/URIHelper";
+import './styles/NewsPostCard.css';
 import { Link } from "react-router-dom";
-import { format } from "date-fns";
-import './styles/NewsPost.css';
-import { AboutIcon } from "../../icons/AboutIcon";
 
 export const enum TEXT_FORMATTING {
     POST_DATE = 'MMM d, yyyy HH:mm',
@@ -28,7 +26,7 @@ type INewsPostProps = {
     imageLeft_?: boolean,
 }
 
-export function NewsPost({ postData_, imageLeft_ }: INewsPostProps): ReactElement {
+export function NewsPostCard({ postData_, imageLeft_ }: INewsPostProps): ReactElement {
     return (
         <div className={imageLeft_ ? 'blog-card' : 'blog-card alt'}>
             <div className="meta">
@@ -44,11 +42,13 @@ export function NewsPost({ postData_, imageLeft_ }: INewsPostProps): ReactElemen
                 </div>
             </div>
             <div className="description">
-                <h1><a href='#'>{postData_.title}</a></h1>
+                <h1>
+                    <Link to={'/news/post/'.concat(postData_._id)}>{postData_.title}</Link>
+                </h1>
                 <h2>{postData_.subtitle}</h2>
-                <p>{postData_.summary}</p>
+                <p className='body-text'>{postData_.summary}</p>
                 <p className="read-more">
-                    <a href="#">{`Read More`}</a>
+                    <Link to={'/news/post/'.concat(postData_._id)}>{`Read More`}</Link>
                 </p>
             </div>
         </div>

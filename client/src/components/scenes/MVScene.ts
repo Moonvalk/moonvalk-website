@@ -1,5 +1,7 @@
-import { ACESFilmicToneMapping, BoxGeometry, DirectionalLight, Mesh, MeshBasicMaterial, MeshStandardMaterial, PerspectiveCamera, Scene, SRGBColorSpace, WebGLRenderer } from "three";
+import { ACESFilmicToneMapping, BoxGeometry, DirectionalLight, Group, Mesh, MeshBasicMaterial, MeshStandardMaterial, PerspectiveCamera, Scene, SRGBColorSpace, WebGLRenderer } from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { getServerURI } from "../../utils/URIHelper";
 
 export default class MVScene {
     public scene: Scene;
@@ -8,6 +10,7 @@ export default class MVScene {
     public canvas: HTMLCanvasElement;
     public container: HTMLDivElement;
     public cube: Mesh;
+    public model: Group;
     public orbitControls: OrbitControls;
     protected _timeElapsed: number = 0;
 
@@ -16,8 +19,8 @@ export default class MVScene {
         this.container = container_;
 
         this.scene = new Scene();
-        this.camera = new PerspectiveCamera(25, this.canvas.offsetWidth / this.canvas.offsetHeight, 0.1, 1000);
-        this.camera.position.z += 8;
+        this.camera = new PerspectiveCamera(25, this.canvas.offsetWidth / this.canvas.offsetHeight, 0.1, 10000);
+        this.camera.position.z += 2000;
         this.renderer = new WebGLRenderer({
             canvas: this.canvas,
             alpha: true,
@@ -28,10 +31,19 @@ export default class MVScene {
         this.renderer.toneMapping = ACESFilmicToneMapping;
         this.renderer.setSize(this.canvas.offsetWidth, this.canvas.offsetHeight);
 
-        const geometry = new BoxGeometry(1, 1, 1);
-        const material = new MeshStandardMaterial({color: 0x505090});
-        this.cube = new Mesh(geometry, material);
-        this.scene.add(this.cube);
+        // const geometry = new BoxGeometry(1, 1, 1);
+        // const material = new MeshStandardMaterial({color: 0x505090});
+        // this.cube = new Mesh(geometry, material);
+        // this.scene.add(this.cube);
+
+        const gltfLoader = new GLTFLoader();
+        const uri = getServerURI('../uploads/models/pixel_gameboy/scene.gltf');
+        gltfLoader.load(uri, (gltfScene) => {
+            this.model = gltfScene.scene;
+            this.model.scale.set(0.1, 0.1, 0.1);
+            this.model.position.set(0, 0, 0);
+            this.scene.add(this.model);
+        });
 
         const light = new DirectionalLight();
         light.position.set(1, 1, 1);
@@ -67,8 +79,10 @@ export default class MVScene {
         this.orbitControls.update();
         this.renderer.render(this.scene, this.camera);
 
-        const speed = delta * 0.1;
-        this.cube.rotation.x += speed;
-        this.cube.rotation.y += speed;
+        const speed = delta * 0.25;
+        if (this.model) {
+            this.model.rotation.x += speed;
+            this.model.rotation.y += speed;
+        }
     }
 }

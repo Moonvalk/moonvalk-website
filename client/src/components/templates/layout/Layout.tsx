@@ -1,11 +1,11 @@
 import { ReactElement, useState } from "react";
 import { Outlet } from "react-router-dom";
-import './Layout.css';
+import './styles/Layout.css';
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { SmartSuspense } from "../loading/SmartSuspense";
-import { UniversalLoader } from "../loading/UniversalLoader";
-import { userAuthStore } from "../../stores/userAuth.store";
+import { SmartSuspense } from "../../loading/SmartSuspense";
+import { UniversalLoader } from "../../loading/UniversalLoader";
+import { userAuthStore } from "../../../stores/userAuth.store";
 
 export function Layout(): ReactElement {
     const {userInfo} = userAuthStore();

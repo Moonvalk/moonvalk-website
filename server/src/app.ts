@@ -7,8 +7,8 @@ import multer from 'multer';
 import { connectToDatabase } from './util/Database';
 import { createUserController } from './controllers/user/createUserController';
 import { loginUserController } from './controllers/user/loginUserController';
-import { getChangelogsController } from './controllers/getChangelogsController';
-import { createChangelogController } from './controllers/createChangelogController';
+import { getChangelogsController } from './controllers/changelogs/getChangelogsController';
+import { createChangelogController } from './controllers/changelogs/createChangelogController';
 import { getPageController } from './controllers/getPageController';
 import { getUserProfileController } from './controllers/user/getUserProfileController';
 import { logoutUserController } from './controllers/user/logoutUserController';
@@ -17,11 +17,16 @@ import { editPostController } from './controllers/posts/editPostController';
 import { getPostController } from './controllers/posts/getPostController';
 import { getPostsController } from './controllers/posts/getPostsController';
 import { authenticateUserController } from './controllers/user/authenticateUserController';
+import { deleteChangelogController } from './controllers/changelogs/deleteChangelogController';
+import { getImageHash } from './controllers/images/getImageHash';
 
 // Load environment variables & initialize Express for communications with the server.
 const env = EnvironmentProps.config;
 const app = express();
-const uploadMiddleware = multer({ dest: '../uploads/' });
+const uploadMiddleware = multer({
+    dest: '../uploads/',
+    limits: { fieldSize: 25 * 1024 * 1024 },
+});
 
 // Set up Express middleware.
 app.use(cors({
@@ -43,10 +48,12 @@ app.get('/api/profile', authenticateUserController, getUserProfileController);
 app.post('/api/logout', logoutUserController);
 app.get('/api/changelogs', getChangelogsController);
 app.post('/api/changelog', authenticateUserController, createChangelogController);
+app.delete('/api/changelog/delete/:id', authenticateUserController, deleteChangelogController);
 app.post('/api/post', authenticateUserController, uploadMiddleware.single('file'), createNewPostController);
 app.put('/api/post', authenticateUserController, uploadMiddleware.single('file'), editPostController);
 app.get('/api/posts', getPostsController);
 app.get('/api/post/:id', getPostController);
+app.get('/api/image-hash/:id', getImageHash);
 
 // Set up wildcard controller for returning React pages.
 app.get('/*', getPageController);

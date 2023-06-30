@@ -141,7 +141,7 @@
     top: 0;
     left: 0;
     background-color: var(--COLOR_1);
-    background-image: url('../../assets/images/navbar.webp');
+    background-image: url('../../../../assets/images/navbar.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -157,7 +157,7 @@
     flex-basis: 20%;
     width: 10rem;
     height: 4rem;
-    background-image: url('../../assets/images/logo.png');
+    background-image: url('../../../../assets/images/logo.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -301,7 +301,7 @@
         top: -1rem;
         flex-direction: column;
         padding: min(30vh, 11rem) 3rem 2rem;
-        background-image: url('../../assets/images/panel.webp');
+        background-image: url('../../../../assets/images/panel.webp');
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-position: center;

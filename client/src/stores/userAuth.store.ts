@@ -7,7 +7,7 @@ export interface IUserInfo {
     administrator: boolean,
 }
 
-type UserAuth = {
+export type UserAuth = {
     authentication: boolean,
     setAuthentication: (flag_: boolean) => void,
     userInfo: IUserInfo,
