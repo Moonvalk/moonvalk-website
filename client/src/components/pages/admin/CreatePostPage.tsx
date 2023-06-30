@@ -1,12 +1,14 @@
 import { ReactElement, useLayoutEffect, useState } from "react";
-import { PageTitle } from "../../layout/PageTitle";
+import { PageTitle } from "../../templates/PageTitle";
 import { getServerURI } from "../../../utils/URIHelper";
 import { Navigate } from "react-router-dom";
 import PostEditor from "../../tools/PostEditor";
-import 'react-quill/dist/quill.snow.css';
-import '../../tools/styles/Form.css';
 import { getCurrentFormattedDate } from "../../../utils/time";
 import { NewPostIcon } from "../../icons/NewPostIcon";
+import { EditIcon } from "../../icons/EditIcon";
+import '../../tools/styles/Form.css';
+import 'react-quill/dist/quill.snow.css';
+import 'react-quill/dist/quill.core.css';
 
 
 export function CreatePostPage(): ReactElement {
@@ -64,8 +66,8 @@ export function CreatePostPage(): ReactElement {
         <div className='content'>
             <PageTitle title="Create New Post" />
             <div className='header-margin' />
-            <h1><NewPostIcon />Add New Post</h1>
-            <hr />
+            <h1 className='page-title'><NewPostIcon />Add New Post</h1>
+            <hr className='hr-fade' />
             <div className='page'>
                 <form onSubmit={handleCreateNewPost}>
                     <div className='flex'>
@@ -127,7 +129,10 @@ export function CreatePostPage(): ReactElement {
                             onChange={event => setPostSummary(event.target.value)} />
                     </div>
                     <PostEditor onChange={setPostContent} value={postContent} />
-                    <button className='submit-button'>Create New Post</button>
+                    <button className='submit-button'>
+                        <EditIcon />
+                        Create New Post
+                    </button>
                 </form>
             </div>
         </div>

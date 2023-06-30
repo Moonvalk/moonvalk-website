@@ -1,9 +1,11 @@
 import {ReactElement, useEffect, useState} from 'react';
 import './styles/ChangelogPage.css';
-import { PageTitle } from '../../layout/PageTitle';
 import { ChangelogForm } from '../../tools/ChangelogForm';
 import { userAuthStore } from '../../../stores/userAuth.store';
 import { ChangelogIcon } from '../../icons/ChangelogIcon';
+import { getServerURI } from '../../../utils/URIHelper';
+import { DeleteIcon } from '../../icons/DeleteIcon';
+import { PageTemplate } from '../../templates/PageTemplate';
 
 export interface IChangelog {
     _id: string,
@@ -22,8 +24,7 @@ export function ChangelogPage(): ReactElement {
     }, []);
 
     async function getLogs(): Promise<void> {
-        const uri = 'http://localhost:3000/api/changelogs';
-        const response = await fetch(uri);
+        const response = await fetch(getServerURI('api/changelogs'));
         if (response) {
             const data = await response.json();
             if (data) {
@@ -32,14 +33,21 @@ export function ChangelogPage(): ReactElement {
         }
     }
 
+    async function handleDeleteLog(logId_: string): Promise<void> {
+        const response = await fetch(getServerURI(`api/changelog/delete/${logId_}`), {
+            method: 'DELETE',
+        });
+        if (response.ok) {
+            setLogs(logs.filter((log_: IChangelog) => log_._id !== logId_));
+        } else {
+            alert('An error occurred.');
+        }
+    }
+
     return (
-        <div className="content">
-            <PageTitle title="Changelog" />
-            <div className='header-margin' />
-            <h1><ChangelogIcon />Changelog</h1>
-            <hr />
+        <PageTemplate title='Changelog' icon={<ChangelogIcon />}>
             <div className="page">
-                <p className="center">
+                <p className="body-text center">
                     Below are the records for this website's update history:
                 </p>
                 <div className="changelog">
@@ -60,7 +68,15 @@ export function ChangelogPage(): ReactElement {
                                 <tr key={log._id}>
                                     <td>{log.version}</td>
                                     <td>{log.date}</td>
-                                    <td>{log.summary}</td>
+                                    <td>
+                                        {log.summary}
+                                        {userInfo?.administrator && (
+                                            <button className='trash-button'
+                                                onClick={event => handleDeleteLog(log._id)}>
+                                                    <DeleteIcon />
+                                            </button>
+                                        )}
+                                    </td>
                                 </tr>
                                 );
                             })}
@@ -70,9 +86,9 @@ export function ChangelogPage(): ReactElement {
             </div>
             {userInfo?.administrator && (
                 <div className="page">
-                    <ChangelogForm />
+                    <ChangelogForm onCreateLog={getLogs} />
                 </div>
             )}
-        </div>
+        </PageTemplate>
     );
 }

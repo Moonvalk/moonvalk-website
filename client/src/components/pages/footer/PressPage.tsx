@@ -1,19 +1,13 @@
-import {ReactElement, useEffect} from 'react';
-import { PageTitle } from '../../layout/PageTitle';
+import {ReactElement} from 'react';
 import { PressIcon } from '../../icons/PressIcon';
+import { PageTemplate } from '../../templates/PageTemplate';
 
 export function PressPage(): ReactElement {
     return (
-        <div className="content">
-            <PageTitle title="Press" />
-            <div className='header-margin' />
-            <h1><PressIcon />Press</h1>
-            <hr />
-            <div className="page">
-                <p className="center">
-                    Press-kits and high quality format media coming soon...
-                </p>
-            </div>
-        </div>
+        <PageTemplate title='Press' icon={<PressIcon />} pageWrap='page'>
+            <p className="body-text center">
+                Press-kits and high quality format media coming soon...
+            </p>
+        </PageTemplate>
     );
 }

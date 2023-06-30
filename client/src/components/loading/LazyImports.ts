@@ -22,6 +22,8 @@ LazyImports.set(PageRoutes.Comics, lazy(() => import('../../components/pages/mai
     .then(module => { return { default: module.ComicsPage }})));
 LazyImports.set(PageRoutes.About, lazy(() => import('../../components/pages/main/AboutPage')
     .then(module => { return { default: module.AboutPage }})));
+LazyImports.set(PageRoutes.NewsPost, lazy(() => import('../../components/pages/main/NewsPostPage')
+    .then(module => { return { default: module.NewsPostPage }})));
 
 /** FOOTER PAGES */
 LazyImports.set(PageRoutes.Press, lazy(() => import('../../components/pages/footer/PressPage')
@@ -46,6 +48,8 @@ LazyImports.set(PageRoutes.CreatePost, lazy(() => import('../../components/pages
     .then(module => { return { default: module.CreatePostPage }})));
 LazyImports.set(PageRoutes.EditPost, lazy(() => import('../../components/pages/admin/EditPostPage')
     .then(module => { return { default: module.EditPostPage }})));
+LazyImports.set(PageRoutes.UploadManager, lazy(() => import('../../components/pages/admin/UploadManagerPage')
+    .then(module => { return { default: module.UploadManagerPage }})));
 
 
 /** 404 ERROR PAGE */

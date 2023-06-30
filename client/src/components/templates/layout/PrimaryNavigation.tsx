@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { AboutIcon } from "../icons/AboutIcon";
-import { ComicsIcon } from "../icons/ComicsIcon";
-import { GamesIcon } from "../icons/GamesIcon";
-import { NewsIcon } from "../icons/NewsIcon";
+import { AboutIcon } from "../../icons/AboutIcon";
+import { ComicsIcon } from "../../icons/ComicsIcon";
+import { GamesIcon } from "../../icons/GamesIcon";
+import { NewsIcon } from "../../icons/NewsIcon";
 
 export interface IPrimaryNavigationProps {
     onPageSelect: () => void,

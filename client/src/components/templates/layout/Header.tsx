@@ -1,14 +1,14 @@
 import { ReactElement, useEffect, useState } from "react";
-import './Header.css';
+import './styles/Header.css';
 import { Link } from "react-router-dom";
-import { MenuToggle } from "../icons/MenuToggle";
-import { DashboardIcon } from "../icons/DashboardIcon";
-import { LogoutIcon } from "../icons/LogoutIcon";
+import { MenuToggle } from "../../icons/MenuToggle";
+import { DashboardIcon } from "../../icons/DashboardIcon";
+import { LogoutIcon } from "../../icons/LogoutIcon";
 import { PrimaryNavigation } from "./PrimaryNavigation";
-import { NewPostIcon } from "../icons/NewPostIcon";
-import { SettingsIcon } from "../icons/SettingsIcon";
-import { IUserInfo, userAuthStore } from "../../stores/userAuth.store";
-import { getServerURI } from "../../utils/URIHelper";
+import { NewPostIcon } from "../../icons/NewPostIcon";
+import { SettingsIcon } from "../../icons/SettingsIcon";
+import { IUserInfo, userAuthStore } from "../../../stores/userAuth.store";
+import { getServerURI } from "../../../utils/URIHelper";
 
 export function Header(): ReactElement {
     const {userInfo, setUserInfo} = userAuthStore();
@@ -28,22 +28,6 @@ export function Header(): ReactElement {
         navigationToggle.setAttribute('data-visible', newState);
         navigationToggle.setAttribute('aria-expanded', newState);
     }
-
-    useEffect(() => {
-        if (userInfo?.id) {
-            return;
-        }
-        fetch(getServerURI('api/profile'), {
-            credentials: 'include',
-        }).then((response_) => {
-            response_.json().then((userInfo_: IUserInfo) => {
-                if (!userInfo_.id) {
-                    return;
-                }
-                setUserInfo(userInfo_);
-            });
-        });
-    }, [setUserInfo]);
 
     async function handleLogout(): Promise<void> {
         const response = await fetch(getServerURI('api/logout'), {
@@ -78,7 +62,6 @@ export function Header(): ReactElement {
                                 <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
                                 <Link to='/create'><NewPostIcon />New Post</Link>
                             </>
-                            
                         )}
                         <Link to='/settings'><SettingsIcon />Settings</Link>
                         <div className="vertical-break" />

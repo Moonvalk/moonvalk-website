@@ -5,6 +5,7 @@
     --COLOR_1_05: rgba(5, 5, 15, 0.5);
     --COLOR_1_075: rgba(5, 5, 15, 0.75);
     --COLOR_2: rgb(16, 16, 28);
+    --COLOR_2_05: rgb(16, 16, 28, 0.5);
     --COLOR_3: rgb(30, 30, 49);
     --COLOR_3_05: rgba(30, 30, 49, 0.5);
     --COLOR_3_0: rgba(30, 30, 49, 0);
@@ -26,6 +27,12 @@
     --COLOR_HIGHLIGHT_5_05: rgb(255, 157, 19, 0.5);
 
     --ELASTIC_OUT_BEZIER: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --LG_PAGE_WIDTH: 68rem;
+    --MD_PAGE_WIDTH: 50rem;
+    --SM_PAGE_WIDTH: 34rem;
+    --MIN_PAGE_PERCENT: 90vw;
+    --MAX_NEWS_IMAGE_WIDTH: 62rem;
 }
 
 @font-face {
@@ -63,6 +70,8 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
 .flex {

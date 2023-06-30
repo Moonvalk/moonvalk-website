@@ -1,9 +1,10 @@
 import { WEBSITE_TITLE } from "../main";
 
 const API_URL = 'http://localhost';
+// const API_URL = 'http://192.168.40.115';
 const SERVER_PORT = 3000;
 
-/**
+/**.l;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  * Gets the server URI for api requests.
  * @param append - Optional string to be appended to the URI.
  * @return {string} The stable server URI. 
