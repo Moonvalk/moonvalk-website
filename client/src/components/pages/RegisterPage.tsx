@@ -1,14 +1,14 @@
-import {ReactElement, useEffect, useState} from 'react';
-import '../tools/styles/Form.css';
-import { PageTitle } from '../templates/PageTitle';
+import { ReactElement, useState } from 'react';
 import { getServerURI } from '../../utils/URIHelper';
 import { IUser } from '../../types/IUser';
 import { StringHelper } from '../../utils/StringHelper';
 import { CHARACTER_CODES } from '../../constants/CharacterCodes';
 import { Link, Navigate } from 'react-router-dom';
-import { HelpIcon } from '../icons/HelpIcon';
-import { EditIcon } from '../icons/EditIcon';
+import { HelpIcon } from '../icons/misc/HelpIcon';
+import { EditIcon } from '../icons/actions/EditIcon';
 import { PageTemplate } from '../templates/PageTemplate';
+import { PromptElement } from '../elements/PromptElement';
+import '../tools/styles/Form.css';
 
 export function RegisterPage(): ReactElement {
     const [username, setUsername] = useState('');
@@ -51,10 +51,8 @@ export function RegisterPage(): ReactElement {
 
     return (
         <PageTemplate title='Register' icon={<EditIcon />} pageWrap='page-small'>
-            <div className='prompt'>
-                <HelpIcon />
-                <p className='body-text'>Already have an account? <Link to='/login'>Sign In</Link></p>
-            </div>
+            <PromptElement icon={<HelpIcon />} text={(
+                <>Already have an account? <Link to='/login'>Sign In</Link></>)} />
             <form className='login' onSubmit={handleRegistration}>
                 <label htmlFor='username'>Username*</label>
                 <input id='username'

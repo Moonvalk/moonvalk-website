@@ -20,7 +20,7 @@ export async function createUserController(request_: Request, response_: Respons
             password: bcrypt.hashSync(password, 10),
             firstName: firstName,
             lastName: lastName,
-            administrator: false,
+            accessLevel: 1,
         });
         response_.json('Registration successful.');
     } catch (error_) {

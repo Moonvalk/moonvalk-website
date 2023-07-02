@@ -1,11 +1,12 @@
 import {ReactElement, useEffect, useState} from 'react';
-import './styles/ChangelogPage.css';
 import { ChangelogForm } from '../../tools/ChangelogForm';
-import { userAuthStore } from '../../../stores/userAuth.store';
-import { ChangelogIcon } from '../../icons/ChangelogIcon';
+import { ACCESS_LEVEL, userAuthStore } from '../../../stores/userAuth.store';
+import { ChangelogIcon } from '../../icons/menus/ChangelogIcon';
 import { getServerURI } from '../../../utils/URIHelper';
-import { DeleteIcon } from '../../icons/DeleteIcon';
+import { DeleteIcon } from '../../icons/actions/DeleteIcon';
 import { PageTemplate } from '../../templates/PageTemplate';
+import { RestrictedContent } from '../../elements/RestrictedContent';
+import './styles/ChangelogPage.css';
 
 export interface IChangelog {
     _id: string,
@@ -17,7 +18,6 @@ export interface IChangelog {
 
 export function ChangelogPage(): ReactElement {
     const [logs, setLogs] = useState<IChangelog[]>([]);
-    const {userInfo} = userAuthStore();
     
     useEffect(() => {
         getLogs().catch((error_) => console.log(error_));
@@ -70,12 +70,12 @@ export function ChangelogPage(): ReactElement {
                                     <td>{log.date}</td>
                                     <td>
                                         {log.summary}
-                                        {userInfo?.administrator && (
+                                        <RestrictedContent accessLevel={ACCESS_LEVEL.ADMIN}>
                                             <button className='trash-button'
                                                 onClick={event => handleDeleteLog(log._id)}>
                                                     <DeleteIcon />
                                             </button>
-                                        )}
+                                        </RestrictedContent>
                                     </td>
                                 </tr>
                                 );
@@ -84,11 +84,11 @@ export function ChangelogPage(): ReactElement {
                     </table>
                 </div>
             </div>
-            {userInfo?.administrator && (
-                <div className="page">
+            <RestrictedContent accessLevel={ACCESS_LEVEL.ADMIN}>
+                <div className='page'>
                     <ChangelogForm onCreateLog={getLogs} />
                 </div>
-            )}
+            </RestrictedContent>
         </PageTemplate>
     );
 }

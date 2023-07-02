@@ -4,13 +4,17 @@ import { getServerURI } from "../../../utils/URIHelper";
 import { Navigate, useParams } from "react-router-dom";
 import PostEditor from "../../tools/PostEditor";
 import { getCurrentFormattedDate } from "../../../utils/time";
-import { NewPostIcon } from "../../icons/NewPostIcon";
+import { NewPostIcon } from "../../icons/menus/NewPostIcon";
 import { INewsPost } from "../../sections/NewsPostCard";
-import { EditIcon } from "../../icons/EditIcon";
-import { DeleteIcon } from "../../icons/DeleteIcon";
+import { EditIcon } from "../../icons/actions/EditIcon";
+import { DeleteIcon } from "../../icons/actions/DeleteIcon";
 import '../../tools/styles/Form.css';
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.core.css';
+import { PageTemplate } from "../../templates/PageTemplate";
+import { ACCESS_LEVEL } from "../../../stores/userAuth.store";
+import { format } from 'date-fns';
+import { TEXT_FORMATTING } from "../../../constants/TextFormatting";
 
 export function EditPostPage(): ReactElement {
     const {id} = useParams();
@@ -34,7 +38,7 @@ export function EditPostPage(): ReactElement {
             response_.json().then((postInfo_: INewsPost) => {
                 setPostTitle(postInfo_.title);
                 setPostSubtitle(postInfo_.subtitle);
-                setPostDate(postInfo_.date);
+                setPostDate(format(new Date(postInfo_.date), TEXT_FORMATTING.POST_INTERNAL_DATE));
                 setPostSummary(postInfo_.summary);
                 setPostContent(postInfo_.content);
                 setPostStatus(postInfo_.status);
@@ -56,8 +60,7 @@ export function EditPostPage(): ReactElement {
         const data = new FormData();
         data.set('title', postTitle);
         data.set('subtitle', postSubtitle);
-        let overrideDate = (postDate !== '') ? postDate : getCurrentFormattedDate();
-        data.set('date', overrideDate);
+        data.set('date', postDate);
         data.set('status', postStatus);
         data.set('category', postCategory);
         data.set('summary', postSummary);
@@ -88,90 +91,83 @@ export function EditPostPage(): ReactElement {
     }
 
     return (
-        <div className='content'>
-            <PageTitle title="Create New Post" />
-            <div className='header-margin' />
-            <h1 className='page-title'>
-                <NewPostIcon />Edit Post
-            </h1>
-            <hr className='hr-fade' />
-            <div className='page'>
-                <form onSubmit={handleUpdatePost}>
-                    <div className='flex'>
-                        <label htmlFor="title">Title*</label>
-                        <label htmlFor="date">Date</label>
-                    </div>
-                    <div className='flex'>
-                        <input id='title'
-                            type="title"
-                            placeholder={'Title'} 
-                            value={postTitle} 
-                            onChange={event => setPostTitle(event.target.value)} />
-                        <input id='date'
-                            type="text"
-                            placeholder={currentDate}
-                            value={postDate} 
-                            onChange={event => setPostDate(event.target.value)} />
-                    </div>
-                    <div className='flex'>
-                        <label htmlFor="status">Status</label>
-                        <label htmlFor="category">Category</label>
-                        <label htmlFor="cover-image">Cover*</label>
-                    </div>
-                    <div className='flex'>
-                        <select id='status'
-                            value={postStatus}
-                            onChange={event => setPostStatus(event.target.value)}>
-                            <option value='draft'>Draft</option>
-                            <option value='published'>Published</option>
-                            <option value='private'>Private</option>
-                        </select>
-                        <select id='category'
-                            value={postCategory}
-                            onChange={event => setPostCategory(event.target.value)}>
-                            <option value='general'>General</option>
-                            <option value='tutorial'>Tutorial</option>
-                            <option value='devlog'>Devlog</option>
-                            <option value='announcement'>Announcement</option>
-                        </select>
-                        <input className='file-select'
-                            id='cover-image'
-                            type="file"
-                            onChange={event => setFiles(event.target.files)} />
-                    </div>
-                    <div className='flex'>
-                        <label htmlFor="subtitle">Subtitle</label>
-                        <label htmlFor="summary">Summary*</label>
-                    </div>
-                    <div className='flex'>
-                        <input id='subtitle'
-                            type="subtitle"
-                            placeholder={'Subtitle'} 
-                            value={postSubtitle} 
-                            onChange={event => setPostSubtitle(event.target.value)} />
-                        <input id="summary"
-                            type="summary"
-                            placeholder={'Summary'} 
-                            value={postSummary}
-                            onChange={event => setPostSummary(event.target.value)} />
-                    </div>
-                    <PostEditor onChange={setPostContent} value={postContent} />
-                    <div className='buttons'>
-                        <button className='submit-button'
-                            name='action'
-                            value='edit'>
-                            <EditIcon />
-                            Update Post
-                        </button>
-                        <button className='submit-button delete-button'
-                            name='action'
-                            value='delete'>
-                            <DeleteIcon />
-                            Delete Post
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <PageTemplate title='Edit Post' icon={<NewPostIcon />} pageWrap='page'
+            accessLevel={ACCESS_LEVEL.USER}>
+            <form onSubmit={handleUpdatePost}>
+                <div className='flex'>
+                    <label htmlFor="title">Title*</label>
+                    <label htmlFor="date">Date</label>
+                </div>
+                <div className='flex'>
+                    <input id='title'
+                        type='text'
+                        placeholder={'Title'} 
+                        value={postTitle} 
+                        onChange={event => setPostTitle(event.target.value)} />
+                    <input id='date'
+                        type='text'
+                        placeholder={currentDate}
+                        value={postDate} 
+                        onChange={event => setPostDate(event.target.value)} />
+                </div>
+                <div className='flex'>
+                    <label htmlFor="status">Status</label>
+                    <label htmlFor="category">Category</label>
+                    <label htmlFor="cover-image">Cover*</label>
+                </div>
+                <div className='flex'>
+                    <select id='status'
+                        value={postStatus}
+                        onChange={event => setPostStatus(event.target.value)}>
+                        <option value='draft'>Draft</option>
+                        <option value='published'>Published</option>
+                        <option value='private'>Private</option>
+                    </select>
+                    <select id='category'
+                        value={postCategory}
+                        onChange={event => setPostCategory(event.target.value)}>
+                        <option value='general'>General</option>
+                        <option value='tutorial'>Tutorial</option>
+                        <option value='devlog'>Devlog</option>
+                        <option value='announcement'>Announcement</option>
+                    </select>
+                    <input className='file-select'
+                        id='cover-image'
+                        type="file"
+                        onChange={event => setFiles(event.target.files)} />
+                </div>
+                <div className='flex'>
+                    <label htmlFor="subtitle">Subtitle</label>
+                    <label htmlFor="summary">Summary*</label>
+                </div>
+                <div className='flex'>
+                    <input id='subtitle'
+                        type="subtitle"
+                        placeholder={'Subtitle'} 
+                        value={postSubtitle} 
+                        onChange={event => setPostSubtitle(event.target.value)} />
+                    <input id="summary"
+                        type="summary"
+                        placeholder={'Summary'} 
+                        value={postSummary}
+                        onChange={event => setPostSummary(event.target.value)} />
+                </div>
+                <PostEditor onChange={setPostContent} value={postContent} />
+                <div className='buttons'>
+                    <button className='submit-button'
+                        name='action'
+                        value='edit'>
+                        <EditIcon />
+                        Update Post
+                    </button>
+                    <button className='submit-button delete-button'
+                        name='action'
+                        value='delete'>
+                        <DeleteIcon />
+                        Delete Post
+                    </button>
+                </div>
+            </form>
+        </PageTemplate>
     );
 }

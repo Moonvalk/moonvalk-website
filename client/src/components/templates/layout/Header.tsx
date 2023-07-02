@@ -1,17 +1,17 @@
-import { ReactElement, useEffect, useState } from "react";
-import './styles/Header.css';
+import { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { MenuToggle } from "../../icons/MenuToggle";
-import { DashboardIcon } from "../../icons/DashboardIcon";
-import { LogoutIcon } from "../../icons/LogoutIcon";
+import { MenuToggle } from "../../icons/menus/MenuToggle";
+import { DashboardIcon } from "../../icons/menus/DashboardIcon";
+import { LogoutIcon } from "../../icons/actions/LogoutIcon";
 import { PrimaryNavigation } from "./PrimaryNavigation";
-import { NewPostIcon } from "../../icons/NewPostIcon";
-import { SettingsIcon } from "../../icons/SettingsIcon";
-import { IUserInfo, userAuthStore } from "../../../stores/userAuth.store";
+import { NewPostIcon } from "../../icons/menus/NewPostIcon";
+import { SettingsIcon } from "../../icons/menus/SettingsIcon";
+import { ACCESS_LEVEL, userAuthStore } from "../../../stores/userAuth.store";
 import { getServerURI } from "../../../utils/URIHelper";
+import './styles/Header.css';
 
 export function Header(): ReactElement {
-    const {userInfo, setUserInfo} = userAuthStore();
+    const {userInfo, setUserInfo, userLoggedIn, setUserLoggedIn} = userAuthStore();
 
     function toggleNavigation(forceState?: boolean): void {
         const mobileNavigation = document.querySelector('.mobile-navigation');
@@ -37,6 +37,7 @@ export function Header(): ReactElement {
         if (!response.ok) {
             alert('Failed to log out.');
         }
+        setUserLoggedIn(false);
         setUserInfo(null);
     }
 
@@ -54,10 +55,10 @@ export function Header(): ReactElement {
                 <PrimaryNavigation isMobile={false} onPageSelect={() => toggleNavigation(false)} />
             </header>
             <div className="header-rgb"></div>
-            {userInfo !== null && (
+            {userLoggedIn && (
                 <div className='user-navigation'>
                     <div className='user-links'>
-                        {userInfo.administrator && (
+                        {userInfo?.accessLevel >= ACCESS_LEVEL.ADMIN && (
                             <>
                                 <Link to='/dashboard'><DashboardIcon />Dashboard</Link>
                                 <Link to='/create'><NewPostIcon />New Post</Link>

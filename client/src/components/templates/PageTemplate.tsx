@@ -1,68 +1,38 @@
-import { PropsWithChildren, ReactElement, useEffect, useState } from "react";
+import { PropsWithChildren, ReactElement, useLayoutEffect, useState } from "react";
 import { PageTitle } from "./PageTitle";
-import { Navigate, Outlet } from "react-router-dom";
-import { IUserInfo, userAuthStore } from "../../stores/userAuth.store";
-import { getServerURI } from "../../utils/URIHelper";
-
-export const enum AccessLevel {
-    UNKNOWN = 0,
-    USER = 1,
-    MANAGER = 2,
-    ADMIN = 3,
-}
+import { Navigate } from "react-router-dom";
+import { ACCESS_LEVEL, userAuthStore } from "../../stores/userAuth.store";
 
 interface IPageTemplateProps {
     title?: string,
     icon?: React.ReactNode | undefined,
     hideHeader?: boolean,
-    accessLevel?: AccessLevel | undefined,
+    accessLevel?: ACCESS_LEVEL | undefined,
     pageWrap?: string,
 }
 
 export function PageTemplate(props: PropsWithChildren<IPageTemplateProps>): ReactElement {
     const [authorized, setAuthorized] = useState(true);
     const [redirectPage, setRedirectPage] = useState('/404');
-    const {userInfo, setUserInfo} = userAuthStore();
+    const {userInfo, userLoggedIn} = userAuthStore();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         function handleSetAuthorization(): void {
-            setAuthorized(false);
-            switch (props.accessLevel) {
-                case AccessLevel.ADMIN:
-                    if (userInfo?.administrator) {
-                        console.log('Authorized this page as an admin');
-                        setAuthorized(true);
-                        return;
-                    }
-                    setRedirectPage('/login');
-                    break;
-                case AccessLevel.UNKNOWN:
-                case AccessLevel.USER:
-                case AccessLevel.MANAGER:
-                default:
-                    setAuthorized(true);
-                    return;
-            }
-        }
-
-        async function handleGetUserInfo(): Promise<void> {
-            if (userInfo !== null) {
+            if (userInfo === null || props.accessLevel === undefined) {
                 return;
             }
-            const response = await fetch(getServerURI('api/profile'));
-            const userData = await response.json();
-            if (userData?.id) {
-                setUserInfo(userData);
-                console.log('Set valid user data now');
+            if (userInfo.accessLevel >= props.accessLevel) {
+                setAuthorized(true);
+                return;
             }
-            handleSetAuthorization();
+            setAuthorized(false);
+            setRedirectPage(userLoggedIn ? '/404' : '/login');
         }
-
-        handleGetUserInfo();
-    }, [setUserInfo]);
+        handleSetAuthorization();
+    }, [userInfo]);
 
     if (!authorized) {
-        return <Navigate to={redirectPage} />
+        return <Navigate to={redirectPage} />;
     }
 
     return (

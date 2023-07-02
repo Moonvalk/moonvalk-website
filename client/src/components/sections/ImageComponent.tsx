@@ -9,11 +9,12 @@ interface IHashData {
 }
 
 interface IImageComponentProps {
-    source_: string,
-    alt_?: string,
+    source: string,
+    alt?: string,
+    className?: string,
 }
 
-export function ImageComponent({source_, alt_}: IImageComponentProps): ReactElement {
+export function ImageComponent(props: IImageComponentProps): ReactElement {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [displayHash, setDisplayHash] = useState(true);
     const [hashData, setHashData] = useState<IHashData>({
@@ -31,9 +32,9 @@ export function ImageComponent({source_, alt_}: IImageComponentProps): ReactElem
                 }, 500);
             }, 1000);
         };
-        image.src = source_;
+        image.src = props.source;
         
-        const sourceSplit = source_.split('\\');
+        const sourceSplit = props.source.split('\\');
         const imageId = sourceSplit[sourceSplit.length - 1];
         fetch(getServerURI('api/image-hash/'.concat(imageId)), {
             method: 'GET',
@@ -42,14 +43,14 @@ export function ImageComponent({source_, alt_}: IImageComponentProps): ReactElem
                 setHashData(hashData_);
             }
         )});
-    }, [source_]);
+    }, [props.source]);
 
     return (
         <>
             <div className='image-container' style={{aspectRatio: hashData.aspect}}>
                 {imageLoaded && (
-                    <img className='image-component'
-                        src={source_} alt={alt_ ? alt_ : ''} />
+                    <img className={'image-component' + (props.className ? ` ${props.className}` : '')}
+                        src={props.source} alt={props.alt ? props.alt : ''} />
                 )}
                 {displayHash && (
                     <>

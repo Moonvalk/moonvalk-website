@@ -1,7 +1,7 @@
 import {ReactElement} from 'react';
-import './styles/GamesPage.css';
-import { GamesIcon } from '../../icons/GamesIcon';
+import { GamesIcon } from '../../icons/menus/GamesIcon';
 import { PageTemplate } from '../../templates/PageTemplate';
+import './styles/GamesPage.css';
 
 export function GamesPage(): ReactElement {
     return (

@@ -37,7 +37,7 @@ form textarea {
 
 form .buttons {
     width: min(100%, 30rem);
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 0 auto;
     display: flex;
@@ -46,7 +46,7 @@ form .buttons {
 .submit-button, .delete-button {
     display: flex;
     text-decoration: none;
-    background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
+    background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
     font-family: 'Bebas Neue', sans-serif;
     text-transform: uppercase;
     padding: 0.25rem;
@@ -71,10 +71,6 @@ form .buttons {
     transition: all 0.2s ease;
 }
 
-.delete-button {
-    background: -webkit-linear-gradient(0deg, rgb(255, 107, 107), rgb(255, 49, 73));
-}
-
 .submit-button svg {
     width: 1rem;
     height: 1rem;
@@ -91,19 +87,19 @@ form .buttons {
 .submit-button:hover {
     cursor: pointer;
     scale: 1.1;
-    /* background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5)); */
+    background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
     filter: drop-shadow(0 0 0.35rem var(--COLOR_HIGHLIGHT_5_05)) saturate(1) brightness(1.1) !important;
     box-shadow: 0 0.1rem 1rem rgb(0, 0, 0);
     opacity: 1;
 }
 
 .submit-button:hover svg {
-    animation: pulse-tilt 1s ease infinite;
+    animation: pulse-tilt 0.75s ease infinite;
     transform: scale(1.4);
 }
 
 .delete-button:hover {
-    /* background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5)); */
+    background: -webkit-linear-gradient(0deg, rgb(255, 107, 107), rgb(255, 49, 73));
     filter: drop-shadow(0 0 0.35rem rgba(237, 44, 44, 0.5)) saturate(1) brightness(1.1) !important;
 }
 

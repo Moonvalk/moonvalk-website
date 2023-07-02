@@ -55,3 +55,7 @@ LazyImports.set(PageRoutes.UploadManager, lazy(() => import('../../components/pa
 /** 404 ERROR PAGE */
 LazyImports.set(PageRoutes.NotFound, lazy(() => import('../../components/pages/NotFoundPage')
     .then(module => { return { default: module.NotFoundPage }})));
+
+/** TEST PAGES */
+LazyImports.set(PageRoutes.Test, lazy(() => import('../../components/pages/TestPage')
+.then(module => { return { default: module.TestPage }})));

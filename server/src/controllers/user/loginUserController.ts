@@ -26,7 +26,7 @@ export async function loginUserController(request_: Request, response_: Response
             email: userDocument.email,
             firstName: userDocument.firstName,
             lastName: userDocument.lastName,
-            administrator: userDocument.administrator,
+            accessLevel: userDocument.accessLevel,
         };
         jwt.sign(tokenData, EnvironmentProps.config.accessSecret, (error_: Error | null, token_: string | undefined) => {
             if (error_) {

@@ -1,5 +1,4 @@
-import {ReactElement, lazy} from 'react';
-import { PageTitle } from '../../templates/PageTitle';
+import { ReactElement, lazy } from 'react';
 import { SmartSuspense } from '../../loading/SmartSuspense';
 import { UniversalLoader } from '../../loading/UniversalLoader';
 import { PageTemplate } from '../../templates/PageTemplate';

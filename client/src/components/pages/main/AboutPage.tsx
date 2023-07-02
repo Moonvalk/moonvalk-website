@@ -1,6 +1,6 @@
 import {ReactElement, useEffect} from 'react';
 import { PageTitle } from '../../templates/PageTitle';
-import { AboutIcon } from '../../icons/AboutIcon';
+import { AboutIcon } from '../../icons/menus/AboutIcon';
 import { PageTemplate } from '../../templates/PageTemplate';
 
 export function AboutPage(): ReactElement {

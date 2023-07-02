@@ -19,6 +19,7 @@ import { getPostsController } from './controllers/posts/getPostsController';
 import { authenticateUserController } from './controllers/user/authenticateUserController';
 import { deleteChangelogController } from './controllers/changelogs/deleteChangelogController';
 import { getImageHash } from './controllers/images/getImageHash';
+import { authorizeAdminController, authorizeUserController } from './controllers/user/authorizeUserController';
 
 // Load environment variables & initialize Express for communications with the server.
 const env = EnvironmentProps.config;
@@ -47,10 +48,10 @@ app.post('/api/login', loginUserController);
 app.get('/api/profile', authenticateUserController, getUserProfileController);
 app.post('/api/logout', logoutUserController);
 app.get('/api/changelogs', getChangelogsController);
-app.post('/api/changelog', authenticateUserController, createChangelogController);
-app.delete('/api/changelog/delete/:id', authenticateUserController, deleteChangelogController);
-app.post('/api/post', authenticateUserController, uploadMiddleware.single('file'), createNewPostController);
-app.put('/api/post', authenticateUserController, uploadMiddleware.single('file'), editPostController);
+app.post('/api/changelog', authorizeAdminController, createChangelogController);
+app.delete('/api/changelog/delete/:id', authorizeAdminController, deleteChangelogController);
+app.post('/api/post', authorizeAdminController, uploadMiddleware.single('file'), createNewPostController);
+app.put('/api/post', authorizeAdminController, uploadMiddleware.single('file'), editPostController);
 app.get('/api/posts', getPostsController);
 app.get('/api/post/:id', getPostController);
 app.get('/api/image-hash/:id', getImageHash);

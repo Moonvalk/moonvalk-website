@@ -151,7 +151,7 @@ h1 svg {
 }
 
 .prompt {
-    width: min(100%, 25rem);
+    width: min(100%, var(--MD_PAGE_WIDTH));
     /* max-width: max-content; */
     display: flex;
     align-items: center;

@@ -1,8 +1,11 @@
 import { WEBSITE_TITLE } from "../main";
 
-const API_URL = 'http://localhost';
-// const API_URL = 'http://192.168.40.115';
+// const LOCAL_IP = 'http://localhost';
+const LOCAL_IP = 'http://192.168.40.115';
 const SERVER_PORT = 3000;
+const API_URL = (process.env.NODE_ENV === 'development' ? 
+    `${LOCAL_IP}:${SERVER_PORT}` : 'https://moonvalk.com');
+
 
 /**.l;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  * Gets the server URI for api requests.
@@ -10,7 +13,7 @@ const SERVER_PORT = 3000;
  * @return {string} The stable server URI. 
  */
 export function getServerURI(append?: string): string {
-    const uri = `${API_URL}:${SERVER_PORT}/`;
+    const uri = `${API_URL}/`;
     if (append) {
         return uri.concat(append.replace(/\\/g, "/"));
     }

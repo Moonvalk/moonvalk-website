@@ -1,10 +1,9 @@
-import {ReactElement, useEffect, useState} from 'react';
-import './styles/NewsPage.css';
-import { PageTitle } from '../../templates/PageTitle';
+import { ReactElement, useEffect, useState } from 'react';
 import { getServerURI } from '../../../utils/URIHelper';
 import { INewsPost, NewsPostCard } from '../../sections/NewsPostCard';
-import { NewsIcon } from '../../icons/NewsIcon';
+import { NewsIcon } from '../../icons/menus/NewsIcon';
 import { PageTemplate } from '../../templates/PageTemplate';
+import './styles/NewsPage.css';
 
 export function NewsPage(): ReactElement {
     const [posts, setPosts] = useState<INewsPost[]>([]);

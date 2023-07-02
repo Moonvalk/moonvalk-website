@@ -80,3 +80,15 @@
     position: absolute;
     opacity: 1;
 }
+
+.smol {
+    width: min(90%, 30rem);
+    margin: 1rem auto;
+    display: flex;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.bold {
+    font-weight: 900;
+}
