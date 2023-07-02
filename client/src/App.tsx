@@ -28,6 +28,7 @@ export function App(): ReactElement {
                 <Route path='/create'               Component={LazyImports.get(PageRoutes.CreatePost)} />
                 <Route path='/news/post/:id'        Component={LazyImports.get(PageRoutes.NewsPost)} />
                 <Route path='/news/edit/:id'        Component={LazyImports.get(PageRoutes.EditPost)} />
+                <Route path='/test'                 Component={LazyImports.get(PageRoutes.Test)} />
                 <Route path='*'                     Component={LazyImports.get(PageRoutes.NotFound)} />
             </Route>
         </Routes>

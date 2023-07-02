@@ -2,7 +2,8 @@ import { ReactElement, useLayoutEffect, useState } from "react";
 import { getCurrentFormattedDate } from "../../utils/time";
 import { createChangelog } from "../../api/apiChangelogs";
 import '../tools/styles/Form.css';
-import { EditIcon } from "../icons/EditIcon";
+import { EditIcon } from "../icons/actions/EditIcon";
+import { ButtonElement } from "../elements/ButtonElement";
 
 interface IChangelogFormProps {
     onCreateLog: () => void,
@@ -66,10 +67,7 @@ export function ChangelogForm({onCreateLog}: IChangelogFormProps): ReactElement 
                 onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => {
                     setSummary(event.target.value);
                 }} />
-            <button className='submit-button'>
-                <EditIcon />
-                Add Changelog
-            </button>
+            <ButtonElement icon={<EditIcon />} text='Add Changelog' />
         </form>
     );
 }

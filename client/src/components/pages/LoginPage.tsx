@@ -1,38 +1,41 @@
-import {ReactElement, useEffect, useState} from 'react';
-import '../tools/styles/Form.css';
-import { PageTitle } from '../templates/PageTitle';
+import { ReactElement, useRef, useState } from 'react';
 import { StringHelper } from '../../utils/StringHelper';
 import { CHARACTER_CODES } from '../../constants/CharacterCodes';
 import { Link, Navigate } from 'react-router-dom';
-import { HelpIcon } from '../icons/HelpIcon';
+import { HelpIcon } from '../icons/misc/HelpIcon';
 import { IUserInfo, userAuthStore } from '../../stores/userAuth.store'
 import { getServerURI } from '../../utils/URIHelper';
-import { LoginIcon } from '../icons/LoginIcon';
+import { LoginIcon } from '../icons/actions/LoginIcon';
 import { PageTemplate } from '../templates/PageTemplate';
+import '../tools/styles/Form.css';
+import { PromptElement } from '../elements/PromptElement';
 
 export function LoginPage(): ReactElement {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const usernameRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
     const [redirect, setRedirect] = useState(false);
-    const {setUserInfo} = userAuthStore();
-    // const setUserInfo = userAuthStore((state) => state.setUserInfo);
+    const {setUserInfo, setUserLoggedIn} = userAuthStore();
     
     async function handleLogin(event_: any): Promise<void> {
         event_.preventDefault();
-        if (username === '' || password === '') {
+        if (usernameRef.current.value === '' || passwordRef.current.value === '') {
             alert('Missing required fields.');
             return;
         }
 
         const response = await fetch(getServerURI('api/login'), {
             method: 'POST',
-            body: JSON.stringify({username, password}),
+            body: JSON.stringify({
+                username: usernameRef.current.value,
+                password: passwordRef.current.value,
+            }),
             headers: {'Content-Type': 'application/json'},
             credentials: 'include',
         });
         if (response.ok) {
             response.json().then((userInfo_: IUserInfo) => {
                 setUserInfo(userInfo_);
+                setUserLoggedIn(true);
                 setRedirect(true);
             });
         } else {
@@ -55,14 +58,12 @@ export function LoginPage(): ReactElement {
                     <input id='username'
                         type='username'
                         placeholder='Username'
-                        value={username}
-                        onChange={event => setUsername(event.target.value)}
+                        ref={usernameRef}
                         autoComplete='on' />
                     <input id='password'
                         type='password'
                         placeholder={StringHelper.generateCharFill(CHARACTER_CODES.BULLET, 10)}
-                        value={password}
-                        onChange={event => setPassword(event.target.value)}
+                        ref={passwordRef}
                         autoComplete='on' />
                 </div>
                 <button className='submit-button'>
@@ -70,10 +71,8 @@ export function LoginPage(): ReactElement {
                     Login
                 </button>
             </form>
-            <div className='prompt'>
-                <HelpIcon />
-                <p className='body-text'>Need an account? <Link to='/register'>Sign Up</Link></p>
-            </div>
+            <PromptElement icon={<HelpIcon />} text={(
+                <>Need an account? <Link to='/register'>Sign Up</Link></>)} />
         </PageTemplate>
     );
 }

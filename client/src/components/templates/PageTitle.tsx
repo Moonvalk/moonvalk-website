@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, useLayoutEffect } from "react";
 import { getPageTitle } from "../../utils/URIHelper";
 
 export interface IPageTitle {
@@ -6,9 +6,10 @@ export interface IPageTitle {
 }
 
 export function PageTitle(props: IPageTitle): ReactElement {
-    useEffect(() => {
+    useLayoutEffect(() => {
         document.title = getPageTitle(props.title);
     }, []);
+
     return (
         <>
         </>

@@ -20,4 +20,5 @@ export const enum PageRoutes {
     EditPost,
     NewsPost,
     NotFound,
+    Test,
 }

@@ -1,9 +1,10 @@
 import {ReactElement, useState} from 'react';
 import '../../tools/styles/Form.css';
-import { InfoIcon } from '../../icons/InfoIcon';
-import { ContactIcon } from '../../icons/ContactIcon';
-import { SendIcon } from '../../icons/SendIcon';
+import { InfoIcon } from '../../icons/misc/InfoIcon';
+import { ContactIcon } from '../../icons/menus/ContactIcon';
+import { SendIcon } from '../../icons/actions/SendIcon';
 import { PageTemplate } from '../../templates/PageTemplate';
+import { PromptElement } from '../../elements/PromptElement';
 
 export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
@@ -15,10 +16,8 @@ export function ContactPage(): ReactElement {
     
     return (
         <PageTemplate title='Contact' icon={<ContactIcon />} pageWrap='page-small'>
-            <div className='prompt'>
-                <InfoIcon />
-                <p className='body-text'>Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.</p>
-            </div>
+            <PromptElement icon={<InfoIcon />}
+                text='Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.' />
             <form className="contact">
                 <label htmlFor='first-name'>Name*</label>
                 <div className="flex">

@@ -1,6 +1,5 @@
-import {ReactElement, useEffect} from 'react';
-import { PageTitle } from '../../templates/PageTitle';
-import { ComicsIcon } from '../../icons/ComicsIcon';
+import {ReactElement} from 'react';
+import { ComicsIcon } from '../../icons/menus/ComicsIcon';
 import { PageTemplate } from '../../templates/PageTemplate';
 
 export function ComicsPage(): ReactElement {

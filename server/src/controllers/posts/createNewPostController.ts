@@ -3,6 +3,8 @@ import fs from 'fs';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { EnvironmentProps } from "../../util/EnvironmentProps";
 import Post from "../../models/Post";
+import { format } from 'date-fns';
+import { TEXT_FORMATTING } from "../../constants/TextFormatting";
 
 
 export async function createNewPostController(request_: Request, response_: Response): Promise<void> {
@@ -18,7 +20,7 @@ export async function createNewPostController(request_: Request, response_: Resp
     const postDoc = await Post.create({
         title: title,
         subtitle: subtitle,
-        date: date,
+        date: format(new Date(date), TEXT_FORMATTING.POST_DATE),
         status: status,
         category: category,
         summary: summary,

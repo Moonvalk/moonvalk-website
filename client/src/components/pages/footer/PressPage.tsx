@@ -1,5 +1,5 @@
 import {ReactElement} from 'react';
-import { PressIcon } from '../../icons/PressIcon';
+import { PressIcon } from '../../icons/menus/PressIcon';
 import { PageTemplate } from '../../templates/PageTemplate';
 
 export function PressPage(): ReactElement {

@@ -1,11 +1,9 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { getServerURI } from "../../utils/URIHelper";
 import './styles/NewsPostCard.css';
 import { Link } from "react-router-dom";
-
-export const enum TEXT_FORMATTING {
-    POST_DATE = 'MMM d, yyyy HH:mm',
-}
+import { format } from 'date-fns';
+import { TEXT_FORMATTING } from "../../constants/TextFormatting";
 
 export interface INewsPost {
     _id: string,
@@ -27,6 +25,16 @@ type INewsPostProps = {
 }
 
 export function NewsPostCard({ postData_, imageLeft_ }: INewsPostProps): ReactElement {
+    const [dayMonth, setDayMonth] = useState('');
+    const [year, setYear] = useState('');
+
+    useEffect(() => {
+        const formattedDate = format(new Date(postData_.date), TEXT_FORMATTING.POST_DISPLAY_DATE);
+        const splitDate = formattedDate.split(',');
+        setDayMonth(splitDate[0]);
+        setYear(splitDate[1].replace(' ', ''));
+    }, [])
+
     return (
         <div className={imageLeft_ ? 'blog-card' : 'blog-card alt'}>
             <div className="meta">
@@ -34,8 +42,8 @@ export function NewsPostCard({ postData_, imageLeft_ }: INewsPostProps): ReactEl
                 <div className="details">
                     <div className='flex space-between'>
                         <div>
-                            <li className='date month-day'>June 26</li>
-                            <li className='date year'>2023</li>
+                            <li className='date month-day'>{dayMonth}</li>
+                            <li className='date year'>{year}</li>
                         </div>
                         {/* <li className='author'><a href="#"><AboutIcon />{`${postData_.author.username}`}</a></li> */}
                     </div>

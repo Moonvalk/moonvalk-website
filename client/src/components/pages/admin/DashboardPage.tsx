@@ -1,16 +1,16 @@
 import { ReactElement } from "react";
-import { DashboardIcon } from "../../icons/DashboardIcon";
-import { HelpIcon } from "../../icons/HelpIcon";
-import { AccessLevel, PageTemplate } from "../../templates/PageTemplate";
+import { DashboardIcon } from "../../icons/menus/DashboardIcon";
+import { HelpIcon } from "../../icons/misc/HelpIcon";
+import { PageTemplate } from "../../templates/PageTemplate";
+import { ACCESS_LEVEL } from "../../../stores/userAuth.store";
+import { PromptElement } from "../../elements/PromptElement";
 
 export function DashboardPage(): ReactElement {
     return (
         <PageTemplate title='Dashboard' icon={<DashboardIcon />} pageWrap='page-medium'
-            accessLevel={AccessLevel.ADMIN}>
-            <div className='prompt'>
-                <HelpIcon />
-                <p className='body-text'>View site analytics, handle draft posts, and update site settings here.</p>
-            </div>
+            accessLevel={ACCESS_LEVEL.ADMIN}>
+            <PromptElement icon={<HelpIcon />}
+                text='View site analytics, handle draft posts, and update site settings here.' />
             <p className='body-text'>Manage News Posts</p>
             <p className='body-text'>Manage Emails</p>
             <p className='body-text'>View Website Analytics</p>
