@@ -24,19 +24,7 @@ export type UserAuth = {
 
 export const userAuthStore = create<UserAuth>((set) => ({
     userInfo: null,
-    // setUserInfo: (data_: IUserInfo) => {
-    //     set({ userInfo: (data_ === null ? DEFAULT_UNKNOWN_USER_INFO : data_) });
-    // },
     setUserInfo: (data_: IUserInfo) => set({ userInfo: data_ }),
     userLoggedIn: false,
     setUserLoggedIn: (flag_: boolean) => set({ userLoggedIn: flag_ }),
 }));
-
-// export function isAuthorized(accessLevel_: ACCESS_LEVEL): boolean {
-//     const {userInfo} = userAuthStore();
-//     if (accessLevel_ === ACCESS_LEVEL.UNKNOWN || userInfo?.accessLevel >= accessLevel_) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }

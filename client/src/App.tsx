@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Layout } from './components/templates/layout/Layout';
+import { Layout } from './components/Layout/Layout';
 import { PageRoutes } from './constants/PageRoutes';
-import { LazyImports } from './components/loading/LazyImports';
+import { LazyImports } from './utils/LazyImports';
 
 /**
  * Main app functional component using client side rendering routes.
@@ -12,7 +12,7 @@ export function App(): ReactElement {
     return (
         <Routes>
             <Route element={<Layout />}>
-                <Route index               Component={LazyImports.get(PageRoutes.Home)} />
+                <Route index                        Component={LazyImports.get(PageRoutes.Home)} />
                 <Route path='/games'                Component={LazyImports.get(PageRoutes.Games)} />
                 <Route path='/news'                 Component={LazyImports.get(PageRoutes.News)} />
                 <Route path='/comics'               Component={LazyImports.get(PageRoutes.Comics)} />
