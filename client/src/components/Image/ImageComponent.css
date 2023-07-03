@@ -75,7 +75,7 @@
     border-radius: 50%;
     border-top: 0.5rem solid var(--COLOR_6);
     filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.2));
-    animation: spinner 1s ease infinite, grow 0.5s var(--ELASTIC_OUT_BEZIER);
+    animation: an_loader_spin 1s ease infinite, an_loader_grow 0.5s var(--ELASTIC_OUT_BEZIER);
     display: inline-flex;
     position: absolute;
     opacity: 1;
