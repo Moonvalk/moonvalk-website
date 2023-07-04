@@ -1,6 +1,5 @@
 import { ReactElement, useState } from 'react';
 import { getServerURI } from '../../utils/URIHelper';
-import { IUser } from '../../types/IUser';
 import { StringHelper } from '../../utils/StringHelper';
 import { CHARACTER_CODES } from '../../constants/CharacterCodes';
 import { Link, Navigate } from 'react-router-dom';
@@ -8,6 +7,7 @@ import { HelpIcon } from '../../assets/svg/icons/Misc/HelpIcon';
 import { EditIcon } from '../../assets/svg/icons/Actions/EditIcon';
 import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
+import { ACCESS_LEVEL, IUserInfo } from '../../stores/User';
 
 export function RegisterPage(): ReactElement {
     const [username, setUsername] = useState('');
@@ -25,12 +25,13 @@ export function RegisterPage(): ReactElement {
             alert('Missing required fields.');
             return;
         }
-        const userData: IUser = {
+        const userData: IUserInfo = {
             username: username,
             email: email,
             password: password,
             firstName: firstName,
             lastName: (lastName !== '') ? lastName : null,
+            accessLevel: ACCESS_LEVEL.USER,
         };
         const response = await fetch(getServerURI('api/register'), {
             method: 'POST',

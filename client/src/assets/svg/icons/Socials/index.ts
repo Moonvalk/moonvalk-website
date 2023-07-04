@@ -8,6 +8,7 @@ import { SteamIcon } from "./SteamIcon";
 import { TwitterIcon } from "./TwitterIcon";
 import { YouTubeIcon } from "./YouTubeIcon";
 
+/** Export all available icons in this directory. */
 export {
     AppleIcon,
     BandcampIcon,

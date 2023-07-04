@@ -3,17 +3,28 @@ import { Blurhash } from 'react-blurhash';
 import { getServerURI } from "../../utils/URIHelper";
 import './ImageComponent.css';
 
+/**
+ * Represents image data pulled from the server.
+ */
 interface IHashData {
     hash: string,
     aspect: number,
 }
 
+/**
+ * Available properties for an Image component.
+ */
 interface IImageComponentProps {
     source: string,
     alt?: string,
     className?: string,
 }
 
+/**
+ * Generates a new Image component.
+ * @param {IImageComponentProps} props - Configurable properties for this component.
+ * @return {ReactElement} A new component.
+ */
 export function ImageComponent(props: IImageComponentProps): ReactElement {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [displayHash, setDisplayHash] = useState(true);

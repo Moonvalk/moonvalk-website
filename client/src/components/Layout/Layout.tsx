@@ -1,6 +1,6 @@
 import { ReactElement, useLayoutEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { userAuthStore, ACCESS_LEVEL } from "../../stores/userAuth.store";
+import { userAuthStore, ACCESS_LEVEL } from "../../stores/User";
 import { getServerURI } from "../../utils/URIHelper";
 import { SmartSuspense } from "../SmartSuspense/SmartSuspense";
 import { UniversalLoader } from "../SmartSuspense/UniversalLoader";

@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactElement, useEffect, useState } from "react";
-import { ACCESS_LEVEL, userAuthStore } from "../../stores/userAuth.store";
+import { ACCESS_LEVEL, userAuthStore } from "../../stores/User";
 
 interface IRestrictedContentProps {
     accessLevel: ACCESS_LEVEL,

@@ -5,13 +5,14 @@ import { EditIcon, DeleteIcon } from "../../../assets/svg/icons/Actions";
 import { NewPostIcon } from "../../../assets/svg/icons/Menus";
 import { PageTemplate } from "../../../components/PageTemplate/PageTemplate";
 import { TEXT_FORMATTING } from "../../../constants/TextFormatting";
-import { ACCESS_LEVEL } from "../../../stores/userAuth.store";
+import { ACCESS_LEVEL } from "../../../stores/User";
 import { getCurrentFormattedDate } from "../../../utils/TimeUtils";
 import { getServerURI } from "../../../utils/URIHelper";
-import { INewsPost } from "../../Main/News/NewsPost/NewsPostCard";
+import { INewsPost } from "../../Main/News/Card/NewsPostCard";
 import PostEditor from "../CreatePost/PostEditor";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.core.css';
+
 
 export function EditPostPage(): ReactElement {
     const {id} = useParams();

@@ -142,6 +142,10 @@ h1 svg {
     text-align: center;
 }
 
+.justify {
+    text-align: justify;
+}
+
 .vertical-break {
     display: inline-flex;
     width: 0;
@@ -168,12 +172,12 @@ h1 svg {
     opacity: 1;
 }
 
-.prompt a {
+.prompt a, a.link {
     color: var(--COLOR_HIGHLIGHT_1);
     transition: color 0.2s ease-in-out;
 }
 
-.prompt a:hover {
+.prompt a:hover, a.link:hover {
     color: var(--COLOR_6);
 }
 

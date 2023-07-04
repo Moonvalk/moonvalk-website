@@ -22,7 +22,7 @@ LazyImports.set(PageRoutes.Comics, lazy(() => import('../pages/Main/Comics/Comic
     .then(module => { return { default: module.ComicsPage }})));
 LazyImports.set(PageRoutes.About, lazy(() => import('../pages/Main/About/AboutPage')
     .then(module => { return { default: module.AboutPage }})));
-LazyImports.set(PageRoutes.NewsPost, lazy(() => import('../pages/Main/News/NewsPost/NewsPostPage')
+LazyImports.set(PageRoutes.NewsPost, lazy(() => import('../pages/Main/News/Post/NewsPostPage')
     .then(module => { return { default: module.NewsPostPage }})));
 
 /** FOOTER PAGES */
@@ -48,7 +48,7 @@ LazyImports.set(PageRoutes.CreatePost, lazy(() => import('../pages/Admin/CreateP
     .then(module => { return { default: module.CreatePostPage }})));
 LazyImports.set(PageRoutes.EditPost, lazy(() => import('../pages/Admin/EditPost/EditPostPage')
     .then(module => { return { default: module.EditPostPage }})));
-LazyImports.set(PageRoutes.UploadManager, lazy(() => import('../pages/Admin/UploadManager/UploadManagerPage')
+LazyImports.set(PageRoutes.UploadManager, lazy(() => import('../pages/Admin/Dashboard/UploadManager/UploadManagerPage')
     .then(module => { return { default: module.UploadManagerPage }})));
 
 
@@ -57,5 +57,5 @@ LazyImports.set(PageRoutes.NotFound, lazy(() => import('../pages/NotFound/NotFou
     .then(module => { return { default: module.NotFoundPage }})));
 
 /** TEST PAGES */
-LazyImports.set(PageRoutes.Test, lazy(() => import('../pages/__Test/TestPage')
+LazyImports.set(PageRoutes.Test, lazy(() => import('../pages/__Test/TestPage2')
 .then(module => { return { default: module.TestPage }})));

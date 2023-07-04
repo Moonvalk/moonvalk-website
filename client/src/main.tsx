@@ -6,6 +6,9 @@ import './styles/main.css';
 import './styles/fonts.css';
 import './styles/Form.css';
 
+/**
+ * The title to be displayed for this website.
+ */
 export const WEBSITE_TITLE = 'Moonvalk Studios';
 
 // Create root for placing application into the DOM.
