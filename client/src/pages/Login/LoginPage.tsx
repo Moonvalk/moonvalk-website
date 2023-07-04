@@ -2,12 +2,12 @@ import { ReactElement, useRef, useState } from 'react';
 import { StringHelper } from '../../utils/StringHelper';
 import { CHARACTER_CODES } from '../../constants/CharacterCodes';
 import { Link, Navigate } from 'react-router-dom';
-import { IUserInfo, userAuthStore } from '../../stores/userAuth.store'
 import { getServerURI } from '../../utils/URIHelper';
 import { LoginIcon } from '../../assets/svg/icons/Actions';
 import { HelpIcon } from '../../assets/svg/icons/Misc';
 import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
+import { userAuthStore, IUserInfo } from '../../stores/User';
 
 export function LoginPage(): ReactElement {
     const usernameRef = useRef<HTMLInputElement>(null);

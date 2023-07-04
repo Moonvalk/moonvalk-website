@@ -1,7 +1,7 @@
 
 .three-viewport {
     width: 100vw;
-    height: max(22rem, 30vw);
+    height: max(12rem, 32vw);
     position: relative;
     background-color: var(--COLOR_1);
     display: block;
@@ -11,4 +11,10 @@
     background-repeat: no-repeat;
     background-size: cover; */
     animation: fade-in 0.3s ease-in-out;
+}
+
+.three-view-container {
+    width: 100vw;
+    height: max(12rem, 32vw);
+    overflow: hidden;
 }

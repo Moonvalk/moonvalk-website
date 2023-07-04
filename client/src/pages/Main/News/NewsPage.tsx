@@ -2,7 +2,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import { NewsIcon } from '../../../assets/svg/icons/Menus';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { getServerURI } from '../../../utils/URIHelper';
-import { INewsPost, NewsPostCard } from './NewsPost/NewsPostCard';
+import { INewsPost, NewsPostCard } from './Card/NewsPostCard';
 import './NewsPage.css';
 
 export function NewsPage(): ReactElement {

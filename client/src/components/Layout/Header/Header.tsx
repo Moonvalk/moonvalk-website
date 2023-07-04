@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { ACCESS_LEVEL, userAuthStore } from "../../../stores/userAuth.store";
+import { userAuthStore, ACCESS_LEVEL } from "../../../stores/User";
 import { getServerURI } from "../../../utils/URIHelper";
 import { LogoutIcon } from "../../../assets/svg/icons/Actions";
 import { MenuToggle, DashboardIcon, NewPostIcon, SettingsIcon } from "../../../assets/svg/icons/Menus";

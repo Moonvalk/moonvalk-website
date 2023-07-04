@@ -110,3 +110,42 @@ main {
         display: none;
     }
 }
+
+.indent {
+    text-indent: 2rem;
+}
+
+.font_abel {
+    font-family: 'Abel', sans-serif;
+}
+.font_jetbrains-mono {
+    font-family: 'Jetbrains Mono', sans-serif;
+}
+.font_bebas-neue {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.color_default {
+    color: var(--COLOR_6);
+}
+.color_highlight1 {
+    color: var(--COLOR_HIGHLIGHT_1);
+}
+.color_highlight2 {
+    color: var(--COLOR_HIGHLIGHT_2);
+}
+.color_highlight3 {
+    color: var(--COLOR_HIGHLIGHT_3);
+}
+.color_highlight4 {
+    color: var(--COLOR_HIGHLIGHT_4);
+}
+.color_highlight5 {
+    color: var(--COLOR_HIGHLIGHT_5);
+}
+.color_dim1 {
+    color: var(--COLOR_5);
+}
+.color_dim2 {
+    color: var(--COLOR_4);
+}

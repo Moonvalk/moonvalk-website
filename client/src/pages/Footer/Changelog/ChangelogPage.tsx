@@ -1,5 +1,5 @@
 import {ReactElement, useEffect, useState} from 'react';
-import { ACCESS_LEVEL } from '../../../stores/userAuth.store';
+import { ACCESS_LEVEL } from '../../../stores/User';
 import { getServerURI } from '../../../utils/URIHelper';
 import { DeleteIcon } from '../../../assets/svg/icons/Actions';
 import { ChangelogIcon } from '../../../assets/svg/icons/Menus';

@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import { EditIcon } from "../../../assets/svg/icons/Actions";
-import { PageTemplate } from "../../../components/PageTemplate/PageTemplate";
-import { ACCESS_LEVEL } from "../../../stores/userAuth.store";
+import { EditIcon } from "../../../../assets/svg/icons/Actions";
+import { PageTemplate } from "../../../../components/PageTemplate/PageTemplate";
+import { ACCESS_LEVEL } from "../../../../stores/User";
 
 export function UploadManagerPage(): ReactElement {
     return (

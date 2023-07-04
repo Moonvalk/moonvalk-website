@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactElement, useLayoutEffect, useState } from "react";
 import { PageTitle } from "./PageTitle";
 import { Navigate } from "react-router-dom";
-import { ACCESS_LEVEL, userAuthStore } from "../../stores/userAuth.store";
+import { ACCESS_LEVEL, userAuthStore } from "../../stores/User";
 
 interface IPageTemplateProps {
     title?: string,

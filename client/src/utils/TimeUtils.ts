@@ -1,5 +1,8 @@
 
-
+/**
+ * Gets the current date formatted as MM/DD/YYYY.
+ * @return {string} The current system date.
+ */
 export function getCurrentFormattedDate(): string {
     const date = new Date();
     const dd = String(date.getDate()).padStart(2, '0');

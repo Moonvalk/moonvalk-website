@@ -1,6 +1,7 @@
 import { Component, createRef, ReactNode, RefObject } from "react";
 import MVScene from "../../systems/base/MVScene";
 import './ThreeView.css';
+import { ParallaxElement } from "../Parallax/ParallaxElement";
 
 export default class ThreeView extends Component {
     public containerReference: RefObject<HTMLDivElement>;
@@ -32,23 +33,23 @@ export default class ThreeView extends Component {
     }
 
     protected registerEvents(): void {
-        window.addEventListener('mousemove', this.onMouseMove.bind(this));
+        // window.addEventListener('mousemove', this.onMouseMove.bind(this));
         // window.addEventListener('resize', this.onWindowResize.bind(this));
     }
 
     protected unregisterEvents(): void {
-        window.removeEventListener('mousemove', this.onMouseMove.bind(this));
+        // window.removeEventListener('mousemove', this.onMouseMove.bind(this));
         // window.removeEventListener('resize', this.onWindowResize.bind(this));
     }
 
-    protected onMouseMove(): void {
-        this.scene?.onMouseMove();
-    }    
-
     public render(): ReactNode {
         return (
-            <div className="three-viewport" ref={this.containerReference}>
-                <canvas ref={this.canvasReference} />
+            <div className='three-view-container'>
+                <ParallaxElement>
+                    <div className='three-viewport' ref={this.containerReference}>
+                        <canvas ref={this.canvasReference} />
+                    </div>
+                </ParallaxElement>
             </div>
         );
     }

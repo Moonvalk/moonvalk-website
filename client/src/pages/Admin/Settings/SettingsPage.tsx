@@ -3,7 +3,7 @@ import { SettingsIcon } from "../../../assets/svg/icons/Menus";
 import { HelpIcon } from "../../../assets/svg/icons/Misc";
 import { PageTemplate } from "../../../components/PageTemplate/PageTemplate";
 import { PromptElement } from "../../../components/Prompt/PromptElement";
-import { userAuthStore, ACCESS_LEVEL } from "../../../stores/userAuth.store";
+import { userAuthStore, ACCESS_LEVEL } from "../../../stores/User";
 
 export function SettingsPage(): ReactElement {
     const {userInfo, userLoggedIn} = userAuthStore();
