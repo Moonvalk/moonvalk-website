@@ -14,9 +14,9 @@ const SERVER_PORT = 3000;
 /**
  * Returns the full URL used for API calls based on current configuration.
  */
-const API_URL = (process.env.NODE_ENV === 'development' ? 
-    `${LOCAL_IP}:${SERVER_PORT}` : 'https://moonvalk.com');
-
+// const API_URL = (process.env.NODE_ENV === 'development' ? 
+//     `${LOCAL_IP}:${SERVER_PORT}` : 'https://moonvalk.com');
+const API_URL = `${LOCAL_IP}:${SERVER_PORT}`;
 
 /**
  * Gets the server URI for api requests.
