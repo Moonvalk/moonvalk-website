@@ -1,20 +1,14 @@
-import { ReactElement, lazy } from 'react';
+import { ReactElement } from 'react';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
-import { SmartSuspense } from '../../../components/SmartSuspense/SmartSuspense';
-import { UniversalLoader } from '../../../components/SmartSuspense/UniversalLoader';
-import { HomeIcon } from '../../../assets/svg/icons/Menus';
 import { MessageIcon } from '../../../assets/svg/icons/Actions';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { InfoIcon } from '../../../assets/svg/icons/Misc';
+import { ThreeView } from '../../../components/ThreeView/ThreeView';
 
 export function IndexPage(): ReactElement {
-    const LazyCarousel = lazy(() => import('../../../components/ThreeView/ThreeView'));
-
     return (
         <PageTemplate hideHeader>
-            <SmartSuspense fallback={<UniversalLoader />} fallbackDelay={0}>
-                <LazyCarousel />
-            </SmartSuspense>
+            <ThreeView />
             <div className='header-margin' />
             <h1 className='page-title'>
                 <MessageIcon />

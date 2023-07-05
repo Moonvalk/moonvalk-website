@@ -1,56 +1,55 @@
-import { Component, createRef, ReactNode, RefObject } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import MVScene from "../../systems/base/MVScene";
 import './ThreeView.css';
 import { ParallaxElement } from "../Parallax/ParallaxElement";
+import { UniversalLoader } from "../SmartSuspense/UniversalLoader";
 
-export default class ThreeView extends Component {
-    public containerReference: RefObject<HTMLDivElement>;
-    public canvasReference: RefObject<HTMLCanvasElement>;
-    public scene: MVScene;
+export function ThreeView(): ReactElement {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [sceneLoaded, setSceneLoaded] = useState(false);
 
-    public constructor(props: Readonly<any> | any) {
-        super(props);
-        this.containerReference = createRef();
-        this.canvasReference = createRef();
-    }
+    let scene: MVScene;
 
-    public componentDidMount(): void {
-        const container = this.containerReference.current;
-        const canvas = this.canvasReference.current;
-        if (!this.scene) {
-            this.scene = new MVScene(canvas, container);
+    useEffect(() => {
+        if (scene) {
+            scene.onWindowResize();
         }
+    }, [sceneLoaded]);
 
-        this.registerEvents();
+    useEffect(() => {
+        mount();
+        return unmount;
+    }, []);
+
+    function mount(): void {
+        const container = containerRef.current;
+        const canvas = canvasRef.current;
+        if (container && canvas && !scene) {
+            scene = new MVScene(canvas, container, {
+                onLoadComplete: () => {
+                    setSceneLoaded(true);
+                }
+            });
+        }
     }
 
-    public componentDidUpdate(prevProps: Readonly<{}>, prevState: Readonly<{}>, snapshot?: any): void {
-        
+    function unmount(): void {
+        // Deconstruct and stop listening for events here.
     }
 
-    public componentWillUnmount(): void {
-        this.unregisterEvents();
-    }
-
-    protected registerEvents(): void {
-        // window.addEventListener('mousemove', this.onMouseMove.bind(this));
-        // window.addEventListener('resize', this.onWindowResize.bind(this));
-    }
-
-    protected unregisterEvents(): void {
-        // window.removeEventListener('mousemove', this.onMouseMove.bind(this));
-        // window.removeEventListener('resize', this.onWindowResize.bind(this));
-    }
-
-    public render(): ReactNode {
-        return (
+    return (
+        <>
             <div className='three-view-container'>
+                {!sceneLoaded && (
+                    <UniversalLoader />
+                )}
                 <ParallaxElement>
-                    <div className='three-viewport' ref={this.containerReference}>
-                        <canvas ref={this.canvasReference} />
+                    <div className='three-viewport' ref={containerRef}>
+                        <canvas style={sceneLoaded ? {display: 'block'} : {display: 'none'}} ref={canvasRef} />
                     </div>
                 </ParallaxElement>
             </div>
-        );
-    }
+        </>
+    );
 }
