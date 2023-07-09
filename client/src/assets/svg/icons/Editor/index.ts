@@ -1,9 +1,11 @@
 import { AlignCenterIcon } from "./AlignCenterIcon";
 import { AlignLeftIcon } from "./AlignLeftIcon";
+import { AlignJustifiedIcon } from "./AlignJustifiedIcon";
 import { AlignRightIcon } from "./AlignRightIcon";
 import { BoldIcon } from "./BoldIcon";
 import { CodeIcon } from "./CodeIcon";
 import { HorizontalRuleIcon } from "./HorizontalRuleIcon";
+import { HTMLIcon } from "./HTMLIcon";
 import { ImageIcon } from "./ImageIcon";
 import { ItalicIcon } from "./ItalicIcon";
 import { LinkIcon } from "./LinkIcon";
@@ -17,10 +19,12 @@ import { UnorderedListIcon } from "./UnorderedListIcon";
 export {
     AlignCenterIcon,
     AlignLeftIcon,
+    AlignJustifiedIcon,
     AlignRightIcon,
     BoldIcon,
     CodeIcon,
     HorizontalRuleIcon,
+    HTMLIcon,
     ImageIcon,
     ItalicIcon,
     LinkIcon,

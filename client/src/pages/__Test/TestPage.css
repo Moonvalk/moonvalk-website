@@ -35,7 +35,7 @@
     width: 100%;
     min-height: 10rem;
     outline: 0;
-    background-color: var(--COLOR_2);
+    background-color: var(--COLOR_3);
     border: 0.1rem solid var(--COLOR_4);
     border-radius: 0.5rem;
     margin-top: 1rem;
@@ -99,13 +99,13 @@ button.editor-button, select.editor-select {
 
 button.editor-button {
     min-width: 1rem;
-    max-width: 6rem;
+    max-width: 100%;
     flex: 1 1 2rem;
 }
 
 select.editor-select {
     min-width: 4rem;
-    max-width: 10rem;
+    max-width: 100%;
     flex: 1 1 6rem;
 }
 
@@ -145,4 +145,12 @@ button.editor-button:hover {
 .smol img {
     width: 100%;
     height: auto;
+}
+
+blockquote {
+    margin: 0.5rem;
+    margin-inline: 4rem;
+    padding: 0.25rem;
+    background: linear-gradient(90deg, var(--COLOR_4_05), var(--COLOR_4_0));
+    border-radius: 0.25rem;
 }

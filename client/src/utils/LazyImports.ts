@@ -57,5 +57,5 @@ LazyImports.set(PageRoutes.NotFound, lazy(() => import('../pages/NotFound/NotFou
     .then(module => { return { default: module.NotFoundPage }})));
 
 /** TEST PAGES */
-LazyImports.set(PageRoutes.Test, lazy(() => import('../pages/__Test/TestPage2')
+LazyImports.set(PageRoutes.Test, lazy(() => import('../pages/__Test/TestPage3')
 .then(module => { return { default: module.TestPage }})));

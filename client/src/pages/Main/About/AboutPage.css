@@ -28,7 +28,7 @@
     margin: 0.5rem auto;
     margin-bottom: 0;
     filter: drop-shadow(0 0.1rem 0.25rem var(--COLOR_1_05));
-    transition: all 0.2s ease-in-out, scale 0.2s var(--ELASTIC_OUT_BEZIER);
+    transition: all 0.2s ease-in-out, scale 0.3s var(--ELASTIC_OUT_BEZIER);
     z-index: 100;
 }
 
