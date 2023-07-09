@@ -10,6 +10,28 @@ import { NewPostIcon } from "../../assets/svg/icons/Menus";
 import { TestIcon } from "../../assets/svg/icons/Misc";
 import { EditorToolbar } from "./EditorToolbar";
 
+/**
+|-------------------------------------|---------------------------|
+|  Markdown                           |HTML                       |
+|-------------------------------------|---------------------------|
+|# Heading level 1                    |<h1>Heading level 1</h1>   |
+|## Heading level 2                   |<h2>Heading level 2</h2>   |
+|### Heading level 3                  |<h3>Heading level 3</h3>   |
+|#### Heading level 4                 |<h4>Heading level 4</h4>   |
+|##### Heading level 5                |<h5>Heading level 5</h5>   |
+|###### Heading level 6               |<h6>Heading level 6</h6>   |
+|__bold text__                        |<strong>bold text</strong> |
+|**bold text**                        |<strong>bold text</strong> |
+|_italic text_                        |<em>italic text</em>       |
+|*italic text*                        |<em>italic text</em>       |
+|`word`                               |<code>word</code>          |
+|  Unordered list with "+", "*"       |                           |
+| + First item                        | • First item              |
+| + Second item                       | • Second item             |                    
+|Link [Guide](https://www.google.com) | Guide                     |
+|-----------------------------------------------------------------|
+ */
+
 // interface PostElement {
 //     elements: {
 //         type: string,
@@ -92,6 +114,11 @@ export function TestPage(): ReactElement {
             setOpenedTag(false);
             htmlEditorRef.current.selectionStart = htmlEditorRef.current.selectionEnd =
                 end + 1;
+        } else if (event_.key === 'b' && event_.ctrlKey) {
+            event_.preventDefault();
+            htmlEditorRef.current.value = value + '**';
+            htmlEditorRef.current.selectionStart = htmlEditorRef.current.selectionEnd =
+                end + 2;
         }
     }
 
@@ -106,7 +133,7 @@ export function TestPage(): ReactElement {
         if (htmlEditorRef.current.value === '') {
             return;
         }
-        let postData = htmlEditorRef.current.value;
+        let postData = htmlEditorRef.current.value.replace(/(?:\r|\n|\r\n)/g, '<br />');
         // postData.split('</>')
 
         jsonPreviewRef.current.value = postData;

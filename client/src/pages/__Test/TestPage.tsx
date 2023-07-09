@@ -18,13 +18,6 @@ interface PostElement {
     }[]
 }
 
-const testData: PostElement = {
-    "elements": [
-        { "type": "text", "value": "Welcome to the new website", "class": "body-text center" },
-        { "type": "image", "value": "..\\uploads\\9569ac08b3452b9d7369af5572cc5373.png" }
-    ]
-};
-
 export function TestPage(): ReactElement {
     const editorRef = useRef<HTMLDivElement>(null);
     const htmlEditorRef = useRef<HTMLTextAreaElement>(null);
@@ -46,6 +39,10 @@ export function TestPage(): ReactElement {
             htmlEditorRef.current.value = value.substring(0, start) +
                 '\t' + value.substring(end);
             htmlEditorRef.current.selectionStart = htmlEditorRef.current.selectionEnd = start + 1;
+        } else if (event_.key === 'B') {
+            event_.preventDefault();
+            htmlEditorRef.current.value = value + '**';
+            htmlEditorRef.current.selectionStart = htmlEditorRef.current.selectionEnd = start + 2;
         }
         // if (event_.key === 'Backspace') {
         //     if (htmlEditorRef.current.value.length > 0) {
@@ -63,8 +60,6 @@ export function TestPage(): ReactElement {
         // htmlEditorRef.current.value += event_.key;
         // // addPostData();
     }
-
-    
 
     function handleKeyUp(event_: React.KeyboardEvent<HTMLTextAreaElement>): void {
         // previewRef.current.innerHTML = htmlEditorRef.current.value;
@@ -116,6 +111,11 @@ export function TestPage(): ReactElement {
             // setPostContent(parsedData);
             // htmlEditorRef.current
         }
+    }
+
+    function mapToJSON(innerHTML_: string): void {
+        const treeObject = {};
+        // if
     }
 
     function handlePaste(): void {

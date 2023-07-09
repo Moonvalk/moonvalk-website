@@ -27,4 +27,14 @@ export class StringHelper {
         }
         return value;
     }
+
+    public static isAlpha(source_: string): boolean {
+        return source_.toUpperCase() !== source_.toLowerCase();
+    }
+    
+    public static isInt(source_: string): boolean {
+        const char = source_.charCodeAt(0);
+        const bounds = ['0'.charCodeAt(0), '9'.charCodeAt(0)];
+        return (char >= bounds[0] && char <= bounds[0]);
+    }
 }

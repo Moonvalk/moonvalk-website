@@ -7,7 +7,6 @@ import { ReactElement } from "react";
 export function LinkIcon(): ReactElement {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            <title>Link</title>
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M9 15l6 -6"></path>
             <path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464"></path>
