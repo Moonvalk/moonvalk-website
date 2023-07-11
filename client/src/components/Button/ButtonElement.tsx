@@ -12,6 +12,8 @@ interface IButtonElementProps {
 
     /** A callback to be executed when this button is clicked. */
     onClick?: (event_: React.MouseEvent) => void,
+
+    type?: string,
 }
 
 /**
@@ -21,7 +23,9 @@ interface IButtonElementProps {
  */
 export function ButtonElement(props: IButtonElementProps): ReactElement {
     return (
-        <button className='submit-button' onClick={props.onClick}>
+        <button className='submit-button' onClick={props.onClick}
+            type={  props.type === 'submit' ||
+                    props.type === 'button' ? props.type : 'submit'}>
             {props.icon}
             {props.text}
         </button>

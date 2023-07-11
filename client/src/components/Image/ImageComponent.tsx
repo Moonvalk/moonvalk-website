@@ -18,6 +18,7 @@ interface IImageComponentProps {
     source: string,
     alt?: string,
     className?: string,
+    caption?: string | null,
 }
 
 /**
@@ -81,6 +82,11 @@ export function ImageComponent(props: IImageComponentProps): ReactElement {
                     </>
                 )}
             </div>
+            {props.caption && (
+                <div className='news-image-caption'>
+                    {props.caption}
+                </div>
+            )}
         </>
     );
 }

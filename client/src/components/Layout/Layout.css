@@ -139,11 +139,26 @@ h1 svg {
 }
 
 .center {
+    display: block;
+    margin: auto 0;
     text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
 }
 
 .justify {
     text-align: justify;
+    text-justify: inter-word;
+    display: block;
+    width: max-content;
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .vertical-break {
@@ -186,4 +201,10 @@ h1 svg {
     height: 2rem;
     display: flex;
     margin-right: 1rem;
+    transition: scale 0.3s var(--ELASTIC_OUT_BEZIER);
+}
+
+.prompt:hover svg {
+    scale: 1.2;
+    animation: pulse-tilt 1s ease-in-out infinite;
 }

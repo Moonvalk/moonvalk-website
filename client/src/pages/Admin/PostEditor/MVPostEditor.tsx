@@ -1,12 +1,14 @@
-import { ReactElement, ReactNode, useRef, useState } from "react";
-import { ACCESS_LEVEL } from "../../stores/User";
-import { PreviewIcon } from "../../assets/svg/icons/Actions";
-import { ButtonElement } from "../../components/Button/ButtonElement";
-import { PageTemplate } from "../../components/PageTemplate/PageTemplate";
-import { TestIcon } from "../../assets/svg/icons/Misc";
-import { EditorToolbar } from "../Admin/PostEditor/EditorToolbar";
-import { MarkdownParser } from "../Admin/PostEditor/MarkdownParser";
-import './TestPage.css';
+import { Dispatch, ReactElement, ReactNode, SetStateAction, useRef, useState } from "react";
+import { EditIcon, PreviewIcon } from "../../../assets/svg/icons/Actions";
+import { ButtonElement } from "../../../components/Button/ButtonElement";
+import { EditorToolbar } from "./EditorToolbar";
+import { MarkdownParser } from "./MarkdownParser";
+import './MVPostEditor.css';
+
+interface IMVEditorProps {
+    value: string,
+    onChange: Dispatch<SetStateAction<string>>
+}
 
 const TEST_MARKDOWN_TEXT = `^^1It's Official
 ---
@@ -14,9 +16,9 @@ const TEST_MARKDOWN_TEXT = `^^1It's Official
 $[justify font_abel&;Today is the day. We are happy to announce the official launch of the new $[color_highlight1&;***Moonvalk Studios***] brand and website!]
 
 $[medium&;![Sundown Express&;..\\uploads\\9569ac08b3452b9d7369af5572cc5373.png&;Screenshot of Sundown Express]]
-++> $[center text_large font_bebas-neue&;*Get ready to play some games!*]`;
++[$[center text_large font_bebas-neue&;*Get ready to play some games!*]&;celebrate]`;
 
-export function TestPage(): ReactElement {
+export function MVPostEditor(props: IMVEditorProps): ReactElement {
     const editorRef = useRef<HTMLDivElement>(null);
     const htmlEditorRef = useRef<HTMLTextAreaElement>(null);
     const previewRef = useRef<HTMLIFrameElement>(null);
@@ -56,7 +58,7 @@ export function TestPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Test Page' icon={<TestIcon />} pageWrap='page' accessLevel={ACCESS_LEVEL.ADMIN}>
+        <>
             <EditorToolbar />
             <div ref={editorRef} className='editor' style={{}}>
                 <textarea ref={htmlEditorRef} 
@@ -65,11 +67,13 @@ export function TestPage(): ReactElement {
                     value={postContent}
                     onChange={(event_) => setPostContent(event_.target.value)}
                     className='html-editor' />
-                <ButtonElement icon={<PreviewIcon />} text='Preview' onClick={addPostData} />
+                <div className='buttons'>
+                    <ButtonElement type='button' icon={<PreviewIcon />} text='Preview' onClick={addPostData} />
+                </div>
                 <div ref={previewRef} className='preview'>
                     {preview}
                 </div>
             </div>
-        </PageTemplate>
+        </>
     );
 }

@@ -14,11 +14,11 @@ export function SettingsPage(): ReactElement {
             <PromptElement icon={<HelpIcon />} text='Adjust user settings here.' />
             {userLoggedIn && (
                 <>
-                    <p className='body-text'>Change Username: {userInfo.username}</p>
-                    <p className='body-text'>Change Email: {userInfo.email}</p>
-                    <p className='body-text'>Change First / Last Name: 
+                    <p className='body-text'>Username: {userInfo.username}</p>
+                    <p className='body-text'>Email: {userInfo.email}</p>
+                    <p className='body-text'>First / Last Name: 
                         {` ${userInfo.firstName} ${userInfo.lastName}`}</p>
-                    <p className='body-text'>Change Password</p>
+                    <p className='body-text'>Password</p>
                 </>
             )}
         </PageTemplate>

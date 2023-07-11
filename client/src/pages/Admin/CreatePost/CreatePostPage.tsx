@@ -9,6 +9,8 @@ import { ACCESS_LEVEL } from "../../../stores/User";
 import PostEditor from "./PostEditor";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.core.css';
+import { MVPostEditor } from "../PostEditor/MVPostEditor";
+import { ButtonElement } from "../../../components/Button/ButtonElement";
 
 
 export function CreatePostPage(): ReactElement {
@@ -124,11 +126,8 @@ export function CreatePostPage(): ReactElement {
                         value={postSummary}
                         onChange={event => setPostSummary(event.target.value)} />
                 </div>
-                <PostEditor onChange={setPostContent} value={postContent} />
-                <button className='submit-button'>
-                    <EditIcon />
-                    Create New Post
-                </button>
+                <MVPostEditor onChange={setPostContent} value={postContent} />
+                <ButtonElement type='submit' icon={<EditIcon />} text='Create New Post' />
             </form>
         </PageTemplate>
     );

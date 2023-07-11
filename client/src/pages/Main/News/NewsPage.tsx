@@ -20,7 +20,7 @@ export function NewsPage(): ReactElement {
         <PageTemplate title='News' icon={<NewsIcon />}>
             {posts.length > 0 && posts.map(function (post_: INewsPost, index_: number) {
                 return (
-                    <NewsPostCard key={index_} postData_={post_} imageLeft_={index_ % 2 === 0} />
+                    <NewsPostCard key={index_} postData_={post_} imageLeft_={index_ % 2 === 1} />
                 );
             })}
         </PageTemplate>

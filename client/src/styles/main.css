@@ -33,7 +33,7 @@
     --LG_PAGE_WIDTH: 68rem;
     --MD_PAGE_WIDTH: 50rem;
     --SM_PAGE_WIDTH: 34rem;
-    --MIN_PAGE_PERCENT: 90vw;
+    --MIN_PAGE_PERCENT: 95vw;
     --MAX_NEWS_IMAGE_WIDTH: 62rem;
 }
 
@@ -149,4 +149,11 @@ main {
 }
 .color_dim2 {
     color: var(--COLOR_4);
+}
+
+.text_normal {
+    font-size: 1rem;
+}
+.text_large {
+    font-size: 1.4rem;
 }

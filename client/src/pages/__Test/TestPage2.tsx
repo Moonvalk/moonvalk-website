@@ -8,7 +8,7 @@ import './TestPage.css';
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon, BoldIcon, CodeIcon, ImageIcon, ItalicIcon, LinkIcon, ListIcon, StrikethroughIcon, TextIcon, UnderlineIcon, UnorderedListIcon } from "../../assets/svg/icons/Editor";
 import { NewPostIcon } from "../../assets/svg/icons/Menus";
 import { TestIcon } from "../../assets/svg/icons/Misc";
-import { EditorToolbar } from "./EditorToolbar";
+import { EditorToolbar } from "../Admin/PostEditor/EditorToolbar";
 
 /**
 |-------------------------------------|---------------------------|
