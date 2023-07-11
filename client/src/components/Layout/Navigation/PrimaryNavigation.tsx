@@ -2,29 +2,40 @@ import { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { GamesIcon, NewsIcon, ComicsIcon, AboutIcon } from "../../../assets/svg/icons/Menus";
 
-export interface IPrimaryNavigationProps {
+/**
+ * Properties available to the PrimaryNavigation component.
+ */
+interface IPrimaryNavigationProps {
+    /** Callback executed when a page is selected. */
     onPageSelect: () => void,
+
+    /** Flag that determines if this navigation is used for mobile. */
     isMobile: boolean,
 }
 
-export function PrimaryNavigation(props: IPrimaryNavigationProps): ReactElement {
+/**
+ * Called to generate a new navigation menu for display in header / mobile menus.
+ * @param {IPrimaryNavigationProps} props_ - Properties used to generate this navigation.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
+export function PrimaryNavigation(props_: IPrimaryNavigationProps): ReactElement {
     return (
-        <nav className={props.isMobile ? 'show-mobile' : 'hide-mobile'}>
+        <nav className={props_.isMobile ? 'show_mobile' : 'hide_mobile'}>
             <ul id="primary-navigation" data-visible="false" className={
-                props.isMobile ? "mobile-navigation primary-navigation flex" : "primary-navigation flex"}>
-                <li><Link onClick={props.onPageSelect} to={`/games`}>
+                props_.isMobile ? "mobile-navigation primary-navigation flex" : "primary-navigation flex"}>
+                <li><Link onClick={props_.onPageSelect} to={`/games`}>
                         <GamesIcon />
                         <span>Games</span>
                     </Link></li>
-                <li><Link id='news' onClick={props.onPageSelect} to={`/news`}>
+                <li><Link id='news' onClick={props_.onPageSelect} to={`/news`}>
                         <NewsIcon />
                         <span>News</span>
                     </Link></li>
-                <li><Link onClick={props.onPageSelect} to={`/comics`}>
+                <li><Link onClick={props_.onPageSelect} to={`/comics`}>
                         <ComicsIcon />
                         <span>Comics</span>
                     </Link></li>
-                <li><Link onClick={props.onPageSelect} to={`/about`}>
+                <li><Link onClick={props_.onPageSelect} to={`/about`}>
                         <AboutIcon />
                         <span>About</span>
                     </Link></li>

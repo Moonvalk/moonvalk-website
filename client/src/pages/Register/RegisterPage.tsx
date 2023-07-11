@@ -50,7 +50,7 @@ export function RegisterPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Register' icon={<EditIcon />} pageWrap='page-small'>
+        <PageTemplate title='Register' icon={<EditIcon />} pageWrap='page_small'>
             <PromptElement icon={<HelpIcon />} text={(
                 <>Already have an account? <Link to='/login'>Sign In</Link></>)} />
             <form className='login' onSubmit={handleRegistration}>

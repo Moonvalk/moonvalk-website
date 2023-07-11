@@ -2,10 +2,19 @@ import { AmbientLight, Euler, Group, MathUtils, Mesh, MeshStandardMaterial, Near
 import { isDeviceMobile } from "../../utils/DetectMobile";
 import { MVModelLoader } from "./MVModelLoader";
 
+/**
+ * Properties available to an MVScene object.
+ */
 interface IMVSceneProps {
+    /**
+     * A callback to be executed when the scene load is completed.
+     */
     onLoadComplete?: () => void,
 }
 
+/**
+ * Object representing an individual scene.
+ */
 export default class MVScene {
     protected scene: Scene;
     protected camera: PerspectiveCamera;

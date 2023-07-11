@@ -7,18 +7,30 @@ import { MenuToggle, DashboardIcon, NewPostIcon, SettingsIcon } from "../../../a
 import { PrimaryNavigation } from "../Navigation/PrimaryNavigation";
 import './Header.css';
 
+/**
+ * Called to generate a new header element for display on base pages.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function Header(): ReactElement {
+    /**
+     * Authentication data pulled from the user auth store.
+     */
     const {userInfo, setUserInfo, userLoggedIn, setUserLoggedIn} = userAuthStore();
 
-    function toggleNavigation(forceState?: boolean): void {
+    /**
+     * Toggles the navigation state for mobile.
+     * @param {boolean} forceState_ - Optional ability to force the navigation menu on or off.
+     * @return {void} void
+     */
+    function toggleNavigation(forceState_?: boolean): void {
         const mobileNavigation = document.querySelector('.mobile-navigation');
         const navigationToggle = document.querySelector('.mobile-nav-toggle');
         let newState: string;
-        if (forceState === undefined) {
+        if (forceState_ === undefined) {
             const visibility = mobileNavigation.getAttribute('data-visible');
             newState = (visibility === "false") ? "true" : "false";
         } else {
-            newState = (forceState) ? "true" : "false";
+            newState = (forceState_) ? "true" : "false";
         }
         
         mobileNavigation.setAttribute('data-visible', newState);
@@ -26,6 +38,10 @@ export function Header(): ReactElement {
         navigationToggle.setAttribute('aria-expanded', newState);
     }
 
+    /**
+     * Called to handle logging the current user out.
+     * @return {Promise<void>} void
+     */
     async function handleLogout(): Promise<void> {
         const response = await fetch(getServerURI('api/logout'), {
             credentials: 'include',
@@ -62,7 +78,7 @@ export function Header(): ReactElement {
                             </>
                         )}
                         <Link to='/settings'><SettingsIcon />Settings</Link>
-                        <div className="vertical-break" />
+                        <div className="break_vertical" />
                         <Link to='/login' onClick={handleLogout}><LogoutIcon />Logout</Link>
                     </div>
                 </div>

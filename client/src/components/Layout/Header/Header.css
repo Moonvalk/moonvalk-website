@@ -1,95 +1,16 @@
 
-@keyframes bounce-mobile {
-    0% {
-        transform: scale(1) rotate(5deg);
-    }
-    25% {
-        transform: scale(1.2) rotate(5deg);
-    }
-    50% {
-        transform: scale(1.06) rotate(5deg);
-    }
-    75% {
-        transform: scale(1.12) rotate(5deg);
-    }
-    100% {
-        transform: scale(1.1) rotate(5deg);
-    }
+/** Animations for header */
+@keyframes an_bounce_mobile {
+    0% { transform: scale(1) rotate(5deg); }
+    25% { transform: scale(1.2) rotate(5deg); }
+    50% { transform: scale(1.06) rotate(5deg); }
+    75% { transform: scale(1.12) rotate(5deg); }
+    100% { transform: scale(1.1) rotate(5deg); }
 }
-
-@keyframes wobble-mobile {
-    0% {
-        transform: rotate(5deg) scale(1);
-    }
-    25% {
-        transform: rotate(1deg) scale(1.025);
-    }
-    50% {
-        transform: rotate(9deg) scale(1.05);
-    }
-    75% {
-        transform: rotate(3deg) scale(1.075);
-    }
-    100% {
-        transform: rotate(5deg) scale(1.1);
-    }
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes nav-icon-hover {
-    0% {
-        transform: rotate(0deg);
-    }
-    30% {
-        transform: rotate(0deg);
-    }
-    40% {
-        transform: rotate(10deg);
-    }
-    50% {
-        transform: rotate(-10deg);
-    }
-    60% {
-        transform: rotate(5deg);
-    }
-    70% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes nav-icon-idle {
-    0% {
-        transform: rotate(0deg);
-    }
-    20% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(-20deg);
-    }
-    37.5% {
-        transform: rotate(370deg);
-    }
-    40% {
-        transform: rotate(360deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+@keyframes an_background_shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .header-rgb {
@@ -107,7 +28,7 @@
         var(--COLOR_HIGHLIGHT_3),
         var(--COLOR_HIGHLIGHT_4));
 	background-size: 400% 100%;
-	animation: gradient 20s infinite ease;
+	animation: an_background_shift 20s infinite ease;
     z-index: 400;
 }
 
@@ -178,7 +99,7 @@
 
 .primary-navigation a:hover {
     color: var(--COLOR_HIGHLIGHT_1);
-    animation: bounce 0.3s ease-in-out;
+    animation: an_bounce 0.3s ease-in-out;
     transform: scale(1.1);
 }
 
@@ -258,7 +179,7 @@
 
 @media screen and (min-width: 35em) {
     .primary-navigation a:hover>svg {
-        animation: nav-icon-hover ease-in-out infinite 1s;
+        animation: an_wiggle ease-in-out infinite 1s;
     }
 }
 
@@ -309,7 +230,7 @@
 
     .primary-navigation a:hover {
         color: var(--COLOR_HIGHLIGHT_1);
-        animation: bounce-mobile 0.3s ease-in-out;
+        animation: an_bounce_mobile 0.3s ease-in-out;
         transform: scale(1.1) rotate(5deg);
     }
 
@@ -321,7 +242,7 @@
     }
 
     .primary-navigation[data-visible="true"] svg {
-        animation: nav-icon-idle 5s ease-in-out infinite;
+        animation: an_spin_back 5s ease-in-out infinite;
         animation-delay: 0s;
     }
 

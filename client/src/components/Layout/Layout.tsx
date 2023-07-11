@@ -8,9 +8,19 @@ import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 import './Layout.css';
 
+/**
+ * Called to generate a general page layout for all base pages.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function Layout(): ReactElement {
+    /**
+     * Data and setters pulled from the user authentication store.
+     */
     const {userInfo, setUserInfo, userLoggedIn, setUserLoggedIn} = userAuthStore();
 
+    /**
+     * Called on page initial load before paint to request user data.
+     */
     useLayoutEffect(() => {
         async function handleGetUserInfo(): Promise<void> {
             if (userInfo !== null) {
@@ -38,9 +48,9 @@ export function Layout(): ReactElement {
     return (
         <main>
             <Header />
-            <div className='page-container'>
+            <div className='page_container'>
                 {userLoggedIn && (
-                    <div className='header-margin' />
+                    <div className='margin_header' />
                 )}
                 <SmartSuspense fallback={<UniversalLoader />}>
                     <Outlet />

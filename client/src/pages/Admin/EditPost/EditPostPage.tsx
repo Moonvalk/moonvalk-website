@@ -89,7 +89,7 @@ export function EditPostPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Edit Post' icon={<NewPostIcon />} pageWrap='page'
+        <PageTemplate title='Edit Post' icon={<NewPostIcon />} pageWrap='page_large'
             accessLevel={ACCESS_LEVEL.USER}>
             <form onSubmit={handleUpdatePost}>
                 <div className='flex'>

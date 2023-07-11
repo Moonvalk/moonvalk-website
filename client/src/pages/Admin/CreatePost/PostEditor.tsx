@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import ReactQuill from "react-quill";
 import PostEditorToolbar, { formats, modules } from "./PostEditorToolbar";
-import './PostEditor.css';
 
 export interface IEditorProps {
     value: string,

@@ -3,13 +3,8 @@
     width: 100vw;
     height: max(14rem, 32vw);
     position: relative;
-    /* background-color: var(--COLOR_1); */
     display: block;
     align-items: center;
-    /* background-image: url('../../assets/images/background.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 .three-view-container {
@@ -19,5 +14,5 @@
 }
 
 .three-viewport canvas {
-    animation: fade-in 0.3s ease-in-out;
+    animation: an_fade_in 0.3s ease-in-out;
 }

@@ -14,7 +14,7 @@ export function ContactPage(): ReactElement {
     const [message, setMessage] = useState('');
     
     return (
-        <PageTemplate title='Contact' icon={<ContactIcon />} pageWrap='page-small'>
+        <PageTemplate title='Contact' icon={<ContactIcon />} pageWrap='page_small'>
             <PromptElement icon={<InfoIcon />}
                 text='Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.' />
             <form className="contact">

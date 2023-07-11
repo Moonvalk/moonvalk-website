@@ -65,7 +65,7 @@ export function CreatePostPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Add New Post' icon={<NewPostIcon />} pageWrap='page'
+        <PageTemplate title='Add New Post' icon={<NewPostIcon />} pageWrap='page_large'
             accessLevel={ACCESS_LEVEL.ADMIN}>
             <form onSubmit={handleCreateNewPost}>
                 <div className='flex'>
