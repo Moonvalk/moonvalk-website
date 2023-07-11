@@ -1,9 +1,0 @@
-
-.post-editor {
-    background-color: var(--COLOR_6);
-    color: var(--COLOR_1);
-}
-
-.quill, .ql-container {
-    min-height: 10rem;
-}

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export function DashboardPage(): ReactElement {
     return (
-        <PageTemplate title='Dashboard' icon={<DashboardIcon />} pageWrap='page-medium'
+        <PageTemplate title='Dashboard' icon={<DashboardIcon />} pageWrap='page_medium'
             accessLevel={ACCESS_LEVEL.ADMIN}>
             <PromptElement icon={<HelpIcon />}
                 text='View site analytics, handle draft posts, and update site settings here.' />

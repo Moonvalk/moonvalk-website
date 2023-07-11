@@ -1,4 +1,6 @@
+@charset "UTF-8";
 
+/** Global variable controls */
 :root {
     --COLOR_BACKGROUND: rgb(15, 16, 30);
     --COLOR_1: rgb(5, 5, 15);
@@ -37,16 +39,15 @@
     --MAX_NEWS_IMAGE_WIDTH: 62rem;
 }
 
+/** General page scope controls */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html, body, main {
     height: 100svh;
 }
-
 body {
     background-color: var(--COLOR_BACKGROUND);
     background-size: auto;
@@ -57,31 +58,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 main {
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-}
-
-.flex {
-    display: flex;
-    gap: var(--GAP, 1rem);
-}
-
-.space-between {
-    justify-content: space-between;
-}
-
-.grid {
-    display: grid;
-    gap: var(--GAP, 1rem);
-}
-
-.sr-only {
-    display: none;
 }
 
 /* Prevents Mobile Safari from bumping up font sizes in landscape */
@@ -92,30 +74,60 @@ main {
     }
 }
 
+/** Show / hide mobile selectors */
 @media only screen and (max-width: 34.99em) and (orientation: portrait) {
-    .hide-mobile {
+    .hide_mobile {
         display: none;
     }
-
-    .show-mobile {
+    .show_mobile {
         display: block;
     }
 }
-
 @media only screen and (min-width: 35em) {
-    .hide-mobile {
+    .hide_mobile {
         display: block;
     }
-
-    .show-mobile {
+    .show_mobile {
         display: none;
     }
 }
 
-.indent {
-    text-indent: 2rem;
+/** General display control selectors */
+.flex {
+    display: flex;
+    gap: var(--GAP, 1rem);
+}
+.grid {
+    display: grid;
+    gap: var(--GAP, 1rem);
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
+/** Alignment selectors */
+.align_center {
+    display: block;
+    margin: auto 0;
+    text-align: center;
+}
+.align_left {
+    float: left;
+}
+.align_right {
+    float: right;
+}
+.align_justified {
+    text-align: justify;
+    text-justify: inter-word;
+    display: block;
+    width: max-content;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/** Font selectors */
 .font_abel {
     font-family: 'Abel', sans-serif;
 }
@@ -126,6 +138,7 @@ main {
     font-family: 'Bebas Neue', sans-serif;
 }
 
+/** Color selectors */
 .color_default {
     color: var(--COLOR_6);
 }
@@ -151,9 +164,27 @@ main {
     color: var(--COLOR_4);
 }
 
-.text_normal {
+/** Text size selectors */
+.text_body {
+    font-family: 'Abel', sans-serif;
     font-size: 1rem;
+}
+.text_small {
+    font-size: 0.8rem;
 }
 .text_large {
     font-size: 1.4rem;
+}
+.text_monolithic {
+    font-size: 6rem;
+    font-weight: 900;
+    margin-bottom: 0;
+}
+
+/** Misc text selectors */
+.indent {
+    text-indent: 2rem;
+}
+.sr-only {
+    display: none;
 }

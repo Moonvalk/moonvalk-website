@@ -6,7 +6,7 @@ import { PromptElement } from '../../../components/Prompt/PromptElement';
 
 export function ComicsPage(): ReactElement {
     return (
-        <PageTemplate title='Comics' icon={<ComicsIcon />} pageWrap='page-small'>
+        <PageTemplate title='Comics' icon={<ComicsIcon />} pageWrap='page_small'>
             <PromptElement icon={<MessageIcon />} text='Stay tuned; stories coming soon!' />
         </PageTemplate>
     );

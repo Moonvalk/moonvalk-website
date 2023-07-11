@@ -9,7 +9,7 @@ export function SettingsPage(): ReactElement {
     const {userInfo, userLoggedIn} = userAuthStore();
 
     return (
-        <PageTemplate title='Settings' icon={<SettingsIcon />} pageWrap='page-medium'
+        <PageTemplate title='Settings' icon={<SettingsIcon />} pageWrap='page_medium'
             accessLevel={ACCESS_LEVEL.USER}>
             <PromptElement icon={<HelpIcon />} text='Adjust user settings here.' />
             {userLoggedIn && (

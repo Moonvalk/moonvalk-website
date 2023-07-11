@@ -6,7 +6,7 @@ import { MessageIcon } from '../../../assets/svg/icons/Actions';
 
 export function PressPage(): ReactElement {
     return (
-        <PageTemplate title='Press' icon={<PressIcon />} pageWrap='page-small'>
+        <PageTemplate title='Press' icon={<PressIcon />} pageWrap='page_small'>
             <PromptElement icon={<MessageIcon />} text='Press-kits and high quality format media coming soon...' />
         </PageTemplate>
     );

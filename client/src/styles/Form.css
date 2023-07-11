@@ -85,7 +85,7 @@ form .buttons {
 }
 
 .submit-button:hover svg {
-    animation: pulse-tilt 0.75s ease infinite;
+    animation: an_pulse_tilt 0.75s ease infinite;
     transform: scale(1.4);
 }
 

@@ -7,7 +7,7 @@ export function EditorToolbar(): ReactElement {
         <div className='editor-buttons'>
             {/* <button className='editor-button' title='Add New Element'><NewPostIcon /></button>
             <button className='editor-button'><TextIcon /></button> */}
-            {/* <div className="vertical-break" /> */}
+            {/* <div className="break_vertical" /> */}
             <select id='font-family' className='editor-select' title='Font Family'>
                 <option value='abel' className='font_abel'>Abel</option>
                 <option value='bebas-neue' className='font_bebas-neue'>Bebas Neue</option>

@@ -47,7 +47,7 @@ export function LoginPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Sign In' icon={<LoginIcon />} pageWrap='page-small'>
+        <PageTemplate title='Sign In' icon={<LoginIcon />} pageWrap='page_small'>
             <form className='login' onSubmit={handleLogin}>
                 <div className='flex'>
                     <label htmlFor='username'>Username: </label>

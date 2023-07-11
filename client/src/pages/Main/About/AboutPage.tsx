@@ -8,7 +8,7 @@ import { PromptElement } from '../../../components/Prompt/PromptElement';
 
 export function AboutPage(): ReactElement {
     return (
-        <PageTemplate title='About' icon={<AboutIcon />} pageWrap='page-small'>
+        <PageTemplate title='About' icon={<AboutIcon />} pageWrap='page_small'>
             <PromptElement icon={<InfoIcon />} text={<>
                 <span className='color_highlight1'>Moonvalk Studios</span> is the alias of solo indie developer Zack Harmon.
                 </>} />
@@ -16,14 +16,14 @@ export function AboutPage(): ReactElement {
                 <div className='about-avatar-border' />
                 <div className='about-avatar' />
             </div>
-            <p className="body-text justify indent">
+            <p className="text_body align_justified indent">
                 Zack has been making games, artwork, music, and design for over thirteen years.
                 Just recently he decided to take the plunge and work on his projects fulltime.
                 He loves to collaborate and connect with others in the game dev community. He also loves mexican food *wink*.
             </p>
             <br />
             <br />
-            <p className="body-text center">
+            <p className="text_body align_center">
                 Use the <Link className='link' to='/contact'>Contact Form</Link> to get in touch.
             </p>
         </PageTemplate>

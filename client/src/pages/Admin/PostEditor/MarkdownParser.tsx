@@ -350,7 +350,7 @@ export class MarkdownParser {
                     );
                 case 'hr':
                     return (
-                        <hr className='hr-fade' key={key} />
+                        <hr className='hr_fade' key={key} />
                     );
                 case PromptElement:
                     return (

@@ -46,8 +46,8 @@ export function ChangelogPage(): ReactElement {
 
     return (
         <PageTemplate title='Changelog' icon={<ChangelogIcon />}>
-            <div className="page">
-                <p className="body-text center">
+            <div className='page_large'>
+                <p className="text_body align_center">
                     Below are the records for this website's update history:
                 </p>
                 <div className="changelog">
@@ -85,7 +85,7 @@ export function ChangelogPage(): ReactElement {
                 </div>
             </div>
             <RestrictedContent accessLevel={ACCESS_LEVEL.ADMIN}>
-                <div className='page'>
+                <div className='page_large'>
                     <ChangelogForm onCreateLog={getLogs} />
                 </div>
             </RestrictedContent>

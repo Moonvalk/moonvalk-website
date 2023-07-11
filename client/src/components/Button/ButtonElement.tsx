@@ -29,5 +29,5 @@ export function ButtonElement(props: IButtonElementProps): ReactElement {
             {props.icon}
             {props.text}
         </button>
-    )
+    );
 }

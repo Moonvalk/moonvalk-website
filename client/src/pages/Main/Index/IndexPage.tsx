@@ -9,14 +9,14 @@ export function IndexPage(): ReactElement {
     return (
         <PageTemplate hideHeader>
             <ThreeView />
-            <div className='header-margin' />
+            <div className='margin_header' />
             <h1 className='page-title'>
                 <MessageIcon />
                 Welcome
             </h1>
-            <hr className='hr-small' />
-            <div className='page-small'>
-                <p className='body-text indent justify'>
+            <hr className='hr_small' />
+            <div className='page_small'>
+                <p className='text_body indent align_justified'>
                     <span className='color_highlight1'>Moonvalk</span> is a brand spanking new game studio developing and publishing mobile / desktop experiences.
                     Our focus is keeping things fun by using retro themes in clever new ways.
                 </p>

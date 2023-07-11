@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { AppleIcon, BandcampIcon, FacebookIcon, GithubIcon, GooglePlayIcon, InstagramIcon, SteamIcon, TwitterIcon, YouTubeIcon } from "../../../assets/svg/icons/Socials";
 import './Footer.css';
 
+/**
+ * Called to generate a footer element for the bottom of base pages.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function Footer(): ReactElement {
     return (
         <footer>
@@ -26,7 +30,7 @@ export function Footer(): ReactElement {
                     <Link className="instagram" target="_blank" to="https://www.instagram.com/moonvalk/">
                         <InstagramIcon />
                     </Link>
-                    <div className="vertical-break hide-mobile" />
+                    <div className="break_vertical hide_mobile" />
                 </div>
                 <div className='social-links-group'>
                     <Link className='apple' target='_blank' to='/'>
@@ -38,7 +42,7 @@ export function Footer(): ReactElement {
                     <Link className='steam' target="_blank" to='/'>
                         <SteamIcon />
                     </Link>
-                    <div className="vertical-break" />
+                    <div className="break_vertical" />
                     <Link className="bandcamp" target="_blank" to="https://moonvalk.bandcamp.com/">
                         <BandcampIcon />
                     </Link>
@@ -47,7 +51,7 @@ export function Footer(): ReactElement {
                     </Link>
                 </div>
             </div>
-            <hr className="footer-break" />
+            <hr className="break_footer" />
             <p className="copyright">
                 &#169;2023 Moonvalk Studios LLC. All Rights Reserved.
             </p>
