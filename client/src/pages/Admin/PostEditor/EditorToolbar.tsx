@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
-import { TextIcon, ImageIcon, CodeIcon, BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, UnorderedListIcon, ListIcon, AlignLeftIcon, AlignCenterIcon, AlignRightIcon, LinkIcon, HorizontalRuleIcon, AlignJustifiedIcon, HTMLIcon } from "../../assets/svg/icons/Editor";
-import { NewPostIcon } from "../../assets/svg/icons/Menus";
+import { ImageIcon, CodeIcon, BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, UnorderedListIcon, AlignLeftIcon, AlignCenterIcon, AlignRightIcon, LinkIcon, HorizontalRuleIcon, AlignJustifiedIcon, HTMLIcon } from "../../../assets/svg/icons/Editor";
 
 
 export function EditorToolbar(): ReactElement {

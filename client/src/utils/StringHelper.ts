@@ -4,6 +4,13 @@
  */
 export class StringHelper {
     /**
+     * Object of common string RegExp expressions.
+     */
+    public static expressions = {
+        newLine: /(?:\r|\n|\r\n)/g,
+    }
+
+    /**
      * Generates a string filled with characters at the desired length.
      * @param characterCode_ - The character code used to generate.
      * @param length_ - The total length of the generated string.

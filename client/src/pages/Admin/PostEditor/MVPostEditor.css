@@ -35,10 +35,12 @@
     width: 100%;
     min-height: 10rem;
     outline: 0;
-    background-color: var(--COLOR_3);
-    border: 0.1rem solid var(--COLOR_4);
+    border: 0.1rem solid var(--COLOR_4_05);
     border-radius: 0.5rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .editable:hover::before {
