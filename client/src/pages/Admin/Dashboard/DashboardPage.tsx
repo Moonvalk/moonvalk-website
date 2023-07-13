@@ -12,12 +12,12 @@ export function DashboardPage(): ReactElement {
             accessLevel={ACCESS_LEVEL.ADMIN}>
             <PromptElement icon={<HelpIcon />}
                 text='View site analytics, handle draft posts, and update site settings here.' />
-            <Link className='link' to='/dashboard'><p className='body-text'>Manage News Posts</p></Link>
-            <Link className='link' to='/dashboard'><p className='body-text'>Manage Emails</p></Link>
-            <Link className='link' to='/dashboard'><p className='body-text'>View Website Analytics</p></Link>
-            <Link className='link' to='/dashboard'><p className='body-text'>Handle Newsletter List</p></Link>
-            <Link className='link' to='/dashboard/uploads'><p className='body-text'>Manage Uploads</p></Link>
-            <Link className='link' to='/test'><p className='body-text'>Test</p></Link>
+            <Link className='link' to='/dashboard'><p className='text_body'>Manage News Posts</p></Link>
+            <Link className='link' to='/dashboard'><p className='text_body'>Manage Emails</p></Link>
+            <Link className='link' to='/dashboard'><p className='text_body'>View Website Analytics</p></Link>
+            <Link className='link' to='/dashboard'><p className='text_body'>Handle Newsletter List</p></Link>
+            <Link className='link' to='/dashboard/uploads'><p className='text_body'>Manage Uploads</p></Link>
+            <Link className='link' to='/test'><p className='text_body'>Test</p></Link>
         </PageTemplate>
     );
 }

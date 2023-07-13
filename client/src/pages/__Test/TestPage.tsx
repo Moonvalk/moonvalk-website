@@ -4,9 +4,9 @@ import { PreviewIcon } from "../../assets/svg/icons/Actions";
 import { ButtonElement } from "../../components/Button/ButtonElement";
 import { PageTemplate } from "../../components/PageTemplate/PageTemplate";
 import { TestIcon } from "../../assets/svg/icons/Misc";
-import { EditorToolbar } from "../Admin/PostEditor/EditorToolbar";
-import { MarkdownParser } from "../Admin/PostEditor/MarkdownParser";
-import '../Admin/PostEditor/MVPostEditor.css';
+import { MVEditorToolbar } from "../Admin/PostEditor/MarkdownEditor/MVEditorToolbar";
+import { MarkdownParser } from "../../utils/Markdown/MarkdownParser";
+import '../Admin/PostEditor/MarkdownEditor/MVPostEditor.css';
 
 const TEST_MARKDOWN_TEXT = `^^1It's Official
 ---
@@ -58,7 +58,7 @@ export function TestPage(): ReactElement {
     return (
         <PageTemplate title='Test Page' icon={<TestIcon />} pageWrap='page_large'
             accessLevel={ACCESS_LEVEL.ADMIN}>
-            <EditorToolbar />
+            <MVEditorToolbar />
             <div ref={editorRef} className='editor' style={{}}>
                 <textarea ref={htmlEditorRef} 
                     onKeyDown={handleKeyDown}

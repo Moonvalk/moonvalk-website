@@ -7,7 +7,7 @@ export class StringHelper {
      * Object of common string RegExp expressions.
      */
     public static expressions = {
-        newLine: /(?:\r|\n|\r\n)/g,
+        newLine: /(?:\n|\n)/g,
     }
 
     /**

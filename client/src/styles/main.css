@@ -37,6 +37,10 @@
     --SM_PAGE_WIDTH: 34rem;
     --MIN_PAGE_PERCENT: 95vw;
     --MAX_NEWS_IMAGE_WIDTH: 62rem;
+
+    --BODY_FONT: 'Abel';
+    --TITLE_FONT: 'Bebas Neue';
+    --CODE_FONT: 'Jetbrains Mono';
 }
 
 /** General page scope controls */
@@ -127,6 +131,12 @@ main {
     margin: 0 auto;
 }
 
+@media only screen and (max-width: 34.99em) and (orientation: portrait) {
+    .align_justified {
+        max-width: 100%;
+    }
+}
+
 /** Font selectors */
 .font_abel {
     font-family: 'Abel', sans-serif;
@@ -166,7 +176,7 @@ main {
 
 /** Text size selectors */
 .text_body {
-    font-family: 'Abel', sans-serif;
+    font-family: var(--BODY_FONT), sans-serif;
     font-size: 1rem;
 }
 .text_small {

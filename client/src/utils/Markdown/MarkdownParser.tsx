@@ -2,11 +2,11 @@ import { ReactElement, createElement } from "react";
 import { IMarkdownMatchData, IMarkdownNode } from "./IMarkdownNode";
 import { MARKDOWN_EXPRESSIONS, MARKDOWN_COMPONENTS, MARKDOWN_MATCHING_PAIRS, PARAMETER_DATA_SPLIT_CHARACTER } from "./MarkdownExpressions";
 import { MARKDOWN_TOKEN } from "./MarkdownToken";
-import { InfoIcon } from "../../../assets/svg/icons/Misc";
-import { ImageComponent } from "../../../components/Image/ImageComponent";
-import { PromptElement } from "../../../components/Prompt/PromptElement";
-import { StringHelper } from "../../../utils/StringHelper";
-import { ICON_COMPONENT, MAP_OF_ICON_COMPONENTS } from "../../../components/Prompt/IconMap";
+import { InfoIcon } from "../../assets/svg/icons/Misc";
+import { ImageComponent } from "../../components/Image/ImageComponent";
+import { MAP_OF_ICON_COMPONENTS, ICON_COMPONENT } from "../../components/Prompt/IconMap";
+import { PromptElement } from "../../components/Prompt/PromptElement";
+import { StringHelper } from "../StringHelper";
 
 /**
  * Object used for parsing custom format markdown text used primarily for news post content.
@@ -77,6 +77,7 @@ export class MarkdownParser {
         
         // Split each line and feed it into our converter. This will build a tree of markdown blocks that can
         // be used as instructions to create ReactElements.
+        input_ = input_.replace(/(?:\r)/g, '');
         const lines = input_.split(StringHelper.expressions.newLine);
         this.convertMarkdownToNodes(lines);
 
@@ -136,7 +137,6 @@ export class MarkdownParser {
                     
                     let parameterData: string[];
                     switch (parseData.tokenMatch) {
-                        case MARKDOWN_TOKEN.IMAGE:
                         case MARKDOWN_TOKEN.LINK:
                         case MARKDOWN_TOKEN.HTML:
                         case MARKDOWN_TOKEN.PROMPT:
@@ -150,6 +150,15 @@ export class MarkdownParser {
                             } else {
                                 parameterData = currentRead.split(PARAMETER_DATA_SPLIT_CHARACTER);
                                 currentRead = parameterData[1];
+                            }
+                            break;
+                        case MARKDOWN_TOKEN.IMAGE:
+                            if (typeof content[0] === 'string') {
+                                parameterData = content[0].split(PARAMETER_DATA_SPLIT_CHARACTER);
+                                content[0] = parameterData[2];
+                            } else {
+                                parameterData = currentRead.split(PARAMETER_DATA_SPLIT_CHARACTER);
+                                currentRead = parameterData[2];
                             }
                             break;
                     }
@@ -329,7 +338,7 @@ export class MarkdownParser {
                 case ImageComponent:
                     return (
                         <ImageComponent key={key} alt={node_.data[0]} source={node_.data[1]}
-                            caption={node_.data[2] ? node_.data[2] : ''} />
+                            caption={node_.content && node_.content?.map((node) => this.renderMarkdownContent(node))} />
                     );
                 case 'a':
                     return (
@@ -350,7 +359,7 @@ export class MarkdownParser {
                     );
                 case 'hr':
                     return (
-                        <hr className='hr_fade' key={key} />
+                        <hr className='hr_small' key={key} />
                     );
                 case PromptElement:
                     return (

@@ -9,6 +9,16 @@
     transition: scale 0.2s ease-in-out;
 }
 
+.image-caption {
+    width: 100%;
+    background-color: var(--COLOR_2);
+    color: var(--COLOR_5);
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0 auto;
+    font-family: var(--BODY_FONT), sans-serif;
+}
+
 .blurhash {
     position: relative;
     width: 100%;
@@ -63,24 +73,22 @@
 }
 
 /** Selectors for image sizes */
-.image_small {
-    width: min(90%, var(--SM_PAGE_WIDTH));
+.image_small, .image_medium, .image_large {
     margin: 1rem auto;
-    display: flex;
+    display: block;
     border-radius: 0.5rem;
     overflow: hidden;
+}
+.image_small img, .image_medium img, .image_large img {
+    width: 100%;
+    height: auto;
+}
+.image_small {
+    width: min(90%, var(--SM_PAGE_WIDTH));
 }
 .image_medium {
     width: min(90%, var(--MD_PAGE_WIDTH));
-    margin: 1rem auto;
-    display: flex;
-    border-radius: 0.5rem;
-    overflow: hidden;
 }
 .image_large {
     width: min(90%, var(--LG_PAGE_WIDTH));
-    margin: 1rem auto;
-    display: flex;
-    border-radius: 0.5rem;
-    overflow: hidden;
 }

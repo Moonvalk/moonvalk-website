@@ -7,6 +7,7 @@ import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { RestrictedContent } from '../../../components/RestrictedContent/RestrictedContent';
 import { ChangelogForm } from './ChangelogForm';
 import './ChangelogPage.css';
+import { ButtonElement } from '../../../components/Button/ButtonElement';
 
 export interface IChangelog {
     _id: string,
@@ -71,10 +72,8 @@ export function ChangelogPage(): ReactElement {
                                     <td>
                                         {log.summary}
                                         <RestrictedContent accessLevel={ACCESS_LEVEL.ADMIN}>
-                                            <button className='trash-button'
-                                                onClick={event => handleDeleteLog(log._id)}>
-                                                    <DeleteIcon />
-                                            </button>
+                                            <ButtonElement class='trash-button' onClick={event => handleDeleteLog(log._id)}
+                                                icon={<DeleteIcon />} />
                                         </RestrictedContent>
                                     </td>
                                 </tr>

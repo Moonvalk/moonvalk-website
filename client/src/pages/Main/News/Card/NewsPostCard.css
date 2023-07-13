@@ -10,7 +10,7 @@
     margin-bottom: 1.5rem;
     background: var(--COLOR_3);
     line-height: 1.4;
-    font-family: 'Abel', sans-serif;
+    font-family: var(--BODY_FONT), sans-serif;
     border-radius: 0.5rem;
     overflow: hidden;
     z-index: 0;
@@ -81,7 +81,7 @@
 
 .blog-card .details li {
     position: relative;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--TITLE_FONT), sans-serif;
 }
 
 .blog-card .details .date {
@@ -126,7 +126,7 @@
 
 .blog-card .description h1,
 .blog-card .description h2 {
-    font-family: 'Abel', sans-serif;
+    font-family: var(--BODY_FONT), sans-serif;
 }
 
 .blog-card .description h1 {
@@ -171,7 +171,7 @@
     width: 6rem;
     height: 2rem;
     text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--TITLE_FONT), sans-serif;
     font-size: 1rem;
     filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0)) saturate(0);
     opacity: 0.9;

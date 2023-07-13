@@ -82,7 +82,7 @@
     color: var(--COLOR_6);
     text-decoration: none;
     margin: 0 0.25rem auto;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--TITLE_FONT), sans-serif;
     font-size: 1.2rem;
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
     display: block;
@@ -136,7 +136,7 @@
     backdrop-filter: blur(0.2rem); 
     margin: 0 auto;
     z-index: 400;
-    font-family: 'Abel', sans-serif;
+    font-family: var(--BODY_FONT), sans-serif;
 }
 
 .user-links {

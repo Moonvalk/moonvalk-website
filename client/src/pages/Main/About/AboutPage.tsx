@@ -10,7 +10,7 @@ export function AboutPage(): ReactElement {
     return (
         <PageTemplate title='About' icon={<AboutIcon />} pageWrap='page_small'>
             <PromptElement icon={<InfoIcon />} text={<>
-                <span className='color_highlight1'>Moonvalk Studios</span> is the alias of solo indie developer Zack Harmon.
+                <span className='color_highlight1'>Moonvalk Studios</span> is the creation and alias of solo independent game developer Zack Harmon.
                 </>} />
             <div className='about-avatar-container'>
                 <div className='about-avatar-border' />
