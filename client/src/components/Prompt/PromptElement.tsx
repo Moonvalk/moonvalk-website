@@ -13,6 +13,11 @@ interface IPromptElementProps {
      * An optional icon to be displayed on this prompt.
      */
     icon?: ReactNode | null,
+
+    /**
+     * Additional class names to assign to this prompt element.
+     */
+    class?: string,
 }
 
 /**
@@ -22,7 +27,7 @@ interface IPromptElementProps {
  */
 export function PromptElement(props_: IPromptElementProps): ReactElement {
     return (
-        <div className='prompt'>
+        <div className={`prompt ${props_.class ? props_.class : ''}`}>
             {props_.icon}
             <p className='text_body'>{props_.text}</p>
         </div>

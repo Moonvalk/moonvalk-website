@@ -38,7 +38,7 @@ export function NewsPostPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title={postData.title} hideHeader
+        <PageTemplate title={postData.title} description={postData.summary} hideHeader
             accessLevel={(postData.status === 'draft' ?
                 ACCESS_LEVEL.ADMIN : ACCESS_LEVEL.UNKNOWN)}>
             <div className='news-post'>

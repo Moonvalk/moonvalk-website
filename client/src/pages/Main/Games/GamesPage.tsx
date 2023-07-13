@@ -6,7 +6,8 @@ import { MessageIcon } from '../../../assets/svg/icons/Actions';
 
 export function GamesPage(): ReactElement {
     return (
-        <PageTemplate title='Games' icon={<GamesIcon />} pageWrap='page_small'>
+        <PageTemplate title='Games' icon={<GamesIcon />} pageWrap='page_small'
+            description='Announcing new projects soon!'>
             <PromptElement icon={<MessageIcon />} text='Announcing new projects soon!' />
         </PageTemplate>
     );

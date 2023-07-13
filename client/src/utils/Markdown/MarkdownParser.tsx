@@ -342,7 +342,7 @@ export class MarkdownParser {
                     );
                 case 'a':
                     return (
-                        <a key={key} href={node_.data[1]} target='_blank'>
+                        <a key={key} className='link_basic' href={node_.data[1]} target='_blank'>
                             {node_.data[0]}
                             {node_.content && node_.content?.map((node) => this.renderMarkdownContent(node))}
                         </a>
@@ -363,7 +363,7 @@ export class MarkdownParser {
                     );
                 case PromptElement:
                     return (
-                        <PromptElement key={key} icon={node_.data[1] ?
+                        <PromptElement key={key} class='tight' icon={node_.data[1] ?
                             MAP_OF_ICON_COMPONENTS.get(node_.data[1] as ICON_COMPONENT) : <InfoIcon />}
                             text={node_.content && node_.content?.map((node) => this.renderMarkdownContent(node))} />
                     )

@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 import './styles/main.css';
 import './styles/fonts.css';
-import './styles/Form.css';
 
 /**
  * The title to be displayed for this website.

@@ -45,7 +45,9 @@ export function EditPostPage(): ReactElement {
     }, []);
 
     async function handleDeletePost(): Promise<void> {
-        confirm('Are you sure you would like to delete this post? This cannot be undone.');
+        if (confirm('Are you sure you would like to delete this post? This cannot be undone.')) {
+            alert('Call delete API now...');
+        }
     }
 
     async function handleUpdatePost(event_: any): Promise<void> {
@@ -86,7 +88,7 @@ export function EditPostPage(): ReactElement {
     return (
         <PageTemplate title='Edit Post' icon={<NewPostIcon />} pageWrap='page_large'
             accessLevel={ACCESS_LEVEL.USER}>
-            <form onSubmit={handleUpdatePost}>
+            <form className='form_basic' onSubmit={handleUpdatePost}>
                 <div className='flex'>
                     <label htmlFor="title">Title*</label>
                     <label htmlFor="date">Date</label>
@@ -150,7 +152,8 @@ export function EditPostPage(): ReactElement {
                     <ButtonElement name='action' value='edit' icon={<EditIcon />}
                         type='submit' text='Update Post' />
                     <ButtonElement name='action' value='delete' icon={<DeleteIcon />}
-                        type='button' text='Delete Post' onClick={handleDeletePost} />
+                        type='button' text='Delete Post' onClick={handleDeletePost}
+                        class='button_basic button_delete' />
                 </div>
             </form>
         </PageTemplate>
