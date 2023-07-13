@@ -39,6 +39,9 @@
     margin-bottom: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    font-family: var(--BODY_FONT), sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .editable {
@@ -65,7 +68,7 @@ button.editor-button, select.editor-select {
     color: var(--COLOR_6);
     border: 0.1rem solid var(--COLOR_HIGHLIGHT_1_0);
     border-radius: 0.25rem;
-    font-family: 'Abel', sans-serif;
+    font-family: var(--BODY_FONT), sans-serif;
     font-size: 0.8rem;
     text-transform: uppercase;
     transition: all 0.15s ease-in-out;
@@ -108,19 +111,6 @@ button.editor-button svg {
 
 button.editor-button:hover {
     scale: 1.1;
-}
-
-.medium {
-    display: block;
-    width: min(90%, var(--MD_PAGE_WIDTH));
-    margin: 1rem auto;
-    border-radius: 0.25rem;
-    overflow: hidden;
-}
-
-.medium img {
-    width: 100%;
-    height: auto;
 }
 
 blockquote {

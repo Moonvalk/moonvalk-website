@@ -1,26 +1,27 @@
-import { ReactElement, useLayoutEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { EditIcon } from "../../../assets/svg/icons/Actions";
+import { ReactElement, useEffect, useLayoutEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
+import { format } from 'date-fns';
+import { EditIcon, DeleteIcon } from "../../../assets/svg/icons/Actions";
 import { NewPostIcon } from "../../../assets/svg/icons/Menus";
 import { PageTemplate } from "../../../components/PageTemplate/PageTemplate";
+import { TEXT_FORMATTING } from "../../../constants/TextFormatting";
+import { ACCESS_LEVEL } from "../../../stores/User";
 import { getCurrentFormattedDate } from "../../../utils/TimeUtils";
 import { getServerURI } from "../../../utils/URIHelper";
-import { ACCESS_LEVEL } from "../../../stores/User";
-import PostEditor from "./PostEditor";
-import 'react-quill/dist/quill.snow.css';
-import 'react-quill/dist/quill.core.css';
-import { MVPostEditor } from "../PostEditor/MVPostEditor";
+import { INewsPost } from "../../Main/News/Card/NewsPostCard";
+import { MVPostEditor } from "./MarkdownEditor/MVPostEditor";
 import { ButtonElement } from "../../../components/Button/ButtonElement";
 
 
-export function CreatePostPage(): ReactElement {
+export function EditPostPage(): ReactElement {
+    const {id} = useParams();
     const [postTitle, setPostTitle] = useState('');
     const [postSubtitle, setPostSubtitle] = useState('');
     const [postDate, setPostDate] = useState('');
     const [postSummary, setPostSummary] = useState('');
     const [postContent, setPostContent] = useState('');
-    const [postStatus, setPostStatus] = useState('');
-    const [postCategory, setPostCategory] = useState('');
+    const [postStatus, setPostStatus] = useState('draft');
+    const [postCategory, setPostCategory] = useState('general');
     const [files, setFiles] = useState<FileList | null>(null);
     const [redirect, setRedirect] = useState(false);
     const [currentDate, setCurrentDate] = useState('');
@@ -29,30 +30,48 @@ export function CreatePostPage(): ReactElement {
         getCurrentDate();
     }, []);
 
-    async function handleCreateNewPost(event_: any): Promise<void> {
+    useEffect(() => {
+        fetch(getServerURI('api/post/'.concat(id))).then((response_) => {
+            response_.json().then((postInfo_: INewsPost) => {
+                setPostTitle(postInfo_.title);
+                setPostSubtitle(postInfo_.subtitle);
+                setPostDate(format(new Date(postInfo_.date), TEXT_FORMATTING.POST_INTERNAL_DATE));
+                setPostSummary(postInfo_.summary);
+                setPostContent(postInfo_.content);
+                setPostStatus(postInfo_.status);
+                setPostCategory(postInfo_.category);
+            });
+        });
+    }, []);
+
+    async function handleDeletePost(): Promise<void> {
+        confirm('Are you sure you would like to delete this post? This cannot be undone.');
+    }
+
+    async function handleUpdatePost(event_: any): Promise<void> {
+        event_.preventDefault();
         const data = new FormData();
         data.set('title', postTitle);
         data.set('subtitle', postSubtitle);
-        let overrideDate = (postDate !== '') ? postDate : getCurrentFormattedDate();
-        data.set('date', overrideDate);
+        data.set('date', postDate);
         data.set('status', postStatus);
         data.set('category', postCategory);
         data.set('summary', postSummary);
         data.set('content', postContent);
+        data.set('id', id as (string | Blob));
         if (files !== null) {
             data.set('file', files[0]);
         }
-        event_.preventDefault();
 
         const response = await fetch(getServerURI('api/post'), {
-            method: 'POST',
+            method: 'PUT',
             body: data,
             credentials: 'include',
         });
         if (response.ok) {
             setRedirect(true);
         } else {
-            alert('An error occurred making this post');
+            alert('An error occurred editing this post');
         }
     }
 
@@ -61,25 +80,25 @@ export function CreatePostPage(): ReactElement {
     }
 
     if (redirect) {
-        return <Navigate to={'/'} />
+        return <Navigate to={'/news/post/'.concat(id)} />
     }
 
     return (
-        <PageTemplate title='Add New Post' icon={<NewPostIcon />} pageWrap='page_large'
-            accessLevel={ACCESS_LEVEL.ADMIN}>
-            <form onSubmit={handleCreateNewPost}>
+        <PageTemplate title='Edit Post' icon={<NewPostIcon />} pageWrap='page_large'
+            accessLevel={ACCESS_LEVEL.USER}>
+            <form onSubmit={handleUpdatePost}>
                 <div className='flex'>
                     <label htmlFor="title">Title*</label>
                     <label htmlFor="date">Date</label>
                 </div>
                 <div className='flex'>
                     <input id='title'
-                        type="title"
+                        type='text'
                         placeholder={'Title'} 
                         value={postTitle} 
                         onChange={event => setPostTitle(event.target.value)} />
                     <input id='date'
-                        type="text"
+                        type='text'
                         placeholder={currentDate}
                         value={postDate} 
                         onChange={event => setPostDate(event.target.value)} />
@@ -126,8 +145,13 @@ export function CreatePostPage(): ReactElement {
                         value={postSummary}
                         onChange={event => setPostSummary(event.target.value)} />
                 </div>
-                <MVPostEditor onChange={setPostContent} value={postContent} />
-                <ButtonElement type='submit' icon={<EditIcon />} text='Create New Post' />
+                <MVPostEditor onChange={(event_) => setPostContent(event_.target.value)} value={postContent} />
+                <div className='buttons'>
+                    <ButtonElement name='action' value='edit' icon={<EditIcon />}
+                        type='submit' text='Update Post' />
+                    <ButtonElement name='action' value='delete' icon={<DeleteIcon />}
+                        type='button' text='Delete Post' onClick={handleDeletePost} />
+                </div>
             </form>
         </PageTemplate>
     );

@@ -6,6 +6,7 @@ import { LogoutIcon } from "./LogoutIcon";
 import { MessageIcon } from "./MessageIcon";
 import { PreviewIcon } from "./PreviewIcon";
 import { SendIcon } from "./SendIcon";
+import { UploadIcon } from "./UploadIcon";
 
 /** Export all available icons in this directory. */
 export {
@@ -17,4 +18,5 @@ export {
     MessageIcon,
     PreviewIcon,
     SendIcon,
+    UploadIcon,
 }

@@ -4,6 +4,7 @@ import { ContactIcon } from '../../../assets/svg/icons/Menus';
 import { InfoIcon } from '../../../assets/svg/icons/Misc';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
+import { ButtonElement } from '../../../components/Button/ButtonElement';
 
 export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
@@ -65,10 +66,7 @@ export function ContactPage(): ReactElement {
                     placeholder=''
                     value={message}
                     onChange={(event) => setMessage(event.target.value)} />
-                <button className='submit-button'>
-                    <SendIcon />
-                    Submit Message
-                </button>
+                <ButtonElement icon={<SendIcon />} text='Submit Message' />
             </form>
         </PageTemplate>
     );

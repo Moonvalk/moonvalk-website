@@ -39,7 +39,7 @@ interface IPostEditor {
 /**
  * Data storage used for tracking post editor settings.
  */
-export const postEditorStore = create<IPostEditor>((set) => ({
+export const mvPostEditorStore = create<IPostEditor>((set) => ({
     textSettings: null,
     setTextSettings: (settings_: ITextSettings) => set({ textSettings: settings_ }),
 }));

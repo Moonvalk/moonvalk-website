@@ -18,7 +18,7 @@ form input, form textarea, form select {
     color: var(--COLOR_6);
     resize: vertical;
     margin: 1rem auto;
-    font-family: 'Abel', sans-serif;
+    font-family: var(--BODY_FONT), sans-serif;
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
@@ -38,7 +38,7 @@ form .buttons {
     display: flex;
     text-decoration: none;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--TITLE_FONT), sans-serif;
     text-transform: uppercase;
     padding: 0.25rem;
     padding-right: 0.75rem;
@@ -65,7 +65,7 @@ form .buttons {
 .submit-button svg {
     width: 1rem;
     height: 1rem;
-    margin-inline: 0.5rem;
+    margin-inline: 0.7rem;
     transition: transform 0.2s ease;
     /* translate: 0rem 0.2rem; */
 }
@@ -106,7 +106,7 @@ form label {
     display: block;
     clear: both;
     text-transform: uppercase;
-    font-family: 'Abel', sans-serif;
+    font-family: var(--BODY_FONT), sans-serif;
 }
 
 .file-select {

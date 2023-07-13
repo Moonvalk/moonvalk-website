@@ -3,16 +3,14 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { format } from 'date-fns';
 import { BackIcon, EditIcon } from "../../../../assets/svg/icons/Actions";
 import { CalendarIcon } from "../../../../assets/svg/icons/Misc";
-import { ImageComponent } from "../../../../components/Image/ImageComponent";
 import { PageTemplate } from "../../../../components/PageTemplate/PageTemplate";
 import { ParallaxElement } from "../../../../components/Parallax/ParallaxElement";
 import { TEXT_FORMATTING } from "../../../../constants/TextFormatting";
 import { userAuthStore, ACCESS_LEVEL } from "../../../../stores/User";
 import { getServerURI } from "../../../../utils/URIHelper";
 import { INewsPost } from "../Card/NewsPostCard";
+import { MarkdownParser } from "../../../../utils/Markdown/MarkdownParser";
 import './NewsPostPage.css';
-import 'react-quill/dist/quill.snow.css';
-import 'react-quill/dist/quill.core.css';
 
 export function NewsPostPage(): ReactElement {
     const [postData, setPostData] = useState<INewsPost | null>(null);
@@ -49,20 +47,18 @@ export function NewsPostPage(): ReactElement {
                     style={{backgroundImage: `url(${getServerURI(postData.coverFile)})`}} />
                 {/* <img className='cover-image' src={getServerURI(postData.coverFile)} alt={postData.coverFile} /> */}
                 <div className='news-post-content'>
-                    <h1>{postData.title}</h1>
-                    <h2>{postData.subtitle}</h2>
+                    <h1 className='h1_title'>{postData.title}</h1>
+                    <h2 className='h2_subtitle'>{postData.subtitle}</h2>
                     <div className='cover-meta'>
                         <div>
                             <CalendarIcon />{format(new Date(postData.date), TEXT_FORMATTING.POST_DISPLAY_DATE)}
                         </div>
                     </div>
                     <hr className='news-post-break' />
-                    <div dangerouslySetInnerHTML={{__html: postData.content}} />
-                    <div className='news-image'>
-                        <ImageComponent source='..\uploads\9569ac08b3452b9d7369af5572cc5373.png' />
-                        <div className='news-image-caption'>
-                            This is a caption; if only you knew how to read.
-                        </div>
+                    <div>
+                        {postData.content && (
+                            MarkdownParser.instance.renderMarkdown(postData.content)
+                        )}
                     </div>
                 </div>
             </div>

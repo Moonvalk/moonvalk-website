@@ -1,8 +1,12 @@
 import { ReactElement } from "react";
-import { ImageIcon, CodeIcon, BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, UnorderedListIcon, AlignLeftIcon, AlignCenterIcon, AlignRightIcon, LinkIcon, HorizontalRuleIcon, AlignJustifiedIcon, HTMLIcon } from "../../../assets/svg/icons/Editor";
+import { ImageIcon, CodeIcon, BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, UnorderedListIcon, AlignLeftIcon, AlignCenterIcon, AlignRightIcon, LinkIcon, HorizontalRuleIcon, AlignJustifiedIcon, HTMLIcon } from "../../../../assets/svg/icons/Editor";
 
-
-export function EditorToolbar(): ReactElement {
+/**
+ * Generates the toolbar associated with the MVPostEditor markdown editor. This
+ * toolbar controls buttons that adjust markdown data.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
+export function MVEditorToolbar(): ReactElement {
     return (
         <div className='editor-buttons'>
             {/* <button className='editor-button' title='Add New Element'><NewPostIcon /></button>

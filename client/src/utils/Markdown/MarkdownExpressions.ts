@@ -1,5 +1,5 @@
-import { ImageComponent } from "../../../components/Image/ImageComponent";
-import { PromptElement } from "../../../components/Prompt/PromptElement";
+import { ImageComponent } from "../../components/Image/ImageComponent";
+import { PromptElement } from "../../components/Prompt/PromptElement";
 import { MARKDOWN_TOKEN } from "./MarkdownToken";
 
 /**
