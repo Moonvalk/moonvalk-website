@@ -1,5 +1,5 @@
-import { PropsWithChildren, ReactElement, useLayoutEffect, useState } from "react";
-import { PageTitle } from "./PageTitle";
+import { PropsWithChildren, ReactElement, useEffect, useLayoutEffect, useState } from "react";
+import { PageMeta } from "./PageMeta";
 import { Navigate } from "react-router-dom";
 import { ACCESS_LEVEL, userAuthStore } from "../../stores/User";
 
@@ -33,6 +33,11 @@ interface IPageTemplateProps {
      * as 'page_large' or 'page_small'.
      */
     pageWrap?: string,
+
+    /**
+     * Page description to be placed within a meta tag for SEO purposes.
+     */
+    description?: string,
 }
 
 /**
@@ -81,7 +86,7 @@ export function PageTemplate(props_: PropsWithChildren<IPageTemplateProps>): Rea
 
     return (
         <div className='content'>
-            <PageTitle title={props_.title} />
+            <PageMeta title={props_.title} description={props_.description} />
             {!props_.hideHeader && (
                 <>
                     <div className='margin_header' />

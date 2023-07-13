@@ -36,7 +36,7 @@ export function ChangelogForm({onCreateLog}: IChangelogFormProps): ReactElement 
     }
     
     return (
-        <form className='add-changelog'
+        <form className='form_basic'
             onSubmit={handleCreateNewLog}>
             <div className='flex'>
                 <label htmlFor='log-version'>Version*</label>

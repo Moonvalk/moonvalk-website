@@ -8,7 +8,8 @@ import { PromptElement } from '../../../components/Prompt/PromptElement';
 
 export function AboutPage(): ReactElement {
     return (
-        <PageTemplate title='About' icon={<AboutIcon />} pageWrap='page_small'>
+        <PageTemplate title='About' icon={<AboutIcon />} pageWrap='page_small'
+            description='Moonvalk Studios is the creation and alias of solo independent game developer Zack Harmon.'>
             <PromptElement icon={<InfoIcon />} text={<>
                 <span className='color_highlight1'>Moonvalk Studios</span> is the creation and alias of solo independent game developer Zack Harmon.
                 </>} />
@@ -24,7 +25,7 @@ export function AboutPage(): ReactElement {
             <br />
             <br />
             <p className="text_body align_center">
-                Use the <Link className='link' to='/contact'>Contact Form</Link> to get in touch.
+                Use the <Link className='link_basic' to='/contact'>Contact Form</Link> to get in touch.
             </p>
         </PageTemplate>
     );

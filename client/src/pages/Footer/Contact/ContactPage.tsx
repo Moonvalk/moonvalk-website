@@ -1,4 +1,4 @@
-import {ReactElement, useState} from 'react';
+import { ReactElement, useState } from 'react';
 import { SendIcon } from '../../../assets/svg/icons/Actions';
 import { ContactIcon } from '../../../assets/svg/icons/Menus';
 import { InfoIcon } from '../../../assets/svg/icons/Misc';
@@ -13,18 +13,22 @@ export function ContactPage(): ReactElement {
     const [phone, setPhone] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+
+    function handleSubmitForm(): void {
+        alert('Submitting message now');
+    }
     
     return (
         <PageTemplate title='Contact' icon={<ContactIcon />} pageWrap='page_small'>
             <PromptElement icon={<InfoIcon />}
                 text='Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.' />
-            <form className="contact">
+            <form className='form_basic' onSubmit={handleSubmitForm}>
                 <label htmlFor='first-name'>Name*</label>
                 <div className="flex">
                     <input className='flex'
                         id='first-name'
                         type='text'
-                        placeholder='First'
+                        placeholder='First*'
                         value={firstName}
                         onChange={(event) => setFirstName(event.target.value)}
                         autoComplete='on' />
