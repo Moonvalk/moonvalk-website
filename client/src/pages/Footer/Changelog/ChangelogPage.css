@@ -44,7 +44,7 @@
     margin: 0;
 }
 .changelog td {
-    border: 0.05rem solid var(--COLOR_4);
+    border: 0.1rem solid var(--COLOR_4);
     margin: 0;
     word-wrap: break-word;
     align-items: center;

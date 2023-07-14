@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import { ImageIcon, CodeIcon, BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, UnorderedListIcon, AlignLeftIcon, AlignCenterIcon, AlignRightIcon, LinkIcon, HorizontalRuleIcon, AlignJustifiedIcon, HTMLIcon } from "../../../../assets/svg/icons/Editor";
+import { PaletteIcon } from "../../../../assets/svg/icons/Misc/PaletteIcon";
 
 /**
  * Generates the toolbar associated with the MVPostEditor markdown editor. This
@@ -9,8 +10,7 @@ import { ImageIcon, CodeIcon, BoldIcon, ItalicIcon, UnderlineIcon, Strikethrough
 export function MVEditorToolbar(): ReactElement {
     return (
         <div className='editor-buttons'>
-            {/* <button className='editor-button' title='Add New Element'><NewPostIcon /></button>
-            <button className='editor-button'><TextIcon /></button> */}
+            {/* <button className='editor-button' title='Add Class Wrapper'><PaletteIcon /></button> */}
             {/* <div className="break_vertical" /> */}
             <select id='font-family' className='editor-select' title='Font Family'>
                 <option value='abel' className='font_abel'>Abel</option>
@@ -41,7 +41,6 @@ export function MVEditorToolbar(): ReactElement {
                 <option value='dim2' className='color_dim2'>Dimmer</option>
             </select>
             <button className='editor-button' title='Insert Unordered List'><UnorderedListIcon /></button>
-            {/* <button className='editor-button' title='Ordered List'><ListIcon /></button> */}
             <button className='editor-button' title='Align Left'><AlignLeftIcon /></button>
             <button className='editor-button' title='Align Center'><AlignCenterIcon /></button>
             <button className='editor-button' title='Align Right'><AlignRightIcon /></button>

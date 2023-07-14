@@ -9,6 +9,10 @@ import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
 import { ACCESS_LEVEL, IUserInfo } from '../../stores/User';
 
+/**
+ * Called to generate the user registration page.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function RegisterPage(): ReactElement {
     const [username, setUsername] = useState('');
     const [firstName, setFirstName] = useState('');

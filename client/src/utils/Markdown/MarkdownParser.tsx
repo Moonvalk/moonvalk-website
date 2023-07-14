@@ -4,7 +4,7 @@ import { MARKDOWN_EXPRESSIONS, MARKDOWN_COMPONENTS, MARKDOWN_MATCHING_PAIRS, PAR
 import { MARKDOWN_TOKEN } from "./MarkdownToken";
 import { InfoIcon } from "../../assets/svg/icons/Misc";
 import { ImageComponent } from "../../components/Image/ImageComponent";
-import { MAP_OF_ICON_COMPONENTS, ICON_COMPONENT } from "../../components/Prompt/IconMap";
+import { MAP_OF_ICON_COMPONENTS, ICON_COMPONENT } from "../IconMap";
 import { PromptElement } from "../../components/Prompt/PromptElement";
 import { StringHelper } from "../StringHelper";
 

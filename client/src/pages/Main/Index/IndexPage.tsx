@@ -5,6 +5,10 @@ import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { InfoIcon } from '../../../assets/svg/icons/Misc';
 import { ThreeView } from '../../../components/ThreeView/ThreeView';
 
+/**
+ * Called to generate the main homepage.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function IndexPage(): ReactElement {
     return (
         <PageTemplate hideHeader>

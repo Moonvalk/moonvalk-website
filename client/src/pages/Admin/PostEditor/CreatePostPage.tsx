@@ -22,9 +22,12 @@ export function CreatePostPage(): ReactElement {
     const [postStatus, setPostStatus] = useState('');
     const [postCategory, setPostCategory] = useState('');
     const [files, setFiles] = useState<FileList | null>(null);
-    const [redirect, setRedirect] = useState(false);
+    const [redirect, setRedirect] = useState<string>(null);
     const [currentDate, setCurrentDate] = useState('');
 
+    /**
+     * On initial page load just before first paint.
+     */
     useLayoutEffect(() => {
         getCurrentDate();
     }, []);
@@ -50,18 +53,24 @@ export function CreatePostPage(): ReactElement {
             credentials: 'include',
         });
         if (response.ok) {
-            setRedirect(true);
+            const postData = await response.json();
+            setRedirect(`/news/post/${postData.id}`);
         } else {
             alert('An error occurred making this post');
         }
     }
 
+    /**
+     * Handles getting the current date to be used by default for posts.
+     * @return {void} void
+     */
     function getCurrentDate(): void {
         setCurrentDate(getCurrentFormattedDate());
     }
 
+    // Handle redirects when set.
     if (redirect) {
-        return <Navigate to={'/'} />
+        return <Navigate to={redirect} />
     }
 
     return (

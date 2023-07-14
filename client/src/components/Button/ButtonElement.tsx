@@ -13,10 +13,16 @@ interface IButtonElementProps {
     /** A callback to be executed when this button is clicked. */
     onClick?: (event_: React.MouseEvent) => void,
 
+    /** Type to be assigned to this button. Submit is used for form submissions. */
     type?: 'submit' | 'button',
 
+    /** Classes to be associated with this button. By default a basic button class is assigned. */
     class?: string | null,
+
+    /** The name of this button. */
     name?: string,
+
+    /** A value to be associated with the press of this button. */
     value?: string,
 }
 

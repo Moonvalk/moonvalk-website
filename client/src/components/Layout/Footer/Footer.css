@@ -21,7 +21,7 @@ footer {
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, var(--COLOR_3) 20%, var(--COLOR_3) 80%, rgba(0, 0, 0, 0) 100%);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     width: min(50vw, 30rem);
-    height: 0.05rem;
+    height: 0.1rem;
     border: 0;
     margin: 1rem auto;
     margin-top: 0.5rem;
@@ -42,14 +42,14 @@ footer {
     text-decoration: none;
     padding: 0.1rem;
     margin: 1rem;
-    border-bottom: 0.05rem solid rgba(255, 230, 0, 0);
+    border-bottom: 0.1rem solid rgba(255, 230, 0, 0);
     transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
     text-transform: uppercase;
 }
 
 .footer-links a:hover {
     color: var(--COLOR_HIGHLIGHT_1);
-    border-bottom: 0.05rem solid var(--COLOR_HIGHLIGHT_1);
+    border-bottom: 0.1rem solid var(--COLOR_HIGHLIGHT_1);
 }
 
 .social-links {

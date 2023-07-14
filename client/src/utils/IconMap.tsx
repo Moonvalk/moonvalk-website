@@ -1,8 +1,8 @@
 import { ReactElement, ReactNode } from "react";
-import { MessageIcon, PreviewIcon } from "../../assets/svg/icons/Actions";
-import { CodeIcon, ImageIcon, TextIcon } from "../../assets/svg/icons/Editor";
-import { AboutIcon, ChangelogIcon, ComicsIcon, GamesIcon, HomeIcon, NewsIcon, PressIcon } from "../../assets/svg/icons/Menus";
-import { CalendarIcon, CelebrateIcon, FireIcon, HelpIcon, ImportantIcon, InfoIcon, TestIcon } from "../../assets/svg/icons/Misc";
+import { MessageIcon, PreviewIcon } from "../assets/svg/icons/Actions";
+import { CodeIcon, ImageIcon, TextIcon } from "../assets/svg/icons/Editor";
+import { AboutIcon, ChangelogIcon, ComicsIcon, GamesIcon, HomeIcon, NewsIcon, PressIcon } from "../assets/svg/icons/Menus";
+import { CalendarIcon, CelebrateIcon, FireIcon, HelpIcon, ImportantIcon, InfoIcon, TestIcon } from "../assets/svg/icons/Misc";
 
 /**
  * All available icon components to be loaded by enumerator via mapping.

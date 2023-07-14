@@ -9,6 +9,10 @@ import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
 import { userAuthStore, IUserInfo } from '../../stores/User';
 
+/**
+ * Called to generate the login page.
+ * @return {ReactElement} A new JSX element for display.
+ */
 export function LoginPage(): ReactElement {
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);

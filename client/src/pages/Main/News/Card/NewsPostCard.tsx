@@ -1,10 +1,13 @@
-import { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { format } from 'date-fns';
 import { TEXT_FORMATTING } from "../../../../constants/TextFormatting";
 import { getServerURI } from "../../../../utils/URIHelper";
 import './NewsPostCard.css';
 
+/**
+ * Contract used for loading / handling news post data.
+ */
 export interface INewsPost {
     _id: string,
     title: string,
@@ -19,26 +22,52 @@ export interface INewsPost {
     author: any,
 }
 
-type INewsPostProps = {
-    postData_: INewsPost,
-    imageLeft_?: boolean,
+/**
+ * Properties available to a NewsPostCard element.
+ */
+interface INewsPostProps {
+    /**
+     * Stores reference to all news post data pulled from the server.
+     */
+    postData: INewsPost,
+
+    /**
+     * Flag that determines if the image will be displayed on the left
+     * or right of the current displayed card.
+     */
+    imageLeft?: boolean,
 }
 
-export function NewsPostCard({ postData_, imageLeft_ }: INewsPostProps): ReactElement {
+/**
+ * Called to generate a news post card that will display summary data for a news post.
+ * @param {INewsPostProps} props_ - All properties associated with this news card.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
+export function NewsPostCard(props_: INewsPostProps): ReactElement {
+    /**
+     * Stores reference to the day and month string displayed on this post.
+     */
     const [dayMonth, setDayMonth] = useState('');
+
+    /**
+     * Stores reference to the year string displayed on this post.
+     */
     const [year, setYear] = useState('');
 
+    /**
+     * Called on initial page load to assign correct day, month, and year values.
+     */
     useEffect(() => {
-        const formattedDate = format(new Date(postData_.date), TEXT_FORMATTING.POST_DISPLAY_DATE);
+        const formattedDate = format(new Date(props_.postData.date), TEXT_FORMATTING.POST_DISPLAY_DATE);
         const splitDate = formattedDate.split(',');
         setDayMonth(splitDate[0]);
         setYear(splitDate[1].replace(' ', ''));
     }, [])
 
     return (
-        <div className={imageLeft_ ? 'blog-card' : 'blog-card alt'}>
+        <div className={props_.imageLeft ? 'blog-card' : 'blog-card alt'}>
             <div className="meta">
-                <div className="photo" style={{ backgroundImage: `url(${getServerURI(postData_.coverFile)})` }}></div>
+                <div className="photo" style={{ backgroundImage: `url(${getServerURI(props_.postData.coverFile)})` }}></div>
                 <div className="details">
                     <div className='flex space-between'>
                         <div>
@@ -51,12 +80,12 @@ export function NewsPostCard({ postData_, imageLeft_ }: INewsPostProps): ReactEl
             </div>
             <div className="description">
                 <h1>
-                    <Link to={'/news/post/'.concat(postData_._id)}>{postData_.title}</Link>
+                    <Link to={'/news/post/'.concat(props_.postData._id)}>{props_.postData.title}</Link>
                 </h1>
-                <h2>{postData_.subtitle}</h2>
-                <p className='body-text'>{postData_.summary}</p>
+                <h2>{props_.postData.subtitle}</h2>
+                <p className='body-text'>{props_.postData.summary}</p>
                 <p className="read-more">
-                    <Link to={'/news/post/'.concat(postData_._id)}>{`Read More`}</Link>
+                    <Link to={'/news/post/'.concat(props_.postData._id)}>{`Read More`}</Link>
                 </p>
             </div>
         </div>
