@@ -1,11 +1,15 @@
 import { ReactElement } from 'react';
 import { AboutIcon } from '../../../assets/svg/icons/Menus';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
-import './AboutPage.css';
 import { InfoIcon } from '../../../assets/svg/icons/Misc';
 import { Link } from 'react-router-dom';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
+import './AboutPage.css';
 
+/**
+ * Called to generate the about page.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function AboutPage(): ReactElement {
     return (
         <PageTemplate title='About' icon={<AboutIcon />} pageWrap='page_small'

@@ -151,7 +151,7 @@ h1 svg {
 .hr_fade, .hr_small {
     background-image: linear-gradient(90deg, var(--COLOR_5_0) 0%, var(--COLOR_5) 20%, var(--COLOR_5) 80%, var(--COLOR_5_0) 100%);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    height: 0.05rem;
+    height: 0.1rem;
     border: 0;
     margin: 1rem auto;
 }
@@ -165,7 +165,7 @@ h1 svg {
     display: inline-flex;
     width: 0;
     height: 1rem;
-    border: 0.05rem solid rgba(235, 235, 235, 0.3);
+    border: 0.1rem solid rgba(235, 235, 235, 0.3);
     margin: 0.75rem;
 }
 
@@ -243,6 +243,7 @@ h1 svg {
     border-radius: 0.5rem;
     overflow: hidden;
     margin: 0 auto;
+    background-color: var(--COLOR_2);
 }
 .video_container iframe {
     width: 100%;
@@ -348,4 +349,12 @@ h1 svg {
 .file-select {
     font-size: 0.6rem;
     text-transform: uppercase;
+}
+
+blockquote {
+    margin: 0.5rem;
+    margin-inline: 4rem;
+    padding: 0.25rem;
+    background: linear-gradient(90deg, var(--COLOR_4_05), var(--COLOR_4_0));
+    border-radius: 0.25rem;
 }

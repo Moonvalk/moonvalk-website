@@ -4,6 +4,10 @@ import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { MessageIcon } from '../../../assets/svg/icons/Actions';
 
+/**
+ * Called to generate the games page.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function GamesPage(): ReactElement {
     return (
         <PageTemplate title='Games' icon={<GamesIcon />} pageWrap='page_small'

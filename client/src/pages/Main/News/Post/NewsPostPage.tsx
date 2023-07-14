@@ -12,12 +12,34 @@ import { INewsPost } from "../Card/NewsPostCard";
 import { MarkdownParser } from "../../../../utils/Markdown/MarkdownParser";
 import './NewsPostPage.css';
 
+/**
+ * Called to generate a full news post page at the provided URI, if available.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function NewsPostPage(): ReactElement {
+    /**
+     * Stores reference to all post data pulled from the server.
+     */
     const [postData, setPostData] = useState<INewsPost | null>(null);
+
+    /**
+     * Reference to active user data when available in the user auth store.
+     */
     const {userInfo} = userAuthStore();
+
+    /**
+     * Pulls id from router params so we can fetch proper post data.
+     */
     const {id} = useParams();
+
+    /**
+     * Flag that determines if a redirect is necessary when the current post cannot be loaded.
+     */
     const [redirect, setRedirect] = useState(false);
 
+    /**
+     * Called on initial page load to attempt fetching server data.
+     */
     useEffect(() => {
         fetch(getServerURI('api/post/'.concat(id))).then((response_) => {
             if (response_.ok) {
@@ -30,9 +52,12 @@ export function NewsPostPage(): ReactElement {
         });
     }, []);
 
+    // Redirect when post data is not available.
     if (redirect) {
         return <Navigate to={'/404'} />
     }
+
+    // Hide when post data errors occur or we are waiting for the server.
     if (!postData) {
         return <></>;
     }

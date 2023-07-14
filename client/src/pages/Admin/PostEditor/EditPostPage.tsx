@@ -12,7 +12,10 @@ import { INewsPost } from "../../Main/News/Card/NewsPostCard";
 import { MVPostEditor } from "./MarkdownEditor/MVPostEditor";
 import { ButtonElement } from "../../../components/Button/ButtonElement";
 
-
+/**
+ * Generates the post edit page.
+ * @return {ReactElement} A new JSX element for rendering.
+ */
 export function EditPostPage(): ReactElement {
     const {id} = useParams();
     const [postTitle, setPostTitle] = useState('');
