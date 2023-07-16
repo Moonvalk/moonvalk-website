@@ -19,9 +19,9 @@ export function CreatePostPage(): ReactElement {
     const [postDate, setPostDate] = useState('');
     const [postSummary, setPostSummary] = useState('');
     const [postContent, setPostContent] = useState('');
-    const [postStatus, setPostStatus] = useState('');
-    const [postCategory, setPostCategory] = useState('');
-    const [files, setFiles] = useState<FileList | null>(null);
+    const [postStatus, setPostStatus] = useState('draft');
+    const [postCategory, setPostCategory] = useState('general');
+    const [coverFile, setCoverFile] = useState('');
     const [redirect, setRedirect] = useState<string>(null);
     const [currentDate, setCurrentDate] = useState('');
 
@@ -33,24 +33,36 @@ export function CreatePostPage(): ReactElement {
     }, []);
 
     async function handleCreateNewPost(event_: any): Promise<void> {
-        const data = new FormData();
-        data.set('title', postTitle);
-        data.set('subtitle', postSubtitle);
+        // const data = new FormData();
+        // data.set('title', postTitle);
+        // data.set('subtitle', postSubtitle);
         let overrideDate = (postDate !== '') ? postDate : getCurrentFormattedDate();
-        data.set('date', overrideDate);
-        data.set('status', postStatus);
-        data.set('category', postCategory);
-        data.set('summary', postSummary);
-        data.set('content', postContent);
-        if (files !== null) {
-            data.set('file', files[0]);
-        }
+        // data.set('date', overrideDate);
+        // data.set('status', postStatus);
+        // data.set('category', postCategory);
+        // data.set('summary', postSummary);
+        // data.set('content', postContent);
+        // if (coverFile !== '') {
+        //     data.set('file', coverFile);
+        // }
         event_.preventDefault();
 
         const response = await fetch(getServerURI('api/post'), {
             method: 'POST',
-            body: data,
+            body: JSON.stringify({
+                title: postTitle,
+                subtitle: postSubtitle,
+                date: overrideDate,
+                status: postStatus,
+                category: postCategory,
+                summary: postSummary,
+                content: postContent,
+                file: coverFile,
+            }),
             credentials: 'include',
+            headers: {
+                "Content-Type": "application/json",
+            },
         });
         if (response.ok) {
             const postData = await response.json();
@@ -114,10 +126,11 @@ export function CreatePostPage(): ReactElement {
                         <option value='devlog'>Devlog</option>
                         <option value='announcement'>Announcement</option>
                     </select>
-                    <input className='file-select'
-                        id='cover-image'
-                        type="file"
-                        onChange={event => setFiles(event.target.files)} />
+                    <input id='cover-image'
+                        type='text'
+                        placeholder={''} 
+                        value={coverFile}
+                        onChange={event => setCoverFile(event.target.value)} />
                 </div>
                 <div className='flex'>
                     <label htmlFor="subtitle">Subtitle</label>

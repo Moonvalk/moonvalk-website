@@ -25,8 +25,8 @@ export function EditPostPage(): ReactElement {
     const [postContent, setPostContent] = useState('');
     const [postStatus, setPostStatus] = useState('draft');
     const [postCategory, setPostCategory] = useState('general');
-    const [files, setFiles] = useState<FileList | null>(null);
-    const [redirect, setRedirect] = useState(false);
+    const [coverFile, setCoverFile] = useState('');
+    const [redirect, setRedirect] = useState<string | null>(null);
     const [currentDate, setCurrentDate] = useState('');
 
     useLayoutEffect(() => {
@@ -43,38 +43,53 @@ export function EditPostPage(): ReactElement {
                 setPostContent(postInfo_.content);
                 setPostStatus(postInfo_.status);
                 setPostCategory(postInfo_.category);
+                setCoverFile(postInfo_.coverFile);
             });
         });
     }, []);
 
     async function handleDeletePost(): Promise<void> {
         if (confirm('Are you sure you would like to delete this post? This cannot be undone.')) {
-            alert('Call delete API now...');
+            const response = await fetch(getServerURI('api/post/delete'), {
+                method: 'DELETE',
+                body: JSON.stringify({
+                    id: id as (string | Blob),
+                }),
+                credentials: 'include',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.ok) {
+                setRedirect('/news');
+            } else {
+                alert('An error occurred deleting this post');
+            }
         }
     }
 
     async function handleUpdatePost(event_: any): Promise<void> {
         event_.preventDefault();
-        const data = new FormData();
-        data.set('title', postTitle);
-        data.set('subtitle', postSubtitle);
-        data.set('date', postDate);
-        data.set('status', postStatus);
-        data.set('category', postCategory);
-        data.set('summary', postSummary);
-        data.set('content', postContent);
-        data.set('id', id as (string | Blob));
-        if (files !== null) {
-            data.set('file', files[0]);
-        }
-
-        const response = await fetch(getServerURI('api/post'), {
+        const response = await fetch(getServerURI('api/post/edit'), {
             method: 'PUT',
-            body: data,
+            body: JSON.stringify({
+                id: id as (string | Blob),
+                title: postTitle,
+                subtitle: postSubtitle,
+                date: postDate,
+                status: postStatus,
+                category: postCategory,
+                summary: postSummary,
+                content: postContent,
+                file: coverFile,
+            }),
             credentials: 'include',
+            headers: {
+                "Content-Type": "application/json",
+            },
         });
         if (response.ok) {
-            setRedirect(true);
+            setRedirect('/news/post/'.concat(id));
         } else {
             alert('An error occurred editing this post');
         }
@@ -85,7 +100,7 @@ export function EditPostPage(): ReactElement {
     }
 
     if (redirect) {
-        return <Navigate to={'/news/post/'.concat(id)} />
+        return <Navigate to={redirect} />
     }
 
     return (
@@ -129,10 +144,11 @@ export function EditPostPage(): ReactElement {
                         <option value='devlog'>Devlog</option>
                         <option value='announcement'>Announcement</option>
                     </select>
-                    <input className='file-select'
-                        id='cover-image'
-                        type="file"
-                        onChange={event => setFiles(event.target.files)} />
+                    <input id='cover-image'
+                        type='text'
+                        placeholder={''} 
+                        value={coverFile}
+                        onChange={event => setCoverFile(event.target.value)} />
                 </div>
                 <div className='flex'>
                     <label htmlFor="subtitle">Subtitle</label>

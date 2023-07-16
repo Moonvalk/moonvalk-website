@@ -12,3 +12,7 @@
     font-family: 'Abel';
     src: url('../assets/fonts/Abel-Regular.ttf');
 }
+@font-face {
+    font-family: 'Jost Light';
+    src: url('../assets/fonts/Jost-Light.ttf');
+}

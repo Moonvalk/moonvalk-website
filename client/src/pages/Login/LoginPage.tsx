@@ -8,6 +8,7 @@ import { HelpIcon } from '../../assets/svg/icons/Misc';
 import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
 import { userAuthStore, IUserInfo } from '../../stores/User';
+import { ButtonElement } from '../../components/Button/ButtonElement';
 
 /**
  * Called to generate the login page.
@@ -52,7 +53,7 @@ export function LoginPage(): ReactElement {
 
     return (
         <PageTemplate title='Sign In' icon={<LoginIcon />} pageWrap='page_small'>
-            <form className='login' onSubmit={handleLogin}>
+            <form className='form_basic' onSubmit={handleLogin}>
                 <div className='flex'>
                     <label htmlFor='username'>Username: </label>
                     <label htmlFor='password'>Password: </label>
@@ -69,10 +70,8 @@ export function LoginPage(): ReactElement {
                         ref={passwordRef}
                         autoComplete='on' />
                 </div>
-                <button className='submit-button'>
-                    <LoginIcon />
-                    Login
-                </button>
+                <ButtonElement text='Login' icon={<LoginIcon />} />
+                <br />
             </form>
             <PromptElement icon={<HelpIcon />} text={(
                 <>Need an account? <Link to='/register'>Sign Up</Link></>)} />

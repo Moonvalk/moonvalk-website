@@ -1,0 +1,19 @@
+
+.upload_card {
+    width: 100%;
+    margin: 0.5rem auto;
+    border-radius: 0.5rem;
+    background-color: var(--COLOR_2);
+    align-items: center;
+    display: flex;
+    font-family: var(--BODY_FONT), sans-serif;
+    padding: 0.5rem;
+}
+
+.upload_thumb {
+    width: 15rem;
+    height: auto;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+}

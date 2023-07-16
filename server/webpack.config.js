@@ -1,5 +1,5 @@
 const path = require('path');
-// const nodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
 
 const port = process.env.PORT || 3000;
 
@@ -40,5 +40,8 @@ module.exports = {
     },
     node: {
         __dirname: false,
-    }
+    },
+    externals: ['node_modules', {
+        'sharp': 'commonjs sharp'
+    }],
 }

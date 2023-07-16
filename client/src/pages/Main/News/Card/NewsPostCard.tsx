@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { TEXT_FORMATTING } from "../../../../constants/TextFormatting";
 import { getServerURI } from "../../../../utils/URIHelper";
 import './NewsPostCard.css';
+import { ImageComponent } from "../../../../components/Image/ImageComponent";
 
 /**
  * Contract used for loading / handling news post data.
@@ -67,7 +68,10 @@ export function NewsPostCard(props_: INewsPostProps): ReactElement {
     return (
         <div className={props_.imageLeft ? 'blog-card' : 'blog-card alt'}>
             <div className="meta">
-                <div className="photo" style={{ backgroundImage: `url(${getServerURI(props_.postData.coverFile)})` }}></div>
+                {/* <div className="photo" style={{ backgroundImage: `url(${getServerURI(props_.postData.coverFile)})` }}> */}
+
+                <ImageComponent className='news-card_photo' source={props_.postData.coverFile} backgroundImage />
+
                 <div className="details">
                     <div className='flex space-between'>
                         <div>
