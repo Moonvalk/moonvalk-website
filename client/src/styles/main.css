@@ -38,8 +38,9 @@
     --MIN_PAGE_PERCENT: 95vw;
     --MAX_NEWS_IMAGE_WIDTH: 62rem;
 
-    --BODY_FONT: 'Abel';
-    --TITLE_FONT: 'Bebas Neue';
+    --BODY_FONT: 'Jost Light';
+    --TITLE_FONT: 'Abel';
+    --HEADING_FONT: 'Bebas Neue';
     --CODE_FONT: 'Jetbrains Mono';
 }
 
@@ -112,28 +113,28 @@ main {
 }
 
 /** Alignment selectors */
-.align_center {
-    display: block;
-    margin: auto 0;
-    text-align: center;
-}
-.align_left {
-    float: left;
-}
-.align_right {
-    float: right;
-}
-.align_justified {
-    text-align: justify;
-    text-justify: inter-word;
+.align_center, .align_left, .align_right, .align_justified {
     display: block;
     width: max-content;
     max-width: 90%;
     margin: 0 auto;
 }
+.align_center {
+    text-align: center;
+}
+.align_left {
+    text-align: left;
+}
+.align_right {
+    text-align: right;
+}
+.align_justified {
+    text-align: justify;
+    text-justify: inter-word;
+}
 
 @media only screen and (max-width: 34.99em) and (orientation: portrait) {
-    .align_justified {
+    .align_center, .align_left, .align_right, .align_justified {
         max-width: 100%;
     }
 }

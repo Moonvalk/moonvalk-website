@@ -133,7 +133,7 @@
 h1 {
     width: max-content;
     display: flex;
-    font-family: var(--BODY_FONT), sans-serif;
+    font-family: var(--TITLE_FONT), sans-serif;
     font-size: 1.4rem;
     font-weight: 100;
     text-align: center;
@@ -301,7 +301,7 @@ h1 svg {
     display: flex;
     text-decoration: none;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
-    font-family: var(--TITLE_FONT), sans-serif;
+    font-family: var(--HEADING_FONT), sans-serif;
     font-weight: 100;
     text-transform: uppercase;
     padding: 0.25rem;

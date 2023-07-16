@@ -40,8 +40,8 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-family: var(--BODY_FONT), sans-serif;
-    text-align: justify;
-    text-justify: inter-word;
+    /* text-align: justify; */
+    /* text-justify: inter-word; */
 }
 
 .editable {

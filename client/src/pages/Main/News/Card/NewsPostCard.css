@@ -82,7 +82,7 @@
 
 .blog-card .details li {
     position: relative;
-    font-family: var(--TITLE_FONT), sans-serif;
+    font-family: var(--HEADING_FONT), sans-serif;
 }
 
 .blog-card .details .date {
@@ -98,7 +98,7 @@
 }
 
 .year {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 3.4rem;
     background: -webkit-linear-gradient(var(--COLOR_6), var(--COLOR_5));
     -webkit-background-clip: text;
@@ -129,7 +129,7 @@
 
 .blog-card .description h1,
 .blog-card .description h2 {
-    font-family: var(--BODY_FONT), sans-serif;
+    font-family: var(--TITLE_FONT), sans-serif;
 }
 
 .blog-card .description h1 {
@@ -174,7 +174,7 @@
     width: 6rem;
     height: 2rem;
     text-align: center;
-    font-family: var(--TITLE_FONT), sans-serif;
+    font-family: var(--HEADING_FONT), sans-serif;
     font-size: 1rem;
     filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0)) saturate(0);
     opacity: 0.9;
