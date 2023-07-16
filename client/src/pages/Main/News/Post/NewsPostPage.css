@@ -45,6 +45,7 @@
     background-position: center;
     border-bottom: 0.25rem solid var(--COLOR_HIGHLIGHT_1_0);
     z-index: 50;
+    overflow-y: hidden;
 }
 
 @media (max-width: 44.99rem) {

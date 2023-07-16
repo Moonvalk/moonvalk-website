@@ -218,8 +218,8 @@ export default class MVScene {
         this.camera.rotation.y = MathUtils.lerp(this.camera.rotation.y,
             MathUtils.clamp((-this.mousePosition.x * Math.PI) / 60, -0.045, 0.045), 0.025);
 
-        this.prompt.scale.x = MathUtils.lerp(this.prompt.scale.x, this.promptScale, 0.05);
-        this.prompt.scale.z = MathUtils.lerp(this.prompt.scale.z, this.promptScale, 0.05);
+        this.prompt.scale.x = MathUtils.lerp(this.prompt.scale.x, this.promptScale, 0.1);
+        this.prompt.scale.z = MathUtils.lerp(this.prompt.scale.z, this.promptScale, 0.1);
 
         const wave = Math.sin(this._timeElapsed * 0.001) * 0.1;
         const skew = Math.sin(this._timeElapsed * 0.00134) * 0.05;

@@ -5,6 +5,7 @@ import { InfoIcon } from '../../../assets/svg/icons/Misc';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { ButtonElement } from '../../../components/Button/ButtonElement';
+import { getServerURI } from '../../../utils/URIHelper';
 
 export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
@@ -14,8 +15,38 @@ export function ContactPage(): ReactElement {
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
 
-    function handleSubmitForm(): void {
-        alert('Submitting message now');
+    async function handleSubmitForm(event_: React.FormEvent): Promise<void> {
+        event_.preventDefault();
+        if (firstName === '' || email === '' || subject === '' || message === '') {
+            alert('Missing required fields.');
+            return;
+        }
+
+        const response = await fetch(getServerURI('api/contact/sendMessage'), {
+            method: 'POST',
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                subject: subject,
+                message: message,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        if (response.ok) {
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setPhone('');
+            setSubject('');
+            setMessage('');
+            alert('Message sent successfully.');
+        } else {
+            alert('An error occurred.');
+        }
     }
     
     return (

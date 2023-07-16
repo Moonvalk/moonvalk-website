@@ -35,8 +35,15 @@ export function ChangelogPage(): ReactElement {
     }
 
     async function handleDeleteLog(logId_: string): Promise<void> {
-        const response = await fetch(getServerURI(`api/changelog/delete/${logId_}`), {
+        const response = await fetch(getServerURI(`api/changelog/delete`), {
             method: 'DELETE',
+            body: JSON.stringify({
+                id: logId_,
+            }),
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json",
+            },
         });
         if (response.ok) {
             setLogs(logs.filter((log_: IChangelog) => log_._id !== logId_));
@@ -72,7 +79,7 @@ export function ChangelogPage(): ReactElement {
                                     <td>
                                         {log.summary}
                                         <RestrictedContent accessLevel={ACCESS_LEVEL.ADMIN}>
-                                            <ButtonElement class='trash-button' onClick={event => handleDeleteLog(log._id)}
+                                            <ButtonElement class='button_trash' onClick={event => handleDeleteLog(log._id)}
                                                 icon={<DeleteIcon />} />
                                         </RestrictedContent>
                                     </td>

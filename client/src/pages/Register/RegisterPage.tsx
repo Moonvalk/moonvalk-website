@@ -8,6 +8,7 @@ import { EditIcon } from '../../assets/svg/icons/Actions/EditIcon';
 import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
 import { ACCESS_LEVEL, IUserInfo } from '../../stores/User';
+import { ButtonElement } from '../../components/Button/ButtonElement';
 
 /**
  * Called to generate the user registration page.
@@ -25,8 +26,16 @@ export function RegisterPage(): ReactElement {
     async function handleRegistration(event_: any): Promise<void> {
         event_.preventDefault();
         if (username === '' || firstName === '' || lastName === '' ||
-            email === '' || password === '' || password !== confirmPassword) {
+            email === '' || password === '') {
             alert('Missing required fields.');
+            return;
+        }
+        if (password !== confirmPassword) {
+            alert('Password does not match.');
+            return;
+        }
+        if (password.length < 8) {
+            alert('Password is not strong enough. Requirements: 8 character length.');
             return;
         }
         const userData: IUserInfo = {
@@ -57,7 +66,7 @@ export function RegisterPage(): ReactElement {
         <PageTemplate title='Register' icon={<EditIcon />} pageWrap='page_small'>
             <PromptElement icon={<HelpIcon />} text={(
                 <>Already have an account? <Link to='/login'>Sign In</Link></>)} />
-            <form className='login' onSubmit={handleRegistration}>
+            <form className='form_basic' onSubmit={handleRegistration}>
                 <label htmlFor='username'>Username*</label>
                 <input id='username'
                         type='username'
@@ -105,10 +114,7 @@ export function RegisterPage(): ReactElement {
                         onChange={event => setConfirmPassword(event.target.value)}
                         autoComplete='on' />
                 </div>
-                <button className='submit-button'>
-                    <EditIcon />
-                    Create New Account
-                </button>
+                <ButtonElement text='Create New Account' icon={<EditIcon />} />
             </form>
         </PageTemplate>
     );

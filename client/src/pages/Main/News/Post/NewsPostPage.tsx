@@ -11,6 +11,7 @@ import { getServerURI } from "../../../../utils/URIHelper";
 import { INewsPost } from "../Card/NewsPostCard";
 import { MarkdownParser } from "../../../../utils/Markdown/MarkdownParser";
 import './NewsPostPage.css';
+import { ImageComponent } from "../../../../components/Image/ImageComponent";
 
 /**
  * Called to generate a full news post page at the provided URI, if available.
@@ -67,10 +68,9 @@ export function NewsPostPage(): ReactElement {
             accessLevel={(postData.status === 'draft' ?
                 ACCESS_LEVEL.ADMIN : ACCESS_LEVEL.UNKNOWN)}>
             <div className='news-post'>
-                <ParallaxElement scrollSpeed={0.5}
-                    className='cover-image'
-                    style={{backgroundImage: `url(${getServerURI(postData.coverFile)})`}} />
-                {/* <img className='cover-image' src={getServerURI(postData.coverFile)} alt={postData.coverFile} /> */}
+                <ParallaxElement scrollSpeed={0.5}>
+                    <ImageComponent className='cover-image' source={getServerURI(postData.coverFile)} backgroundImage />
+                </ParallaxElement>
                 <div className='news-post-content'>
                     <h1 className='h1_title'>{postData.title}</h1>
                     <h2 className='h2_subtitle'>{postData.subtitle}</h2>

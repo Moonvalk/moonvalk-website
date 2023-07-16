@@ -12,6 +12,8 @@ export interface IEnvironmentProps {
     readonly host: string,
     readonly accessSecret: string,
     readonly refreshSecret: string,
+    readonly contactEmail: string,
+    readonly contactPassword: string,
 }
 
 const DEFAULT_PORT = 3000;
@@ -81,6 +83,8 @@ export class EnvironmentProps {
             host: process.env.HOST,
             accessSecret: process.env.ACCESS_TOKEN_SECRET,
             refreshSecret: process.env.REFRESH_TOKEN_SECRET,
+            contactEmail: process.env.CONTACT_EMAIL,
+            contactPassword: process.env.CONTACT_PASSWORD,
         };
     }
 }

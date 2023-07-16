@@ -5,6 +5,7 @@ import { InfoIcon } from '../../../assets/svg/icons/Misc';
 import { Link } from 'react-router-dom';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
 import './AboutPage.css';
+import { ImageComponent } from '../../../components/Image/ImageComponent';
 
 /**
  * Called to generate the about page.
@@ -19,7 +20,7 @@ export function AboutPage(): ReactElement {
                 </>} />
             <div className='about-avatar-container'>
                 <div className='about-avatar-border' />
-                <div className='about-avatar' />
+                <ImageComponent source='../uploads/images/zack2.webp' className='about-avatar' backgroundImage />
             </div>
             <p className="text_body align_justified indent">
                 Zack has been making games, artwork, music, and design for over thirteen years.

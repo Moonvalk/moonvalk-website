@@ -19,7 +19,7 @@
     height: 8rem;
     border-radius: 4rem;
     border: 0.25rem solid var(--COLOR_4);
-    background-image: url('../../../assets/images/zack.webp');
+    /* background-image: url('../../../assets/images/zack.webp'); */
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,6 +28,7 @@
     filter: drop-shadow(0 0.1rem 0.25rem var(--COLOR_1_05));
     transition: all 0.2s ease-in-out, scale 0.3s var(--ELASTIC_OUT_BEZIER);
     z-index: 100;
+    overflow: hidden;
 }
 .about-avatar:hover {
     border: 0.25rem solid var(--COLOR_HIGHLIGHT_1);

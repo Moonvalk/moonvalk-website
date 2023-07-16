@@ -10,6 +10,6 @@ import Changelog from "../../models/Changelog";
  */
 export async function getChangelogsController(request_: Request, response_: Response): Promise<void> {
     const logs = await Changelog.find()
-        .sort({createdAt: -1})
+        .sort({version: -1});
     response_.json(logs);
 }

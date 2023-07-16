@@ -8,7 +8,7 @@ import Changelog from "../../models/Changelog";
  * @return {Promise<void>} void
  */
 export async function deleteChangelogController(request_: Request, response_: Response): Promise<void> {
-    const logId = request_.params.id;
-    const log = await Changelog.findByIdAndDelete(logId);
+    const {id} = request_.body;
+    const log = await Changelog.findByIdAndDelete(id);
     response_.json(log);
 }

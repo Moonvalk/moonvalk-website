@@ -24,5 +24,8 @@ module.exports = {
     },
     node: {
         __dirname: false,
-    }
+    },
+    externals: ['node_modules', {
+        'sharp': 'commonjs sharp'
+    }],
 }
