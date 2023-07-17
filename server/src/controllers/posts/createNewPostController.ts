@@ -6,8 +6,6 @@ export async function createNewPostController(request_: Request, response_: Resp
     const {id} = response_.locals.userInfo as JwtPayload;
     const {title, subtitle, date, status, category, summary, content, file, uri} = request_.body;
 
-    console.log(`Creating new post now`);
-
     // const formattedDate = format(new Date(date), TEXT_FORMATTING.POST_DATE);
     const postDoc = await Post.create({
         title: title,
