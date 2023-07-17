@@ -39,9 +39,20 @@ export class StringHelper {
         return source_.toUpperCase() !== source_.toLowerCase();
     }
     
-    public static isInt(source_: string): boolean {
+    public static isCharNumeric(source_: string): boolean {
         const char = source_.charCodeAt(0);
         const bounds = ['0'.charCodeAt(0), '9'.charCodeAt(0)];
         return (char >= bounds[0] && char <= bounds[0]);
+    }
+
+    public static isNumeric(source_: string): boolean {
+        let valid = true;
+        for (let index = 0; index < source_.length; index++) {
+            if (!this.isCharNumeric(source_[index])) {
+                valid = false;
+                break;
+            }
+        }
+        return valid;
     }
 }

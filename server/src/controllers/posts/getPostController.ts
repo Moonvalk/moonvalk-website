@@ -5,12 +5,11 @@ export async function getPostController(request_: Request, response_: Response):
     const {id} = request_.params;
     let postDoc;
     try {
-        postDoc = await Post.findById(id);
+        postDoc = await Post.findOne({uri: id});
     } catch (error_) {
         response_.status(404).json('An error occurred.');
         return;
     }
-        // .select('-createdAt -updatedAt');
     if (!postDoc) {
         response_.status(404).json('An error occurred.');
     }

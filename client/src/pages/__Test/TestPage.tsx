@@ -14,13 +14,13 @@ const TEST_MARKDOWN_TEXT = `$[align_justified indent&;Today is the day. We are h
 $[align_center video_container&;!![<iframe src="https://player.vimeo.com/video/385779510?h=e652b18de0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>]]
 
 
-$[align_justified indent&;The entire studio is currently operated as a solo endeavor by one person- *myself*. My name is $[color_highlight1&;Zack Harmon], a self taught artist, musician, and programmer. I have been *designing / developing* games for **thirteen years**, and have worked as a professional engineer for four. I recently had the amazing opportunity to take on my dreams and open this studio full time (not that it's without it's hardships). I am incredibly happy to spend these next few months building the content that I have been sitting on for years and hope you all enjoy the ride along with me.]
+$[align_left indent&;The entire studio is currently operated as a solo endeavor by one person- *myself*. My name is $[color_highlight1&;Zack Harmon], a self taught artist, musician, and programmer. I have been *designing / developing* games for **thirteen years**, and have worked as a professional engineer for four. I recently had the amazing opportunity to take on my dreams and open this studio full time (not that it's without it's hardships). I am incredibly happy to spend these next few months building the content that I have been sitting on for years and hope you all enjoy the ride along with me.]
 
 $[image_medium&;![Sundown Express&;..\\uploads\\9569ac08b3452b9d7369af5572cc5373.png&;Concept art of $[color_highlight4&;*Sundown Express*], an arcade sci-fi delivery game.]]
 
-$[align_justified indent&;I will be announcing new projects very soon and plan to post devlogs / videos as development is under way. Part of the dream is for this studio to stay as transparent as possible and to share insights into what all goes on "under the hood." I love helping the community that assisted in my many years of growth and cannot thank you all enough for the support to get me this far!]
+$[align_left indent&;I will be announcing new projects very soon and plan to post devlogs / videos as development is under way. Part of the dream is for this studio to stay as transparent as possible and to share insights into what all goes on "under the hood." I love helping the community that assisted in my many years of growth and cannot thank you all enough for the support to get me this far!]
 
-$[align_justified indent&;That's all for now, folks. I hope to chat again soon and am happy to be reached through social media or our contact form.]
+$[align_left indent&;That's all for now, folks. I hope to chat again soon and am happy to be reached through social media or our contact form.]
 
 +[$[center text_large font_bebas-neue&;*Get ready to play!*]&;celebrate]`;
 

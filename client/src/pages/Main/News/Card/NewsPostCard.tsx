@@ -21,6 +21,7 @@ export interface INewsPost {
     coverFile: string,
     createdAt: number | Date,
     author: any,
+    uri: string,
 }
 
 /**
@@ -84,12 +85,12 @@ export function NewsPostCard(props_: INewsPostProps): ReactElement {
             </div>
             <div className="description">
                 <h1>
-                    <Link to={'/news/post/'.concat(props_.postData._id)}>{props_.postData.title}</Link>
+                    <Link to={'/news/post/'.concat(props_.postData.uri)}>{props_.postData.title}</Link>
                 </h1>
                 <h2>{props_.postData.subtitle}</h2>
                 <p className='body-text'>{props_.postData.summary}</p>
                 <p className="read-more">
-                    <Link to={'/news/post/'.concat(props_.postData._id)}>{`Read More`}</Link>
+                    <Link to={'/news/post/'.concat(props_.postData.uri)}>{`Read More`}</Link>
                 </p>
             </div>
         </div>

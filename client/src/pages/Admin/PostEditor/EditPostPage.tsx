@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useLayoutEffect, useState } from "react";
+import { ChangeEvent, ReactElement, useEffect, useLayoutEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { format } from 'date-fns';
 import { EditIcon, DeleteIcon } from "../../../assets/svg/icons/Actions";
@@ -11,6 +11,7 @@ import { getServerURI } from "../../../utils/URIHelper";
 import { INewsPost } from "../../Main/News/Card/NewsPostCard";
 import { MVPostEditor } from "./MarkdownEditor/MVPostEditor";
 import { ButtonElement } from "../../../components/Button/ButtonElement";
+import { StringHelper } from "../../../utils/StringHelper";
 
 /**
  * Generates the post edit page.
@@ -26,6 +27,8 @@ export function EditPostPage(): ReactElement {
     const [postStatus, setPostStatus] = useState('draft');
     const [postCategory, setPostCategory] = useState('general');
     const [coverFile, setCoverFile] = useState('');
+    const [postURI, setPostURI] = useState('');
+    const [postId, setPostId] = useState('');
     const [redirect, setRedirect] = useState<string | null>(null);
     const [currentDate, setCurrentDate] = useState('');
 
@@ -44,6 +47,8 @@ export function EditPostPage(): ReactElement {
                 setPostStatus(postInfo_.status);
                 setPostCategory(postInfo_.category);
                 setCoverFile(postInfo_.coverFile);
+                setPostURI(postInfo_.uri);
+                setPostId(postInfo_._id);
             });
         });
     }, []);
@@ -73,7 +78,7 @@ export function EditPostPage(): ReactElement {
         const response = await fetch(getServerURI('api/post/edit'), {
             method: 'PUT',
             body: JSON.stringify({
-                id: id as (string | Blob),
+                id: postId as (string | Blob),
                 title: postTitle,
                 subtitle: postSubtitle,
                 date: postDate,
@@ -82,6 +87,7 @@ export function EditPostPage(): ReactElement {
                 summary: postSummary,
                 content: postContent,
                 file: coverFile,
+                uri: postURI,
             }),
             credentials: 'include',
             headers: {
@@ -89,10 +95,25 @@ export function EditPostPage(): ReactElement {
             },
         });
         if (response.ok) {
-            setRedirect('/news/post/'.concat(id));
+            const postData = await response.json();
+            setRedirect('/news/post/'.concat(postURI));
         } else {
             alert('An error occurred editing this post');
         }
+    }
+
+    function handleAdjustPageTitle(event_: ChangeEvent<HTMLInputElement>): void {
+        setPostTitle(event_.target.value);
+        const splitTitle = postTitle.split('');
+        let newURI = '';
+        for (let index = 0; index < splitTitle.length; index++) {
+            if (StringHelper.isAlpha(splitTitle[index])) {
+                newURI += splitTitle[index];
+            } else if (splitTitle[index] === ' ' && newURI[newURI.length - 1] !== '-') {
+                newURI += '-';
+            }
+        }
+        setPostURI(newURI);
     }
 
     function getCurrentDate(): void {
@@ -110,18 +131,24 @@ export function EditPostPage(): ReactElement {
                 <div className='flex'>
                     <label htmlFor="title">Title*</label>
                     <label htmlFor="date">Date</label>
+                    <label htmlFor="uri">URI</label>
                 </div>
                 <div className='flex'>
                     <input id='title'
                         type='text'
                         placeholder={'Title'} 
                         value={postTitle} 
-                        onChange={event => setPostTitle(event.target.value)} />
+                        onChange={handleAdjustPageTitle} />
                     <input id='date'
                         type='text'
                         placeholder={currentDate}
                         value={postDate} 
                         onChange={event => setPostDate(event.target.value)} />
+                    <input id='uri'
+                        type='text'
+                        placeholder={''}
+                        value={postURI} 
+                        onChange={event => setPostURI(event.target.value)} />
                 </div>
                 <div className='flex'>
                     <label htmlFor="status">Status</label>

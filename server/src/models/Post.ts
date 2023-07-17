@@ -10,6 +10,7 @@ const PostSchema = new Schema({
     content: String,
     coverFile: String,
     author: {type: Schema.Types.ObjectId, required: true, ref: 'User'},
+    uri: {type: String, required: true},
 }, {
     timestamps: true,
 });

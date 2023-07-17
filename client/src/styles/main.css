@@ -2,20 +2,20 @@
 
 /** Global variable controls */
 :root {
-    --COLOR_BACKGROUND: rgb(15, 16, 30);
-    --COLOR_1: rgb(5, 5, 15);
-    --COLOR_1_0: rgba(5, 5, 15, 0);
-    --COLOR_1_05: rgba(5, 5, 15, 0.5);
-    --COLOR_1_075: rgba(5, 5, 15, 0.75);
-    --COLOR_2: rgb(16, 16, 28);
-    --COLOR_2_05: rgb(16, 16, 28, 0.5);
-    --COLOR_3: rgb(30, 30, 49);
-    --COLOR_3_05: rgba(30, 30, 49, 0.5);
-    --COLOR_3_0: rgba(30, 30, 49, 0);
-    --COLOR_4: rgb(80, 80, 105);
-    --COLOR_4_0: rgba(80, 80, 105, 0);
-    --COLOR_4_05: rgba(80, 80, 105, 0.5);
-    --COLOR_4_075: rgba(80, 80, 105, 0.75);
+    --COLOR_BACKGROUND: rgb(17, 18, 33);
+    --COLOR_1: rgb(6, 6, 17);
+    --COLOR_1_0: rgba(6, 6, 17, 0);
+    --COLOR_1_05: rgba(6, 6, 17, 0.5);
+    --COLOR_1_075: rgba(6, 6, 17, 0.75);
+    --COLOR_2: rgb(17, 17, 31);
+    --COLOR_2_05: rgb(17, 17, 31, 0.5);
+    --COLOR_3: rgb(33, 33, 56);
+    --COLOR_3_05: rgba(33, 33, 56, 0.5);
+    --COLOR_3_0: rgba(33, 33, 56, 0);
+    --COLOR_4: rgb(83, 83, 110);
+    --COLOR_4_0: rgba(83, 83, 110, 0);
+    --COLOR_4_05: rgba(83, 83, 110, 0.5);
+    --COLOR_4_075: rgba(83, 83, 110, 0.75);
     --COLOR_5: rgb(180, 180, 210);
     --COLOR_5_0: rgba(180, 180, 210, 0);
     --COLOR_5_075: rgba(180, 180, 210, 0.75);

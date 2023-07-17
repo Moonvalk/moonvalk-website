@@ -97,13 +97,13 @@
     color: var(--COLOR_6);
     transition: all 0.15s ease-in-out;
     font-size: 1rem;
-    box-shadow: inset 0 0 2rem var(--COLOR_4_0);
+    box-shadow: inset 0 0 1.5rem var(--COLOR_4_0);
     border: 0.25rem solid var(--COLOR_3);
     filter: drop-shadow(0 0.1rem 0.25rem rgb(0, 0, 0, 0.3));
 }
 .page_large:hover, .page_medium:hover, .page_small:hover {
     border: 0.25rem solid var(--COLOR_4);
-    box-shadow: inset 0 0 2rem var(--COLOR_4_05);
+    box-shadow: inset 0 0 1.5rem var(--COLOR_4_05);
 }
 .page_large {
     width: min(var(--MIN_PAGE_PERCENT), var(--LG_PAGE_WIDTH));
@@ -202,6 +202,8 @@ h1 svg {
 }
 
 .prompt svg {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
     width: 2rem;
     height: 2rem;
     display: flex;

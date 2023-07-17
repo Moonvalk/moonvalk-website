@@ -10,8 +10,8 @@ import { userAuthStore, ACCESS_LEVEL } from "../../../../stores/User";
 import { getServerURI } from "../../../../utils/URIHelper";
 import { INewsPost } from "../Card/NewsPostCard";
 import { MarkdownParser } from "../../../../utils/Markdown/MarkdownParser";
-import './NewsPostPage.css';
 import { ImageComponent } from "../../../../components/Image/ImageComponent";
+import './NewsPostPage.css';
 
 /**
  * Called to generate a full news post page at the provided URI, if available.
@@ -94,7 +94,7 @@ export function NewsPostPage(): ReactElement {
                 </Link>
                 {userInfo?.accessLevel >= ACCESS_LEVEL.ADMIN && (
                     <div>
-                        <Link className='return-link' to={`/news/edit/${postData._id}`}>
+                        <Link className='return-link' to={`/news/edit/${postData.uri}`}>
                             <EditIcon />
                             Edit Post
                         </Link>

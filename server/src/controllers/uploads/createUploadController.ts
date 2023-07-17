@@ -60,6 +60,5 @@ export async function createUploadController(request_: Request, response_: Respo
         aspectRatio: imageUpload.width / imageUpload.height,
     });
     const savedUpload = await newUpload.save();
-    console.log(`Saved new upload. Name: ${newUpload.name}, Source: ${newUpload.source}, Hash: ${newUpload.hash}`);
     response_.json(savedUpload);
 }
