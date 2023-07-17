@@ -32,6 +32,7 @@
 }
 .changelog tr:first-child {
     text-transform: uppercase;
+    font-family: var(--TITLE_FONT), sans-serif;
 }
 .changelog tr:hover:not(:first-child) {
     animation: an_background_translate 3.0s ease infinite;

@@ -106,13 +106,15 @@ export function RegisterPage(): ReactElement {
                         placeholder={StringHelper.generateCharFill(CHARACTER_CODES.BULLET, 10)}
                         value={password}
                         onChange={event => setPassword(event.target.value)}
-                        autoComplete='on' />
+                        autoComplete='on'
+                        style={{fontFamily: 'var(--TITLE_FONT), sans-serif'}} />
                     <input id='passwordRepeat'
                         type='password'
                         placeholder={StringHelper.generateCharFill(CHARACTER_CODES.BULLET, 10)}
                         value={confirmPassword}
                         onChange={event => setConfirmPassword(event.target.value)}
-                        autoComplete='on' />
+                        autoComplete='on'
+                        style={{fontFamily: 'var(--TITLE_FONT), sans-serif'}} />
                 </div>
                 <ButtonElement text='Create New Account' icon={<EditIcon />} />
             </form>

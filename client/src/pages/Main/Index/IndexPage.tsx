@@ -20,7 +20,7 @@ export function IndexPage(): ReactElement {
             </h1>
             <hr className='hr_small' />
             <div className='page_small'>
-                <p className='text_body indent align_justified'>
+                <p className='text_body indent align_left'>
                     <span className='color_highlight1'>Moonvalk</span> is a brand spanking new game studio developing and publishing mobile / desktop experiences.
                     Our focus is keeping things fun by using retro themes in clever new ways.
                 </p>

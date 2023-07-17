@@ -6,6 +6,7 @@ import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { ButtonElement } from '../../../components/Button/ButtonElement';
 import { getServerURI } from '../../../utils/URIHelper';
+import { StringHelper } from '../../../utils/StringHelper';
 
 export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');

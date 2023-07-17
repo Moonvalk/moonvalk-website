@@ -4,7 +4,7 @@ import Post from "../../models/Post";
 
 export async function createNewPostController(request_: Request, response_: Response): Promise<void> {
     const {id} = response_.locals.userInfo as JwtPayload;
-    const {title, subtitle, date, status, category, summary, content, file} = request_.body;
+    const {title, subtitle, date, status, category, summary, content, file, uri} = request_.body;
 
     console.log(`Creating new post now`);
 
@@ -19,6 +19,7 @@ export async function createNewPostController(request_: Request, response_: Resp
         content: content,
         coverFile: file,
         author: id,
+        uri: uri,
     });
     response_.json(postDoc);
 }

@@ -22,7 +22,7 @@ export function AboutPage(): ReactElement {
                 <div className='about-avatar-border' />
                 <ImageComponent source='../uploads/images/zack2.webp' className='about-avatar' backgroundImage />
             </div>
-            <p className="text_body align_justified indent">
+            <p className="text_body align_left indent">
                 Zack has been making games, artwork, music, and design for over thirteen years.
                 Just recently he decided to take the plunge and work on his projects fulltime.
                 He loves to collaborate and connect with others in the game dev community. He also loves mexican food *wink*.

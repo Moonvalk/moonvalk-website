@@ -1,4 +1,4 @@
-import { ReactElement, useLayoutEffect, useState } from "react";
+import { ChangeEvent, ReactElement, useLayoutEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { EditIcon } from "../../../assets/svg/icons/Actions";
 import { NewPostIcon } from "../../../assets/svg/icons/Menus";
@@ -8,6 +8,7 @@ import { getServerURI } from "../../../utils/URIHelper";
 import { ACCESS_LEVEL } from "../../../stores/User";
 import { MVPostEditor } from "./MarkdownEditor/MVPostEditor";
 import { ButtonElement } from "../../../components/Button/ButtonElement";
+import { StringHelper } from "../../../utils/StringHelper";
 
 /**
  * Generates the admin page for creating new posts.
@@ -22,6 +23,7 @@ export function CreatePostPage(): ReactElement {
     const [postStatus, setPostStatus] = useState('draft');
     const [postCategory, setPostCategory] = useState('general');
     const [coverFile, setCoverFile] = useState('');
+    const [uri, setURI] = useState('');
     const [redirect, setRedirect] = useState<string>(null);
     const [currentDate, setCurrentDate] = useState('');
 
@@ -33,18 +35,7 @@ export function CreatePostPage(): ReactElement {
     }, []);
 
     async function handleCreateNewPost(event_: any): Promise<void> {
-        // const data = new FormData();
-        // data.set('title', postTitle);
-        // data.set('subtitle', postSubtitle);
         let overrideDate = (postDate !== '') ? postDate : getCurrentFormattedDate();
-        // data.set('date', overrideDate);
-        // data.set('status', postStatus);
-        // data.set('category', postCategory);
-        // data.set('summary', postSummary);
-        // data.set('content', postContent);
-        // if (coverFile !== '') {
-        //     data.set('file', coverFile);
-        // }
         event_.preventDefault();
 
         const response = await fetch(getServerURI('api/post'), {
@@ -58,6 +49,7 @@ export function CreatePostPage(): ReactElement {
                 summary: postSummary,
                 content: postContent,
                 file: coverFile,
+                uri: uri,
             }),
             credentials: 'include',
             headers: {
@@ -66,7 +58,7 @@ export function CreatePostPage(): ReactElement {
         });
         if (response.ok) {
             const postData = await response.json();
-            setRedirect(`/news/post/${postData.id}`);
+            setRedirect(`/news/post/${postData.uri}`);
         } else {
             alert('An error occurred making this post');
         }
@@ -78,6 +70,20 @@ export function CreatePostPage(): ReactElement {
      */
     function getCurrentDate(): void {
         setCurrentDate(getCurrentFormattedDate());
+    }
+    
+    function handleAdjustPageTitle(event_: ChangeEvent<HTMLInputElement>): void {
+        setPostTitle(event_.target.value);
+        const splitTitle = event_.target.value.split('');
+        let newURI = '';
+        for (let index = 0; index < splitTitle.length; index++) {
+            if (StringHelper.isAlpha(splitTitle[index])) {
+                newURI += splitTitle[index].toLowerCase();
+            } else if (splitTitle[index] === ' ') {
+                newURI += '-';
+            }
+        }
+        setURI(newURI);
     }
 
     // Handle redirects when set.
@@ -92,18 +98,24 @@ export function CreatePostPage(): ReactElement {
                 <div className='flex'>
                     <label htmlFor="title">Title*</label>
                     <label htmlFor="date">Date</label>
+                    <label htmlFor="uri">URI</label>
                 </div>
                 <div className='flex'>
                     <input id='title'
                         type="title"
                         placeholder={'Title'} 
                         value={postTitle} 
-                        onChange={event => setPostTitle(event.target.value)} />
+                        onChange={handleAdjustPageTitle} />
                     <input id='date'
                         type="text"
                         placeholder={currentDate}
                         value={postDate} 
                         onChange={event => setPostDate(event.target.value)} />
+                    <input id='uri'
+                        type="text"
+                        placeholder={''}
+                        value={uri} 
+                        onChange={event => setURI(event.target.value)} />
                 </div>
                 <div className='flex'>
                     <label htmlFor="status">Status</label>

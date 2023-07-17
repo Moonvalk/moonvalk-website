@@ -68,7 +68,8 @@ export function LoginPage(): ReactElement {
                         type='password'
                         placeholder={StringHelper.generateCharFill(CHARACTER_CODES.BULLET, 10)}
                         ref={passwordRef}
-                        autoComplete='on' />
+                        autoComplete='on'
+                        style={{fontFamily: 'var(--TITLE_FONT), sans-serif'}} />
                 </div>
                 <ButtonElement text='Login' icon={<LoginIcon />} />
                 <br />

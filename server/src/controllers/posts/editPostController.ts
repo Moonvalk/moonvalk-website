@@ -15,7 +15,7 @@ export async function editPostController(request_: Request, response_: Response)
         if (error_) {
             throw error_;
         }
-        const {id, title, date, status, category, subtitle, summary, content} = request_.body;
+        const {id, title, date, status, category, subtitle, summary, content, file, uri} = request_.body;
         console.log(`Title: ${title}, date: ${date}, id: ${id}`);
         const postDoc = await Post.findById(id);
         if (!postDoc) {
@@ -33,7 +33,8 @@ export async function editPostController(request_: Request, response_: Response)
             subtitle: subtitle,
             summary: summary,
             content: content,
-            coverFile: request_.body.file ? request_.body.file : postDoc.coverFile,
+            coverFile: file ? file : postDoc.coverFile,
+            uri: uri,
         });
         response_.json(postDoc);
     });
