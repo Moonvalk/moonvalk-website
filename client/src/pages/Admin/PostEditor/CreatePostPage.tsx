@@ -23,7 +23,7 @@ export function CreatePostPage(): ReactElement {
     const [postStatus, setPostStatus] = useState('draft');
     const [postCategory, setPostCategory] = useState('general');
     const [coverFile, setCoverFile] = useState('');
-    const [uri, setURI] = useState('');
+    const [postURI, setPostURI] = useState('');
     const [redirect, setRedirect] = useState<string>(null);
     const [currentDate, setCurrentDate] = useState('');
 
@@ -49,7 +49,7 @@ export function CreatePostPage(): ReactElement {
                 summary: postSummary,
                 content: postContent,
                 file: coverFile,
-                uri: uri,
+                uri: postURI,
             }),
             credentials: 'include',
             headers: {
@@ -72,18 +72,10 @@ export function CreatePostPage(): ReactElement {
         setCurrentDate(getCurrentFormattedDate());
     }
     
+    
     function handleAdjustPageTitle(event_: ChangeEvent<HTMLInputElement>): void {
         setPostTitle(event_.target.value);
-        const splitTitle = event_.target.value.split('');
-        let newURI = '';
-        for (let index = 0; index < splitTitle.length; index++) {
-            if (StringHelper.isAlpha(splitTitle[index])) {
-                newURI += splitTitle[index].toLowerCase();
-            } else if (splitTitle[index] === ' ') {
-                newURI += '-';
-            }
-        }
-        setURI(newURI);
+        setPostURI(StringHelper.convertToURI(event_.target.value));
     }
 
     // Handle redirects when set.
@@ -114,8 +106,8 @@ export function CreatePostPage(): ReactElement {
                     <input id='uri'
                         type="text"
                         placeholder={''}
-                        value={uri} 
-                        onChange={event => setURI(event.target.value)} />
+                        value={postURI} 
+                        onChange={event => setPostURI(event.target.value)} />
                 </div>
                 <div className='flex'>
                     <label htmlFor="status">Status</label>

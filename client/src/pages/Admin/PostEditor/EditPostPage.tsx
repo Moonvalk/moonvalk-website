@@ -104,16 +104,7 @@ export function EditPostPage(): ReactElement {
 
     function handleAdjustPageTitle(event_: ChangeEvent<HTMLInputElement>): void {
         setPostTitle(event_.target.value);
-        const splitTitle = postTitle.split('');
-        let newURI = '';
-        for (let index = 0; index < splitTitle.length; index++) {
-            if (StringHelper.isAlpha(splitTitle[index])) {
-                newURI += splitTitle[index];
-            } else if (splitTitle[index] === ' ' && newURI[newURI.length - 1] !== '-') {
-                newURI += '-';
-            }
-        }
-        setPostURI(newURI);
+        setPostURI(StringHelper.convertToURI(event_.target.value));
     }
 
     function getCurrentDate(): void {

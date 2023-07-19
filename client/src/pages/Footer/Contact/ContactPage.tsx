@@ -54,6 +54,7 @@ export function ContactPage(): ReactElement {
         <PageTemplate title='Contact' icon={<ContactIcon />} pageWrap='page_small'>
             <PromptElement icon={<InfoIcon />}
                 text='Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.' />
+            <PromptElement text={<p className='text_body'><em>* Required fields</em></p>} />
             <form className='form_basic' onSubmit={handleSubmitForm}>
                 <label htmlFor='first-name'>Name*</label>
                 <div className="flex">
