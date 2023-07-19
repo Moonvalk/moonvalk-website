@@ -35,24 +35,60 @@ export class StringHelper {
         return value;
     }
 
+    /**
+     * Determines if the input string is alphabetical.
+     * @param {string} source_ - The input string to check.
+     * @return {boolean} True if the string is alphabetical.
+     */
     public static isAlpha(source_: string): boolean {
         return source_.toUpperCase() !== source_.toLowerCase();
     }
     
+    /**
+     * Determines if the input character is numeric (0-9).
+     * @param {string} source_ - The input character to check.
+     * @return {boolean} True if the character is numeric.
+     */
     public static isCharNumeric(source_: string): boolean {
         const char = source_.charCodeAt(0);
         const bounds = ['0'.charCodeAt(0), '9'.charCodeAt(0)];
-        return (char >= bounds[0] && char <= bounds[0]);
+        return (char >= bounds[0] && char <= bounds[1]);
     }
 
+    /**
+     * Determines if the input string is completely numeric (0-9).
+     * @param {string} source_ - The input string to check.
+     * @return {boolean} True if the entire input string is numeric.
+     */
     public static isNumeric(source_: string): boolean {
         let valid = true;
-        for (let index = 0; index < source_.length; index++) {
-            if (!this.isCharNumeric(source_[index])) {
+        for (const char of source_) {
+            if (!this.isCharNumeric(char)) {
                 valid = false;
                 break;
             }
         }
         return valid;
+    }
+
+    /**
+     * Converts the input title text to a useable URI of alphabetical
+     * and numeric characters.
+     * @param {string} input_ - The input string to be converted.
+     * @return {string} A converted value that is usable as a URI.
+     */
+    public static convertToURI(input_: string): string {
+        const splitInput = input_.split('');
+        let newURI = '';
+        for (const char of splitInput) {
+            if (StringHelper.isAlpha(char)) {
+                newURI += char.toLowerCase();
+            } else if (StringHelper.isCharNumeric(char)) {
+                newURI += char; 
+            } else if (char === ' ') {
+                newURI += '-';
+            }
+        }
+        return newURI;
     }
 }
