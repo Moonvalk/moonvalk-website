@@ -1,5 +1,9 @@
 import { ReactElement, useLayoutEffect } from "react";
 import { getPageTitle } from "../../utils/URIHelper";
+import ReactGA from 'react-ga4';
+
+// Initialize analytics manager.
+ReactGA.initialize('G-DMBERNYBX8');
 
 /**
  * Properties used for setting page metadata.
@@ -37,6 +41,13 @@ export function PageMeta(props_: IPageMetaProps): ReactElement {
         if (metaElement) {
             metaElement.setAttribute("content", `${props_.description ? props_.description : DEFAULT_PAGE_DESCRIPTION}`);
         }
+
+        // Send analytics data.
+        ReactGA.send({
+            hitType: 'pageview',
+            page: window.location.pathname,
+            title: document.title,
+        });
     }, [props_]);
 
     // Return a blank element as we have nothing to render here.
