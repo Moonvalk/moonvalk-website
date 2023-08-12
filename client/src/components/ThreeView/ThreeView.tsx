@@ -76,11 +76,11 @@ export function ThreeView(): ReactElement {
                 {!sceneLoaded && (
                     <UniversalLoader />
                 )}
-                <ParallaxElement>
+                {/* <ParallaxElement> */}
                     <div className='three-viewport' ref={containerRef}>
                         <canvas style={sceneLoaded ? {display: 'block'} : {display: 'none'}} ref={canvasRef} />
                     </div>
-                </ParallaxElement>
+                {/* </ParallaxElement> */}
             </div>
         </>
     );

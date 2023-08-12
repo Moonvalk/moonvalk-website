@@ -1,33 +1,36 @@
 
 .about-avatar-container {
     width: 80%;
-    height: 10rem;
+    height: 11.5rem;
     margin: 0 auto;
     position: relative;
     margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
 }
 .about-avatar-border {
     width: 100%;
-    height: 4rem;
-    top: 2rem;
+    height: 5rem;
+    top: 3.5rem;
     position: absolute;
     border-radius: 4rem;
     background-color: var(--COLOR_2);
 }
 .about-avatar {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 4rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
     border: 0.25rem solid var(--COLOR_4);
-    /* background-image: url('../../../assets/images/zack.webp'); */
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0.5rem auto;
     margin-bottom: 0;
+    margin-top: 0;
     filter: drop-shadow(0 0.1rem 0.25rem var(--COLOR_1_05));
     transition: all 0.2s ease-in-out, scale 0.3s var(--ELASTIC_OUT_BEZIER);
-    z-index: 100;
+    z-index: 60;
     overflow: hidden;
 }
 .about-avatar:hover {
@@ -35,4 +38,31 @@
     filter: drop-shadow(0 0.2rem 0.5rem var(--COLOR_1));
     scale: 1.1;
     animation: an_spin_back ease-in-out infinite 5s;
+}
+
+.about-buttons {
+    display: flex;
+    width: 100%;
+    margin: 0.25rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.about-button {
+    width: max-content;
+    min-width: 1rem;
+    max-width: 100%;
+    flex: 1 1 2rem;
+    margin-inline: 0.75rem;
+}
+
+.about-avatar-container.large {
+    height: 15rem;
+    top: 0rem;
+}
+.about-avatar.large {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 7rem;
 }

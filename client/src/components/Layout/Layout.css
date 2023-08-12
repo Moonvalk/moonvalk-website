@@ -89,6 +89,8 @@
 /** Page elements */
 .page_large, .page_medium, .page_small {
     min-height: 4rem;
+    background-repeat: repeat-y;
+    background-size: 100%;
     background-color: var(--COLOR_3);
     border-radius: 0.5rem;
     padding: 1rem;
@@ -106,13 +108,28 @@
     box-shadow: inset 0 0 1.5rem var(--COLOR_4_05);
 }
 .page_large {
+    background-image: url('../../assets/images/page_background_large.webp');
     width: min(var(--MIN_PAGE_PERCENT), var(--LG_PAGE_WIDTH));
 }
 .page_medium {
+    background-image: url('../../assets/images/page_background_medium.webp');
     width: min(var(--MIN_PAGE_PERCENT), var(--MD_PAGE_WIDTH));
 }
 .page_small {
+    background-image: url('../../assets/images/page_background_small.webp');
     width: min(var(--MIN_PAGE_PERCENT), var(--SM_PAGE_WIDTH));
+}
+
+@media only screen and (max-width: 34.99em) {
+    .page_large {
+        background-image: url('../../assets/images/page_background_small.webp');
+    }
+    .page_medium {
+        background-image: url('../../assets/images/page_background_small.webp');
+    }
+    .page_small {
+        background-image: url('../../assets/images/page_background_small.webp');
+    }
 }
 
 .page_container {
@@ -122,6 +139,12 @@
 }
 .page-title {
     text-transform: uppercase;
+}
+.page-title svg {
+    transform: translateX(-0.45rem) translateY(-0.05rem) rotate(-6deg) scale(1.4);
+    color: var(--COLOR_4);
+    z-index: -10;
+    transition: transform 0.2s ease-in-out;
 }
 .content {
     height: min-content;
@@ -134,7 +157,8 @@ h1 {
     width: max-content;
     display: flex;
     font-family: var(--TITLE_FONT), sans-serif;
-    font-size: 1.4rem;
+    letter-spacing: 0.025rem;
+    font-size: 1.6rem;
     font-weight: 100;
     text-align: center;
     margin: 0 auto;
@@ -149,17 +173,17 @@ h1 svg {
 
 /** Horizontal rule elements */
 .hr_fade, .hr_small {
-    background-image: linear-gradient(90deg, var(--COLOR_5_0) 0%, var(--COLOR_5) 20%, var(--COLOR_5) 80%, var(--COLOR_5_0) 100%);
+    background-image: linear-gradient(90deg, var(--COLOR_4_0) 0%, var(--COLOR_4) 5%, var(--COLOR_4) 95%, var(--COLOR_4_0) 100%);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    height: 0.1rem;
+    height: 0.15rem;
     border: 0;
     margin: 1rem auto;
 }
 .hr_fade {
-    width: min(80%, var(--MD_PAGE_WIDTH));
+    width: min(80%, calc(var(--MD_PAGE_WIDTH) - 10rem));
 }
 .hr_small {
-    width: min(80%, var(--SM_PAGE_WIDTH));
+    width: min(80%, calc(var(--SM_PAGE_WIDTH) - 10rem));
 }
 .break_vertical {
     display: inline-flex;
@@ -179,8 +203,8 @@ h1 svg {
     padding: 1rem;
     padding-inline: 1.5rem;
     border-radius: 0.5rem;
-    opacity: 0.7;
-    transition: opacity 0.3s ease-in-out;
+    filter: contrast(0.95) saturate(1.1);
+    transition: filter 0.3s ease-in-out;
 }
 .prompt {
     width: min(100%, var(--MD_PAGE_WIDTH));
@@ -190,7 +214,7 @@ h1 svg {
     max-width: min(100%, var(--MD_PAGE_WIDTH));
 }
 .prompt:hover {
-    opacity: 1;
+    filter: contrast(1) saturate(1);
 }
 
 .prompt a, a.link_basic {
@@ -301,7 +325,7 @@ h1 svg {
 /** Basic buttons */
 .button_basic {
     display: flex;
-    text-decoration: none;
+    text-decoration: none !important;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
     font-family: var(--HEADING_FONT), sans-serif;
     font-weight: 100;
@@ -319,7 +343,7 @@ h1 svg {
     line-height: 1rem;
     margin: 0 auto;
     margin-top: 1rem;
-    filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0)) saturate(0);
+    filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0));
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0);
     opacity: 0.9;
     align-items: center;
@@ -327,8 +351,8 @@ h1 svg {
     transition: all 0.2s ease;
 }
 .button_basic svg {
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
     margin-inline: 0.7rem;
     transition: transform 0.2s ease;
 }
@@ -342,7 +366,7 @@ h1 svg {
 }
 .button_basic:hover svg {
     animation: an_pulse_tilt 0.75s ease infinite;
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
 .button_delete:hover {
     background: -webkit-linear-gradient(0deg, rgb(255, 107, 107), rgb(255, 49, 73));
@@ -381,4 +405,90 @@ blockquote {
     padding: 0.25rem;
     background: linear-gradient(90deg, var(--COLOR_4_05), var(--COLOR_4_0));
     border-radius: 0.25rem;
+}
+
+.return-link {
+    text-decoration: none;
+    background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
+    padding: 0.25rem;
+    padding-right: 0.75rem;
+    border-radius: 0.25rem;
+    color: var(--COLOR_3);
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: max-content;
+    height: 2.5rem;
+    margin-inline: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-family: var(--HEADING_FONT), sans-serif;
+    font-size: 1rem;
+    filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0));
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+.return-link svg {
+    width: 1rem;
+    height: 1rem;
+    margin-inline: 0.5rem;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+}
+.return-link:hover svg {
+    animation: an_pulse_tilt 0.75s ease infinite;
+    transform: scale(1.4);
+}
+.return-link:hover {
+    background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
+    filter: drop-shadow(0 0 0.35rem var(--COLOR_HIGHLIGHT_5_05)) saturate(1) brightness(1.1);
+    scale: 1.1;
+    opacity: 1;
+}
+.return-link-container {
+    width: min(var(--MIN_PAGE_PERCENT), var(--MD_PAGE_WIDTH));
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.cover-image {
+    width: min(100vw, 100%);
+    aspect-ratio: 3.5;
+    min-height: 15rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 0.25rem solid var(--COLOR_HIGHLIGHT_1_0);
+    z-index: 50;
+    overflow: hidden;
+}
+@media (max-width: 44.99rem) {
+    .cover-image {
+        aspect-ratio: 2;
+    }
+}
+
+.tritone-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    margin-top: -0.4rem;
+}
+.tritone-one svg {
+    color: var(--COLOR_HIGHLIGHT_6);
+    position: absolute;
+    translate: -1.3rem 0.3rem;
+}
+.tritone-two svg {
+    color: var(--COLOR_HIGHLIGHT_2);
+    position: absolute;
+    translate: -1.15rem 0.15rem;
+}
+.tritone-three svg {
+    color: var(--COLOR_HIGHLIGHT_1);
+    position: absolute;
+    translate: -1rem 0rem;
 }

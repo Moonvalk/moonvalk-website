@@ -4,12 +4,13 @@ import { HelpIcon } from "../../../assets/svg/icons/Misc";
 import { PageTemplate } from "../../../components/PageTemplate/PageTemplate";
 import { PromptElement } from "../../../components/Prompt/PromptElement";
 import { userAuthStore, ACCESS_LEVEL } from "../../../stores/User";
+import { IconTritone } from "../../../components/Icons/IconTritone";
 
 export function SettingsPage(): ReactElement {
     const {userInfo, userLoggedIn} = userAuthStore();
 
     return (
-        <PageTemplate title='Settings' icon={<SettingsIcon />} pageWrap='page_medium'
+        <PageTemplate title='Settings' icon={<IconTritone baseSVG={<SettingsIcon />} />} pageWrap='page_medium'
             accessLevel={ACCESS_LEVEL.USER}>
             <PromptElement icon={<HelpIcon />} text='Adjust user settings here.' />
             {userLoggedIn && (

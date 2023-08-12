@@ -166,7 +166,7 @@
 
 .blog-card .description .read-more a {
     text-decoration: none;
-    background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
+    background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
     padding: 0.25rem;
     border-radius: 0.25rem;
     color: var(--COLOR_3);
@@ -176,7 +176,7 @@
     text-align: center;
     font-family: var(--HEADING_FONT), sans-serif;
     font-size: 1rem;
-    filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0)) saturate(0);
+    filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0));
     opacity: 0.9;
     display: flex;
     float: right;
@@ -234,7 +234,10 @@
 
 @media (max-width: 44.99rem) {
     .blog-card .description {
-        background: var(--COLOR_3);
+        background-image: url('../../../../assets/images/page_background_small.webp');
+        background-repeat: repeat-y;
+        background-size: 100%;
+        background-color: var(--COLOR_3);
         border: 0.25rem solid var(--COLOR_3_0);
         box-shadow: 0 -0.1rem 2rem var(--COLOR_1);
         border-top: 0;
@@ -271,6 +274,10 @@
         transform: skewX(-5deg);
         content: "";
         background: var(--COLOR_3);
+        background-image: url('../../../../assets/images/page_background_medium.webp');
+        background-repeat: repeat-y;
+        background-size: 100%;
+        background-position: 1rem 0rem;
         width: 105%;
         height: 100%;
         position: absolute;

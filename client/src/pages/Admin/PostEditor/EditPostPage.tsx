@@ -12,6 +12,7 @@ import { INewsPost } from "../../Main/News/Card/NewsPostCard";
 import { MVPostEditor } from "./MarkdownEditor/MVPostEditor";
 import { ButtonElement } from "../../../components/Button/ButtonElement";
 import { StringHelper } from "../../../utils/StringHelper";
+import { IconTritone } from "../../../components/Icons/IconTritone";
 
 /**
  * Generates the post edit page.
@@ -116,7 +117,7 @@ export function EditPostPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Edit Post' icon={<NewPostIcon />} pageWrap='page_large'
+        <PageTemplate title='Edit Post' icon={<IconTritone baseSVG={<NewPostIcon />} />} pageWrap='page_large'
             accessLevel={ACCESS_LEVEL.USER}>
             <form className='form_basic' onSubmit={handleUpdatePost}>
                 <div className='flex'>

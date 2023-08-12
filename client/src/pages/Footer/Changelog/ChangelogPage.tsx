@@ -6,8 +6,9 @@ import { ChangelogIcon } from '../../../assets/svg/icons/Menus';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { RestrictedContent } from '../../../components/RestrictedContent/RestrictedContent';
 import { ChangelogForm } from './ChangelogForm';
-import './ChangelogPage.css';
 import { ButtonElement } from '../../../components/Button/ButtonElement';
+import { IconTritone } from '../../../components/Icons/IconTritone';
+import './ChangelogPage.css';
 
 export interface IChangelog {
     _id: string,
@@ -53,7 +54,7 @@ export function ChangelogPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Changelog' icon={<ChangelogIcon />}>
+        <PageTemplate title='Changelog' icon={<IconTritone baseSVG={<ChangelogIcon />} />}>
             <div className='page_large'>
                 <p className="text_body align_center">
                     Below are the records for this website's update history:

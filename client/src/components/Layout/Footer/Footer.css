@@ -18,11 +18,14 @@ footer {
 }
 
 .break_footer {
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, var(--COLOR_3) 20%, var(--COLOR_3) 80%, rgba(0, 0, 0, 0) 100%);
+    /* background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, var(--COLOR_3) 20%, var(--COLOR_3) 80%, rgba(0, 0, 0, 0) 100%); */
+    background-image: linear-gradient(90deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_2));
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    width: min(50vw, 30rem);
-    height: 0.1rem;
+    width: min(50vw, 10rem);
+    height: 0.3rem;
     border: 0;
+    /* border-top: 0.1rem dotted var(--COLOR_3); */
+    border-radius: 0.2rem;
     margin: 1rem auto;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -191,3 +194,11 @@ footer p {
 .steam:hover svg {
     filter: drop-shadow(0 0 0.5rem #0856ff);
 }
+
+/* .linkedin {
+    color: rgb(10, 102, 194);
+}
+.linkedin:hover svg {
+    filter: drop-shadow(0 0 0.5rem rgb(10, 102, 194));
+    color: rgb(255, 255, 255);
+} */

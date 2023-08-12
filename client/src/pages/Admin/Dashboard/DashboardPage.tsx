@@ -5,8 +5,9 @@ import { PageTemplate } from "../../../components/PageTemplate/PageTemplate";
 import { PromptElement } from "../../../components/Prompt/PromptElement";
 import { ACCESS_LEVEL } from "../../../stores/User";
 import { Link } from "react-router-dom";
-import './DashboardPage.css';
 import { MessageIcon, UploadIcon } from "../../../assets/svg/icons/Actions";
+import { IconTritone } from "../../../components/Icons/IconTritone";
+import './DashboardPage.css';
 
 /**
  * Generates the administrator dashboard.
@@ -14,7 +15,7 @@ import { MessageIcon, UploadIcon } from "../../../assets/svg/icons/Actions";
  */
 export function DashboardPage(): ReactElement {
     return (
-        <PageTemplate title='Dashboard' icon={<DashboardIcon />} pageWrap='page_medium'
+        <PageTemplate title='Dashboard' icon={<IconTritone baseSVG={<DashboardIcon />} />} pageWrap='page_medium'
             accessLevel={ACCESS_LEVEL.ADMIN}>
             <PromptElement icon={<HelpIcon />}
                 text='View site analytics, handle draft posts, and update site settings here.' />

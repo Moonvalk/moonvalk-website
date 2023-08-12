@@ -6,7 +6,7 @@ import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { ButtonElement } from '../../../components/Button/ButtonElement';
 import { getServerURI } from '../../../utils/URIHelper';
-import { StringHelper } from '../../../utils/StringHelper';
+import { IconTritone } from '../../../components/Icons/IconTritone';
 
 export function ContactPage(): ReactElement {
     const [firstName, setFirstName] = useState('');
@@ -51,10 +51,10 @@ export function ContactPage(): ReactElement {
     }
     
     return (
-        <PageTemplate title='Contact' icon={<ContactIcon />} pageWrap='page_small'>
+        <PageTemplate title='Contact' icon={<IconTritone baseSVG={<ContactIcon />} />} pageWrap='page_small'>
             <PromptElement icon={<InfoIcon />}
                 text='Use the form below to submit questions, concerns, or feedback and we will get back to you shortly.' />
-            <PromptElement text={<p className='text_body'><em>* Required fields</em></p>} />
+            <PromptElement text={<em>* Required fields</em>} />
             <form className='form_basic' onSubmit={handleSubmitForm}>
                 <label htmlFor='first-name'>Name*</label>
                 <div className="flex">

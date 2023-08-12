@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { GamesIcon, NewsIcon, ComicsIcon, AboutIcon } from "../../../assets/svg/icons/Menus";
+import { GamesIcon, NewsIcon, ComicsIcon, AboutIcon, ShopIcon } from "../../../assets/svg/icons/Menus";
 
 /**
  * Properties available to the PrimaryNavigation component.
@@ -31,6 +31,11 @@ export function PrimaryNavigation(props_: IPrimaryNavigationProps): ReactElement
                         <NewsIcon />
                         <span>News</span>
                     </Link></li>
+                <li>
+                    <a href='https://www.etsy.com/shop/Moonvalk' onClick={props_.onPageSelect} target="_blank">
+                        <ShopIcon />
+                        <span>Shop</span>
+                    </a></li>
                 <li><Link onClick={props_.onPageSelect} to={`/comics`}>
                         <ComicsIcon />
                         <span>Comics</span>

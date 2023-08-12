@@ -1,6 +1,11 @@
-import { AmbientLight, Euler, Group, MathUtils, Mesh, MeshStandardMaterial, NearestFilter, Object3D, PerspectiveCamera, PointLight, Raycaster, Scene, SRGBColorSpace, Vector2, Vector3, WebGLRenderer } from "three";
+import { AmbientLight, Euler, Group, LinearToneMapping, MathUtils, Mesh, MeshStandardMaterial, NearestFilter, Object3D, PerspectiveCamera, PointLight, Raycaster, Scene, SRGBColorSpace, Vector2, Vector3, WebGLRenderer } from "three";
 import { isDeviceMobile } from "../../utils/DetectMobile";
 import { MVModelLoader } from "./MVModelLoader";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
+import { LUTPass } from "three/examples/jsm/postprocessing/LUTPass";
+import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
+import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader";
 
 /**
  * Properties available to an MVScene object.
@@ -19,6 +24,7 @@ export default class MVScene {
     protected scene: Scene;
     protected camera: PerspectiveCamera;
     protected renderer: WebGLRenderer;
+    protected composer: EffectComposer;
     protected canvas: HTMLCanvasElement;
     protected container: HTMLDivElement;
     protected properties: IMVSceneProps;
@@ -62,7 +68,7 @@ export default class MVScene {
 
         // Continue to update animations and render the scene.
         this.handleAnimations(delta);
-        this.renderer.render(this.scene, this.camera);
+        this.composer.render(delta);
     }
 
     protected initializeThreeScene(): void {
@@ -77,7 +83,18 @@ export default class MVScene {
         });
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.outputColorSpace = SRGBColorSpace;
+        this.renderer.toneMapping = LinearToneMapping;
+        this.renderer.toneMappingExposure = 1.2;
         this.renderer.setSize(this.canvas.offsetWidth, this.canvas.offsetHeight);
+
+        // Set up post processing.
+        this.composer = new EffectComposer(this.renderer);
+        this.composer.setPixelRatio(window.devicePixelRatio);
+        this.composer.setSize(this.canvas.offsetWidth, this.canvas.offsetHeight);
+        // this.composer.
+        const renderPass = new RenderPass(this.scene, this.camera);
+        this.composer.addPass(renderPass);
+
         this.raycaster = new Raycaster();
     }
 
@@ -86,6 +103,7 @@ export default class MVScene {
             directory: '../uploads/models/model_caperwing/',
             models: ['model_caperwing.gltf'],
             textures: ['map_birds_diffuse.png', 'map_diffuse.webp'],
+            cubeLUTs: ['Cinematic-5.cube'],
             onComplete: () => {
                 this.model = MVModelLoader.getModel('model_caperwing.gltf').scene;
                 this.model.position.set(0, 0.02, 0);
@@ -129,6 +147,17 @@ export default class MVScene {
 
                 // Add the full model hierarchy into the scene.
                 this.scene.add(this.model);
+
+                // Apply LUT files now.
+                const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
+                this.composer.addPass(gammaCorrectionPass);
+                const lutPass = new LUTPass({
+                    lut: MVModelLoader.getCubeLUT('Cinematic-5.cube').texture,
+                    intensity: 0.6,
+                });
+                lutPass.enabled = true;
+                this.composer.addPass(lutPass);
+
                 if (onModelsLoaded) {
                     // Execute callback now.
                     onModelsLoaded();
@@ -181,6 +210,7 @@ export default class MVScene {
         const container = this.renderer.domElement.parentElement;
         const rect = container.getBoundingClientRect();
         this.renderer.setSize(rect.width, rect.height);
+        this.composer.setSize(rect.width, rect.height);
         this.camera.aspect = (rect.width / rect.height);
         this.camera.updateProjectionMatrix();
     }

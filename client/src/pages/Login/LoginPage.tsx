@@ -9,6 +9,7 @@ import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
 import { userAuthStore, IUserInfo } from '../../stores/User';
 import { ButtonElement } from '../../components/Button/ButtonElement';
+import { IconTritone } from '../../components/Icons/IconTritone';
 
 /**
  * Called to generate the login page.
@@ -52,7 +53,7 @@ export function LoginPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Sign In' icon={<LoginIcon />} pageWrap='page_small'>
+        <PageTemplate title='Sign In' icon={<IconTritone baseSVG={<LoginIcon />} />} pageWrap='page_small'>
             <form className='form_basic' onSubmit={handleLogin}>
                 <div className='flex'>
                     <label htmlFor='username'>Username: </label>

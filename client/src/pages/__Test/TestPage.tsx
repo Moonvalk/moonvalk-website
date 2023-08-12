@@ -7,6 +7,7 @@ import { TestIcon } from "../../assets/svg/icons/Misc";
 import { MVEditorToolbar } from "../Admin/PostEditor/MarkdownEditor/MVEditorToolbar";
 import { MarkdownParser } from "../../utils/Markdown/MarkdownParser";
 import '../Admin/PostEditor/MarkdownEditor/MVPostEditor.css';
+import { IconTritone } from "../../components/Icons/IconTritone";
 
 const TEST_MARKDOWN_TEXT = `$[align_justified indent&;Today is the day. We are happy to announce the official launch of the new $[color_highlight1&;***Moonvalk Studios***] brand and website! Moonvalk is an independent game developer and publisher based out of northeast Ohio in the United States. Our focus is to bring back retro experiences in bold new ways. Our main goal is to bring players content that is, well, just plain fun again.]
 
@@ -64,7 +65,7 @@ export function TestPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Test Page' icon={<TestIcon />} pageWrap='page_large'
+        <PageTemplate title='Test Page' icon={<IconTritone baseSVG={<TestIcon />} />} pageWrap='page_large'
             accessLevel={ACCESS_LEVEL.ADMIN}>
             <MVEditorToolbar />
             <div ref={editorRef} className='editor' style={{}}>

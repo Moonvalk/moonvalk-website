@@ -8,6 +8,7 @@ import { UploadCard } from "./UploadCard";
 import { getServerURI } from "../../../../utils/URIHelper";
 import { ButtonElement } from "../../../../components/Button/ButtonElement";
 import { IImageData } from "../../../../components/Image/ImageComponent";
+import { IconTritone } from "../../../../components/Icons/IconTritone";
 import './UploadManagerPage.css';
 
 export interface IUpload extends IImageData {
@@ -59,7 +60,7 @@ export function UploadManagerPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title={'Upload Manager'} icon={<UploadIcon />}
+        <PageTemplate title={'Upload Manager'} icon={<IconTritone baseSVG={<UploadIcon />} />}
             accessLevel={ACCESS_LEVEL.ADMIN} pageWrap='page_medium'>
             <PromptElement text='This is the upload manager' icon={<InfoIcon />} />
             <form className='form_basic' onSubmit={handleUpload}>

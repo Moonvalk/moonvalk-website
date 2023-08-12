@@ -1,5 +1,6 @@
 import { Texture, TextureLoader } from "three";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { LUTCubeLoader, LUTCubeResult } from "three/examples/jsm/loaders/LUTCubeLoader";
 
 /**
  * Properties available when loading models.
@@ -19,6 +20,11 @@ interface IModelLoadProps {
      * An array of all texture file names to be loaded.
      */
     textures?: string[],
+
+    /**
+     * An array of all cube file names to be loaded.
+     */
+    cubeLUTs?: string[],
 
     /**
      * A callback to be executed when all files are loaded.
@@ -41,6 +47,11 @@ export class MVModelLoader {
     protected static mapOfTextures = new Map<string, Texture>();
 
     /**
+     * A map of all loaded cube LUT files by file name.
+     */
+    protected static mapOfCubeLUTs = new Map<string, LUTCubeResult>();
+
+    /**
      * Stores reference to a GLTF loader object.
      */
     protected static gltfLoader = new GLTFLoader();
@@ -49,6 +60,11 @@ export class MVModelLoader {
      * Stores reference to a Texture loader object.
      */
     protected static textureLoader = new TextureLoader();
+
+    /**
+     * Stores reference to a cube LUT loader object.
+     */
+    protected static cubeLoader = new LUTCubeLoader();
 
     /**
      * Called to load all specified models and textures.
@@ -72,7 +88,9 @@ export class MVModelLoader {
         }
 
         // Mark all files as incomplete when starting.
-        const allFiles = props_.models.concat(props_.textures);
+        const allFiles = props_.models
+            .concat(props_.textures)
+            .concat(props_.cubeLUTs);
         allFiles.forEach((uri_: string) => {
             completionChecks.set(uri_, false);
         });
@@ -92,6 +110,13 @@ export class MVModelLoader {
                 checkComplete(uri_);
             });
         });
+
+        props_.cubeLUTs?.forEach((uri_: string) => {
+            MVModelLoader.cubeLoader.load(props_.directory + uri_, (cube_: LUTCubeResult) => {
+                MVModelLoader.mapOfCubeLUTs.set(uri_, cube_);
+                checkComplete(uri_);
+            });
+        })
     }
 
     /**
@@ -110,5 +135,14 @@ export class MVModelLoader {
      */
     public static getTexture(uri_: string): Texture {
         return MVModelLoader.mapOfTextures.get(uri_);
+    }
+
+    /**
+     * Gets the cube LUT with the specified file name if available.
+     * @param {string} uri_ - The file name to request.
+     * @return {Texture} The cube LUT requested.
+     */
+    public static getCubeLUT(uri_: string): LUTCubeResult {
+        return MVModelLoader.mapOfCubeLUTs.get(uri_);
     }
 }
