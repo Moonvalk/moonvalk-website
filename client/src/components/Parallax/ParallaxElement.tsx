@@ -1,5 +1,5 @@
 import { CSSProperties, PropsWithChildren, ReactElement, useEffect, useRef } from "react";
-import { isDeviceMobile } from "../../utils/DetectMobile";
+import { isDeviceIOS, isDeviceMobile, isDeviceWindowDesktop } from "../../utils/DetectMobile";
 
 /**
  * Contract for properties that a ParallaxElement requires. These are basic controls
@@ -55,7 +55,7 @@ export function ParallaxElement(props_: PropsWithChildren<IParallaxElementProps>
     useEffect(() => {
         // Only apply this parallax translation effect on desktop. On mobile it ends up
         // rather jittery due to lack of resources for performance.
-        if (props_.displayOnMobile || !isDeviceMobile()) {
+        if (props_.displayOnMobile || (!isDeviceMobile() && !isDeviceIOS())) {
             const speed = (props_.scrollSpeed ? props_.scrollSpeed : DEFAULT_SCROLL_SPEED);
             const initial = (props_.initialOffsetY ? props_.initialOffsetY : 0);
 

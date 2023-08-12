@@ -64,7 +64,7 @@
 .blog-card .details {
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 0.02rem;
     left: -100%;
     margin: auto;
     transition: all 0.2s ease;

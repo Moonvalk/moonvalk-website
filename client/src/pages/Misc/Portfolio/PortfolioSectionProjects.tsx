@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import { PromptElement } from "../../../components/Prompt/PromptElement";
 import { BoltIcon, RadarIcon } from "../../../assets/svg/icons/Misc";
+import { IconTritone } from "../../../components/Icons/IconTritone";
 
 /**
  * Called to generate the projects section found on the portfolio page.
@@ -10,11 +11,7 @@ export function PortfolioSectionProjects(): ReactElement {
     return (
         <>
             <h1 className='page-title'>
-                <div className='tritone-icon'>
-                    <div className='tritone-one'><RadarIcon /></div>
-                    <div className='tritone-two'><RadarIcon /></div>
-                    <div className='tritone-three'><RadarIcon /></div>
-                </div>
+                <IconTritone baseSVG={<RadarIcon />} />
                 Notable Projects
             </h1>
             <hr className='hr_small' />

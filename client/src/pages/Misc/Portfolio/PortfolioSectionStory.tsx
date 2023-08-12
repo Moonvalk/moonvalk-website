@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import { AboutIcon } from "../../../assets/svg/icons/Menus";
 import { BookIcon } from "../../../assets/svg/icons/Misc";
+import { IconTritone } from "../../../components/Icons/IconTritone";
 
 /**
  * Called to generate the story section found on the portfolio page.
@@ -13,11 +13,7 @@ export function PortfolioSectionStory(): ReactElement {
             <div className='portfolio_story_section'>
                 <div className='container'>
                     <h1 className='page-title'>
-                        <div className='tritone-icon'>
-                            <div className='tritone-one'><BookIcon /></div>
-                            <div className='tritone-two'><BookIcon /></div>
-                            <div className='tritone-three'><BookIcon /></div>
-                        </div>
+                        <IconTritone baseSVG={<BookIcon />} />
                         My Story
                     </h1>
                     <hr className='color-break' />
@@ -28,7 +24,8 @@ export function PortfolioSectionStory(): ReactElement {
                     <br/>
                     <p className='align_left indent text_body'>
                         As my interest in animation blossomed I eventually learned how to build interactive media- and got hooked forever.
-                        My skill set grew and I pivoted into a professional career as a software engineer during <span className='color_highlight1'>four years ago</span>.
+                        I spent my teenage years building games which would eventually go on to win national awards.
+                        My skill set grew and I pivoted into a professional career as a Software Engineer about <span className='color_highlight1'>four years ago</span>.
                         Today I am an artistic professional with extensive project experience from concept to deployment.
                         My expansive job history provides me with a unique angle from all facets of product development.
                         I have worked as a lead graphic artist, a product designer, a musician, an engineer, and even a full-stack web developer.
