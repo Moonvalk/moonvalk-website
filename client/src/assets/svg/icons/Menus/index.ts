@@ -10,6 +10,7 @@ import { NewPostIcon } from "./NewPostIcon";
 import { NewsIcon } from "./NewsIcon";
 import { PressIcon } from "./PressIcon";
 import { SettingsIcon } from "./SettingsIcon";
+import { ShopIcon } from "./ShopIcon";
 
 /** Export all available icons in this directory. */
 export {
@@ -25,4 +26,5 @@ export {
     NewsIcon,
     PressIcon,
     SettingsIcon,
+    ShopIcon,
 }

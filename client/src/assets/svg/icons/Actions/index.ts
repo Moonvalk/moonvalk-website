@@ -1,6 +1,7 @@
 import { BackIcon } from "./BackIcon";
 import { DeleteIcon } from "./DeleteIcon";
 import { EditIcon } from "./EditIcon";
+import { ExternalLinkIcon } from "./ExternalLinkIcon";
 import { LoginIcon } from "./LoginIcon";
 import { LogoutIcon } from "./LogoutIcon";
 import { MessageIcon } from "./MessageIcon";
@@ -13,6 +14,7 @@ export {
     BackIcon,
     DeleteIcon,
     EditIcon,
+    ExternalLinkIcon,
     LoginIcon,
     LogoutIcon,
     MessageIcon,

@@ -4,6 +4,7 @@ import { MessageIcon } from '../../../assets/svg/icons/Actions';
 import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { InfoIcon } from '../../../assets/svg/icons/Misc';
 import { ThreeView } from '../../../components/ThreeView/ThreeView';
+import { IconTritone } from '../../../components/Icons/IconTritone';
 
 /**
  * Called to generate the main homepage.
@@ -15,7 +16,7 @@ export function IndexPage(): ReactElement {
             <ThreeView />
             <div className='margin_header' />
             <h1 className='page-title'>
-                <MessageIcon />
+                <IconTritone baseSVG={<MessageIcon />} />
                 Welcome
             </h1>
             <hr className='hr_small' />

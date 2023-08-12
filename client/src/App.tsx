@@ -1,14 +1,39 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 import { PageRoutes } from './constants/PageRoutes';
 import { LazyImports } from './utils/LazyImports';
+import { isDeviceMobile } from './utils/DetectMobile';
 
 /**
  * Main app functional component using client side rendering routes.
  * @return {ReactElement} Returns the main routed element to be displayed in the virtual DOM.
  */
 export function App(): ReactElement {
+    useEffect(() => {
+        if (!isDeviceMobile()) {
+            const elements = document.getElementsByTagName('body');
+            const parallaxRef = elements[0];
+            /**
+             * Sets the parallax translation along the Y axis each time a scroll event occurs.
+             */
+            const setParallaxTranslation = () => {
+                
+                const offsetY = window.scrollY;
+                if (parallaxRef) {
+                    parallaxRef.style.backgroundPosition = "0% " + (offsetY * 0.15) + "%";
+                }
+            };
+            setParallaxTranslation();
+            window.addEventListener('scroll', setParallaxTranslation);
+
+            // Deconstruct by removing event listeners.
+            return () => {
+                window.removeEventListener('scroll', setParallaxTranslation);
+            }
+        }
+    }, []);
+
     return (
         <Routes>
             <Route element={<Layout />}>
@@ -29,6 +54,8 @@ export function App(): ReactElement {
                 <Route path='/news/post/:id'        Component={LazyImports.get(PageRoutes.NewsPost)} />
                 <Route path='/news/edit/:id'        Component={LazyImports.get(PageRoutes.EditPost)} />
                 <Route path='/test'                 Component={LazyImports.get(PageRoutes.Test)} />
+                <Route path='/portfolio'            Component={LazyImports.get(PageRoutes.Portfolio)} />
+                <Route path='/resume'               Component={LazyImports.get(PageRoutes.Resume)} />
                 <Route path='*'                     Component={LazyImports.get(PageRoutes.NotFound)} />
             </Route>
         </Routes>

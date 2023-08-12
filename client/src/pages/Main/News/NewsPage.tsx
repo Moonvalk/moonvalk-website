@@ -3,6 +3,7 @@ import { NewsIcon } from '../../../assets/svg/icons/Menus';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
 import { getServerURI } from '../../../utils/URIHelper';
 import { INewsPost, NewsPostCard } from './Card/NewsPostCard';
+import { IconTritone } from '../../../components/Icons/IconTritone';
 import './NewsPage.css';
 
 /**
@@ -27,7 +28,8 @@ export function NewsPage(): ReactElement {
     }, []);
 
     return (
-        <PageTemplate title='News' icon={<NewsIcon />} description='Learn about latest company announcements, devlogs, and other news here!'>
+        <PageTemplate title='News' icon={<IconTritone baseSVG={<NewsIcon />} />}
+            description='Learn about latest company announcements, devlogs, and other news here!'>
             {posts.length > 0 && posts.map((post_: INewsPost, index_: number) => {
                 return (
                     <NewsPostCard key={'post_' + index_} postData={post_} imageLeft={index_ % 2 === 1} />

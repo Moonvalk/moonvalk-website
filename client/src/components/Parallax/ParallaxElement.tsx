@@ -26,6 +26,11 @@ interface IParallaxElementProps {
      * Any CSS styles to be applied to the parallax containing element.
      */
     style?: CSSProperties,
+
+    /**
+     * Flag that determines if this parallax will be displayed on mobile devices.
+     */
+    displayOnMobile?: boolean,
 }
 
 /**
@@ -50,7 +55,7 @@ export function ParallaxElement(props_: PropsWithChildren<IParallaxElementProps>
     useEffect(() => {
         // Only apply this parallax translation effect on desktop. On mobile it ends up
         // rather jittery due to lack of resources for performance.
-        if (!isDeviceMobile()) {
+        if (props_.displayOnMobile || !isDeviceMobile()) {
             const speed = (props_.scrollSpeed ? props_.scrollSpeed : DEFAULT_SCROLL_SPEED);
             const initial = (props_.initialOffsetY ? props_.initialOffsetY : 0);
 

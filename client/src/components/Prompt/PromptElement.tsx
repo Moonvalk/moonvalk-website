@@ -18,6 +18,8 @@ interface IPromptElementProps {
      * Additional class names to assign to this prompt element.
      */
     class?: string,
+
+    hideTextWrapper?: boolean,
 }
 
 /**
@@ -29,7 +31,14 @@ export function PromptElement(props_: IPromptElementProps): ReactElement {
     return (
         <div className={`prompt ${props_.class ? props_.class : ''}`}>
             {props_.icon}
-            <p className='text_body'>{props_.text}</p>
+            {!props_.hideTextWrapper && (
+                <p className='text_body'>{props_.text}</p>
+            )}
+            {props_.hideTextWrapper && (
+                <>
+                    {props_.text}
+                </>
+            )}
         </div>
     )
 }

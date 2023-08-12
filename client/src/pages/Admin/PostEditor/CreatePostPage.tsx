@@ -9,6 +9,7 @@ import { ACCESS_LEVEL } from "../../../stores/User";
 import { MVPostEditor } from "./MarkdownEditor/MVPostEditor";
 import { ButtonElement } from "../../../components/Button/ButtonElement";
 import { StringHelper } from "../../../utils/StringHelper";
+import { IconTritone } from "../../../components/Icons/IconTritone";
 
 /**
  * Generates the admin page for creating new posts.
@@ -84,7 +85,7 @@ export function CreatePostPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Add New Post' icon={<NewPostIcon />} pageWrap='page_large'
+        <PageTemplate title='Add New Post' icon={<IconTritone baseSVG={<NewPostIcon />} />} pageWrap='page_large'
             accessLevel={ACCESS_LEVEL.ADMIN}>
             <form className='form_basic' onSubmit={handleCreateNewPost}>
                 <div className='flex'>

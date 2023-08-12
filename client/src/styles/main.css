@@ -21,14 +21,17 @@
     --COLOR_5_075: rgba(180, 180, 210, 0.75);
     --COLOR_6: rgb(235, 235, 245);
     --COLOR_7: rgb(41, 41, 64);
-    --COLOR_HIGHLIGHT_1: rgb(255, 230, 0);
-    --COLOR_HIGHLIGHT_1_0: rgba(255, 230, 0, 0);
-    --COLOR_HIGHLIGHT_1_05: rgba(255, 230, 0, 0.5);
+    --COLOR_HIGHLIGHT_1: rgb(254, 231, 17);
+    --COLOR_HIGHLIGHT_1_0: rgba(254, 231, 17, 0);
+    --COLOR_HIGHLIGHT_1_05: rgba(254, 231, 17, 0.5);
     --COLOR_HIGHLIGHT_2: rgb(242, 28, 110);
     --COLOR_HIGHLIGHT_3: rgb(35, 166, 213);
+    --COLOR_HIGHLIGHT_3_0: rgba(35, 166, 213, 0);
     --COLOR_HIGHLIGHT_4: rgb(35, 213, 171);
     --COLOR_HIGHLIGHT_5: rgb(255, 157, 19);
+    --COLOR_HIGHLIGHT_5_0: rgba(255, 157, 19, 0);
     --COLOR_HIGHLIGHT_5_05: rgb(255, 157, 19, 0.5);
+    --COLOR_HIGHLIGHT_6: rgb(34, 85, 197);
 
     --ELASTIC_OUT_BEZIER: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -55,11 +58,11 @@ html, body, main {
 }
 body {
     background-color: var(--COLOR_BACKGROUND);
-    /* background-image: url('../assets/images/background.webp'); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-image: url('../assets/images/background.webp');
+    /* background-position: center; */
+    background-repeat: repeat;
+    /* background-attachment: fixed; */
+    background-size: auto;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -132,6 +135,9 @@ main {
     text-align: justify;
     text-justify: inter-word;
 }
+.vertical_center {
+    align-content: center;
+}
 
 @media only screen and (max-width: 34.99em) and (orientation: portrait) {
     .align_center, .align_left, .align_right, .align_justified {
@@ -184,8 +190,16 @@ main {
 .text_small {
     font-size: 0.8rem;
 }
+.text_medium {
+    font-size: 1rem;
+}
 .text_large {
     font-size: 1.4rem;
+}
+.text_extra-large {
+    font-size: 3rem;
+    /* font-weight: 900; */
+    margin-bottom: 0;
 }
 .text_monolithic {
     font-size: 6rem;

@@ -9,6 +9,7 @@ import { PageTemplate } from '../../components/PageTemplate/PageTemplate';
 import { PromptElement } from '../../components/Prompt/PromptElement';
 import { ACCESS_LEVEL, IUserInfo } from '../../stores/User';
 import { ButtonElement } from '../../components/Button/ButtonElement';
+import { IconTritone } from '../../components/Icons/IconTritone';
 
 /**
  * Called to generate the user registration page.
@@ -63,7 +64,7 @@ export function RegisterPage(): ReactElement {
     }
 
     return (
-        <PageTemplate title='Register' icon={<EditIcon />} pageWrap='page_small'>
+        <PageTemplate title='Register' icon={<IconTritone baseSVG={<EditIcon />} />} pageWrap='page_small'>
             <PromptElement icon={<HelpIcon />} text={(
                 <>Already have an account? <Link to='/login'>Sign In</Link></>)} />
             <form className='form_basic' onSubmit={handleRegistration}>

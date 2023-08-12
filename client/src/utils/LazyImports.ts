@@ -58,4 +58,10 @@ LazyImports.set(PageRoutes.NotFound, lazy(() => import('../pages/NotFound/NotFou
 
 /** TEST PAGES */
 LazyImports.set(PageRoutes.Test, lazy(() => import('../pages/__Test/TestPage')
-.then(module => { return { default: module.TestPage }})));
+    .then(module => { return { default: module.TestPage }})));
+
+/** MISC PAGES */
+LazyImports.set(PageRoutes.Portfolio, lazy(() => import('../pages/Misc/Portfolio/PortfolioPage')
+    .then(module => { return { default: module.PortfolioPage }})));
+LazyImports.set(PageRoutes.Resume, lazy(() => import('../pages/Misc/ResumePage')
+    .then(module => { return { default: module.ResumePage }})));

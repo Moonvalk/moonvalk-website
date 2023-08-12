@@ -1,10 +1,9 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { format } from 'date-fns';
 import { TEXT_FORMATTING } from "../../../../constants/TextFormatting";
-import { getServerURI } from "../../../../utils/URIHelper";
-import './NewsPostCard.css';
 import { ImageComponent } from "../../../../components/Image/ImageComponent";
+import './NewsPostCard.css';
 
 /**
  * Contract used for loading / handling news post data.
