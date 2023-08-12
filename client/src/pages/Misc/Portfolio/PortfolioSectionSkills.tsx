@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import { PromptElement } from "../../../components/Prompt/PromptElement";
 import { BarbellIcon } from "../../../assets/svg/icons/Misc";
+import { IconTritone } from "../../../components/Icons/IconTritone";
 
 /**
  * Called to generate the skills section found on the portfolio page.
@@ -10,11 +11,7 @@ export function PortfolioSectionSkills(): ReactElement {
     return (
         <>
             <h1 className='page-title'>
-                <div className='tritone-icon'>
-                    <div className='tritone-one'><BarbellIcon /></div>
-                    <div className='tritone-two'><BarbellIcon /></div>
-                    <div className='tritone-three'><BarbellIcon /></div>
-                </div>
+                <IconTritone baseSVG={<BarbellIcon />} />
                 Skills & Tools
             </h1>
             <hr className='hr_small' />

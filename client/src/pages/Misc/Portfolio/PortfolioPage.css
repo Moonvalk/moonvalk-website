@@ -427,6 +427,7 @@
 
     .timeline-content {
         margin-left: 5.5rem;
+        margin-right: 0.25rem;
         width: auto;
     }
     .timeline-block:nth-child(odd) .timeline-content {

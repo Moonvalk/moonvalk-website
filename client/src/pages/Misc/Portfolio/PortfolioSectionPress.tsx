@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import { PromptElement } from "../../../components/Prompt/PromptElement";
 import { PressIcon } from "../../../assets/svg/icons/Menus";
+import { IconTritone } from "../../../components/Icons/IconTritone";
 
 /**
  * Called to generate the press section found on the portfolio page.
@@ -10,11 +11,7 @@ export function PortfolioSectionPress(): ReactElement {
     return (
         <>
             <h1 className='page-title'>
-                <div className='tritone-icon'>
-                    <div className='tritone-one'><PressIcon /></div>
-                    <div className='tritone-two'><PressIcon /></div>
-                    <div className='tritone-three'><PressIcon /></div>
-                </div>
+                <IconTritone baseSVG={<PressIcon />} />
                 Press
             </h1>
             <hr className='hr_small' />
