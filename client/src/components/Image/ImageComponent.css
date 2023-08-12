@@ -86,11 +86,11 @@
     height: auto;
 }
 .image_small {
-    width: min(90%, var(--SM_PAGE_WIDTH));
+    width: min(100%, var(--SM_PAGE_WIDTH));
 }
 .image_medium {
-    width: min(90%, var(--MD_PAGE_WIDTH));
+    width: min(100%, var(--MD_PAGE_WIDTH));
 }
 .image_large {
-    width: min(90%, var(--LG_PAGE_WIDTH));
+    width: min(100%, var(--LG_PAGE_WIDTH));
 }
