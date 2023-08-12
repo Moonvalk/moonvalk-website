@@ -264,7 +264,7 @@ h1 svg {
 
 /** Container for video iframe elements */
 .video_container div {
-    width: min(90%, var(--MD_PAGE_WIDTH));
+    width: min(100%, var(--MD_PAGE_WIDTH));
     aspect-ratio: 1.777;
     border-radius: 0.5rem;
     overflow: hidden;
