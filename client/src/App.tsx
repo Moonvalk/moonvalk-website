@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 import { PageRoutes } from './constants/PageRoutes';
 import { LazyImports } from './utils/LazyImports';
-import { isDeviceMobile } from './utils/DetectMobile';
+import { isDeviceIOS, isDeviceMobile } from './utils/DetectMobile';
 
 /**
  * Main app functional component using client side rendering routes.
@@ -11,7 +11,7 @@ import { isDeviceMobile } from './utils/DetectMobile';
  */
 export function App(): ReactElement {
     useEffect(() => {
-        if (!isDeviceMobile()) {
+        if (!isDeviceMobile() && !isDeviceIOS()) {
             const elements = document.getElementsByTagName('body');
             const parallaxRef = elements[0];
             /**

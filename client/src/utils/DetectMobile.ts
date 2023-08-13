@@ -14,7 +14,8 @@ export function isDeviceMobile(): boolean {
  * @return {boolean} True when the device is running iOS. 
  */
 export function isDeviceIOS(): boolean {
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)
+        || (navigator.userAgent.match(/(iPad)/) && navigator.maxTouchPoints > 1)) {
         return true;
     }
     return false;

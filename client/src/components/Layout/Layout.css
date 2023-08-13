@@ -139,6 +139,8 @@
 }
 .page-title {
     text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: default;
 }
 .page-title svg {
     transform: translateX(-0.45rem) translateY(-0.05rem) rotate(-6deg) scale(1.4);
@@ -477,18 +479,34 @@ blockquote {
     margin-right: 1rem;
     margin-top: -0.4rem;
 }
+.tritone-one svg, .tritone-two svg, .tritone-three svg {
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
 .tritone-one svg {
     color: var(--COLOR_HIGHLIGHT_6);
-    position: absolute;
-    translate: -1.3rem 0.3rem;
+    transform: rotate(-6deg) scale(1.4);
+    translate: -1.75rem 0.3rem;
 }
 .tritone-two svg {
     color: var(--COLOR_HIGHLIGHT_2);
-    position: absolute;
-    translate: -1.15rem 0.15rem;
+    transform: rotate(-6deg) scale(1.4);
+    translate: -1.6rem 0.15rem;
 }
 .tritone-three svg {
     color: var(--COLOR_HIGHLIGHT_1);
-    position: absolute;
-    translate: -1rem 0rem;
+    transform: rotate(-6deg) scale(1.4);
+    translate: -1.45rem 0rem;
 }
+/* .tritone-icon:hover .tritone-one svg, h1:hover .tritone-icon .tritone-one svg {
+    transform: rotate(-14deg) scale(1.6);
+    translate: -1.85rem 0.5rem;
+}
+.tritone-icon:hover .tritone-two svg, h1:hover .tritone-icon .tritone-two svg  {
+    transform: rotate(-12deg) scale(1.6);
+    translate: -1.6rem 0.15rem;
+}
+.tritone-icon:hover .tritone-three svg, h1:hover .tritone-icon .tritone-three svg  {
+    transform: rotate(-10deg) scale(1.6);
+    translate: -1.35rem -0.2rem;
+} */

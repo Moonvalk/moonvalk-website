@@ -35,7 +35,7 @@ export function PortfolioPage(): ReactElement {
             <PortfolioExperienceTimeline />
 
             { /* Combining the skills and tech sections together */ }
-            {/* <PortfolioSectionSkills /> */}
+            <PortfolioSectionSkills />
             {/* <PortfolioSectionProjects />
             <PortfolioSectionPress /> */}
 
