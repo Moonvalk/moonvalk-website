@@ -19,7 +19,8 @@ export function PortfolioSectionSkills(): ReactElement {
 
     function animate(time_: number): void {
         if (previousTimeRef.current) {
-            const portalEdgeElapsed = (time_ * 0.05);
+            const portalEdgeSpeed = 0.03;
+            const portalEdgeElapsed = (time_ * portalEdgeSpeed);
             const sinWave = (Math.sin(time_ * 0.001));
             const defaultBackgroundSize = 22;
             skillsSectionTopRef.current.style.backgroundPositionX = `${portalEdgeElapsed}rem`;

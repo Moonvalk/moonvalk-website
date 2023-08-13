@@ -438,8 +438,8 @@
     background-position: center;
     position: relative;
     z-index: 50;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
     display: block;
 }
 .portfolio_section_top.skills, .portfolio_section_bottom.skills {
