@@ -1,19 +1,52 @@
-import { ReactElement } from "react";
-import { PromptElement } from "../../../components/Prompt/PromptElement";
+import { ReactElement, useEffect, useRef } from "react";
 import { BarbellIcon, BrainIcon, ContrastIcon } from "../../../assets/svg/icons/Misc";
 import { IconTritone } from "../../../components/Icons/IconTritone";
-import { ImageComponent } from "../../../components/Image/ImageComponent";
 import { CodeIcon } from "../../../assets/svg/icons/Editor";
+import { isDeviceMobile } from "../../../utils/DetectMobile";
 
 /**
  * Called to generate the skills section found on the portfolio page.
  * @return {ReactElement} A new JSX element for rendering.
  */
 export function PortfolioSectionSkills(): ReactElement {
+    const skillsSectionRef = useRef<HTMLDivElement>();
+    const skillsSectionTopRef = useRef<HTMLDivElement>();
+    const skillsSectionBottomRef = useRef<HTMLDivElement>();
+    let deviceIsMobile: boolean = false;
+
+    const requestRef = useRef<any>();
+    const previousTimeRef = useRef<number>();
+
+    function animate(time_: number): void {
+        if (previousTimeRef.current) {
+            const portalEdgeSpeed = 0.03;
+            const portalEdgeElapsed = (time_ * portalEdgeSpeed);
+            const sinWave = (Math.sin(time_ * 0.001));
+            const defaultBackgroundSize = 22;
+            skillsSectionTopRef.current.style.backgroundPositionX = `${portalEdgeElapsed}rem`;
+            skillsSectionBottomRef.current.style.backgroundPositionX = `${portalEdgeElapsed}rem`;
+
+            if (!deviceIsMobile) {
+                skillsSectionRef.current.style.backgroundSize = `${sinWave + defaultBackgroundSize}rem`;
+            }
+        }
+        previousTimeRef.current = time_;
+        requestRef.current = requestAnimationFrame(animate);
+    }
+
+    useEffect(() => {
+        deviceIsMobile = isDeviceMobile();
+        requestRef.current = requestAnimationFrame(animate);
+        return () => {
+            // Clean up listener.
+            cancelAnimationFrame(requestRef.current);
+        };
+    }, []);
+
     return (
         <>
-            <div className='portfolio_section_top skills'></div>
-            <div className='skills-section'>
+            <div className='portfolio_section_top skills' ref={skillsSectionTopRef}></div>
+            <div className='skills-section' ref={skillsSectionRef}>
                 {/* <div className='skills-cover-image'>
                     <ImageComponent source='../uploads/images/skills_section.webp' />
                 </div> */}
@@ -99,7 +132,7 @@ export function PortfolioSectionSkills(): ReactElement {
                     </div>
                 </div>
             </div>
-            <div className='portfolio_section_bottom skills'></div>
+            <div className='portfolio_section_bottom skills' ref={skillsSectionBottomRef}></div>
         </>
     );
 }

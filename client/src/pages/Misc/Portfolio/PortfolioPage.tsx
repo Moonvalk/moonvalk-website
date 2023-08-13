@@ -36,16 +36,8 @@ export function PortfolioPage(): ReactElement {
 
             { /* Combining the skills and tech sections together */ }
             <PortfolioSectionSkills />
-            {/* <PortfolioSectionProjects />
-            <PortfolioSectionPress /> */}
-
-                {/* <div className='flex'>
-                    <PortfolioSectionTechnologies />
-                    <PortfolioSectionSkills />
-                </div>
-                <PortfolioSectionProjects />
-                <PortfolioSectionPress /> */}
-                
+            <PortfolioSectionProjects />
+            <PortfolioSectionPress />
         </PageTemplate>
     );
 }

@@ -438,8 +438,17 @@
     background-position: center;
     position: relative;
     z-index: 50;
-    padding-bottom: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
     display: block;
+}
+.portfolio_section_top.skills, .portfolio_section_bottom.skills {
+    margin-bottom: -4rem;
+    z-index: 55;
+}
+.portfolio_section_bottom.skills {
+    margin-top: -4rem;
+    margin-bottom: 0rem;
 }
 .skills-cover-image {
     width: min(50rem, 90%);
@@ -547,6 +556,7 @@
         margin-left: 5.5rem;
         margin-right: 0.25rem;
         width: auto;
+        float: none;
     }
     .timeline-block:nth-child(odd) .timeline-content {
         right: 0;
