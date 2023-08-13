@@ -485,10 +485,9 @@
     font-size: 1.0rem;
     font-weight: 800;
     text-transform: uppercase;
-    background-color: var(--COLOR_5);
-    background-image: url('../../../assets/images/transparent_lines.webp');
     background-repeat: repeat;
-    background-position: center;
+    background-position: center, 0%;
+    background-size: auto, 300% 100%;
     border-radius: 0.25rem;
     cursor: default;
     transition: all 0.2s ease;
@@ -496,14 +495,17 @@
 .skill-item:hover {
     transform: scale(1.1);
 }
-.skill-item-wrapper.color_highlight1 .skill-item:hover {
-    background-color: var(--COLOR_HIGHLIGHT_1);
+.skill-item-wrapper.color_highlight1 .skill-item {
+    background-image: url('../../../assets/images/transparent_lines.webp'), linear-gradient(45deg, var(--COLOR_6) 0%, var(--COLOR_6) 50%, var(--COLOR_HIGHLIGHT_1) 75%, var(--COLOR_HIGHLIGHT_2) 100%);
 }
-.skill-item-wrapper.color_highlight2 .skill-item:hover {
-    background-color: var(--COLOR_HIGHLIGHT_4);
+.skill-item-wrapper.color_highlight2 .skill-item {
+    background-image: url('../../../assets/images/transparent_lines.webp'), linear-gradient(45deg, var(--COLOR_6) 0%, var(--COLOR_6) 50%, var(--COLOR_HIGHLIGHT_4) 75%, var(--COLOR_HIGHLIGHT_6) 100%);
 }
-.skill-item-wrapper.color_highlight6 .skill-item:hover {
-    background-color: var(--COLOR_HIGHLIGHT_2);
+.skill-item-wrapper.color_highlight6 .skill-item {
+    background-image: url('../../../assets/images/transparent_lines.webp'), linear-gradient(45deg, var(--COLOR_6) 0%, var(--COLOR_6) 50%, var(--COLOR_5) 75%, var(--COLOR_4) 100%);
+}
+.skill-item-wrapper .skill-item:hover {
+    background-position: center, 100% 0%;
 }
 
 .section-highlight.dots {

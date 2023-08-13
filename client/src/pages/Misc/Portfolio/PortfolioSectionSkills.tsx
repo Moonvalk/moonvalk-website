@@ -25,8 +25,9 @@ export function PortfolioSectionSkills(): ReactElement {
                     <hr className='color-break' />
                     
                     <p className='align_left indent text_body'>
-                        I am a huge advocate for continued learning. I am always searching for new technologies and improvements in my day-to-day.
-                        After years of persistent effort I've become a jack-of-all-trades of sorts. Learn about my strongest skills below.</p>
+                        As a self taught developer I am a huge advocate for <span className='color_highlight1'>continued learning</span>. I am always searching for new technologies and improvements in my day-to-day.
+                        The tech industry changes so rapidly it feels like there's a new framework or language out every single day.
+                        After years of persistent effort I've become a jack-of-all-trades of sorts. Learn about my <span className='color_highlight1'>strongest skills</span> below.</p>
                 </div>
                 
                 <div className='skill-tree-wrapper'>
@@ -73,6 +74,7 @@ export function PortfolioSectionSkills(): ReactElement {
                             <div className='skill-item'>Git</div>
                             <div className='skill-item'>MS Office</div>
                             <div className='skill-item'>GM Studio</div>
+                            <div className='skill-item'>Spine</div>
                         </div>
                     </div>
                     <div className='skills-wrapper'>
