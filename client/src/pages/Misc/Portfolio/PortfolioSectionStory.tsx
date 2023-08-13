@@ -9,7 +9,7 @@ import { IconTritone } from "../../../components/Icons/IconTritone";
 export function PortfolioSectionStory(): ReactElement {
     return (
         <>
-            <div className='portfolio_story_section_top'></div>
+            <div className='portfolio_section_top story'></div>
             <div className='portfolio_story_section'>
                 <div className='container'>
                     <h1 className='page-title'>
@@ -18,17 +18,17 @@ export function PortfolioSectionStory(): ReactElement {
                     </h1>
                     <hr className='color-break' />
                     <p className='align_left indent text_body'>
-                        Since a young age I have been passionate for the arts. Comic books and other media peaked my interest with their vibrant larger-than-life tales.
+                        Since a young age I have been passionate for the arts. Comic books and other media piqued my interest with their vibrant larger-than-life tales.
                         It was my dream to not just be another consumer. I vowed to become a storyteller, an architect, and most importantly <span className='color_highlight1'>a creator</span> who allows others to embrace their imagination.
                     </p>
                     <br/>
                     <p className='align_left indent text_body'>
                         As my interest in animation blossomed I eventually learned how to build interactive media- and got hooked forever.
-                        I spent my teenage years building games which would eventually go on to win national awards.
+                        I spent my teenage years building games which would eventually go on to win <span className='color_highlight1'>national awards</span> and acclaim.
                         My skill set grew and I pivoted into a professional career as a Software Engineer about <span className='color_highlight1'>four years ago</span>.
-                        Today I am an artistic professional with extensive project experience from concept to deployment.
+                        Today I am an artistic professional with extensive project experience from concept to distribution.
                         My expansive job history provides me with a unique angle from all facets of product development.
-                        I have worked as a lead graphic artist, a product designer, a musician, an engineer, and even a full-stack web developer.
+                        I have worked as a game developer, a lead graphic artist, a product designer, a musician, and even a full-stack web developer.
                         And I love it all.
                     </p>
                     <br/>
@@ -38,7 +38,7 @@ export function PortfolioSectionStory(): ReactElement {
                     </p>
                 </div>
             </div>
-            <div className='portfolio_story_section_bottom'></div>
+            <div className='portfolio_section_bottom story'></div>
         </>
     );
 }
