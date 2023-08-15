@@ -199,6 +199,8 @@
     .primary-navigation {
         position: fixed;
         inset: 0 0 0 15%;
+        --gap: 0;
+        gap: 0rem 0rem !important;
         width: 100%;
         max-width: 100dvw;
         height: 110vh;

@@ -82,7 +82,7 @@ main {
 }
 
 /** Show / hide mobile selectors */
-@media only screen and (max-width: 36.99em) and (orientation: portrait) {
+@media only screen and (max-width: 34.99em) and (orientation: portrait) {
     .hide_mobile {
         display: none;
     }
@@ -102,11 +102,11 @@ main {
 /** General display control selectors */
 .flex {
     display: flex;
-    /* gap: var(--GAP), 1rem; */
+    gap: var(--GAP, 1rem);
 }
 .grid {
     display: grid;
-    /* gap: var(--GAP), 1rem; */
+    gap: var(--GAP, 1rem);
 }
 
 .space-between {
@@ -137,7 +137,7 @@ main {
     align-content: center;
 }
 
-@media only screen and (max-width: 36.99em) and (orientation: portrait) {
+@media only screen and (max-width: 34.99em) and (orientation: portrait) {
     .align_center, .align_left, .align_right, .align_justified {
         max-width: 100%;
     }
