@@ -41,9 +41,9 @@
     cursor: pointer;
     background-color: var(--COLOR_1);
     border: 0.1rem solid var(--COLOR_HIGHLIGHT_1);
-    scale: 1.1;
+    transform: scale(1.1);
 }
 .link_admin:hover svg {
     animation: an_pulse_tilt 0.75s ease infinite;
-    scale: 1.4;
+    transform: scale(1.4);
 }

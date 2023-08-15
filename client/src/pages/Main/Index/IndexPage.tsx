@@ -5,6 +5,7 @@ import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { InfoIcon } from '../../../assets/svg/icons/Misc';
 import { ThreeView } from '../../../components/ThreeView/ThreeView';
 import { IconTritone } from '../../../components/Icons/IconTritone';
+import { UniversalLoader } from '../../../components/SmartSuspense/UniversalLoader';
 
 /**
  * Called to generate the main homepage.

@@ -16,11 +16,11 @@ export function PortfolioSectionMain(): ReactElement {
             <h1 className='text_extra-large'>ZACK HARMON</h1>
             <PromptElement icon={<InfoIcon />} class='tight' hideTextWrapper
                 text={<p className='font_abel text_medium'>
-                    I'm a self-taught Software Engineer and Graphic Designer who specializes in game development.
+                    I'm a self-taught Software Engineer and Graphic Designer who specializes in Game Development.
                     </p>} />
             <br/>
             <div className='portfolio_link_container'>
-                <a className='button_basic' href='../uploads/docs/Resume.pdf' target='_blank'>
+                <a className='button_basic' href='../uploads/docs/Zack_Harmon_Resume_8-2023.pdf' target='_blank'>
                     <PreviewIcon />View Resume
                 </a>
                 <Link to={'https://www.linkedin.com/in/moonvalk/'} target='_blank' className='portfolio_link linked-in'>
