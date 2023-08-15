@@ -193,7 +193,7 @@
 .blog-card .description .read-more a:hover {
     background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
     filter: drop-shadow(0 0 0.35rem var(--COLOR_HIGHLIGHT_5_05)) saturate(1) brightness(1.1);
-    scale: 1.1;
+    transform: scale(1.1);
     opacity: 1;
 }
 

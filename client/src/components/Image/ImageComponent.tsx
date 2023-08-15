@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, useEffect, useReducer, useState } from "react";
+import { CSSProperties, ReactElement, useEffect, useReducer, useRef, useState } from "react";
 import { Blurhash } from 'react-blurhash';
 import { getServerURI } from "../../utils/URIHelper";
 import './ImageComponent.css';
@@ -36,15 +36,9 @@ export function ImageComponent(props_: IImageComponentProps): ReactElement {
     const [displayHash, setDisplayHash] = useState(true);
     const [containerStyle, setContainerStyle] = useState<CSSProperties | null>(null);
 
-    // const imageData = useReducer();
-
-    // const [imageData, setImageData] = useState<IImageData>({
-    //     hash: 'LEHLk~WB2yk8pyo0adR*.7kCMdnj',
-    //     aspectRatio: 2,
-    // });
-
     const [imageHash, setImageHash] = useState('006a-q');
     const [aspectRatio, setAspectRatio] = useState(2);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (loadingImage) {
@@ -68,10 +62,12 @@ export function ImageComponent(props_: IImageComponentProps): ReactElement {
     }, [props_.source]);
 
     useEffect(() => {
-        if (!props_.backgroundImage) {
-            setContainerStyle({aspectRatio: aspectRatio});
+        if (!props_.backgroundImage && containerRef.current) {
+            const bounds = containerRef.current.getBoundingClientRect();
+            const aspectHeight = (bounds.width / aspectRatio);
+            setContainerStyle({height: aspectHeight, aspectRatio: aspectRatio});
         }
-    }, [aspectRatio]);
+    }, [aspectRatio, containerRef]);
 
     async function loadImageData(): Promise<void> {
         let sourceSplit = props_.source.split('\\');
@@ -83,7 +79,6 @@ export function ImageComponent(props_: IImageComponentProps): ReactElement {
         }).then((response_) => {
             if (response_.ok) {
                 response_.json().then((imageData_: IImageData) => {
-                    // setImageData(imageData_);
                     setAspectRatio(imageData_.aspectRatio);
                     setImageHash(imageData_.hash);
                 });
@@ -94,7 +89,7 @@ export function ImageComponent(props_: IImageComponentProps): ReactElement {
 
     return (
         <>
-            <div className={props_.backgroundImage ? props_.className : 'image-container'} style={containerStyle}>
+            <div className={props_.backgroundImage ? props_.className : 'image-container'} style={containerStyle} ref={containerRef}>
                 {!props_.backgroundImage && imageLoaded && (
                     <img className={'image-component' + (props_.className ? ` ${props_.className}` : '')}
                         src={props_.source} alt={props_.alt ? props_.alt : ''} />

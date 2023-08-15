@@ -2,6 +2,7 @@ import { ReactElement, useEffect, useRef, useState } from "react";
 import MVScene from "../../systems/base/MVScene";
 import { ParallaxElement } from "../Parallax/ParallaxElement";
 import { UniversalLoader } from "../SmartSuspense/UniversalLoader";
+import WebGL from "three/examples/jsm/capabilities/WebGL";
 import './ThreeView.css';
 
 /**
@@ -53,6 +54,11 @@ export function ThreeView(): ReactElement {
     function mount(): void {
         const container = containerRef.current;
         const canvas = canvasRef.current;
+
+        if (!WebGL.isWebGLAvailable()) {
+            return;
+        }
+
         if (container && canvas && !scene) {
             scene = new MVScene(canvas, container, {
                 onLoadComplete: () => {

@@ -88,9 +88,9 @@ export class MarkdownParser {
         });
 
         return (
-            <>
+            <div>
                 {elements}
-            </>
+            </div>
         );
     }
 

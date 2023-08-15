@@ -21,11 +21,11 @@
     100% { background-position: -100% 0%; }
 }
 @keyframes an_pulse_tilt {
-    0% { rotate: 0deg; }
-    25% { rotate: 10deg; }
-    50% { rotate: 0deg; }
-    75% { rotate: -10deg; }
-    100% { rotate: 0deg; }
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
 }
 @keyframes an_wiggle {
     0% { transform: rotate(0deg); }
@@ -120,7 +120,7 @@
     width: min(var(--MIN_PAGE_PERCENT), var(--SM_PAGE_WIDTH));
 }
 
-@media only screen and (max-width: 34.99em) {
+@media only screen and (max-width: 36.99em) {
     .page_large {
         background-image: url('../../assets/images/page_background_small.webp');
     }
@@ -203,7 +203,8 @@ h1 svg {
     margin: 0.5rem auto;
     background-image: linear-gradient(90deg, var(--COLOR_1), var(--COLOR_2));
     padding: 1rem;
-    padding-inline: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     border-radius: 0.5rem;
     filter: contrast(0.95) saturate(1.1);
     transition: filter 0.3s ease-in-out;
@@ -234,10 +235,10 @@ h1 svg {
     height: 2rem;
     display: flex;
     margin-right: 1rem;
-    transition: scale 0.3s var(--ELASTIC_OUT_BEZIER);
+    transition: transform 0.3s var(--ELASTIC_OUT_BEZIER);
 }
 .prompt:hover svg {
-    scale: 1.2;
+    transform: scale(1.2);
     animation: an_pulse_tilt 1s ease-in-out infinite;
 }
 
@@ -355,12 +356,13 @@ h1 svg {
 .button_basic svg {
     width: 1.2rem;
     height: 1.2rem;
-    margin-inline: 0.7rem;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
     transition: transform 0.2s ease;
 }
 .button_basic:hover {
     cursor: pointer;
-    scale: 1.1;
+    transform: scale(1.1);
     background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
     filter: drop-shadow(0 0 0.35rem var(--COLOR_HIGHLIGHT_5_05)) saturate(1) brightness(1.1) !important;
     box-shadow: 0 0.1rem 1rem rgb(0, 0, 0);
@@ -379,16 +381,18 @@ h1 svg {
     border: 0;
     width: 1rem;
     height: 1rem;
-    padding-inline: 0.25rem;
-    margin-inline: 0.25rem;
-    translate: 0 0.1rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    transform: scale(1.1) translate(0, 0.1rem);
     background: none;
     color: var(--COLOR_5);
     transition: all 0.2s ease-in-out;
 }
 .button_trash:hover {
     cursor: pointer;
-    scale: 1.1;
+    transform: scale(1.1) translate(0, 0.1rem);
     color: var(--COLOR_HIGHLIGHT_1);
 }
 .button_trash svg {
@@ -403,7 +407,8 @@ h1 svg {
 
 blockquote {
     margin: 0.5rem;
-    margin-inline: 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     padding: 0.25rem;
     background: linear-gradient(90deg, var(--COLOR_4_05), var(--COLOR_4_0));
     border-radius: 0.25rem;
@@ -421,7 +426,8 @@ blockquote {
     position: relative;
     width: max-content;
     height: 2.5rem;
-    margin-inline: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     margin-top: 1rem;
     text-align: center;
     font-family: var(--HEADING_FONT), sans-serif;
@@ -433,7 +439,8 @@ blockquote {
 .return-link svg {
     width: 1rem;
     height: 1rem;
-    margin-inline: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     transition: transform 0.2s ease;
     transform-origin: center;
 }
@@ -444,7 +451,7 @@ blockquote {
 .return-link:hover {
     background: -webkit-linear-gradient(0deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_5));
     filter: drop-shadow(0 0 0.35rem var(--COLOR_HIGHLIGHT_5_05)) saturate(1) brightness(1.1);
-    scale: 1.1;
+    transform: scale(1.1);
     opacity: 1;
 }
 .return-link-container {
@@ -485,28 +492,13 @@ blockquote {
 }
 .tritone-one svg {
     color: var(--COLOR_HIGHLIGHT_6);
-    transform: rotate(-6deg) scale(1.4);
-    translate: -1.75rem 0.3rem;
+    transform: translate(-1.75rem, 0.3rem) rotate(-6deg) scale(1.4);
 }
 .tritone-two svg {
     color: var(--COLOR_HIGHLIGHT_2);
-    transform: rotate(-6deg) scale(1.4);
-    translate: -1.6rem 0.15rem;
+    transform: translate(-1.6rem, 0.15rem) rotate(-6deg) scale(1.4);
 }
 .tritone-three svg {
     color: var(--COLOR_HIGHLIGHT_1);
-    transform: rotate(-6deg) scale(1.4);
-    translate: -1.45rem 0rem;
+    transform: translate(-1.45rem, 0rem) rotate(-6deg) scale(1.4);
 }
-/* .tritone-icon:hover .tritone-one svg, h1:hover .tritone-icon .tritone-one svg {
-    transform: rotate(-14deg) scale(1.6);
-    translate: -1.85rem 0.5rem;
-}
-.tritone-icon:hover .tritone-two svg, h1:hover .tritone-icon .tritone-two svg  {
-    transform: rotate(-12deg) scale(1.6);
-    translate: -1.6rem 0.15rem;
-}
-.tritone-icon:hover .tritone-three svg, h1:hover .tritone-icon .tritone-three svg  {
-    transform: rotate(-10deg) scale(1.6);
-    translate: -1.35rem -0.2rem;
-} */

@@ -82,7 +82,9 @@ export function NewsPostPage(): ReactElement {
                     <hr className='news-post-break' />
                     <div>
                         {postData.content && (
-                            MarkdownParser.instance.renderMarkdown(postData.content)
+                            <>
+                                {MarkdownParser.instance.renderMarkdown(postData.content)}
+                            </>
                         )}
                     </div>
                 </div>
