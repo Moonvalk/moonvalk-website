@@ -86,6 +86,7 @@ export function PortfolioSectionSkills(): ReactElement {
                             <div className='skill-item'>GML</div>
                             <div className='skill-item'>Express</div>
                             <div className='skill-item'>MongoDB</div>
+                            <div className='skill-item'>Webpack</div>
                         </div>
                     </div>
                     <div className='skills-wrapper'>
