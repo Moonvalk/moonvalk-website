@@ -59,7 +59,7 @@
     margin-bottom: -1rem;
     position: relative;
     background-repeat: repeat-x;
-    background-position: bottom;
+    background-position: 0% bottom;
     filter: drop-shadow(0 -0.5rem 0.5rem rgb(0, 0, 0, 0.3));
     overflow-x: hidden;
 }
@@ -83,7 +83,7 @@
     content: '';
     position: absolute;
     background-image: url('../../../assets/images/paper_shred_mask.webp');
-    background-position: bottom;
+    background-position: 0% bottom;
     background-repeat: repeat-x;
     overflow-x: hidden;
 }

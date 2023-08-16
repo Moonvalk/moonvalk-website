@@ -228,17 +228,21 @@ h1 svg {
     color: var(--COLOR_6);
 }
 
-.prompt svg {
-    min-width: 1.5rem;
-    min-height: 1.5rem;
-    width: 2rem;
-    height: 2rem;
+.prompt .icon {
     display: flex;
     margin-right: 1rem;
     transition: transform 0.3s var(--ELASTIC_OUT_BEZIER);
 }
-.prompt:hover svg {
+.prompt .icon svg {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+}
+.prompt:hover .icon {
     transform: scale(1.2);
+}
+.prompt:hover .icon svg {
     animation: an_pulse_tilt 1s ease-in-out infinite;
 }
 
@@ -353,12 +357,16 @@ h1 svg {
     justify-content: center;
     transition: all 0.2s ease;
 }
-.button_basic svg {
+.button_basic .icon {
     width: 1.2rem;
     height: 1.2rem;
     margin-left: 0.7rem;
     margin-right: 0.7rem;
     transition: transform 0.2s ease;
+}
+.button_basic .icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
 }
 .button_basic:hover {
     cursor: pointer;
@@ -368,9 +376,11 @@ h1 svg {
     box-shadow: 0 0.1rem 1rem rgb(0, 0, 0);
     opacity: 1;
 }
-.button_basic:hover svg {
-    animation: an_pulse_tilt 0.75s ease infinite;
+.button_basic:hover .icon {
     transform: scale(1.2);
+}
+.button_basic:hover .icon svg {
+    animation: an_pulse_tilt 0.75s ease infinite;
 }
 .button_delete:hover {
     background: -webkit-linear-gradient(0deg, rgb(255, 107, 107), rgb(255, 49, 73));

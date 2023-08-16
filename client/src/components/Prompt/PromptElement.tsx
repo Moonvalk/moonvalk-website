@@ -30,7 +30,9 @@ interface IPromptElementProps {
 export function PromptElement(props_: IPromptElementProps): ReactElement {
     return (
         <div className={`prompt ${props_.class ? props_.class : ''}`}>
-            {props_.icon}
+            <div className='icon'>
+                {props_.icon}
+            </div>
             {!props_.hideTextWrapper && (
                 <p className='text_body'>{props_.text}</p>
             )}
