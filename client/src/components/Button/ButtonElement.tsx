@@ -35,7 +35,7 @@ export function ButtonElement(props_: IButtonElementProps): ReactElement {
     return (
         <button name={props_.name} className={props_.class ? props_.class : 'button_basic'}
             value={props_.value} onClick={(event) => { props_.onClick && props_.onClick(event)}} type={props_.type ? props_.type : 'submit'}>
-            {props_.icon}
+            <div className='icon'>{props_.icon}</div>
             {props_.text}
         </button>
     );

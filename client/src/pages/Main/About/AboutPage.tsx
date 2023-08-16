@@ -31,7 +31,7 @@ export function AboutPage(): ReactElement {
             <br />
             <div className='about-buttons'>
                 <Link to={'/portfolio'} className='button_basic'>
-                    <PaletteIcon />
+                    <div className='icon'><PaletteIcon /></div>
                     Visit My Portfolio
                 </Link>
             </div>
