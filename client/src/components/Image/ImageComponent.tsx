@@ -57,17 +57,32 @@ export function ImageComponent(props_: IImageComponentProps): ReactElement {
             }, 0);
         };
         image.src = props_.source;
-
         loadImageData();
+
     }, [props_.source]);
 
     useEffect(() => {
-        if (!props_.backgroundImage && containerRef.current) {
-            const bounds = containerRef.current.getBoundingClientRect();
-            const aspectHeight = (bounds.width / aspectRatio);
-            setContainerStyle({height: aspectHeight, aspectRatio: aspectRatio});
+        if (containerRef.current) {
+            window.addEventListener('resize', resizeImage.bind(this));
         }
+        resizeImage();
+        return () => {
+            if (containerRef.current) {
+                window.removeEventListener('resize', resizeImage);
+            }
+        };
     }, [aspectRatio, containerRef]);
+
+    function resizeImage(): void {
+        if (props_.backgroundImage) {
+            return;
+        }
+        setContainerStyle({aspectRatio: aspectRatio});
+        if (containerRef.current) {
+            const bounds = containerRef.current.getBoundingClientRect();
+            containerRef.current.style.height = `${bounds.width / aspectRatio}px`;
+        }
+    }
 
     async function loadImageData(): Promise<void> {
         let sourceSplit = props_.source.split('\\');
@@ -89,7 +104,8 @@ export function ImageComponent(props_: IImageComponentProps): ReactElement {
 
     return (
         <>
-            <div className={props_.backgroundImage ? props_.className : 'image-container'} style={containerStyle} ref={containerRef}>
+            <div className={props_.backgroundImage ? props_.className : 'image-container'} ref={containerRef}
+                style={containerStyle} >
                 {!props_.backgroundImage && imageLoaded && (
                     <img className={'image-component' + (props_.className ? ` ${props_.className}` : '')}
                         src={props_.source} alt={props_.alt ? props_.alt : ''} />

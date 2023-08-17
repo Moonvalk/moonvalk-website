@@ -1,0 +1,86 @@
+
+.game-tile-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-tile {
+    display: block;
+    width: 100%;
+    min-width: 15rem;
+    padding: 0.5rem;
+    background-color: var(--COLOR_2);
+    /* background-image: url('../../../assets/images/background_lines.webp');
+    background-repeat: repeat;
+    background-position: center; */
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+.game-tile:hover {
+    background-color: var(--COLOR_1);
+}
+.game-image {
+    width: 100%;
+    display: block;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.game-details {
+    display: block;
+}
+
+.game-title {
+    width: 100%;
+    display: block;
+    margin: 0.5rem;
+}
+.game-title a {
+    display: block;
+    width: max-content;
+    text-decoration: none;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--TITLE_FONT), sans-serif;
+    font-size: 1.4rem;
+    color: var(--COLOR_6);
+    border-bottom: 0.1rem solid rgba(255, 230, 0, 0);
+    transition: all 0.2s ease;
+}
+.game-title a:hover {
+    color: var(--COLOR_HIGHLIGHT_1);
+    border-bottom: 0.1rem solid var(--COLOR_HIGHLIGHT_1);
+}
+.game-description {
+    font-family: var(--BODY_FONT), sans-serif;
+    font-size: 1rem;
+    /* text-indent: 2rem; */
+    padding: 0.5rem;
+    text-align: center;
+}
+.game-platforms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: min-content;
+    max-width: 95vw;
+    padding: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 2rem;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    background-color: var(--COLOR_1);
+    border: 0.1rem solid var(--COLOR_3);
+}
+.game-platforms svg {
+    transition: color 0.2s ease;
+}
+.game-platforms svg:hover {
+    color: var(--COLOR_HIGHLIGHT_1);
+}
+.game-play-button {
+
+}
