@@ -39,6 +39,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, '../public/')));
 app.use('/uploads', express.static(path.resolve(__dirname, '../uploads/')));
+app.use('/projects', express.static(path.resolve(__dirname, '../projects/')));
 
 // Attempt connection to the database.
 connectToDatabase();
