@@ -9,7 +9,6 @@
     font-size: 1rem;
     filter: drop-shadow(0 0.1rem 0.25rem rgb(0, 0, 0, 0.3));
     perspective: 10rem;
-    transition: all 0.15s ease-in-out;
     overflow: hidden;
 }
 
@@ -24,13 +23,12 @@
     background-image: url('../../../../assets/images/page_background_large.webp');
     border: 0.25rem solid var(--COLOR_3);
     border-top: 0.25rem solid var(--COLOR_3_0);
-    transition: all 0.15s ease-in-out;
+    transition: filter 0.15s ease-in-out, border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transform: translateY(-0.25rem);
     filter: drop-shadow(0 -0.1rem 2rem rgba(0, 0, 0, 0));
     z-index: 100;
     font-family: var(--BODY_FONT), sans-serif;
     text-align: left;
-    /* text-justify: inter-word; */
 }
 
 .news-post:hover .news-post-content {

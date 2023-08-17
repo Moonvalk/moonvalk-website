@@ -97,7 +97,7 @@
     margin: 1rem auto;
     margin-top: 1.5rem;
     color: var(--COLOR_6);
-    transition: all 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     font-size: 1rem;
     box-shadow: inset 0 0 1.5rem var(--COLOR_4_0);
     border: 0.25rem solid var(--COLOR_3);

@@ -5,7 +5,7 @@
     flex-direction: column;
     margin: 1rem auto;
     filter: drop-shadow(0 0.1rem 0.25rem rgb(0, 0, 0, 0.3));
-    transition: all 0.15s ease-in-out;
+    transition: filter 0.15s ease-in-out;
     box-shadow: inset 0 0 4rem rgba(255, 255, 255, 0);
     margin-bottom: 1.5rem;
     background: var(--COLOR_3);
