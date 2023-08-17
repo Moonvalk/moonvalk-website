@@ -512,3 +512,10 @@ blockquote {
     color: var(--COLOR_HIGHLIGHT_1);
     transform: translate(-1.45rem, 0rem) rotate(-6deg) scale(1.4);
 }
+
+p.large {
+    max-width: min(95%, var(--LG_PAGE_WIDTH));
+}
+p.medium {
+    max-width: min(95%, var(--MD_PAGE_WIDTH));
+}

@@ -18,7 +18,9 @@ export function GamesPage(): ReactElement {
         <PageTemplate title='Games' icon={<IconTritone baseSVG={<GamesIcon />} />}
             pageWrap='page_medium' description='Announcing new projects soon!'>
             <div className='game-tile'>
-                <ImageComponent className='game-image' source={'../uploads/images/Gongbat_Poster.webp'} />
+                <div className='game-image'>
+                    <ImageComponent source={'../uploads/images/Gongbat_Poster.webp'} />
+                </div>
                 <div className='game-details'>
                     <div className='game-title'><Link to={'https://moonvalk.itch.io/gongbat'} target='_blank'><title>Gongbat (2018)</title>Gongbat (2018)</Link></div>
                     <div className='game-description'>
@@ -32,7 +34,9 @@ export function GamesPage(): ReactElement {
                 </div>
             </div>
             <div className='game-tile'>
-                <ImageComponent className='game-image' source={'../uploads/images/CinderpatchScreen10.webp'} />
+                <div className='game-image'>
+                    <ImageComponent source={'../uploads/images/CinderpatchScreen10.webp'} />
+                </div>
                 <div className='game-details'>
                     <div className='game-title'><Link to={'https://moonvalk.itch.io/cinderpatch'} target='_blank'><title>Cinderpatch (2022)</title>Cinderpatch (2022)</Link></div>
                     <div className='game-description'>

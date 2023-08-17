@@ -23,11 +23,13 @@ export function PortfolioSectionSkills(): ReactElement {
             const portalEdgeElapsed = (time_ * portalEdgeSpeed);
             const sinWave = (Math.sin(time_ * 0.001));
             const defaultBackgroundSize = 22;
-            skillsSectionTopRef.current.style.backgroundPositionX = `${portalEdgeElapsed}rem`;
-            skillsSectionBottomRef.current.style.backgroundPositionX = `${portalEdgeElapsed}rem`;
 
-            if (!deviceIsMobile) {
-                skillsSectionRef.current.style.backgroundSize = `${sinWave + defaultBackgroundSize}rem`;
+            if (skillsSectionTopRef.current) {
+                skillsSectionTopRef.current.style.backgroundPositionX = `${portalEdgeElapsed}rem`;
+                skillsSectionBottomRef.current.style.backgroundPositionX = `${portalEdgeElapsed}rem`;
+                if (!deviceIsMobile) {
+                    skillsSectionRef.current.style.backgroundSize = `${sinWave + defaultBackgroundSize}rem`;
+                }
             }
         }
         previousTimeRef.current = time_;
