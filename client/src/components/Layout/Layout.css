@@ -514,8 +514,8 @@ blockquote {
 }
 
 p.large {
-    max-width: var(--LG_PAGE_WIDTH);
+    max-width: min(95%, var(--LG_PAGE_WIDTH));
 }
 p.medium {
-    max-width: var(--MD_PAGE_WIDTH);
+    max-width: min(95%, var(--MD_PAGE_WIDTH));
 }
