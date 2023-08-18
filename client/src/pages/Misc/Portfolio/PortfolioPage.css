@@ -826,7 +826,7 @@
 }
 
 .portfolio-project-tile p:first-of-type {
-    margin-top: 1.25rem;
+    margin-top: 2rem;
 }
 
 .portfolio-project-tile p:first-of-type:before {
@@ -836,17 +836,17 @@
     height: 0.1rem;
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));
     width: 10rem;
-    top: -0.75rem;
+    top: -1rem;
     border-radius: 0.25rem;
-    margin-inline: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     transition: all 0.1s ease-in-out;
 }
 
 .portfolio-project-tile:hover p:first-of-type:before {
     height: 0.3rem;
     width: 11rem;
-    margin-inline: 0rem;
-    top: -0.85rem;
+    top: -1.1rem;
     background: linear-gradient(90deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_2));
 }
 
