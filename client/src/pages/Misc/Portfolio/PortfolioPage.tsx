@@ -1,17 +1,14 @@
 import { ReactElement } from 'react';
 import { PageTemplate } from '../../../components/PageTemplate/PageTemplate';
-import { PromptElement } from '../../../components/Prompt/PromptElement';
 import { ParallaxElement } from '../../../components/Parallax/ParallaxElement';
 import { ImageComponent } from '../../../components/Image/ImageComponent';
 import { PortfolioExperienceTimeline } from './PortfolioExperienceTimeline';
 import { PortfolioSectionStory } from './PortfolioSectionStory';
 import { PortfolioSectionMain } from './PortfolioSectionMain';
-import './PortfolioPage.css';
-import '../../Main/About/AboutPage.css';
-import { PortfolioSectionTechnologies } from './PortfolioSectionTechnologies';
 import { PortfolioSectionSkills } from './PortfolioSectionSkills';
 import { PortfolioSectionProjects } from './PortfolioSectionProjects';
-import { PortfolioSectionPress } from './PortfolioSectionPress';
+import './PortfolioPage.css';
+import '../../Main/About/AboutPage.css';
 
 /**
  * Called to generate the main portfolio page.
@@ -33,11 +30,8 @@ export function PortfolioPage(): ReactElement {
             <PortfolioSectionMain />
             <PortfolioSectionStory />
             <PortfolioExperienceTimeline />
-
-            { /* Combining the skills and tech sections together */ }
             <PortfolioSectionSkills />
             <PortfolioSectionProjects />
-            {/* <PortfolioSectionPress /> */}
         </PageTemplate>
     );
 }

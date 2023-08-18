@@ -1,12 +1,9 @@
 import { ReactElement } from "react";
-import { PromptElement } from "../../../components/Prompt/PromptElement";
-import { AwardIcon, BoltIcon, CardsIcon, DiceIcon, RadarIcon, VideoIcon } from "../../../assets/svg/icons/Misc";
+import { AwardIcon, CardsIcon, DiceIcon, RadarIcon, VideoIcon } from "../../../assets/svg/icons/Misc";
 import { IconTritone } from "../../../components/Icons/IconTritone";
 import { ExternalLinkIcon } from "../../../assets/svg/icons/Actions";
-import { ImageComponent } from "../../../components/Image/ImageComponent";
 import { PortfolioProject } from "./PortfolioProject";
 import { GamesIcon, PressIcon } from "../../../assets/svg/icons/Menus";
-import { SlotIcon } from "../../../assets/svg/icons/Platforms";
 import { CodeIcon } from "../../../assets/svg/icons/Editor";
 
 /**
@@ -24,7 +21,7 @@ export function PortfolioSectionProjects(): ReactElement {
             <br/>
             <p className='medium align_left indent text_body'>
                 Over the years I have worked on a wide variety of different projects from retro arcade games to gambling titles, to even a physical trading card game.
-                I have had a pivotal role in the creation and development of each project listed below.
+                I have had a <span className='color_highlight1'>pivotal role</span> in the creation and development of each project listed below.
             </p>
             <div className='portfolio-projects-container'>
                 <PortfolioProject title='Gongbat'
