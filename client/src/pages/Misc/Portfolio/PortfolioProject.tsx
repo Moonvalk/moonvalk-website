@@ -41,17 +41,19 @@ export function PortfolioProject(props_: IPortfolioProjectProps): ReactElement {
                     {props_.icon}
                 </div>
             </div>
-            <div className='description'>
-                <h1>{props_.title}</h1>
-                <p>{props_.description}</p>
-                <div className='links'>
-                    {props_.links && props_.links.map((item_) => {
-                        return (
-                            <Link to={item_.path} target='_blank' title={item_.title ? item_.title : ''} key={`${linkKey++}_project_link`}>
-                                {item_.icon}
-                            </Link>
-                        );
-                    })}
+            <div className='description-container'>
+                <div className='description'>
+                    <h1>{props_.title}</h1>
+                    <p>{props_.description}</p>
+                    <div className='links'>
+                        {props_.links && props_.links.map((item_) => {
+                            return (
+                                <Link to={item_.path} target='_blank' title={item_.title ? item_.title : ''} key={`${linkKey++}_project_link`}>
+                                    {item_.icon}
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

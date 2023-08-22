@@ -32,13 +32,15 @@ export function GameTile(props_: IGameTileProps): ReactElement {
                     </div>
                 </div>
             </div>
-            <div className='description'>
-                <h1><Link to={props_.link} target='_blank'>{props_.title}</Link></h1>
-                <p>{props_.description}</p>
-                <div className='platforms'>
-                    {props_.platforms && props_.platforms.map((item_) => {
-                        return (item_);
-                    })}
+            <div className='description-container'>
+                <div className='description'>
+                    <h1><Link to={props_.link} target='_blank'>{props_.title}</Link></h1>
+                    <p>{props_.description}</p>
+                    <div className='platforms'>
+                        {props_.platforms && props_.platforms.map((item_) => {
+                            return (item_);
+                        })}
+                    </div>
                 </div>
             </div>
         </div>
