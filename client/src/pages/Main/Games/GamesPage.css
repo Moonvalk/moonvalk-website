@@ -12,6 +12,7 @@
     height: auto;
     flex: 1 1 30%;
     display: flex;
+    flex-flow: column;
     flex-direction: column;
     margin: 1rem;
     filter: drop-shadow(0 0.1rem 0.25rem rgb(0, 0, 0, 0.3));
@@ -45,7 +46,8 @@
 .game-tile .meta {
     position: relative;
     z-index: 0;
-    height: 16rem;
+    display: flex;
+    height: 14.5rem;
 }
 
 .game-tile .meta a {
@@ -174,7 +176,15 @@
     margin-left: -0.2rem;
 }
 
+.game-tile .description-container {
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+}
+
 .game-tile .description {
+    display: block;
+    flex-grow: 1;
     padding: 1rem;
     padding-inline: 1.5rem;
     position: relative;
