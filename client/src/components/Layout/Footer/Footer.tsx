@@ -53,7 +53,7 @@ export function Footer(): ReactElement {
             </div>
             <hr className="break_footer" />
             <p className="copyright">
-                &#169;2023 Moonvalk Studios LLC. All Rights Reserved.
+                &#169;2023 Moonvalk LLC. All Rights Reserved.
             </p>
         </footer>
     );
