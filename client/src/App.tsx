@@ -49,6 +49,9 @@ export function App(): ReactElement {
                 <Route path='/changelog'            Component={LazyImports.get(PageRoutes.Changelog)} />
                 <Route path='/dashboard'            Component={LazyImports.get(PageRoutes.Dashboard)} />
                 <Route path='/dashboard/uploads'    Component={LazyImports.get(PageRoutes.UploadManager)} />
+                <Route path='/dashboard/posts'      Component={LazyImports.get(PageRoutes.PostManager)} />
+                <Route path='/dashboard/emails'     Component={LazyImports.get(PageRoutes.EmailManager)} />
+                <Route path='/dashboard/analytics'  Component={LazyImports.get(PageRoutes.AnalyticsManager)} />
                 <Route path='/settings'             Component={LazyImports.get(PageRoutes.Settings)} />
                 <Route path='/create'               Component={LazyImports.get(PageRoutes.CreatePost)} />
                 <Route path='/news/post/:id'        Component={LazyImports.get(PageRoutes.NewsPost)} />

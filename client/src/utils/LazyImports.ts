@@ -50,6 +50,12 @@ LazyImports.set(PageRoutes.EditPost, lazy(() => import('../pages/Admin/PostEdito
     .then(module => { return { default: module.EditPostPage }})));
 LazyImports.set(PageRoutes.UploadManager, lazy(() => import('../pages/Admin/Dashboard/UploadManager/UploadManagerPage')
     .then(module => { return { default: module.UploadManagerPage }})));
+LazyImports.set(PageRoutes.PostManager, lazy(() => import('../pages/Admin/Dashboard/PostManager')
+    .then(module => { return { default: module.PostManager }})));
+LazyImports.set(PageRoutes.EmailManager, lazy(() => import('../pages/Admin/Dashboard/EmailManager')
+    .then(module => { return { default: module.EmailManager }})));
+LazyImports.set(PageRoutes.AnalyticsManager, lazy(() => import('../pages/Admin/Dashboard/AnalyticsManager')
+    .then(module => { return { default: module.AnalyticsManager }})));
 
 
 /** 404 ERROR PAGE */

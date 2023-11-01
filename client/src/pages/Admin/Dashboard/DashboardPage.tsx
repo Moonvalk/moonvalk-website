@@ -21,15 +21,15 @@ export function DashboardPage(): ReactElement {
                 text='View site analytics, handle draft posts, and update site settings here.' />
 
             <div className='admin_links'>
-                <Link className='link_admin' to='/dashboard' title='Manage News Posts'>
+                <Link className='link_admin' to='/dashboard/posts' title='Manage News Posts'>
                     <NewsIcon />
                     <p className='text_body'>News Posts</p>
                 </Link>
-                <Link className='link_admin' to='/dashboard' title='Manage Emails'>
+                <Link className='link_admin' to='/dashboard/emails' title='Manage Emails'>
                     <MessageIcon />
                     <p className='text_body'>Emails</p>
                 </Link>
-                <Link className='link_admin' to='/dashboard' title='View Analytics'>
+                <Link className='link_admin' to='/dashboard/analytics' title='View Analytics'>
                     <FireIcon />
                     <p className='text_body'>Analytics</p>
                 </Link>
