@@ -25,6 +25,7 @@ import { getUploadsController } from './controllers/uploads/getUploadsController
 import { imageUploader } from './util/ImageUploader';
 import { deletePostController } from './controllers/posts/deletePostController';
 import { deleteUploadController } from './controllers/uploads/deleteUploadController';
+import { getAllPostsController } from './controllers/posts/getAllPostsController';
 
 // Load environment variables & initialize Express for communications with the server.
 const env = EnvironmentProps.config;
@@ -62,6 +63,9 @@ app.put('/api/post/edit', authorizeAdminController, editPostController);
 app.delete('/api/post/delete', authorizeAdminController, deletePostController);
 app.get('/api/posts', getPostsController);
 app.get('/api/post/:id', getPostController);
+
+// Admin news post controllers.
+app.get('/api/admin/posts', authorizeAdminController, getAllPostsController);
 
 // Image upload controllers
 app.get('/api/upload/:id', getUploadController);

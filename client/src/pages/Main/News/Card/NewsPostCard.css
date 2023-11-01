@@ -161,6 +161,31 @@
     -webkit-text-fill-color: transparent;
 }
 
+.blog-card .description .status {
+    display: inline-block;
+    color: var(--COLOR_1);
+    font-family: var(--TITLE_FONT), sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
+}
+
+.blog-card .description .published {
+    background: var(--COLOR_HIGHLIGHT_1);
+}
+
+.blog-card .description .private {
+    background: var(--COLOR_HIGHLIGHT_2);
+}
+
+.blog-card .description .draft {
+    background: var(--COLOR_HIGHLIGHT_3);
+}
+
 .blog-card .description .read-more {
     text-align: right;
 }
@@ -278,7 +303,7 @@
         background-image: url('../../../../assets/images/page_background_medium.webp');
         background-repeat: repeat-y;
         background-size: 100%;
-        background-position: 1rem 0rem;
+        background-position: 0rem 0rem;
         width: 105%;
         height: 100%;
         position: absolute;

@@ -37,6 +37,12 @@ interface INewsPostProps {
      * or right of the current displayed card.
      */
     imageLeft?: boolean,
+
+    /**
+     * Flag that determines if this post is being displayed in the admin view,
+     * allowing the user to see status, etc.
+     */
+    adminView?: boolean,
 }
 
 /**
@@ -87,7 +93,21 @@ export function NewsPostCard(props_: INewsPostProps): ReactElement {
                     <Link to={'/news/post/'.concat(props_.postData.uri)}>{props_.postData.title}</Link>
                 </h1>
                 <h2>{props_.postData.subtitle}</h2>
+                
                 <p className='body-text'>{props_.postData.summary}</p>
+                {props_.adminView && 
+                        <>
+                            {props_.postData.status == 'published' && (
+                                <div className="status published">Published</div>
+                            )}
+                            {props_.postData.status == 'private' && (
+                                <div className="status private">Private</div>
+                            )}
+                            {props_.postData.status == 'draft' && (
+                                <div className="status draft">Draft</div>
+                            )}
+                        </>
+                    }
                 <p className="read-more">
                     <Link to={'/news/post/'.concat(props_.postData.uri)}>{`Read More`}</Link>
                 </p>

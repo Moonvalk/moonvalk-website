@@ -6,8 +6,8 @@ import { PageTemplate } from "../../components/PageTemplate/PageTemplate";
 import { TestIcon } from "../../assets/svg/icons/Misc";
 import { MVEditorToolbar } from "../Admin/PostEditor/MarkdownEditor/MVEditorToolbar";
 import { MarkdownParser } from "../../utils/Markdown/MarkdownParser";
-import '../Admin/PostEditor/MarkdownEditor/MVPostEditor.css';
 import { IconTritone } from "../../components/Icons/IconTritone";
+import '../Admin/PostEditor/MarkdownEditor/MVPostEditor.css';
 
 const TEST_MARKDOWN_TEXT = `$[align_justified indent&;Today is the day. We are happy to announce the official launch of the new $[color_highlight1&;***Moonvalk Studios***] brand and website! Moonvalk is an independent game developer and publisher based out of northeast Ohio in the United States. Our focus is to bring back retro experiences in bold new ways. Our main goal is to bring players content that is, well, just plain fun again.]
 
@@ -17,7 +17,7 @@ $[align_center video_container&;!![<iframe src="https://player.vimeo.com/video/3
 
 $[align_left indent&;The entire studio is currently operated as a solo endeavor by one person- *myself*. My name is $[color_highlight1&;Zack Harmon], a self taught artist, musician, and programmer. I have been *designing / developing* games for **thirteen years**, and have worked as a professional engineer for four. I recently had the amazing opportunity to take on my dreams and open this studio full time (not that it's without it's hardships). I am incredibly happy to spend these next few months building the content that I have been sitting on for years and hope you all enjoy the ride along with me.]
 
-$[image_medium&;![Sundown Express&;..\\uploads\\9569ac08b3452b9d7369af5572cc5373.png&;Concept art of $[color_highlight4&;*Sundown Express*], an arcade sci-fi delivery game.]]
+$[image_medium&;![Sundown Express&;../uploads/images/Widescreen_PC_Gameplay_Mockup_v2.webp&;Concept art of $[color_highlight4&;*Sundown Express*], an arcade sci-fi delivery game.]]
 
 $[align_left indent&;I will be announcing new projects very soon and plan to post devlogs / videos as development is under way. Part of the dream is for this studio to stay as transparent as possible and to share insights into what all goes on "under the hood." I love helping the community that assisted in my many years of growth and cannot thank you all enough for the support to get me this far!]
 
