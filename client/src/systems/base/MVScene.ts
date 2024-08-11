@@ -152,7 +152,7 @@ export default class MVScene {
                 const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
                 this.composer.addPass(gammaCorrectionPass);
                 const lutPass = new LUTPass({
-                    lut: MVModelLoader.getCubeLUT('Cinematic-5.cube').texture,
+                    lut: MVModelLoader.getCubeLUT('Cinematic-5.cube').texture3D,
                     intensity: 0.6,
                 });
                 lutPass.enabled = true;
@@ -168,7 +168,7 @@ export default class MVScene {
 
     protected generateLighting(): void {
         const ambientLight = new AmbientLight();
-        ambientLight.intensity = 0.5;
+        ambientLight.intensity = 3.0;
         this.scene.add(ambientLight);
 
         const light = new PointLight();

@@ -1,6 +1,7 @@
 import { Texture, TextureLoader } from "three";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { LUTCubeLoader, LUTCubeResult } from "three/examples/jsm/loaders/LUTCubeLoader";
+import {getServerURI} from "../../utils/URIHelper";
 
 /**
  * Properties available when loading models.
