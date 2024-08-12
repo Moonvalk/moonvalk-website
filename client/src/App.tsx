@@ -21,7 +21,7 @@ export function App(): ReactElement {
                 
                 const offsetY = window.scrollY;
                 if (parallaxRef) {
-                    parallaxRef.style.backgroundPosition = "0% " + (offsetY * 0.15) + "%";
+                    parallaxRef.style.backgroundPosition = "0% " + (offsetY * -0.01) + "rem";
                 }
             };
             setParallaxTranslation();

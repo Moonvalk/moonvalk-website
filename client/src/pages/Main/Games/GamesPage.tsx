@@ -18,12 +18,12 @@ export function GamesPage(): ReactElement {
             <div className='game-tile-container'>
                 <GameTile title='Gongbat' dateMonth='February' dateYear='2018'
                     description='A 2D side-scrolling shooter arcade game with colorful retro graphics and challenging boss-fights.'
-                    platforms={[<WindowsIcon />]}
+                    platforms={[<WindowsIcon key={'windows'} />]}
                     imageSource={'../uploads/images/Gongbat_Poster.webp'}
                     link={'https://moonvalk.itch.io/gongbat'} />
                 <GameTile title='Cinderpatch' dateMonth='September' dateYear='2022'
                     description='A small farming game project built over the course of two weeks.'
-                    platforms={[<WindowsIcon />]}
+                    platforms={[<WindowsIcon key={'windows'} />]}
                     imageSource={'../uploads/images/CinderpatchScreen10.webp'}
                     link={'https://moonvalk.itch.io/cinderpatch'} />
             </div>

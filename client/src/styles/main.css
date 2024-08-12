@@ -35,16 +35,38 @@
 
     --ELASTIC_OUT_BEZIER: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --LG_PAGE_WIDTH: 68rem;
-    --MD_PAGE_WIDTH: 50rem;
-    --SM_PAGE_WIDTH: 34rem;
+    --LG_PAGE_WIDTH: 70rem;
+    --MD_PAGE_WIDTH: 55rem;
+    --SM_PAGE_WIDTH: 40rem;
     --MIN_PAGE_PERCENT: 95vw;
-    --MAX_NEWS_IMAGE_WIDTH: 62rem;
+    --MAX_NEWS_IMAGE_WIDTH: 69rem;
+
+    --SCREEN_WIDTH_MOBILE: 39.999em;
 
     --BODY_FONT: 'Jost Light';
     --TITLE_FONT: 'Abel';
     --HEADING_FONT: 'Bebas Neue';
     --CODE_FONT: 'Jetbrains Mono';
+
+    --FONT_SIZE_XSMALL: 0.8rem;
+    --FONT_SIZE_SMALL: 1rem;
+    --FONT_SIZE_MEDIUM: 1.2rem;
+    --FONT_SIZE_LARGE: 1.4rem;
+    --FONT_SIZE_XLARGE: 1.8rem;
+    --FONT_SIZE_XXLARGE: 3rem;
+    --FONT_SIZE_MONOLITHIC: 6rem;
+}
+
+@media screen and (max-width: 39.999em) {
+    :root {
+        --FONT_SIZE_XSMALL: 0.7rem;
+        --FONT_SIZE_SMALL: 0.9rem;
+        --FONT_SIZE_MEDIUM: 1rem;
+        --FONT_SIZE_LARGE: 1.2rem;
+        --FONT_SIZE_XLARGE: 1.5rem;
+        --FONT_SIZE_XXLARGE: 2.5rem;
+        --FONT_SIZE_MONOLITHIC: 5rem;
+    }
 }
 
 /** General page scope controls */
@@ -61,6 +83,7 @@ body {
     background-image: url('../assets/images/background.webp');
     background-repeat: repeat;
     background-size: auto;
+    background-attachment: fixed;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -183,24 +206,23 @@ main {
 /** Text size selectors */
 .text_body {
     font-family: var(--BODY_FONT), sans-serif;
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
 }
 .text_small {
-    font-size: 0.8rem;
+    font-size: var(--FONT_SIZE_SMALL);
 }
 .text_medium {
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
 }
 .text_large {
-    font-size: 1.4rem;
+    font-size: var(--FONT_SIZE_LARGE);
 }
 .text_extra-large {
-    font-size: 3rem;
-    /* font-weight: 900; */
+    font-size: var(--FONT_SIZE_XLARGE);
     margin-bottom: 0;
 }
 .text_monolithic {
-    font-size: 6rem;
+    font-size: var(--FONT_SIZE_MONOLITHIC);
     font-weight: 900;
     margin-bottom: 0;
 }
@@ -211,4 +233,8 @@ main {
 }
 .sr-only {
     display: none;
+}
+
+input {
+    font-size: var(--FONT_SIZE_MEDIUM);
 }
