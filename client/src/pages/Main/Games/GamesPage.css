@@ -22,6 +22,7 @@
     background: var(--COLOR_3);
     line-height: 1.4;
     font-family: var(--BODY_FONT), sans-serif;
+    font-size: var(--FONT_SIZE_MEDIUM);
     border-radius: 0.5rem;
     overflow: hidden;
     z-index: 0;
@@ -47,7 +48,13 @@
     position: relative;
     z-index: 0;
     display: flex;
-    height: 14.5rem;
+    height: 17.5rem;
+}
+
+@media screen and (max-width: 39.999em) {
+    .game-tile .meta {
+        height: 14.5rem;
+    }
 }
 
 .game-tile .meta a {
@@ -140,7 +147,7 @@
     padding-top: 1rem;
     padding-left: 1rem;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
 }
 
 .game-tile .details li {
@@ -156,13 +163,13 @@
     font-weight: 400;
     margin-top: 0.8rem;
     color: var(--COLOR_6);
-    font-size: 1.8rem;
+    font-size: var(--FONT_SIZE_XLARGE);
     line-height: 0.5rem;
 }
 
 .game-tile .year {
     font-weight: 500;
-    font-size: 3.4rem;
+    font-size: var(--FONT_SIZE_XXLARGE);
     background: -webkit-linear-gradient(var(--COLOR_6), var(--COLOR_5));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -197,6 +204,7 @@
     border: 0.25rem solid var(--COLOR_3_0);
     box-shadow: 0 -0.1rem 2rem var(--COLOR_1);
     border-top: 0;
+    transition: all 0.2s ease;
 }
 .game-tile:hover .description {
     border: 0.25rem solid var(--COLOR_4);
@@ -217,7 +225,7 @@
     width: 100%;
     line-height: 1;
     margin: 0;
-    font-size: min(1.4rem, 5vw);
+    font-size: min(var(--FONT_SIZE_XLARGE), 5vw);
     text-transform: uppercase;
 }
 
@@ -233,7 +241,7 @@
 }
 
 .game-tile .description h2 {
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     font-weight: 900;
     margin-top: 0.25rem;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_4));
@@ -256,7 +264,7 @@
     height: 2rem;
     text-align: center;
     font-family: var(--HEADING_FONT), sans-serif;
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0));
     opacity: 0.9;
     display: flex;

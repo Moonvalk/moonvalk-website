@@ -16,7 +16,7 @@
     table-layout: fixed;
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: 0.8rem;
+    font-size: var(--FONT_SIZE_SMALL);
     font-family: var(--BODY_FONT), sans-serif;
 }
 

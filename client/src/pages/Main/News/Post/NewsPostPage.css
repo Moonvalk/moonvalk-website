@@ -6,7 +6,7 @@
     margin: 1rem auto;
     margin-top: 1.5rem;
     color: var(--COLOR_6);
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     filter: drop-shadow(0 0.1rem 0.25rem rgb(0, 0, 0, 0.3));
     perspective: 10rem;
     overflow: hidden;
@@ -52,7 +52,7 @@
     justify-content: center;
     align-items: center;
     font-family: var(--TITLE_FONT), sans-serif;
-    font-size: 0.8rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     margin: 0;
     cursor: default;
 }
@@ -87,13 +87,13 @@
     display: block;
     margin: 0.25rem auto;
     text-align: center;
-    font-size: min(2rem, 6vw);
+    font-size: min(var(--FONT_SIZE_XXLARGE), 6vw);
 }
 
 .h2_subtitle {
     margin: 0.25rem auto;
     font-family: var(--TITLE_FONT), sans-serif;
-    font-size: min(1.2rem, 4vw);
+    font-size: min(var(--FONT_SIZE_LARGE), 4vw);
     font-weight: 900;
     margin-top: 0.25rem;
     text-align: center;

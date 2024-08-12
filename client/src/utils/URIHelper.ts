@@ -1,11 +1,9 @@
 import { WEBSITE_TITLE } from "../main";
 
-
 /**
  * The local IP address used for testing.
  */
-// const LOCAL_IP = 'http://localhost';
-const LOCAL_IP = 'http://192.168.40.115';
+const LOCAL_IP = 'http://localhost';
 
 /**
  * The server port used for communications.
@@ -17,7 +15,6 @@ const SERVER_PORT = 3000;
  */
 const API_URL = (process.env.NODE_ENV === 'development' ? 
     `${LOCAL_IP}:${SERVER_PORT}` : 'https://moonvalk.com');
-// const API_URL = `${LOCAL_IP}:${SERVER_PORT}`;
 
 /**
  * Gets the server URI for api requests.
