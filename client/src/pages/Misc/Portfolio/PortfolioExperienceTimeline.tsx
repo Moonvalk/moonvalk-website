@@ -92,7 +92,7 @@ export function PortfolioExperienceTimeline(): ReactElement {
                     link='https://www.agtslots.com/us'
                     skills={['C#', 'GLSL', 'Wordpress', 'Perforce', 'XML']}
                     icon={<KeyboardIcon />} />
-                <PortfolioTimelineBlock position='Lead Graphic Desginer'
+                <PortfolioTimelineBlock position='Lead Graphic Designer'
                     company='Alter Reality Games'
                     companyClass='arg'
                     description={<>
