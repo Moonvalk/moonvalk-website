@@ -17,8 +17,6 @@ interface IGameTileProps {
  * @return {ReactElement} A new JSX element for rendering.
  */
 export function GameTile(props_: IGameTileProps): ReactElement {
-    let platformKey = 0;
-
     return (
         <div className='game-tile'>
             <div className='meta'>

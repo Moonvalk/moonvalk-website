@@ -13,6 +13,7 @@ export function Footer(): ReactElement {
             {/* <div className='logo-icon'></div> */}
             <div className='footer-links'>
                 <Link to={`/press`}>Press</Link>
+                <Link to={`/support`}>Support</Link>
                 <Link to={`/contact`}>Contact</Link>
                 <Link to={`/changelog`}>Changelog</Link>
             </div>
@@ -53,7 +54,7 @@ export function Footer(): ReactElement {
             </div>
             <hr className="break_footer" />
             <p className="copyright">
-                &#169;2023 Moonvalk LLC. All Rights Reserved.
+                &#169;2025 Moonvalk LLC. All Rights Reserved.
             </p>
         </footer>
     );

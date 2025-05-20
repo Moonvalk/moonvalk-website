@@ -21,7 +21,7 @@ export function App(): ReactElement {
                 
                 const offsetY = window.scrollY;
                 if (parallaxRef) {
-                    parallaxRef.style.backgroundPosition = "0% " + (offsetY * 0.15) + "%";
+                    parallaxRef.style.backgroundPosition = "0% " + (offsetY * -0.01) + "rem";
                 }
             };
             setParallaxTranslation();
@@ -46,6 +46,8 @@ export function App(): ReactElement {
                 <Route path='/register'             Component={LazyImports.get(PageRoutes.Register)} />
                 <Route path='/press'                Component={LazyImports.get(PageRoutes.Press)} />
                 <Route path='/contact'              Component={LazyImports.get(PageRoutes.Contact)} />
+                <Route path='/support'              Component={LazyImports.get(PageRoutes.Support)} />
+                <Route path='/privacy'              Component={LazyImports.get(PageRoutes.Privacy)} />
                 <Route path='/changelog'            Component={LazyImports.get(PageRoutes.Changelog)} />
                 <Route path='/dashboard'            Component={LazyImports.get(PageRoutes.Dashboard)} />
                 <Route path='/dashboard/uploads'    Component={LazyImports.get(PageRoutes.UploadManager)} />

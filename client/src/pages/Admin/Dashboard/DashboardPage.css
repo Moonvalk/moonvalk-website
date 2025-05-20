@@ -13,7 +13,7 @@
     background-color: var(--COLOR_2);
     color: var(--COLOR_6);
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--CONTENT_RADIUS);
     display: grid;
     justify-content: center;
     align-items: center;

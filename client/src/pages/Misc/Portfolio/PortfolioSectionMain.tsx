@@ -20,7 +20,7 @@ export function PortfolioSectionMain(): ReactElement {
                     </p>} />
             <br/>
             <div className='portfolio_link_container'>
-                <a className='button_basic' href='../uploads/docs/Zack_Harmon_Resume_8-2023.pdf' target='_blank'>
+                <a className='button_basic' href='../uploads/docs/Zack_Harmon_Resume.pdf' target='_blank'>
                     <div className='icon'><PreviewIcon /></div>View Resume
                 </a>
                 <Link to={'https://www.linkedin.com/in/moonvalk/'} target='_blank' className='portfolio_link linked-in'>

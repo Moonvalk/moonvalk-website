@@ -23,27 +23,40 @@ export function PrimaryNavigation(props_: IPrimaryNavigationProps): ReactElement
         <nav className={props_.isMobile ? 'show_mobile' : 'hide_mobile'}>
             <ul id="primary-navigation" data-visible="false" className={
                 props_.isMobile ? "mobile-navigation primary-navigation flex" : "primary-navigation flex"}>
-                <li><Link onClick={props_.onPageSelect} to={`/games`}>
+                <li>
+                    <Link onClick={props_.onPageSelect} to={`/games`}>
                         <GamesIcon />
                         <span>Games</span>
-                    </Link></li>
-                <li><Link id='news' onClick={props_.onPageSelect} to={`/news`}>
+                    </Link>
+                </li>
+                <li>
+                    <Link id='news' onClick={props_.onPageSelect} to={`/news`}>
                         <NewsIcon />
                         <span>News</span>
-                    </Link></li>
+                    </Link>
+                </li>
                 <li>
-                    <a href='https://www.etsy.com/shop/Moonvalk' onClick={props_.onPageSelect} target="_blank">
+                    {/*<a href='https://shop.moonvalk.com' onClick={props_.onPageSelect}>*/}
+                    {/*    <ShopIcon />*/}
+                    {/*    <span>Shop</span>*/}
+                    {/*</a>*/}
+                    <a href='https://www.etsy.com/shop/Moonvalk' onClick={props_.onPageSelect}>
                         <ShopIcon />
                         <span>Shop</span>
-                    </a></li>
-                <li><Link onClick={props_.onPageSelect} to={`/comics`}>
+                    </a>
+                </li>
+                <li>
+                    <Link onClick={props_.onPageSelect} to={`/comics`}>
                         <ComicsIcon />
                         <span>Comics</span>
-                    </Link></li>
-                <li><Link onClick={props_.onPageSelect} to={`/about`}>
+                    </Link>
+                </li>
+                <li>
+                    <Link onClick={props_.onPageSelect} to={`/about`}>
                         <AboutIcon />
                         <span>About</span>
-                    </Link></li>
+                    </Link>
+                </li>
             </ul>
         </nav>
     );

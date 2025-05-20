@@ -37,6 +37,25 @@ export function PortfolioExperienceTimeline(): ReactElement {
                     date='April 2012 - Present'
                     skills={['Unity', 'C#', 'TypeScript', 'NodeJS', 'React', 'Aseprite', 'C++']}
                     icon={<BoltIcon />} />
+                <PortfolioTimelineBlock position='Senior Software Engineer'
+                    company='Branch Technologies'
+                    companyClass='branch'
+                    description={<>
+                        At Branch I was the team lead while developing two main Unity properties: a massive
+                        multiplayer online title based around social mechanics, resource collection, and
+                        crafting (<a href="https://castaways.com/" target="_blank">Castaways</a>), and a mobile live service title from the same universe.
+                        <ul>
+                            <li>Designed and implemented all core systems with end-to-end test suite including notably live service config tooling, addressable asset pipeline, UI
+                                and animation tools, custom rendering pipeline via HLSL shaders, multiplayer mechanics built on Mirror, and automated CI/CD.</li>
+                            <li>Routinely raised the bar for code quality and mentored other engineers.</li>
+                            <li>Kept technical debt at minimum and maintained code documentation.</li>
+                            <li>Integrated and provided review for all artwork and audio assets provided by the internal team and third party studios.</li>
+                        </ul>
+                    </>}
+                    date='November 2023 - April 2025'
+                    link='https://branch.gg/'
+                    skills={['Unity', 'C#', 'HLSL', 'Tool Development', 'AWS', 'Affinity Suite', 'Live Ops', 'CI/CD']}
+                    icon={<KeyboardIcon />} />
                 <PortfolioTimelineBlock position='Software Engineer II'
                     company='Boom Entertainment'
                     companyClass='boom'
@@ -73,7 +92,7 @@ export function PortfolioExperienceTimeline(): ReactElement {
                     link='https://www.agtslots.com/us'
                     skills={['C#', 'GLSL', 'Wordpress', 'Perforce', 'XML']}
                     icon={<KeyboardIcon />} />
-                <PortfolioTimelineBlock position='Lead Graphic Desginer'
+                <PortfolioTimelineBlock position='Lead Graphic Designer'
                     company='Alter Reality Games'
                     companyClass='arg'
                     description={<>

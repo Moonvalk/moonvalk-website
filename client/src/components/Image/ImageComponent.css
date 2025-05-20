@@ -79,7 +79,7 @@
 .image_small, .image_medium, .image_large {
     margin: 1rem auto;
     display: block;
-    border-radius: 0.5rem;
+    border-radius: var(--CONTENT_RADIUS);
     overflow: hidden;
 }
 .image_small img, .image_medium img, .image_large img {

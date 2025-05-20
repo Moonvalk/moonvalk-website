@@ -14,13 +14,13 @@
     height: 5rem;
     top: 3.5rem;
     position: absolute;
-    border-radius: 4rem;
+    border-radius: var(--ROUND_RADIUS);
     background-color: var(--COLOR_2);
 }
 .about-avatar {
     width: 10rem;
     height: 10rem;
-    border-radius: 5rem;
+    border-radius: 50%;
     border: 0.25rem solid var(--COLOR_4);
     background-size: 100% 100%;
     background-position: center;
@@ -64,5 +64,5 @@
 .about-avatar.large {
     width: 14rem;
     height: 14rem;
-    border-radius: 7rem;
+    border-radius: 50%;
 }

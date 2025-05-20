@@ -127,7 +127,7 @@
     display: block;
     width: 100%;
     height: 0.1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.1rem;
     border: 0;
     top: 0.1rem;
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));
@@ -187,7 +187,7 @@
     background-repeat: repeat-y;
     background-size: 100%;
     width: 42%;
-    border-radius: 1rem;
+    border-radius: var(--TILE_RADIUS);
     border: 0.25rem solid var(--COLOR_3);
     transition: all 0.2s ease;
     box-shadow: inset 0 0 1.5rem var(--COLOR_4_0);
@@ -195,6 +195,11 @@
 }
 .timeline-content.moonvalk {
     background-image: url('../../../assets/images/experience_moonvalk.webp'), url('../../../assets/images/page_background_small.webp');
+    background-repeat: no-repeat, repeat-y;
+    background-position: top, center;
+}
+.timeline-content.branch {
+    background-image: url('../../../assets/images/experience_branch.webp'), url('../../../assets/images/page_background_small.webp');
     background-repeat: no-repeat, repeat-y;
     background-position: top, center;
 }
@@ -261,13 +266,13 @@
     letter-spacing: 0.025rem;
 }
 .experience-title h2 {
-    font-size: 1.4rem;
+    font-size: var(--FONT_SIZE_LARGE);
     color: var(--COLOR_6);
     text-transform: uppercase;
     display: inline-flex;
 }
 .experience-title h3 {
-    font-size: 1.2rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     color: var(--COLOR_HIGHLIGHT_1);
 }
 .experience-description {
@@ -276,7 +281,15 @@
     margin-right: 1.5rem;
     text-indent: 2rem;
     font-family: var(--BODY_FONT), sans-serif;
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
+}
+.experience-description a {
+    color: var(--COLOR_HIGHLIGHT_4);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+.experience-description a:hover {
+    color: var(--COLOR_HIGHLIGHT_1);
 }
 .experience-description ul {
     text-indent: 0rem;
@@ -293,7 +306,7 @@
     transform: translateY(-0.1rem);
     width: 0.4rem;
     height: 0.4rem;
-    border-radius: 0.2rem;
+    border-radius: var(--INPUT_RADIUS);
     margin-right: 1rem;
     margin-left: 0.5rem;
     background: linear-gradient(var(--COLOR_3), var(--COLOR_3)) padding-box,
@@ -323,12 +336,13 @@
     padding: 0.5rem;
     flex-wrap: wrap;
 }
+
 .experience-skill {
     display: inline-block;
     margin: 0.25rem;
     margin-left: 0.4rem;
     margin-right: 0.4rem;
-    border-radius: 0.5rem;
+    border-radius: var(--CONTENT_RADIUS);
     background: linear-gradient(90deg, var(--COLOR_HIGHLIGHT_4), var(--COLOR_HIGHLIGHT_3));
     background-size: 100% 100%;
     border: 0;
@@ -338,13 +352,14 @@
     padding-right: 1rem;
     color: var(--COLOR_1);
     font-family: var(--TITLE_FONT), sans-serif;
-    font-size: 0.8rem;
+    font-size: var(--FONT_SIZE_SMALL);
     font-weight: 800;
     text-transform: uppercase;
     transition: all 0.2s ease;
     overflow: hidden;
     cursor: default;
 }
+
 .experience-skill:hover {
     background: linear-gradient(90deg, var(--COLOR_HIGHLIGHT_1), var(--COLOR_HIGHLIGHT_2));
     animation: an_bounce 0.3s ease-in-out;
@@ -396,7 +411,7 @@
 }
 .timeline-date-mobile {
     display: none;
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     color: var(--COLOR_5);
     margin-top: 0.5rem;
 }
@@ -407,7 +422,7 @@
     top: 3rem;
     color: var(--COLOR_6);
     font-family: var(--TITLE_FONT), sans-serif;
-    font-size: 1.2rem;
+    font-size: var(--FONT_SIZE_LARGE);
     text-transform: uppercase;
     text-shadow: 0 0.2rem 0.5rem var(--COLOR_1_05);
     text-align: left;
@@ -498,13 +513,13 @@
     padding-right: 1rem;
     margin: 0.5rem;
     font-family: var(--TITLE_FONT), sans-serif;
-    font-size: 1.0rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     font-weight: 800;
     text-transform: uppercase;
     background-repeat: repeat, no-repeat;
     background-position: 0% 0%, 0% 0%;
     background-size: 10rem 10rem, 300% 100%;
-    border-radius: 0.25rem;
+    border-radius: var(--CONTENT_RADIUS);
     cursor: default;
     transition: background-position 0.2s ease, transform 0.2s ease;
 }
@@ -527,7 +542,7 @@
 .section-highlight.dots {
     width: 10rem;
     height: 10rem;
-    border-radius: 5rem;
+    border-radius: 50%;
     padding-top: 1rem;
     background-image: url('../../../assets/images/transparent_dots.webp');
     background-repeat: repeat;
@@ -574,7 +589,7 @@
     background: var(--COLOR_3);
     line-height: 1.4;
     font-family: var(--BODY_FONT), sans-serif;
-    border-radius: 0.5rem;
+    border-radius: var(--TILE_RADIUS);
     overflow: hidden;
     z-index: 0;
 }
@@ -649,7 +664,7 @@
     vertical-align: middle;
     background-color: var(--COLOR_2);
     border: 0.1rem solid var(--COLOR_4);
-    border-radius: 2rem;
+    border-radius: var(--ROUND_RADIUS);
 }
 .portfolio-project-tile .links a {
     margin: 0.25rem;
@@ -692,7 +707,7 @@
     padding-top: 1rem;
     padding-left: 1rem;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
 }
 
 .portfolio-project-tile .details li {
@@ -708,13 +723,13 @@
     font-weight: 400;
     margin-top: 0.8rem;
     color: var(--COLOR_6);
-    font-size: 1.8rem;
+    font-size: var(--FONT_SIZE_XLARGE);
     line-height: 0.5rem;
 }
 
 .portfolio-project-tile .year {
     font-weight: 500;
-    font-size: 3.4rem;
+    font-size: var(--FONT_SIZE_XXLARGE);
     background: -webkit-linear-gradient(var(--COLOR_6), var(--COLOR_5));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -747,9 +762,12 @@
     background-size: 100%;
     background-color: var(--COLOR_3);
     border: 0.25rem solid var(--COLOR_3_0);
+    border-radius: 0 0 var(--TILE_RADIUS) var(--TILE_RADIUS);
     box-shadow: 0 -0.1rem 2rem var(--COLOR_1);
     border-top: 0;
+    transition: all 0.2s ease;
 }
+
 .portfolio-project-tile:hover .description {
     border: 0.25rem solid var(--COLOR_4);
     border-top: 0;
@@ -769,7 +787,7 @@
     width: 100%;
     line-height: 1;
     margin: 0;
-    font-size: min(1.4rem, 5vw);
+    font-size: min(var(--FONT_SIZE_LARGE), 5vw);
     text-transform: uppercase;
 }
 
@@ -785,7 +803,7 @@
 }
 
 .portfolio-project-tile .description h2 {
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     font-weight: 900;
     margin-top: 0.25rem;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_4));
@@ -801,14 +819,14 @@
     text-decoration: none;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
     padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     color: var(--COLOR_3);
     position: relative;
     width: 6rem;
     height: 2rem;
     text-align: center;
     font-family: var(--HEADING_FONT), sans-serif;
-    font-size: 1rem;
+    font-size: var(--FONT_SIZE_MEDIUM);
     filter: drop-shadow(0 0 0rem rgba(0, 0, 0, 0));
     opacity: 0.9;
     display: flex;
@@ -847,7 +865,7 @@
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));
     width: 10rem;
     top: -1rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     transition: all 0.1s ease-in-out;
