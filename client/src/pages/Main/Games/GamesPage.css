@@ -23,7 +23,7 @@
     line-height: 1.4;
     font-family: var(--BODY_FONT), sans-serif;
     font-size: var(--FONT_SIZE_MEDIUM);
-    border-radius: 0.5rem;
+    border-radius: var(--TILE_RADIUS);
     overflow: hidden;
     z-index: 0;
 }
@@ -104,7 +104,7 @@
     vertical-align: middle;
     background-color: var(--COLOR_2);
     border: 0.1rem solid var(--COLOR_4);
-    border-radius: 2rem;
+    border-radius: var(--ROUND_RADIUS);
 }
 .game-tile .links a {
     margin: 0.25rem;
@@ -192,8 +192,8 @@
 .game-tile .description {
     display: block;
     flex-grow: 1;
-    padding: 1rem;
-    padding-inline: 1.5rem;
+    padding: var(--TILE_PADDING);
+    padding-inline: var(--TILE_PADDING_INLINE);
     position: relative;
     z-index: 1;
     perspective: 1rem;
@@ -202,6 +202,7 @@
     background-size: 100%;
     background-color: var(--COLOR_3);
     border: 0.25rem solid var(--COLOR_3_0);
+    border-radius: 0 0 var(--TILE_RADIUS) var(--TILE_RADIUS);
     box-shadow: 0 -0.1rem 2rem var(--COLOR_1);
     border-top: 0;
     transition: all 0.2s ease;
@@ -258,7 +259,7 @@
     text-decoration: none;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
     padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     color: var(--COLOR_3);
     position: relative;
     width: 6rem;
@@ -304,7 +305,7 @@
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));
     width: 10rem;
     top: -1rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     transition: all 0.1s ease-in-out;
@@ -337,7 +338,7 @@
     vertical-align: middle;
     background-color: var(--COLOR_2);
     border: 0.1rem solid var(--COLOR_4);
-    border-radius: 2rem;
+    border-radius: var(--ROUND_RADIUS);
 }
 .game-tile .platforms svg {
     transition: color 0.2s ease;

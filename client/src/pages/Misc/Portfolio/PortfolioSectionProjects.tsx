@@ -42,6 +42,19 @@ export function PortfolioSectionProjects(): ReactElement {
                         {icon: <PressIcon />, path: 'https://hardcoregamer.com/news/go-batty-with-release-of-pc-shooter-gongbat/145463/', title: 'News Article'},
                         {icon: <PressIcon />, path: 'https://joanganzcooneycenter.org/2016/03/28/meet-the-winners-zack-harmon/', title: 'STEM Challenge News Article'},
                     ]} />
+                <PortfolioProject title='Castaways'
+                    description='
+                        Castaways is an MMORPG (multiplayer online role-playing game) focused around social mechanics, resource collection, and crafting.
+                        This title allowed users to build their own islands from grid-based blocks and share them with the rest of the community.
+                        This project required tons of unique features such as chunk world generation (plus saving and loading), user authentication, resource generators, skill trees, a custom render pipeline, voice / message chat, store mechanics, pet AI, and more.'
+                    imageSource='../uploads/images/castaways.webp'
+                    dateMonth='April' dateYear='2024'
+                    icon={<GamesIcon />}
+                    links={[
+                        {icon: <ExternalLinkIcon />, path: 'https://www.castaways.com/', title: 'Learn More About Castaways'},
+                        {icon: <VideoIcon />, path: 'https://www.youtube.com/watch?v=wjRMeImwwQc', title: 'Castaways Open Beta Demo'},
+                        {icon: <PressIcon />, path: 'https://www.castaways.com/blog', title: 'News'},
+                    ]} />
                 <PortfolioProject title='Cinderpatch'
                     description='
                         Cinderpatch is a small farming game created for a game jam competition over the course of two weeks during free time.

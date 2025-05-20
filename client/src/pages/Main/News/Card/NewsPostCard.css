@@ -12,7 +12,7 @@
     background: var(--COLOR_3);
     line-height: 1.4;
     font-family: var(--BODY_FONT), sans-serif;
-    border-radius: 0.5rem;
+    border-radius: var(--TILE_RADIUS);
     overflow: hidden;
     z-index: 0;
 }
@@ -121,8 +121,8 @@
 }
 
 .blog-card .description {
-    padding: 1rem;
-    padding-inline: 1.5rem;
+    padding: var(--TILE_PADDING);
+    padding-inline: var(--TILE_PADDING_INLINE);
     position: relative;
     z-index: 1;
     perspective: 1rem;
@@ -167,7 +167,7 @@
     font-family: var(--TITLE_FONT), sans-serif;
     font-weight: 900;
     text-transform: uppercase;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     padding: 0.25rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -194,7 +194,7 @@
     text-decoration: none;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
     padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     color: var(--COLOR_3);
     position: relative;
     width: 6rem;
@@ -240,7 +240,7 @@
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));
     width: 10rem;
     top: -0.75rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     margin-inline: 0.5rem;
     transition: all 0.1s ease-in-out;
 }
@@ -265,8 +265,10 @@
         background-size: 100%;
         background-color: var(--COLOR_3);
         border: 0.25rem solid var(--COLOR_3_0);
+        border-radius: 0 0 var(--TILE_RADIUS) var(--TILE_RADIUS);
         box-shadow: 0 -0.1rem 2rem var(--COLOR_1);
         border-top: 0;
+        transition: all 0.2s ease;
     }
 
     .blog-card:hover .description {

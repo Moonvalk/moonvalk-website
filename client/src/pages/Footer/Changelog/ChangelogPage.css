@@ -4,7 +4,7 @@
     margin: 0 auto;
     padding: 1rem;
     width: 100%;
-    border-radius: 0.5rem;
+    border-radius: var(--CONTENT_RADIUS);
     background-image: linear-gradient(90deg, var(--COLOR_1), var(--COLOR_2));
     background-size: 100% 100%;
     margin-top: 1rem;

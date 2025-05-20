@@ -2,7 +2,7 @@
 .news-post {
     width: min(var(--MIN_PAGE_PERCENT), var(--LG_PAGE_WIDTH));
     min-height: 4rem;
-    border-radius: 0.5rem;
+    border-radius: var(--TILE_RADIUS);
     margin: 1rem auto;
     margin-top: 1.5rem;
     color: var(--COLOR_6);
@@ -16,7 +16,7 @@
     width: 100%;
     padding: 1rem;
     box-shadow: inset 0 0 1.5rem var(--COLOR_4_0);
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: 0 0 var(--TILE_RADIUS) var(--TILE_RADIUS);
     background-color: var(--COLOR_3);
     background-repeat: repeat-y;
     background-size: 100%;
@@ -123,7 +123,7 @@
     display: block;
     width: 100%;
     height: 0.1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.1rem;
     border: 0;
     top: 0.1rem;
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));

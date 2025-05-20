@@ -100,17 +100,17 @@ export function PortfolioSectionSkills(): ReactElement {
                         </div>
                         <div className='skill-item-wrapper color_highlight2'>
                             <div className='skill-item'>Unity</div>
+                            <div className='skill-item'>Godot</div>
                             <div className='skill-item'>Blender</div>
                             <div className='skill-item'>Photoshop</div>
-                            <div className='skill-item'>Illustrator</div>
-                            <div className='skill-item'>Premiere Pro</div>
-                            <div className='skill-item'>After Effects</div>
+                            <div className='skill-item'>Affinity Suite</div>
+                            <div className='skill-item'>DaVinci Resolve</div>
                             <div className='skill-item'>Aseprite</div>
                             <div className='skill-item'>FL Studio</div>
+                            <div className='skill-item'>Bitwig</div>
                             <div className='skill-item'>Git</div>
-                            <div className='skill-item'>MS Office</div>
                             <div className='skill-item'>GM Studio</div>
-                            <div className='skill-item'>Spine</div>
+                            <div className='skill-item'>Wordpress</div>
                         </div>
                     </div>
                     <div className='skills-wrapper'>

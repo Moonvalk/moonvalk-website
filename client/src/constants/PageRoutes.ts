@@ -10,6 +10,8 @@ export const enum PageRoutes {
     About,
     Press,
     Contact,
+    Privacy,
+    Support,
     Changelog,
     Login,
     Register,

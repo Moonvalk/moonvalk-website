@@ -30,6 +30,10 @@ LazyImports.set(PageRoutes.Press, lazy(() => import('../pages/Footer/Press/Press
     .then(module => { return { default: module.PressPage }})));
 LazyImports.set(PageRoutes.Contact, lazy(() => import('../pages/Footer/Contact/ContactPage')
     .then(module => { return { default: module.ContactPage }})));
+LazyImports.set(PageRoutes.Privacy, lazy(() => import('../pages/Footer/Support/PrivacyPage')
+    .then(module => { return { default: module.PrivacyPage }})));
+LazyImports.set(PageRoutes.Support, lazy(() => import('../pages/Footer/Support/SupportPage')
+    .then(module => { return { default: module.SupportPage }})));
 LazyImports.set(PageRoutes.Changelog, lazy(() => import('../pages/Footer/Changelog/ChangelogPage')
     .then(module => { return { default: module.ChangelogPage }})));
 

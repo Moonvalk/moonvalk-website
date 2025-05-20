@@ -41,6 +41,14 @@
     --MIN_PAGE_PERCENT: 95vw;
     --MAX_NEWS_IMAGE_WIDTH: 69rem;
 
+    --TILE_RADIUS: 1.25rem;
+    --CONTENT_RADIUS: 0.5rem;
+    --INPUT_RADIUS: 0.25rem;
+    --ROUND_RADIUS: 2rem;
+
+    --TILE_PADDING: 1.25rem;
+    --TILE_PADDING_INLINE: 1.75rem;
+
     --SCREEN_WIDTH_MOBILE: 39.999em;
 
     --BODY_FONT: 'Jost Light';
@@ -105,7 +113,7 @@ main {
 }
 
 /** Show / hide mobile selectors */
-@media only screen and (max-width: 34.99em) and (orientation: portrait) {
+@media only screen and (max-width: 39.99em) and (orientation: portrait) {
     .hide_mobile {
         display: none;
     }
@@ -113,7 +121,7 @@ main {
         display: block;
     }
 }
-@media only screen and (min-width: 35em) {
+@media only screen and (min-width: 40em) {
     .hide_mobile {
         display: block;
     }

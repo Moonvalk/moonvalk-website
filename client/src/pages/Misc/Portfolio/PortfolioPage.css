@@ -127,7 +127,7 @@
     display: block;
     width: 100%;
     height: 0.1rem;
-    border-radius: 0.25rem;
+    border-radius: 0.1rem;
     border: 0;
     top: 0.1rem;
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));
@@ -187,7 +187,7 @@
     background-repeat: repeat-y;
     background-size: 100%;
     width: 42%;
-    border-radius: 1rem;
+    border-radius: var(--TILE_RADIUS);
     border: 0.25rem solid var(--COLOR_3);
     transition: all 0.2s ease;
     box-shadow: inset 0 0 1.5rem var(--COLOR_4_0);
@@ -195,6 +195,11 @@
 }
 .timeline-content.moonvalk {
     background-image: url('../../../assets/images/experience_moonvalk.webp'), url('../../../assets/images/page_background_small.webp');
+    background-repeat: no-repeat, repeat-y;
+    background-position: top, center;
+}
+.timeline-content.branch {
+    background-image: url('../../../assets/images/experience_branch.webp'), url('../../../assets/images/page_background_small.webp');
     background-repeat: no-repeat, repeat-y;
     background-position: top, center;
 }
@@ -278,6 +283,14 @@
     font-family: var(--BODY_FONT), sans-serif;
     font-size: var(--FONT_SIZE_MEDIUM);
 }
+.experience-description a {
+    color: var(--COLOR_HIGHLIGHT_4);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+.experience-description a:hover {
+    color: var(--COLOR_HIGHLIGHT_1);
+}
 .experience-description ul {
     text-indent: 0rem;
     list-style-position: inside;
@@ -293,7 +306,7 @@
     transform: translateY(-0.1rem);
     width: 0.4rem;
     height: 0.4rem;
-    border-radius: 0.2rem;
+    border-radius: var(--INPUT_RADIUS);
     margin-right: 1rem;
     margin-left: 0.5rem;
     background: linear-gradient(var(--COLOR_3), var(--COLOR_3)) padding-box,
@@ -329,7 +342,7 @@
     margin: 0.25rem;
     margin-left: 0.4rem;
     margin-right: 0.4rem;
-    border-radius: 0.5rem;
+    border-radius: var(--CONTENT_RADIUS);
     background: linear-gradient(90deg, var(--COLOR_HIGHLIGHT_4), var(--COLOR_HIGHLIGHT_3));
     background-size: 100% 100%;
     border: 0;
@@ -506,7 +519,7 @@
     background-repeat: repeat, no-repeat;
     background-position: 0% 0%, 0% 0%;
     background-size: 10rem 10rem, 300% 100%;
-    border-radius: 0.25rem;
+    border-radius: var(--CONTENT_RADIUS);
     cursor: default;
     transition: background-position 0.2s ease, transform 0.2s ease;
 }
@@ -529,7 +542,7 @@
 .section-highlight.dots {
     width: 10rem;
     height: 10rem;
-    border-radius: 5rem;
+    border-radius: 50%;
     padding-top: 1rem;
     background-image: url('../../../assets/images/transparent_dots.webp');
     background-repeat: repeat;
@@ -576,7 +589,7 @@
     background: var(--COLOR_3);
     line-height: 1.4;
     font-family: var(--BODY_FONT), sans-serif;
-    border-radius: 0.5rem;
+    border-radius: var(--TILE_RADIUS);
     overflow: hidden;
     z-index: 0;
 }
@@ -651,7 +664,7 @@
     vertical-align: middle;
     background-color: var(--COLOR_2);
     border: 0.1rem solid var(--COLOR_4);
-    border-radius: 2rem;
+    border-radius: var(--ROUND_RADIUS);
 }
 .portfolio-project-tile .links a {
     margin: 0.25rem;
@@ -749,6 +762,7 @@
     background-size: 100%;
     background-color: var(--COLOR_3);
     border: 0.25rem solid var(--COLOR_3_0);
+    border-radius: 0 0 var(--TILE_RADIUS) var(--TILE_RADIUS);
     box-shadow: 0 -0.1rem 2rem var(--COLOR_1);
     border-top: 0;
     transition: all 0.2s ease;
@@ -805,7 +819,7 @@
     text-decoration: none;
     background: -webkit-linear-gradient(0deg, var(--COLOR_5), var(--COLOR_5));
     padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     color: var(--COLOR_3);
     position: relative;
     width: 6rem;
@@ -851,7 +865,7 @@
     background: linear-gradient(90deg, var(--COLOR_4), var(--COLOR_4));
     width: 10rem;
     top: -1rem;
-    border-radius: 0.25rem;
+    border-radius: var(--INPUT_RADIUS);
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     transition: all 0.1s ease-in-out;

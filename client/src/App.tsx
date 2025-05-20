@@ -46,6 +46,8 @@ export function App(): ReactElement {
                 <Route path='/register'             Component={LazyImports.get(PageRoutes.Register)} />
                 <Route path='/press'                Component={LazyImports.get(PageRoutes.Press)} />
                 <Route path='/contact'              Component={LazyImports.get(PageRoutes.Contact)} />
+                <Route path='/support'              Component={LazyImports.get(PageRoutes.Support)} />
+                <Route path='/privacy'              Component={LazyImports.get(PageRoutes.Privacy)} />
                 <Route path='/changelog'            Component={LazyImports.get(PageRoutes.Changelog)} />
                 <Route path='/dashboard'            Component={LazyImports.get(PageRoutes.Dashboard)} />
                 <Route path='/dashboard/uploads'    Component={LazyImports.get(PageRoutes.UploadManager)} />

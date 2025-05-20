@@ -61,7 +61,7 @@ footer {
     max-width: 95vw;
     padding-left: 1rem;
     padding-right: 1rem;
-    border-radius: 2rem;
+    border-radius: var(--ROUND_RADIUS);
     margin-bottom: 1rem;
     background-color: var(--COLOR_1);
     border: 0.1rem solid var(--COLOR_2);
@@ -177,8 +177,8 @@ footer p {
     color: rgb(200, 200, 245);
 }
 .apple svg {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 .apple:hover svg {
     filter: drop-shadow(0 0 0.5rem rgba(191, 191, 255, 0.5));
